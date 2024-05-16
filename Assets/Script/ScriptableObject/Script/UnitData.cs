@@ -7,10 +7,11 @@ using UnityEngine;
 public class UnitData : ScriptableObject
 {
     [Header("Unit Stats")]
-    public string UnitName;
+    public string unitName;
+    public Sprite unitFaceIcon;
     public int hp;
     public int atk;
     public int speed;
-    public int currentSpeed;
+    public float actionPoint = 100;
     public List<SkillData> skillDatas;
 }

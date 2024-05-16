@@ -1,53 +1,87 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 using System.Linq;
+using TMPro;
 
 public class InGameManager : Singleton<InGameManager>
 {
-    // 현재 턴을 행사중인 슬롯의 번호
-    public int currentTurnSlotNumber;
-
-    public float cost;
-
     [Header("UnitSlot")]
     [Tooltip("유닛 슬롯 리스트")]
     public List<UnitSlotController> unitSlots;
-    [Tooltip("턴 순서 리스트")]
-    public List<UnitSlotController> turnOrder;
     [Tooltip("행동력 누적을 위한 Dictionary")]
-    private Dictionary<UnitSlotController, float> actionPoints = new Dictionary<UnitSlotController, float>();
+    public SerializableDictionary<UnitSlotController, float> actionPoints = new SerializableDictionary<UnitSlotController, float>();
+    [SerializeField]
+    [Tooltip("유닛이 사용할 코스트")]
+    private float _cost;
+    [Tooltip("기술 사용을 위한 cost")]
+    public float cost 
+    {
+        get { return _cost; }
+        set 
+        {
+            if(_cost != value)
+            {
+                _cost = value;
+                costBar.fillAmount = _cost / 10;
+                costGauge.fillAmount = _cost - Mathf.Floor(_cost);
+                if (_cost > 10)
+                {
+                    costGauge.fillAmount = 1;
+                }
+                costText.text = Mathf.FloorToInt(_cost).ToString();
+            }
+        }
+    }
 
+    [SerializeField]
+    private Image costGauge;
+    [SerializeField]
+    private TMP_Text costText;
+    [SerializeField]
+    private Image costBar;
 
-    public List<float> currentTurn;
-
-
+    [SerializeField]
     [Tooltip("현재 턴을 지닌 유닛 식별표")]
     public GameObject currentTurnSlotIcon;
 
-
+    [SerializeField]
     [Header("SkillSlot")]
     [Tooltip("스킬 슬롯 리스트")]
     public List<SkillSlotUIController> skillSlot;
 
+    [SerializeField]
+    [Tooltip("각 슬롯의 원래 위치를 저장할 딕셔너리")]
+    private SerializableDictionary<GameObject, Vector3> originalPositions = new SerializableDictionary<GameObject, Vector3>();
 
-    // 각 슬롯의 원래 위치를 저장할 딕셔너리
-    private Dictionary<GameObject, Vector3> originalPositions = new Dictionary<GameObject, Vector3>();
+    // 현재 턴을 행사 중인 슬롯의 번호
+    public int currentTurnSlotNumber;
 
     // 유닛의 이동 중 상태를 판단하는 값
     private bool isMoving = false;
+    // 턴이 종료되었는지를 판단하는 값
+    private bool isTurnEnd = true;
 
     void Start()
     {
         Init();
     }
 
+    /// <summary>
+    /// 게임 초기 설정을 실행합니다.
+    /// </summary>
     private void Init()
     {
         SlotPosInit();
-        TurnCycle();
+        ActionPointsInit();
+        StartCoroutine(ActionPointAccumulation());
     }
+
+    /// <summary>
+    /// 슬롯 위치 초기화를 담당합니다.
+    /// </summary>
     public void SetUnitSlot(bool isRight, List<UnitSlotController> setUnitSlots)
     {
         if (isRight)
@@ -67,47 +101,127 @@ public class InGameManager : Singleton<InGameManager>
     }
 
     #region Turn
-    // 턴 순서를 계산 후 턴을 넘김
-    private void TurnCycle()
+
+    /// <summary>
+    /// 각 unitSlot의 actionPoints를 초기화합니다.
+    /// </summary>
+    private void ActionPointsInit()
     {
-        turnOrder = unitSlots.OrderBy(u => -u.unitData.speed).ToList();
-
-        currentTurnSlotNumber = unitSlots.IndexOf(turnOrder[0]);
-        cost += unitSlots[currentTurnSlotNumber].unitData.speed;
-        SkillSlotInit(unitSlots[currentTurnSlotNumber].unitData.skillDatas);
-
-        SetTurnSlot();
-
-        Debug.Log("턴을 시작합니다. 현재 턴은 " + unitSlots[0].name + " (" + unitSlots[0].unitData.speed + " 속도) 유닛입니다.");
+        foreach (var unit in unitSlots)
+        {
+            if (unit != null && unit != null)
+            {
+                if (!actionPoints.ContainsKey(unit))
+                {
+                    actionPoints.Add(unit, unit.currentActionPoint); // 키가 없으면 추가
+                }
+            }
+        }
     }
 
-    // 특정 슬롯에게 턴을 넘김
-    public void SetTurnSlot()
+    /// <summary>
+    /// actionPoints를 지속적으로 각 유닛의 속도만큼 증가시킵니다.
+    /// </summary>
+    private IEnumerator ActionPointAccumulation()
     {
-        // 현재 턴 슬롯의 GameObject를 찾습니다.
+        while (true)
+        {
+            if (isTurnEnd == true)
+            {
+                foreach (var unit in unitSlots)
+                {
+                    if (unit != null)
+                    {
+                        if (actionPoints.TryGetValue(unit, out float currentPoints))
+                        {
+                            actionPoints[unit] = currentPoints + unit.speed * Time.deltaTime;
+                            unit.currentActionPoint = actionPoints[unit];
+
+
+                            if (unit.slotNum >= 0 && unit.slotNum < 4)
+                            {
+                                float currentSpeed = unit.speed;
+                                if (cost <= 10)
+                                {
+                                    cost += (currentSpeed / 20) * Time.deltaTime;
+                                }
+                                else if (cost > 10)
+                                {
+                                    cost = 10;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Debug.LogWarning($"No key found for {unit.name}. Adding key.");
+                            actionPoints.Add(unit, unit.speed * Time.deltaTime);  // 키가 없을 경우 추가
+                            unit.currentActionPoint = actionPoints[unit];
+                        }
+                    }
+                }
+                GetNextTurnSlotNumber();
+            }
+            yield return null;
+        }
+    }
+
+    /// <summary>
+    /// 다음 턴을 실행할 유닛을 결정합니다.
+    /// </summary>
+    private void GetNextTurnSlotNumber()
+    {
+        for (int i = 0; i < unitSlots.Count; i++)
+        {
+            if (actionPoints[unitSlots[i]] >= unitSlots[i].maxActionPoint)
+            {
+                currentTurnSlotNumber = i;
+
+                UnitSlotController currentTurnSlot = unitSlots[currentTurnSlotNumber];
+                ExecuteTurn(currentTurnSlot);
+                break;
+            }
+        }
+    }
+
+    /// <summary>
+    /// 유닛의 턴을 실행합니다.
+    /// </summary>
+    private void ExecuteTurn(UnitSlotController unit)
+    {
+        isTurnEnd = false;
+
+        unit.currentTargetIcon.SetActive(true);
+        currentTurnSlotNumber = unitSlots.IndexOf(unit);
+        SkillSlotInit(unitSlots[currentTurnSlotNumber].skillDatas);
+
         UnitSlotController currentTurnSlot = unitSlots[currentTurnSlotNumber];
-
         currentTurnSlot.currentTargetIcon.SetActive(true);
+
+        actionPoints[currentTurnSlot] = 0;
+        Debug.Log("턴을 시작합니다. 현재 턴은 " + unitSlots[0].name + " (" + unitSlots[0].speed + " 속도) 유닛입니다.");
     }
 
+    /// <summary>
+    /// 턴 종료 후 일정 시간 대기를 관리합니다.
+    /// </summary>
     public IEnumerator DelayTurnEnd(float delay)
     {
         yield return new WaitForSeconds(delay); // 지정된 시간만큼 대기
         TurnEnd(); // 대기 후 호출할 함수
     }
 
-    // 턴을 종료시킴
+    /// <summary>
+    /// 턴을 종료합니다.
+    /// </summary>
     public void TurnEnd()
     {
         unitSlots[currentTurnSlotNumber].SetAnim(0);
         unitSlots[currentTurnSlotNumber].currentTargetIcon.SetActive(false);
-
-        TurnCycle();
+        isTurnEnd = true;
     }
     #endregion
 
     #region SlotMove
-
     private void SlotPosInit()
     {
         for (int i = 0; i < unitSlots.Count; i++)
@@ -124,7 +238,11 @@ public class InGameManager : Singleton<InGameManager>
         }
     }
 
-
+    /// <summary>
+    /// 지정된 유닛을 다른 유닛의 위치로 이동시킵니다.
+    /// </summary>
+    /// <param name="moveUnitNum">이동할 유닛의 인덱스입니다.</param>
+    /// <param name="targetUnitNum">목표 유닛의 인덱스입니다.</param>
     public void MoveUnit(int moveUnitNum, int targetUnitNum)
     {
         if (isMoving || unitSlots[moveUnitNum] == null || unitSlots[targetUnitNum] == null)
@@ -158,6 +276,10 @@ public class InGameManager : Singleton<InGameManager>
         });
     }
 
+    /// <summary>
+    /// 현재 턴을 가진 유닛을 오른쪽 또는 왼쪽으로 이동시킵니다.
+    /// </summary>
+    /// <param name="rightMove">오른쪽으로 이동할지 여부입니다. false면 왼쪽으로 이동합니다.</param>
     public void DirectMoveUnit(bool rightMove)
     {
         int moveTargetUnitNum = currentTurnSlotNumber;
@@ -195,6 +317,10 @@ public class InGameManager : Singleton<InGameManager>
 
     #region Skill
 
+    /// <summary>
+    /// 스킬 슬롯을 초기화하고 주어진 스킬 데이터로 설정합니다.
+    /// </summary>
+    /// <param name="setSkillDatas">설정할 스킬 데이터 리스트입니다.</param>
     public void SkillSlotInit(List<SkillData> setSkillDatas)
     {
         for (int i = 0; i < setSkillDatas.Count; i++)
@@ -203,9 +329,14 @@ public class InGameManager : Singleton<InGameManager>
         }
     }
 
+    /// <summary>
+    /// 지정된 범위와 데미지로 공격을 수행합니다.
+    /// </summary>
+    /// <param name="attackRange">공격할 범위입니다.</param>
+    /// <param name="damage">적용할 데미지입니다.</param>
     public void ExecuteAttack(int attackRange, int damage)
     {
-        unitSlots[currentTurnSlotNumber + attackRange].unitData.hp -= damage;
+        unitSlots[currentTurnSlotNumber + attackRange].currentHp -= damage;
     }
 
     #endregion
