@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum UnitState
+{
+    normal,
+    attack,
+    hit,
+    stun,
+    death
+}
+
 public class UnitSlotController : MonoBehaviour
 {
-    [SerializeField]
-    [Header("현재 위치한 Field의 UnitFieldController")]
-    UnitFieldMoveController unitFieldController;
-
     [SerializeField]
     [Header("SlotNum")]
     public int slotNum = 0;
@@ -38,12 +43,6 @@ public class UnitSlotController : MonoBehaviour
     public Sprite unitFaceIcon;
     public int maxHp;
     private int _currentHp;
-    public int atk;
-    public float maxActionPoint = 100;
-    public float _currentActionPoint = 0;
-    public int speed;
-    public List<SkillData> skillDatas;
-
     public int currentHp
     {
         get { return _currentHp; }
@@ -56,6 +55,9 @@ public class UnitSlotController : MonoBehaviour
             }
         }
     }
+    public int atk;
+    public float maxActionPoint = 100;
+    public float _currentActionPoint = 0;
     public float currentActionPoint
     {
         get { return _currentActionPoint; }
@@ -68,6 +70,11 @@ public class UnitSlotController : MonoBehaviour
             }
         }
     }
+
+    public int speed;
+    public UnitState unitState;
+    public List<SkillData> skillDatas;
+
 
     private void Start()
     {
@@ -92,14 +99,29 @@ public class UnitSlotController : MonoBehaviour
         unitAnimator.SetInteger("State", animNum);
     }
 
-    public void SetActionPointBar(float setActionPoint)
+    public void SetUnitState(UnitState changeState)
     {
-        actionPointBar.fillAmount = setActionPoint / 100f;
+        unitState = changeState;
+
+        switch (unitState)
+        {
+            case UnitState.normal:
+                SetAnim(0);
+                    break;
+            case UnitState.attack:
+                SetAnim(1);
+                break;
+            case UnitState.hit:
+                SetAnim(2);
+                break;
+            default:
+                break;
+        }
     }
 
-    public void AddActionPoint(float addPoint)
+    public void Hit(int damage)
     {
-        currentActionPoint += addPoint;
-        actionPointBar.fillAmount = currentActionPoint / maxActionPoint;
+        SetUnitState(UnitState.hit);
+        currentHp =- damage;
     }
 }

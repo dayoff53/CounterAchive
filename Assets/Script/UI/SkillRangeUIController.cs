@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//스킬 사거리 색칠해주는 스크립트
 public class SkillRangeUIController : MonoBehaviour
 {
     [SerializeField]
     private List<Image> rangeImages;
 
-
-    public void rangeColorChange(int minRange, int maxRange)
+    //스킬 슬롯의 사거리에 알맞게 사거리를 표시함
+    public void rangeColorChange(List<int> skillRange)
     {
         for(int i = 0; i < rangeImages.Count; i++)
         {
@@ -17,9 +18,9 @@ public class SkillRangeUIController : MonoBehaviour
         }
 
 
-        for(int currentRange = minRange; currentRange <= maxRange; currentRange++)
+        for(int i = 0; i < skillRange.Count; i++)
         {
-            rangeImages[currentRange].color = Color.blue;
+            rangeImages[skillRange[i]].color = Color.blue;
         }
     }
 }
