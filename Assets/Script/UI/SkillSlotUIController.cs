@@ -37,16 +37,17 @@ public class SkillSlotUIController : MonoBehaviour
             skillNameText.text = skillData.skillName;
             skillFlavorText.text = skillData.skillFlavorText;
             skillCostText.text = skillData.skillCost.ToString();
-            skillRangeUIController.rangeColorChange(skillData.maxRange, skillData.maxRange);
             skillButton.onClick.AddListener(OnButtonClick);
+
+            skillRangeUIController.SkillRangeInit(skillData.skillRange);
         }
     }
 
     private void OnButtonClick()
     {
-        inGameManager.unitSlots[inGameManager.currentTurnSlotNumber].SetAnim(1);
-        inGameManager.ExecuteAttack(skillData.maxRange, skillData.damage);
-        StartCoroutine(inGameManager.DelayTurnEnd(skillData.skillEndTime));
+        inGameManager.currentTurn = turnState.SkillSelect;
+        inGameManager.currentSkillSlot = this;
+        skillRangeUIController.SetRangeSprite(skillData.skillRange);
     }
 
     public void SetSkillData(SkillData setSkillData)
@@ -54,5 +55,11 @@ public class SkillSlotUIController : MonoBehaviour
         skillData = setSkillData;
 
         Init();
+    }
+
+    public void OnSkillPlay(int targetNum)
+    {
+        inGameManager.cost -= skillData.skillCost;
+        inGameManager.ExecuteAttack(targetNum, inGameManager.currentSkillSlot.skillData.damage);
     }
 }

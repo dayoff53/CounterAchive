@@ -14,7 +14,7 @@ public class SkillData : ScriptableObject
     public float skillCost;
     public Sprite skillIcon;
     public int minRange;
-    public int maxRange;
+    public int[] skillRange;
     public int damage;
     public float skillEndTime;
 }

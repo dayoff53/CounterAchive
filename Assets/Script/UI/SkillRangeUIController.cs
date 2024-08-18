@@ -8,18 +8,64 @@ public class SkillRangeUIController : MonoBehaviour
     [SerializeField]
     private List<Image> rangeImages;
 
+    [SerializeField]
+    private List<Color> skillRangeColors;
 
-    public void rangeColorChange(int minRange, int maxRange)
+    [SerializeField]
+    private InGameManager inGameManager;
+
+
+    private void Start()
     {
-        for(int i = 0; i < rangeImages.Count; i++)
+        inGameManager = InGameManager.Instance;
+    }
+
+    public void SkillRangeInit(int[] skillRange)
+    {
+        for (int i = 0; i < rangeImages.Count; i++)
         {
-            rangeImages[i].color = Color.white;
+            rangeImages[i].color = skillRangeColors[0];
         }
 
+        rangeImages[0].color = skillRangeColors[1];
 
-        for(int currentRange = minRange; currentRange <= maxRange; currentRange++)
+        for (int i = 0; i < skillRange.Length; i++)
         {
-            rangeImages[currentRange].color = Color.blue;
+            rangeImages[skillRange[i]].color = skillRangeColors[2];
         }
+    }
+
+
+    public void SetRangeSprite(int[] skillRange)
+    {
+        SlotGroundSpriteController groundSprite;
+
+        for (int i = 0; i < rangeImages.Count; i++)
+        {
+            groundSprite = inGameManager.unitSlots[i].slotGroundSpriteController;
+
+            groundSprite.SetSlotGroundState(SlotGroundState.Normal, skillRangeColors[0]);
+        }
+
+        for (int i = 0; i < skillRange.Length; i++)
+        {
+
+            if (inGameManager.currentTurnSlotNumber + skillRange[i] < inGameManager.unitSlots.Count)
+            {
+                groundSprite = inGameManager.unitSlots[inGameManager.currentTurnSlotNumber + skillRange[i]].slotGroundSpriteController;
+
+                groundSprite.SetSlotGroundState(SlotGroundState.Target, skillRangeColors[2]);
+            }
+
+            if (inGameManager.currentTurnSlotNumber - skillRange[i] >= 0)
+            {
+                groundSprite = inGameManager.unitSlots[inGameManager.currentTurnSlotNumber - skillRange[i]].slotGroundSpriteController;
+
+                groundSprite.SetSlotGroundState(SlotGroundState.Target, skillRangeColors[2]);
+            }
+        }
+
+        groundSprite = inGameManager.unitSlots[inGameManager.currentTurnSlotNumber].slotGroundSpriteController;
+        groundSprite.SetSlotGroundState(SlotGroundState.Select, skillRangeColors[0]);
     }
 }

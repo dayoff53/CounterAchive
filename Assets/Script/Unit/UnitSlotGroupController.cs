@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class UnitFieldMoveController : MonoBehaviour
+public class UnitSlotGroupController : MonoBehaviour
 {
-    [SerializeField]
-    private bool isRight = true;
-
     [SerializeField]
     private List<UnitSlotController> unitSlots;
 
@@ -25,7 +22,7 @@ public class UnitFieldMoveController : MonoBehaviour
     public void Awake()
     {
         inGameManager = InGameManager.Instance;
-        inGameManager.SetUnitSlot(isRight, unitSlots);
+        inGameManager.SetUnitSlot(unitSlots);
     }
 
     public void Start()
@@ -37,14 +34,20 @@ public class UnitFieldMoveController : MonoBehaviour
     {
         for (int i = 0; i < unitSlots.Count; i++)
         {
-            if (unitSlots[i] != null)
+            UnitSlotController unit = unitSlots[i];
+
+            if (unit != null)
             {
-                var unit = unitSlots[i].gameObject;
-                if (unit != null)
+                var unitObject = unit.gameObject;
+                if (unitObject != null)
                 {
                     // 초기 유닛 위치 설정
-                    originalPositions[unit] = unit.transform.position;
+                    originalPositions[unitObject] = unitObject.transform.position;
                 }
+
+                //현재 유닛 데이터 적용
+                unit.slotNum = i;
+                unit.slotGroundSpriteController.SetSlotGroundState(SlotGroundState.Normal, inGameManager.unitStateColors[0]);
             }
         }
     }
@@ -77,9 +80,14 @@ public class UnitFieldMoveController : MonoBehaviour
             UnitSlotController targetSlot = unitSlots[targetUnitNum];
             unitSlots[targetUnitNum] = unitSlots[moveUnitNum];
             unitSlots[moveUnitNum] = targetSlot;
+            unitSlots[moveUnitNum].slotNum = targetUnitNum;
+            unitSlots[targetUnitNum].slotNum = moveUnitNum;
+
+
             Debug.Log("Units have been swapped successfully.");
             isMoving = false; // 이동 완료 후 이동 중 상태 해제
         });
+
     }
 
 
