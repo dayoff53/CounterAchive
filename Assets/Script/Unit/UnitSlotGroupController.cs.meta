@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Script/Unit/UnitSlotGroupController.cs.meta
 guid: 4fb5dc9f0543a0d4a989062af596063b
-========
-guid: cefeeeef2f41fa544bd3d797c32137d1
->>>>>>>> dca5699b9cb9cab919375f55d0a4add7715e6cca:Assets/Script/Manager/SkillManager.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
