@@ -7,6 +7,8 @@ using TMPro;
 
 public class SkillSlotUIController : MonoBehaviour
 {
+    private SkillManager skillManager;
+
     [Header("SkillData")]
     public SkillData skillData;
 
@@ -19,13 +21,15 @@ public class SkillSlotUIController : MonoBehaviour
     public SkillRangeUIController skillRangeUIController;
     public Button skillButton;
     public UnitSlotController unitSlotController;
-    public InGameManager inGameManager;
+    public DataManager DataManager;
 
 
 
     void Start()
     {
-        inGameManager = InGameManager.Instance;
+        DataManager = DataManager.Instance;
+
+        skillManager = SkillManager.Instance;
 
         Init();
     }
@@ -55,18 +59,9 @@ public class SkillSlotUIController : MonoBehaviour
 
     private void OnButtonClick()
     {
-        inGameManager.currentTurn = turnState.SkillSelect;
-        inGameManager.currentSkillSlot = this;
+        DataManager.currentTurn = turnState.SkillSelect;
+        skillManager.currentSkillSlot = this;
 
         skillRangeUIController.SetRangeSprite(skillData.skillRange);
-    }
-
-    public void OnSkillPlay(int targetNum)
-    {
-        inGameManager.currentTurn = turnState.SkillPlay;
-        StartCoroutine(inGameManager.DelayTurnEnd(inGameManager.currentSkillSlot.skillData.skillEndTime));
-        inGameManager.unitSlots[inGameManager.currentTurnSlotNumber].SetAnim(1);
-        inGameManager.cost -= skillData.skillCost;
-        inGameManager.skillTargetNum = targetNum;
     }
 }

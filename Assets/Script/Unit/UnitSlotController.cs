@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UnitSlotController : MonoBehaviour
 {
+    DataManager dataManager;
+
     [SerializeField]
     [Header("현재 위치한 Field의 UnitFieldController")]
     UnitSlotGroupController unitFieldController;
@@ -41,15 +43,15 @@ public class UnitSlotController : MonoBehaviour
     [Header("Status")]
     public string unitName;
     public Sprite unitFaceIcon;
-    public int maxHp;
-    private int _currentHp;
-    public int atk;
+    public float maxHp;
+    private float _currentHp;
+    public float atk;
     public float maxActionPoint = 100;
     public float _currentActionPoint = 0;
     public int speed;
     public List<SkillData> skillDatas;
 
-    public int currentHp
+    public float currentHp
     {
         get { return _currentHp; }
         set
@@ -78,6 +80,8 @@ public class UnitSlotController : MonoBehaviour
 
     private void Start()
     {
+        dataManager = DataManager.Instance;
+
         StatusInit();
     }
 

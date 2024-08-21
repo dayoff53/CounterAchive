@@ -17,8 +17,11 @@ public enum turnState
     SkillPlay
 }
 
-public class InGameManager : Singleton<InGameManager>
+public class DataManager : Singleton<DataManager>
 {
+    private SkillManager skillManager;
+
+
     [Header("UnitSlot")]
     [Tooltip("유닛 슬롯 리스트")]
     public List<UnitSlotController> unitSlots;
@@ -59,14 +62,6 @@ public class InGameManager : Singleton<InGameManager>
     public Image currentTurnSlotIcon;
 
     [SerializeField]
-    [Header("SkillSlot")]
-    [Tooltip("스킬 슬롯 리스트")]
-    public List<SkillSlotUIController> skillSlot;
-
-    [SerializeField]
-    public int skillTargetNum;
-
-    [SerializeField]
     [Tooltip("각 슬롯의 원래 위치를 저장할 딕셔너리")]
     private SerializableDictionary<GameObject, Vector3> originalPositions = new SerializableDictionary<GameObject, Vector3>();
 
@@ -83,6 +78,7 @@ public class InGameManager : Singleton<InGameManager>
  
     [SerializeField]
     private turnState _currentTurn = turnState.Stay;
+
 
     public turnState currentTurn
     {
@@ -101,7 +97,6 @@ public class InGameManager : Singleton<InGameManager>
     }
 
     public List<Color> unitStateColors;
-    public SkillSlotUIController currentSkillSlot;
 
     void Start()
     {
@@ -113,6 +108,8 @@ public class InGameManager : Singleton<InGameManager>
     /// </summary>
     private void Init()
     {
+        skillManager = SkillManager.Instance;
+
         SlotPosInit();
         ActionPointsInit();
         StartCoroutine(ActionPointAccumulation());
@@ -245,7 +242,7 @@ public class InGameManager : Singleton<InGameManager>
         currentTurnSlotNumber = unitSlots.IndexOf(unit);
         UnitSlotController currentTurnSlot = unitSlots[currentTurnSlotNumber];
         currentTurnSlotIcon.sprite = currentTurnSlot.unitFaceIcon;
-        SkillSlotInit(unitSlots[currentTurnSlotNumber].skillDatas);
+        skillManager.SkillSlotInit(unitSlots[currentTurnSlotNumber].skillDatas);
 
         //현재 턴을 가진 유닛 구분
         unit.currentTargetIcon.SetActive(true);
@@ -377,33 +374,22 @@ public class InGameManager : Singleton<InGameManager>
 
     #endregion
 
-    #region Skill
 
     /// <summary>
-    /// 스킬 슬롯을 초기화하고 주어진 스킬 데이터로 설정합니다.
+    /// 지정된 범위와 데미지로 공격을 수행합니다.
     /// </summary>
-    /// <param name="setSkillDatas">설정할 스킬 데이터 리스트입니다.</param>
-    public void SkillSlotInit(List<SkillData> setSkillDatas)
+    /// <param name="damage">적용할 데미지입니다.</param>
+    public void ExecuteAttack(float damage)
     {
-        for (int i = 0; i < setSkillDatas.Count; i++)
-        {
-            skillSlot[i].SetSkillData(setSkillDatas[i]);
-        }
-    }
-
-    public void SkillHit()
-    {
-        ExecuteAttack(skillTargetNum, currentSkillSlot.skillCurrentDamage);
+        unitSlots[skillManager.skillTargetNum].currentHp -= damage;
     }
 
     /// <summary>
     /// 지정된 범위와 데미지로 공격을 수행합니다.
     /// </summary>
     /// <param name="damage">적용할 데미지입니다.</param>
-    public void ExecuteAttack(int targetNum, int damage)
+    public void ExecuteAttack(int targetNum, float damage)
     {
         unitSlots[targetNum].currentHp -= damage;
     }
-
-    #endregion
 }

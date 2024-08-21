@@ -16,12 +16,12 @@ public class UnitSlotGroupController : MonoBehaviour
 
     // 유닛의 이동 중 상태를 판단하는 값
     private bool isMoving = false;
-    InGameManager inGameManager;
+    DataManager inGameManager;
 
 
     public void Awake()
     {
-        inGameManager = InGameManager.Instance;
+        inGameManager = DataManager.Instance;
         inGameManager.SetUnitSlot(unitSlots);
     }
 

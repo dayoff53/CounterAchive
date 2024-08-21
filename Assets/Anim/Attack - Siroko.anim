@@ -97,7 +97,14 @@ AnimationClip:
   - time: 0.6
     functionName: SkillHit
     data: 
-    objectReferenceParameter: {fileID: 11500000, guid: fe1e59cd86cc1654d84d14c2a8f0f9ce, type: 3}
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.3
+    functionName: SkillEnd
+    data: 
+    objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

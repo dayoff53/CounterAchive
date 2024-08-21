@@ -10,7 +10,7 @@ public class UnitData : ScriptableObject
     public string unitName;
     public Sprite unitFaceIcon;
     public Sprite unitSprite;
-    public int hp;
+    public float hp;
     public int atk;
     public int speed;
     public float actionPoint = 100;

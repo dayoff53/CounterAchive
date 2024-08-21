@@ -27,12 +27,14 @@ public class SlotGroundSpriteController : MonoBehaviour
     [SerializeField]
     private List<Sprite> groundSprite;
 
-    private InGameManager inGameManager;
+    private DataManager inGameManager;
+    private SkillManager skillManager;
 
 
     private void Start()
     {
-        inGameManager = InGameManager.Instance;
+        inGameManager = DataManager.Instance;
+        skillManager = SkillManager.Instance;
     }
 
     private SlotGroundState slotGroundState
@@ -68,9 +70,10 @@ public class SlotGroundSpriteController : MonoBehaviour
     {
         if (inGameManager.currentTurn == turnState.SkillSelect)
         {
-            if (inGameManager.cost >= inGameManager.currentSkillSlot.skillData.skillCost)
+            if (inGameManager.cost >= skillManager.currentSkillSlot.skillData.skillCost)
             {
-                inGameManager.currentSkillSlot.OnSkillPlay(unitSlot.slotNum);
+                skillManager.skillTargetNum = unitSlot.slotNum;
+                skillManager.SkillStart();
             }
             else
             {
