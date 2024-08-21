@@ -16,10 +16,12 @@ public class AnimationEventObserver : MonoBehaviour
     public void SkillHit()
     {
         skillManager.SkillHitPlay();
+        Debug.Log($"SkillHit 작동");
     }
 
     public void SkillEnd()
     {
         dataManager.DelayTurnEnd(0.5f);
+        Debug.Log($"SkillEnd 작동");
     }
 }

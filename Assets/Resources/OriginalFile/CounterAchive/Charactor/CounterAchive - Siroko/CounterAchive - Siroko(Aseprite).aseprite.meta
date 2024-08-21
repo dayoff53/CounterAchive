@@ -121,7 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: CounterAchive - Siroko_Frame_0
+  - name: CounterAchive - Siroko(Aseprite)_Frame_0
     originalName: 
     pivot: {x: 0.33333334, y: -0.40579712}
     alignment: 9
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 235
       width: 42
       height: 69
-    spriteID: e3780b4babaaeeb488e6ac94e2cfcad7
+    spriteID: f3f21191addf14a4990f2a037676e00e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,7 +141,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 71, y: 235}
-  - name: CounterAchive - Siroko_Frame_1
+  - name: CounterAchive - Siroko(Aseprite)_Frame_1
     originalName: 
     pivot: {x: 0.33333334, y: -0.40579712}
     alignment: 9
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 312
       width: 42
       height: 69
-    spriteID: e2ec154ac1748004cbbc48d43b4a021e
+    spriteID: 4e4f62b140515664a805e1628d9e9a43
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -161,7 +161,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 71, y: 312}
-  - name: CounterAchive - Siroko_Frame_2
+  - name: CounterAchive - Siroko(Aseprite)_Frame_2
     originalName: 
     pivot: {x: 0.33333334, y: -0.4}
     alignment: 9
@@ -172,7 +172,7 @@ ScriptedImporter:
       y: 79
       width: 42
       height: 70
-    spriteID: 953e0cad68c7f0848b0c8ab6610cc1de
+    spriteID: 390974d1aa618be48b7681f742994330
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -181,7 +181,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 71, y: 79}
-  - name: CounterAchive - Siroko_Frame_3
+  - name: CounterAchive - Siroko(Aseprite)_Frame_3
     originalName: 
     pivot: {x: 0.33333334, y: -0.4}
     alignment: 9
@@ -192,7 +192,7 @@ ScriptedImporter:
       y: 157
       width: 42
       height: 70
-    spriteID: 10c59788e071f6d4bac455965a50a84f
+    spriteID: 8a5a3557be281af43b89a0559c1f2d3b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -201,7 +201,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 71, y: 157}
-  - name: CounterAchive - Siroko_Frame_4
+  - name: CounterAchive - Siroko(Aseprite)_Frame_4
     originalName: 
     pivot: {x: 0.33333334, y: -0.40579712}
     alignment: 9
@@ -212,7 +212,7 @@ ScriptedImporter:
       y: 389
       width: 42
       height: 69
-    spriteID: 5535832c1e1c81149a270453a59db146
+    spriteID: e047d721f553a784dacc84e5b2c525d6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -221,7 +221,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 71, y: 389}
-  - name: CounterAchive - Siroko_Frame_6
+  - name: CounterAchive - Siroko(Aseprite)_Frame_6
     originalName: 
     pivot: {x: 0.375, y: -0.41791043}
     alignment: 9
@@ -232,7 +232,7 @@ ScriptedImporter:
       y: 154
       width: 48
       height: 67
-    spriteID: 37e14339f93a0c24eac081682facb851
+    spriteID: a48be56c0fe72fb4db98ff07444fcf53
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -241,7 +241,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 154}
-  - name: CounterAchive - Siroko_Frame_7
+  - name: CounterAchive - Siroko(Aseprite)_Frame_7
     originalName: 
     pivot: {x: 0.55932206, y: -0.41791043}
     alignment: 9
@@ -252,7 +252,7 @@ ScriptedImporter:
       y: 4
       width: 59
       height: 67
-    spriteID: 1a109e9d32292c54d8a22383c816190e
+    spriteID: 1781df18e918f8746b7a920f794e44a8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -261,7 +261,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: CounterAchive - Siroko_Frame_8
+  - name: CounterAchive - Siroko(Aseprite)_Frame_8
     originalName: 
     pivot: {x: 0.47058827, y: -0.41791043}
     alignment: 9
@@ -272,7 +272,7 @@ ScriptedImporter:
       y: 79
       width: 51
       height: 67
-    spriteID: 7bbf0be398ac54c4187e9bca081d97e0
+    spriteID: caf4bbe200b251943b7c06dfe0d3d133
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -281,7 +281,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 79}
-  - name: CounterAchive - Siroko_Frame_10
+  - name: CounterAchive - Siroko(Aseprite)_Frame_10
     originalName: 
     pivot: {x: 0.375, y: -0.41791043}
     alignment: 9
@@ -292,7 +292,7 @@ ScriptedImporter:
       y: 229
       width: 48
       height: 67
-    spriteID: 29457e89df25a264181b0b3519a9ace0
+    spriteID: f29f99636115e14408721ac2e41a2a36
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -301,7 +301,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 229}
-  - name: CounterAchive - Siroko_Frame_12
+  - name: CounterAchive - Siroko(Aseprite)_Frame_12
     originalName: 
     pivot: {x: 0.33333334, y: -0.40579712}
     alignment: 9
@@ -312,7 +312,7 @@ ScriptedImporter:
       y: 4
       width: 42
       height: 69
-    spriteID: 8ef730c35b2d40f4ca6656daa6ff819b
+    spriteID: 63b40a0f64b842646ba8af1d9065601e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -321,7 +321,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 125, y: 4}
-  - name: CounterAchive - Siroko_Frame_13
+  - name: CounterAchive - Siroko(Aseprite)_Frame_13
     originalName: 
     pivot: {x: 0.69696975, y: -0.42424244}
     alignment: 9
@@ -332,7 +332,7 @@ ScriptedImporter:
       y: 81
       width: 33
       height: 66
-    spriteID: eb67491471534334aa474f7c2e7b83fd
+    spriteID: ca8b8b331d4b56644869229646cc171b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -341,7 +341,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 125, y: 81}
-  - name: CounterAchive - Siroko_Frame_5
+  - name: CounterAchive - Siroko(Aseprite)_Frame_5
     originalName: 
     pivot: {x: 0.3478261, y: -0.4117647}
     alignment: 9
@@ -352,7 +352,7 @@ ScriptedImporter:
       y: 304
       width: 46
       height: 68
-    spriteID: 752835ff63d2e814789ce08e29eb66c1
+    spriteID: ee6cb9c58d373384eb89618bd78f6527
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -361,7 +361,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 304}
-  - name: CounterAchive - Siroko_Frame_9
+  - name: CounterAchive - Siroko(Aseprite)_Frame_9
     originalName: 
     pivot: {x: 0.39130434, y: -0.41791043}
     alignment: 9
@@ -372,7 +372,7 @@ ScriptedImporter:
       y: 4
       width: 46
       height: 67
-    spriteID: ef8729f5fb3f2ce4ba67117830eb5e85
+    spriteID: 808ac97a7a0e270469f4f30972f29677
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -381,7 +381,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 71, y: 4}
-  - name: CounterAchive - Siroko_Frame_11
+  - name: CounterAchive - Siroko(Aseprite)_Frame_11
     originalName: 
     pivot: {x: 0.3478261, y: -0.4117647}
     alignment: 9
@@ -392,7 +392,7 @@ ScriptedImporter:
       y: 380
       width: 46
       height: 68
-    spriteID: 896882c2187bdc841b237b3a53757db0
+    spriteID: 83c877b05c34b5b42abdb2134c419309
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -404,124 +404,124 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -2146220560
-    name: CounterAchive - Siroko
+    guid: -948165074
+    name: CounterAchive - Siroko(Aseprite)
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: CounterAchive - Siroko_Frame_0
+    - name: CounterAchive - Siroko(Aseprite)_Frame_0
       frameIndex: 0
       cellRect:
         x: 50
         y: 28
         width: 42
         height: 69
-      spriteId: e3780b4babaaeeb488e6ac94e2cfcad7
-    - name: CounterAchive - Siroko_Frame_1
+      spriteId: f3f21191addf14a4990f2a037676e00e
+    - name: CounterAchive - Siroko(Aseprite)_Frame_1
       frameIndex: 1
       cellRect:
         x: 50
         y: 28
         width: 42
         height: 69
-      spriteId: e2ec154ac1748004cbbc48d43b4a021e
-    - name: CounterAchive - Siroko_Frame_2
+      spriteId: 4e4f62b140515664a805e1628d9e9a43
+    - name: CounterAchive - Siroko(Aseprite)_Frame_2
       frameIndex: 2
       cellRect:
         x: 50
         y: 28
         width: 42
         height: 70
-      spriteId: 953e0cad68c7f0848b0c8ab6610cc1de
-    - name: CounterAchive - Siroko_Frame_3
+      spriteId: 390974d1aa618be48b7681f742994330
+    - name: CounterAchive - Siroko(Aseprite)_Frame_3
       frameIndex: 3
       cellRect:
         x: 50
         y: 28
         width: 42
         height: 70
-      spriteId: 10c59788e071f6d4bac455965a50a84f
-    - name: CounterAchive - Siroko_Frame_4
+      spriteId: 8a5a3557be281af43b89a0559c1f2d3b
+    - name: CounterAchive - Siroko(Aseprite)_Frame_4
       frameIndex: 4
       cellRect:
         x: 50
         y: 28
         width: 42
         height: 69
-      spriteId: 5535832c1e1c81149a270453a59db146
-    - name: CounterAchive - Siroko_Frame_6
+      spriteId: e047d721f553a784dacc84e5b2c525d6
+    - name: CounterAchive - Siroko(Aseprite)_Frame_6
       frameIndex: 6
       cellRect:
         x: 46
         y: 28
         width: 48
         height: 67
-      spriteId: 37e14339f93a0c24eac081682facb851
-    - name: CounterAchive - Siroko_Frame_7
+      spriteId: a48be56c0fe72fb4db98ff07444fcf53
+    - name: CounterAchive - Siroko(Aseprite)_Frame_7
       frameIndex: 7
       cellRect:
         x: 31
         y: 28
         width: 59
         height: 67
-      spriteId: 1a109e9d32292c54d8a22383c816190e
-    - name: CounterAchive - Siroko_Frame_8
+      spriteId: 1781df18e918f8746b7a920f794e44a8
+    - name: CounterAchive - Siroko(Aseprite)_Frame_8
       frameIndex: 8
       cellRect:
         x: 40
         y: 28
         width: 51
         height: 67
-      spriteId: 7bbf0be398ac54c4187e9bca081d97e0
-    - name: CounterAchive - Siroko_Frame_10
+      spriteId: caf4bbe200b251943b7c06dfe0d3d133
+    - name: CounterAchive - Siroko(Aseprite)_Frame_10
       frameIndex: 10
       cellRect:
         x: 46
         y: 28
         width: 48
         height: 67
-      spriteId: 29457e89df25a264181b0b3519a9ace0
-    - name: CounterAchive - Siroko_Frame_12
+      spriteId: f29f99636115e14408721ac2e41a2a36
+    - name: CounterAchive - Siroko(Aseprite)_Frame_12
       frameIndex: 12
       cellRect:
         x: 50
         y: 28
         width: 42
         height: 69
-      spriteId: 8ef730c35b2d40f4ca6656daa6ff819b
-    - name: CounterAchive - Siroko_Frame_13
+      spriteId: 63b40a0f64b842646ba8af1d9065601e
+    - name: CounterAchive - Siroko(Aseprite)_Frame_13
       frameIndex: 13
       cellRect:
         x: 41
         y: 28
         width: 33
         height: 66
-      spriteId: eb67491471534334aa474f7c2e7b83fd
-    - name: CounterAchive - Siroko_Frame_5
+      spriteId: ca8b8b331d4b56644869229646cc171b
+    - name: CounterAchive - Siroko(Aseprite)_Frame_5
       frameIndex: 5
       cellRect:
         x: 48
         y: 28
         width: 46
         height: 68
-      spriteId: 752835ff63d2e814789ce08e29eb66c1
-    - name: CounterAchive - Siroko_Frame_9
+      spriteId: ee6cb9c58d373384eb89618bd78f6527
+    - name: CounterAchive - Siroko(Aseprite)_Frame_9
       frameIndex: 9
       cellRect:
         x: 46
         y: 28
         width: 46
         height: 67
-      spriteId: ef8729f5fb3f2ce4ba67117830eb5e85
-    - name: CounterAchive - Siroko_Frame_11
+      spriteId: 808ac97a7a0e270469f4f30972f29677
+    - name: CounterAchive - Siroko(Aseprite)_Frame_11
       frameIndex: 11
       cellRect:
         x: 48
         y: 28
         width: 46
         height: 68
-      spriteId: 896882c2187bdc841b237b3a53757db0
+      spriteId: 83c877b05c34b5b42abdb2134c419309
     linkedCells: []
     parentIndex: -1
   platformSettings: []

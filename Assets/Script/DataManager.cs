@@ -58,8 +58,12 @@ public class DataManager : Singleton<DataManager>
     private Image costBar;
 
     [SerializeField]
-    [Tooltip("현재 턴을 지닌 유닛 식별표")]
+    [Tooltip("현재 턴을 지닌 유닛의 얼굴 아이콘")]
     public Image currentTurnSlotIcon;
+
+    [SerializeField]
+    [Tooltip("현재 턴을 지닌 유닛의 이름 텍스트")]
+    public TMP_Text currentTurnName;
 
     [SerializeField]
     [Tooltip("각 슬롯의 원래 위치를 저장할 딕셔너리")]
@@ -75,11 +79,8 @@ public class DataManager : Singleton<DataManager>
     /// </summary>
     [SerializeField]
     private bool isMoving = false;
- 
     [SerializeField]
     private turnState _currentTurn = turnState.Stay;
-
-
     public turnState currentTurn
     {
         get 
@@ -97,6 +98,9 @@ public class DataManager : Singleton<DataManager>
     }
 
     public List<Color> unitStateColors;
+    public ColorState unitStateColorsObject;
+
+
 
     void Start()
     {
@@ -109,6 +113,8 @@ public class DataManager : Singleton<DataManager>
     private void Init()
     {
         skillManager = SkillManager.Instance;
+
+        unitStateColors = unitStateColorsObject.colorStates;
 
         SlotPosInit();
         ActionPointsInit();
@@ -155,12 +161,13 @@ public class DataManager : Singleton<DataManager>
     {
         while (true)
         {
+            Debug.Log("1");
             switch (currentTurn)
             {
                 case turnState.Stay:
                 foreach (var unit in unitSlots)
                 {
-                    if (unit != null)
+                    if (unit != null && unit.isNull == false)
                     {
                         if (actionPoints.TryGetValue(unit, out float currentPoints))
                         {
@@ -182,7 +189,6 @@ public class DataManager : Singleton<DataManager>
                     break;
 
                 case turnState.SkillSelect:
-
                     break;
 
                 default:
@@ -242,23 +248,27 @@ public class DataManager : Singleton<DataManager>
         currentTurnSlotNumber = unitSlots.IndexOf(unit);
         UnitSlotController currentTurnSlot = unitSlots[currentTurnSlotNumber];
         currentTurnSlotIcon.sprite = currentTurnSlot.unitFaceIcon;
+        currentTurnName.text = currentTurnSlot.unitName;
         skillManager.SkillSlotInit(unitSlots[currentTurnSlotNumber].skillDatas);
 
         //현재 턴을 가진 유닛 구분
-        unit.currentTargetIcon.SetActive(true);
         SlotGroundSpriteController groundSprite = unitSlots[currentTurnSlotNumber].slotGroundSpriteController;
-        groundSprite.SetSlotGroundState(SlotGroundState.Select, unitStateColors[1]);
-        currentTurnSlot.currentTargetIcon.SetActive(true);
+        groundSprite.SetSlotGroundState(SlotGroundState.Select, unitStateColors[1]); 
 
         //액션 포인트 초기화
         actionPoints[currentTurnSlot] = 0;
         Debug.Log("턴을 시작합니다. 현재 턴은 " + unitSlots[0].name + " (" + unitSlots[0].speed + " 속도) 유닛입니다.");
     }
 
+    public void DelayTurnEnd(float delay)
+    {
+        StartCoroutine(_DelayTurnEnd(delay));
+    }
+
     /// <summary>
     /// 일정 시간 대기 후 턴을 종료합니다. 
     /// </summary>
-    public IEnumerator DelayTurnEnd(float delay)
+    public IEnumerator _DelayTurnEnd(float delay)
     {
         yield return new WaitForSeconds(delay); // 지정된 시간만큼 대기
         TurnEnd(); // 대기 후 호출할 함수
@@ -270,7 +280,6 @@ public class DataManager : Singleton<DataManager>
     public void TurnEnd()
     {
         unitSlots[currentTurnSlotNumber].SetAnim(0);
-        unitSlots[currentTurnSlotNumber].currentTargetIcon.SetActive(false);
 
         //UnitGround의 색상 및 스프라이트 초기화
         foreach (var unit in unitSlots)

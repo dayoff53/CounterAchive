@@ -11,6 +11,9 @@ public class UnitSlotController : MonoBehaviour
     [Header("ÇöÀç À§Ä¡ÇÑ FieldÀÇ UnitFieldController")]
     UnitSlotGroupController unitFieldController;
 
+    [Header("À¯´Ö ½½·ÔÀÇ ¹øÈ£")]
+    public bool isNull = false;
+
     [Header("À¯´ÖÀÇ ÆÀ")]
     public int unitTeam = 0;
 
@@ -34,15 +37,14 @@ public class UnitSlotController : MonoBehaviour
     private Image actionPointBar;
 
     [SerializeField]
-    public GameObject currentTargetIcon;
-
-    [SerializeField]
     public SlotGroundSpriteController slotGroundSpriteController;
 
 
     [Header("Status")]
     public string unitName;
     public Sprite unitFaceIcon;
+    public SpriteRenderer unitSpriteRenderer;
+    public Animator unitAnim;
     public float maxHp;
     private float _currentHp;
     public float atk;
@@ -87,15 +89,27 @@ public class UnitSlotController : MonoBehaviour
 
     public void StatusInit()
     {
-        unitName = unitData.unitName;
-        unitFaceIcon = unitData.unitFaceIcon;
-        maxHp = unitData.hp;
-        currentHp = unitData.hp;
-        atk = unitData.atk;
-        maxActionPoint = unitData.actionPoint;
-        currentActionPoint = 0;
-        speed = unitData.speed;
-        skillDatas = unitData.skillDatas;
+        if (unitData.name == "Null")
+        {
+            isNull = true;
+            hpPointBar.gameObject.transform.parent.gameObject.SetActive(false);
+            actionPointBar.gameObject.SetActive(false);
+        }
+        else
+        {
+            hpPointBar.gameObject.transform.parent.gameObject.SetActive(true);
+            actionPointBar.gameObject.SetActive(true);
+            unitName = unitData.unitName;
+            unitSpriteRenderer.sprite = unitData.unitSprite;
+            unitAnim.runtimeAnimatorController = unitData.unitAnimController;
+            maxHp = unitData.hp;
+            currentHp = unitData.hp;
+            atk = unitData.atk;
+            maxActionPoint = unitData.actionPoint;
+            currentActionPoint = 0;
+            speed = unitData.speed;
+            skillDatas = unitData.skillDatas;
+        }
     }
 
 

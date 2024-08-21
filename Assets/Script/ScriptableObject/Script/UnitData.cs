@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
 [CreateAssetMenu(fileName = "New UnitData", menuName = "UnitData")]
 public class UnitData : ScriptableObject
 {
@@ -10,6 +11,7 @@ public class UnitData : ScriptableObject
     public string unitName;
     public Sprite unitFaceIcon;
     public Sprite unitSprite;
+    public RuntimeAnimatorController unitAnimController;
     public float hp;
     public int atk;
     public int speed;
