@@ -13,8 +13,10 @@ public class SkillData : ScriptableObject
     public string skillFlavorText;
     public float skillCost;
     public Sprite skillIcon;
-    public int minRange;
+    public float minRange;
     public int[] skillRange;
-    public int damage;
+    public float damage;
     public float skillEndTime;
+
+    public float skillCoefficient = 1.0f;
 }

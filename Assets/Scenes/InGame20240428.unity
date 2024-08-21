@@ -183,8 +183,10 @@ MonoBehaviour:
   skillFlavorText: {fileID: 564434993}
   skillCostText: {fileID: 0}
   skillIcon: {fileID: 2010926893}
+  skillCurrentDamage: 0
   skillRangeUIController: {fileID: 1357180359}
   skillButton: {fileID: 0}
+  unitSlotController: {fileID: 0}
   inGameManager: {fileID: 0}
 --- !u!114 &11931286
 MonoBehaviour:
@@ -1626,12 +1628,13 @@ MonoBehaviour:
   costGauge: {fileID: 126954513}
   costText: {fileID: 1132995742}
   costBar: {fileID: 824943148}
-  currentTurnSlotIcon: {fileID: 0}
+  currentTurnSlotIcon: {fileID: 57398356}
   skillSlot:
   - {fileID: 1857664582}
   - {fileID: 1961393111}
   - {fileID: 209877385}
   - {fileID: 1867956726}
+  skillTargetNum: 0
   originalPositions:
     keys: []
     values: []
@@ -1736,6 +1739,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d85a608d59df4e49b9ef71731971741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &424280253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 424280254}
+  m_Layer: 0
+  m_Name: SkillManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &424280254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424280253}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.214583, y: 0.08463061, z: 3.9515505}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &436674321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1796,8 +1830,10 @@ MonoBehaviour:
   skillFlavorText: {fileID: 95832197}
   skillCostText: {fileID: 0}
   skillIcon: {fileID: 1657214916}
+  skillCurrentDamage: 0
   skillRangeUIController: {fileID: 1400759688}
   skillButton: {fileID: 0}
+  unitSlotController: {fileID: 0}
   inGameManager: {fileID: 0}
 --- !u!114 &436674324
 MonoBehaviour:
@@ -4409,8 +4445,10 @@ MonoBehaviour:
   skillFlavorText: {fileID: 1307654660}
   skillCostText: {fileID: 0}
   skillIcon: {fileID: 722563339}
+  skillCurrentDamage: 0
   skillRangeUIController: {fileID: 1485295667}
   skillButton: {fileID: 0}
+  unitSlotController: {fileID: 0}
   inGameManager: {fileID: 0}
 --- !u!114 &1313969285
 MonoBehaviour:
@@ -5999,8 +6037,10 @@ MonoBehaviour:
   skillFlavorText: {fileID: 258171297}
   skillCostText: {fileID: 0}
   skillIcon: {fileID: 1369495065}
+  skillCurrentDamage: 0
   skillRangeUIController: {fileID: 702031396}
   skillButton: {fileID: 0}
+  unitSlotController: {fileID: 0}
   inGameManager: {fileID: 0}
 --- !u!114 &1856801670
 MonoBehaviour:
@@ -7210,3 +7250,4 @@ SceneRoots:
   - {fileID: 358140933}
   - {fileID: 1738279501}
   - {fileID: 1256133478}
+  - {fileID: 424280254}

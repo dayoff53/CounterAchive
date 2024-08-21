@@ -15,8 +15,10 @@ public class SkillSlotUIController : MonoBehaviour
     public TMP_Text skillFlavorText;
     public TMP_Text skillCostText;
     public Image skillIcon;
+    public int skillCurrentDamage;
     public SkillRangeUIController skillRangeUIController;
     public Button skillButton;
+    public UnitSlotController unitSlotController;
     public InGameManager inGameManager;
 
 
@@ -43,13 +45,6 @@ public class SkillSlotUIController : MonoBehaviour
         }
     }
 
-    private void OnButtonClick()
-    {
-        inGameManager.currentTurn = turnState.SkillSelect;
-        inGameManager.currentSkillSlot = this;
-        skillRangeUIController.SetRangeSprite(skillData.skillRange);
-    }
-
     public void SetSkillData(SkillData setSkillData)
     {
         skillData = setSkillData;
@@ -57,9 +52,21 @@ public class SkillSlotUIController : MonoBehaviour
         Init();
     }
 
+
+    private void OnButtonClick()
+    {
+        inGameManager.currentTurn = turnState.SkillSelect;
+        inGameManager.currentSkillSlot = this;
+
+        skillRangeUIController.SetRangeSprite(skillData.skillRange);
+    }
+
     public void OnSkillPlay(int targetNum)
     {
+        inGameManager.currentTurn = turnState.SkillPlay;
+        StartCoroutine(inGameManager.DelayTurnEnd(inGameManager.currentSkillSlot.skillData.skillEndTime));
+        inGameManager.unitSlots[inGameManager.currentTurnSlotNumber].SetAnim(1);
         inGameManager.cost -= skillData.skillCost;
-        inGameManager.ExecuteAttack(targetNum, inGameManager.currentSkillSlot.skillData.damage);
+        inGameManager.skillTargetNum = targetNum;
     }
 }

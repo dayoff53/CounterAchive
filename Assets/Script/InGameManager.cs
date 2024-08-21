@@ -56,12 +56,15 @@ public class InGameManager : Singleton<InGameManager>
 
     [SerializeField]
     [Tooltip("현재 턴을 지닌 유닛 식별표")]
-    public GameObject currentTurnSlotIcon;
+    public Image currentTurnSlotIcon;
 
     [SerializeField]
     [Header("SkillSlot")]
     [Tooltip("스킬 슬롯 리스트")]
     public List<SkillSlotUIController> skillSlot;
+
+    [SerializeField]
+    public int skillTargetNum;
 
     [SerializeField]
     [Tooltip("각 슬롯의 원래 위치를 저장할 딕셔너리")]
@@ -240,8 +243,9 @@ public class InGameManager : Singleton<InGameManager>
 
         //초기화
         currentTurnSlotNumber = unitSlots.IndexOf(unit);
-        SkillSlotInit(unitSlots[currentTurnSlotNumber].skillDatas);
         UnitSlotController currentTurnSlot = unitSlots[currentTurnSlotNumber];
+        currentTurnSlotIcon.sprite = currentTurnSlot.unitFaceIcon;
+        SkillSlotInit(unitSlots[currentTurnSlotNumber].skillDatas);
 
         //현재 턴을 가진 유닛 구분
         unit.currentTargetIcon.SetActive(true);
@@ -255,7 +259,7 @@ public class InGameManager : Singleton<InGameManager>
     }
 
     /// <summary>
-    /// 턴 종료 후 일정 시간 대기를 관리합니다.
+    /// 일정 시간 대기 후 턴을 종료합니다. 
     /// </summary>
     public IEnumerator DelayTurnEnd(float delay)
     {
@@ -385,6 +389,11 @@ public class InGameManager : Singleton<InGameManager>
         {
             skillSlot[i].SetSkillData(setSkillDatas[i]);
         }
+    }
+
+    public void SkillHit()
+    {
+        ExecuteAttack(skillTargetNum, currentSkillSlot.skillCurrentDamage);
     }
 
     /// <summary>

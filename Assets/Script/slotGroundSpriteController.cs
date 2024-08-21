@@ -70,11 +70,6 @@ public class SlotGroundSpriteController : MonoBehaviour
         {
             if (inGameManager.cost >= inGameManager.currentSkillSlot.skillData.skillCost)
             {
-                inGameManager.currentTurn = turnState.SkillPlay;
-
-
-                inGameManager.unitSlots[inGameManager.currentTurnSlotNumber].SetAnim(1);
-                StartCoroutine(inGameManager.DelayTurnEnd(inGameManager.currentSkillSlot.skillData.skillEndTime));
                 inGameManager.currentSkillSlot.OnSkillPlay(unitSlot.slotNum);
             }
             else
