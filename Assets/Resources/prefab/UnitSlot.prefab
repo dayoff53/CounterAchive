@@ -306,7 +306,7 @@ MonoBehaviour:
   isNull: 0
   unitTeam: 0
   slotNum: 0
-  unitData: {fileID: 11400000, guid: 462dae7ef769d324191a41d0373ebd46, type: 2}
+  unitData: {fileID: 11400000, guid: e665812b9daa76540b468133b53fd33f, type: 2}
   sprite: {fileID: 2403760010731243618}
   unitAnimator: {fileID: 7329935102176465964}
   hpPointBar: {fileID: 5108306873563217979}
