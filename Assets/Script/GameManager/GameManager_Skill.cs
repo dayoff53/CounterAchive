@@ -3,26 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class SkillManager : Singleton<SkillManager>
+public partial class GameManager
 {
-    private DataManager dataManager;
-    private UnitSlotController targetUnitSlot;
-
-    [SerializeField]
-    [Header("SkillSlot")]
-    [Tooltip("스킬 슬롯 리스트")]
-    public List<SkillSlotUIController> skillSlot;
-
-    public int skillTargetNum;
-
-    public SkillSlotUIController currentSkillSlot;
-
-
-    void Start()
-    {
-        dataManager = DataManager.Instance;
-    }
-
 
 
     /// <summary>
@@ -40,10 +22,10 @@ public class SkillManager : Singleton<SkillManager>
 
     public void SkillStart()
     {
-        dataManager.currentTurn = turnState.SkillPlay;
+        currentPrograssState = ProgressState.SkillPlay;
         //StartCoroutine(inGameManager.DelayTurnEnd(inGameManager.currentSkillSlot.skillData.skillEndTime));
-        dataManager.unitSlots[dataManager.currentTurnSlotNumber].SetAnim(1);
-        dataManager.cost -= currentSkillSlot.skillData.skillCost;
+        unitSlots[currentTurnSlotNumber].SetAnim(1);
+        cost -= currentSkillSlot.skillData.skillCost;
     }
 
     public void SkillHitPlay()
@@ -54,13 +36,13 @@ public class SkillManager : Singleton<SkillManager>
         switch(skillData.skillState)
         {
             case SkillState.Attack:
-                skillDamage += (dataManager.unitSlots[dataManager.currentTurnSlotNumber].atk * skillData.skillCoefficient);
+                skillDamage += (unitSlots[currentTurnSlotNumber].atk * skillData.skillCoefficient);
                 break;
 
             default:
                 break;
         }
 
-        dataManager.ExecuteAttack(skillDamage);
+        ExecuteAttack(skillDamage);
     }
 }

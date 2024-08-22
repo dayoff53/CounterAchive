@@ -1,53 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using DG.Tweening;
+using System.Linq;
+using UnityEngine;
 
-public class UnitSlotGroupController : MonoBehaviour
+public partial class GameManager
 {
-    [SerializeField]
-    public List<UnitSlotController> unitSlots;
-
-    [SerializeField]
-    private int currentSlotNum;
-
-    // 각 슬롯의 원래 위치를 저장할 딕셔너리
-    private Dictionary<GameObject, Vector3> originalPositions = new Dictionary<GameObject, Vector3>();
-
-    // 유닛의 이동 중 상태를 판단하는 값
-    private bool isMoving = false;
-    GameManager dataManager;
-
-
-
-    public void Start()
-    {
-        dataManager = GameManager.Instance;
-        Init();
-    }
-
-    private void Init()
+    private void SlotPosInit()
     {
         for (int i = 0; i < unitSlots.Count; i++)
         {
-            UnitSlotController unit = unitSlots[i];
-
-            if (unit != null)
+            if (unitSlots[i] != null)
             {
-                var unitObject = unit.gameObject;
-                if (unitObject != null)
+                var unit = unitSlots[i].gameObject;
+                if (unit != null)
                 {
                     // 초기 유닛 위치 설정
-                    originalPositions[unitObject] = unitObject.transform.position;
+                    originalPositions[unit] = unit.transform.position;
                 }
-
-                //현재 유닛 데이터 적용
-                unit.slotNum = i;
-                unit.slotGroundSpriteController.SetSlotGroundState(SlotGroundState.Normal, dataManager.unitStateColors[0]);
             }
         }
     }
 
+    /// <summary>
+    /// 지정된 유닛을 다른 유닛의 위치로 이동시킵니다.
+    /// </summary>
+    /// <param name="moveUnitNum">이동할 유닛의 인덱스입니다.</param>
+    /// <param name="targetUnitNum">목표 유닛의 인덱스입니다.</param>
     public void MoveUnit(int moveUnitNum, int targetUnitNum)
     {
         if (isMoving || unitSlots[moveUnitNum] == null || unitSlots[targetUnitNum] == null)
@@ -76,56 +55,43 @@ public class UnitSlotGroupController : MonoBehaviour
             UnitSlotController targetSlot = unitSlots[targetUnitNum];
             unitSlots[targetUnitNum] = unitSlots[moveUnitNum];
             unitSlots[moveUnitNum] = targetSlot;
-            unitSlots[moveUnitNum].slotNum = targetUnitNum;
-            unitSlots[targetUnitNum].slotNum = moveUnitNum;
-
-
             Debug.Log("Units have been swapped successfully.");
             isMoving = false; // 이동 완료 후 이동 중 상태 해제
         });
-
     }
 
-
+    /// <summary>
+    /// 현재 턴을 가진 유닛을 오른쪽 또는 왼쪽으로 이동시킵니다.
+    /// </summary>
+    /// <param name="rightMove">오른쪽으로 이동할지 여부입니다. false면 왼쪽으로 이동합니다.</param>
     public void DirectMoveUnit(bool rightMove)
     {
-        int moveTargetUnitNum = currentSlotNum;
+        int moveTargetUnitNum = currentTurnSlotNumber;
 
-        if (isMoving || unitSlots[currentSlotNum] == null || unitSlots[moveTargetUnitNum] == null)
+        if (isMoving || unitSlots[currentTurnSlotNumber] == null || unitSlots[moveTargetUnitNum] == null)
         {
             Debug.LogWarning("Movement is currently locked or invalid slot numbers provided.");
             return;
         }
 
-
         if (rightMove)
         {
-            if (currentSlotNum > 0)
+            if (currentTurnSlotNumber < unitSlots.Count)
             {
-                MoveUnit(currentSlotNum, currentSlotNum - 1);
+                MoveUnit(currentTurnSlotNumber, currentTurnSlotNumber + 1);
 
-                currentSlotNum = currentSlotNum - 1;
+                currentTurnSlotNumber = currentTurnSlotNumber + 1;
             }
         }
         else
         {
-            if (currentSlotNum < 3)
+            if (currentTurnSlotNumber > 0)
             {
-                MoveUnit(currentSlotNum, currentSlotNum + 1);
+                MoveUnit(currentTurnSlotNumber, currentTurnSlotNumber - 1);
 
-                currentSlotNum = currentSlotNum + 1;
+                currentTurnSlotNumber = currentTurnSlotNumber - 1;
             }
         }
     }
 
-    public void EnemyUnitInit(List<UnitData> enemyUnitSlots)
-    {
-        int endNum = unitSlots.Count - 1;
-
-        for (int i = 0; i < enemyUnitSlots.Count; i++)
-        {
-            unitSlots[endNum - i].ChangeUnit(enemyUnitSlots[i]);
-            unitSlots[endNum - i].unitTeam = 2;
-        }
-    }
 }

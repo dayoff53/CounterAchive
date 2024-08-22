@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UnitSlotController : MonoBehaviour
 {
-    DataManager dataManager;
+    GameManager dataManager;
 
     [SerializeField]
     [Header("현재 위치한 Field의 UnitFieldController")]
@@ -82,7 +82,7 @@ public class UnitSlotController : MonoBehaviour
 
     private void Start()
     {
-        dataManager = DataManager.Instance;
+        dataManager = GameManager.Instance;
 
         StatusInit();
     }
@@ -123,14 +123,18 @@ public class UnitSlotController : MonoBehaviour
         actionPointBar.fillAmount = setActionPoint / 100f;
     }
 
-    public void AddActionPoint(float addPoint)
-    {
-        currentActionPoint += addPoint;
-        actionPointBar.fillAmount = currentActionPoint / maxActionPoint;
-    }
-
     public void SetDirection(bool isRight)
     {
         sprite.flipX = !isRight;
+    }
+
+    public void ChangeUnit(UnitData changeUnitData)
+    {
+        unitData = changeUnitData;
+
+        SetAnim(0);
+        SetActionPointBar(0.0f);
+
+        StatusInit();
     }
 }

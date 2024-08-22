@@ -12,12 +12,12 @@ public class SkillRangeUIController : MonoBehaviour
     private List<Color> skillRangeColors;
 
     [SerializeField]
-    private DataManager inGameManager;
+    private GameManager inGameManager;
 
 
     private void Start()
     {
-        inGameManager = DataManager.Instance;
+        inGameManager = GameManager.Instance;
     }
 
     public void SkillRangeInit(int[] skillRange)

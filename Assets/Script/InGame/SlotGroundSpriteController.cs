@@ -27,14 +27,12 @@ public class SlotGroundSpriteController : MonoBehaviour
     [SerializeField]
     private List<Sprite> groundSprite;
 
-    private DataManager inGameManager;
-    private SkillManager skillManager;
+    private GameManager inGameManager;
 
 
     private void Start()
     {
-        inGameManager = DataManager.Instance;
-        skillManager = SkillManager.Instance;
+        inGameManager = GameManager.Instance;
     }
 
     private SlotGroundState slotGroundState
@@ -68,17 +66,24 @@ public class SlotGroundSpriteController : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if (inGameManager.currentTurn == turnState.SkillSelect)
+        switch(inGameManager.currentPrograssState)
         {
-            if (inGameManager.cost >= skillManager.currentSkillSlot.skillData.skillCost)
-            {
-                skillManager.skillTargetNum = unitSlot.slotNum;
-                skillManager.SkillStart();
-            }
-            else
-            {
-                Debug.Log("Not enough costs");
-            }
+            case ProgressState.UnitSet:
+
+                break;
+
+
+            case ProgressState.SkillSelect:
+                if (inGameManager.cost >= inGameManager.currentSkillSlot.skillData.skillCost)
+                {
+                    inGameManager.skillTargetNum = unitSlot.slotNum;
+                    inGameManager.SkillStart();
+                }
+                else
+                {
+                    Debug.Log("Not enough costs");
+                }
+                break;
         }
     }
 }
