@@ -1753,18 +1753,17 @@ MonoBehaviour:
   actionPoints:
     keys: []
     values: []
-  _cost: 0
-  costGauge: {fileID: 126954513}
-  costText: {fileID: 1132995742}
-  costBar: {fileID: 824943148}
-  currentTurnSlotIcon: {fileID: 57398356}
-  currentTurnName: {fileID: 1977247602}
   originalPositions:
     keys: []
     values: []
   currentTurnSlotNumber: 0
   isMoving: 0
   _currentTurn: 0
+  costGauge: {fileID: 126954513}
+  costText: {fileID: 1132995742}
+  costBar: {fileID: 824943148}
+  currentTurnSlotIcon: {fileID: 57398356}
+  currentTurnName: {fileID: 1977247602}
   unitStateColors: []
   unitStateColorsObject: {fileID: 11400000, guid: 779c2907d5b17a647be815895a1f1686, type: 2}
 --- !u!4 &358140933
@@ -3142,11 +3141,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9502684}
-  m_Father: {fileID: 1043850652}
+  m_Father: {fileID: 1087417325}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -490, y: -300}
+  m_AnchoredPosition: {x: -1090, y: -250}
   m_SizeDelta: {x: 125, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &727104923
@@ -3194,9 +3193,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 358140932}
-        m_TargetAssemblyTypeName: InGameManager, Assembly-CSharp
-        m_MethodName: DirectMoveUnit
-        m_Mode: 6
+        m_TargetAssemblyTypeName: DataManager, Assembly-CSharp
+        m_MethodName: TurnEnd
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3990,7 +3989,6 @@ RectTransform:
   - {fileID: 1961393110}
   - {fileID: 209877384}
   - {fileID: 1867956725}
-  - {fileID: 727104922}
   m_Father: {fileID: 1087417325}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4026,6 +4024,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 727104922}
   - {fileID: 1429068960}
   - {fileID: 1043850652}
   - {fileID: 2146055810}
