@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UnitSlotController : MonoBehaviour
 {
-    GameManager dataManager;
+    GameManager gameManager;
 
     [SerializeField]
     [Header("현재 위치한 Field의 UnitFieldController")]
@@ -37,7 +37,7 @@ public class UnitSlotController : MonoBehaviour
     private Image actionPointBar;
 
     [SerializeField]
-    public SlotGroundSpriteController slotGroundSpriteController;
+    public SlotGroundSpriteController slotGround;
 
 
     [Header("Status")]
@@ -82,9 +82,8 @@ public class UnitSlotController : MonoBehaviour
 
     private void Start()
     {
-        dataManager = GameManager.Instance;
+        gameManager = GameManager.Instance;
 
-        StatusInit();
     }
 
     public void StatusInit()
@@ -97,6 +96,7 @@ public class UnitSlotController : MonoBehaviour
         }
         else
         {
+            isNull = false;
             hpPointBar.gameObject.transform.parent.gameObject.SetActive(true);
             actionPointBar.gameObject.SetActive(true);
             unitName = unitData.unitName;
@@ -131,6 +131,18 @@ public class UnitSlotController : MonoBehaviour
     public void ChangeUnit(UnitData changeUnitData)
     {
         unitData = changeUnitData;
+
+        SetAnim(0);
+        SetActionPointBar(0.0f);
+
+        StatusInit();
+    }
+
+    public void ChangeUnit(UnitData changeUnitData, int teamNum)
+    {
+        unitData = changeUnitData;
+
+        unitTeam = teamNum;
 
         SetAnim(0);
         SetActionPointBar(0.0f);

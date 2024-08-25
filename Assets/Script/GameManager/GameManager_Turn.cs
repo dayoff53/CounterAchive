@@ -56,7 +56,7 @@ public partial class GameManager
     {
             if (unit != null)
             {
-                if (unit.unitTeam == 0)
+                if (unit.unitTeam == 1)
                 {
                     float currentSpeed = unit.speed;
 
@@ -106,8 +106,8 @@ public partial class GameManager
         SkillSlotInit(unitSlots[currentTurnSlotNumber].skillDatas);
 
         //현재 턴을 가진 유닛 구분
-        SlotGroundSpriteController groundSprite = unitSlots[currentTurnSlotNumber].slotGroundSpriteController;
-        groundSprite.SetSlotGroundState(SlotGroundState.Select, unitStateColors[1]); 
+        SlotGroundSpriteController groundSprite = unitSlots[currentTurnSlotNumber].slotGround;
+        groundSprite.SetSlotGroundState(SlotGroundState.Select); 
 
         //액션 포인트 초기화
         actionPoints[currentTurnSlot] = 0;
@@ -138,8 +138,8 @@ public partial class GameManager
         //UnitGround의 색상 및 스프라이트 초기화
         foreach (var unit in unitSlots)
         {
-            SlotGroundSpriteController groundSprite = unit.slotGroundSpriteController;
-            groundSprite.SetSlotGroundState(SlotGroundState.Normal, unitStateColors[0]);
+            SlotGroundSpriteController groundSprite = unit.slotGround;
+            groundSprite.SetSlotGroundState(SlotGroundState.Normal);
         }
 
         currentPrograssState = ProgressState.Stay;

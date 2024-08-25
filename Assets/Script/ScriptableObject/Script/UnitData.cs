@@ -8,6 +8,7 @@ using UnityEngine;
 public class UnitData : ScriptableObject
 {
     [Header("Unit Stats")]
+    public int unitNum = 0;
     public string unitName;
     public Sprite unitFaceIcon;
     public Sprite unitSprite;

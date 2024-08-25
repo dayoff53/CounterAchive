@@ -42,9 +42,9 @@ public class SkillRangeUIController : MonoBehaviour
 
         for (int i = 0; i < rangeImages.Count; i++)
         {
-            groundSprite = inGameManager.unitSlots[i].slotGroundSpriteController;
+            groundSprite = inGameManager.unitSlots[i].slotGround;
 
-            groundSprite.SetSlotGroundState(SlotGroundState.Normal, skillRangeColors[0]);
+            groundSprite.SetSlotGroundState(SlotGroundState.Normal);
         }
 
         for (int i = 0; i < skillRange.Length; i++)
@@ -52,20 +52,20 @@ public class SkillRangeUIController : MonoBehaviour
 
             if (inGameManager.currentTurnSlotNumber + skillRange[i] < inGameManager.unitSlots.Count)
             {
-                groundSprite = inGameManager.unitSlots[inGameManager.currentTurnSlotNumber + skillRange[i]].slotGroundSpriteController;
+                groundSprite = inGameManager.unitSlots[inGameManager.currentTurnSlotNumber + skillRange[i]].slotGround;
 
-                groundSprite.SetSlotGroundState(SlotGroundState.Target, skillRangeColors[2]);
+                groundSprite.SetSlotGroundState(SlotGroundState.Target);
             }
 
             if (inGameManager.currentTurnSlotNumber - skillRange[i] >= 0)
             {
-                groundSprite = inGameManager.unitSlots[inGameManager.currentTurnSlotNumber - skillRange[i]].slotGroundSpriteController;
+                groundSprite = inGameManager.unitSlots[inGameManager.currentTurnSlotNumber - skillRange[i]].slotGround;
 
-                groundSprite.SetSlotGroundState(SlotGroundState.Target, skillRangeColors[2]);
+                groundSprite.SetSlotGroundState(SlotGroundState.Target);
             }
         }
 
-        groundSprite = inGameManager.unitSlots[inGameManager.currentTurnSlotNumber].slotGroundSpriteController;
-        groundSprite.SetSlotGroundState(SlotGroundState.Select, skillRangeColors[0]);
+        groundSprite = inGameManager.unitSlots[inGameManager.currentTurnSlotNumber].slotGround;
+        groundSprite.SetSlotGroundState(SlotGroundState.Select);
     }
 }

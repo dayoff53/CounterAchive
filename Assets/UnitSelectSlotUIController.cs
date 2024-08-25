@@ -10,6 +10,9 @@ public class UnitSelectSlotUIController : MonoBehaviour
     private UnitData unitData;
 
 
+    [SerializeField]
+    private GameManager gameManager;
+
     [Header("Object")]
     [SerializeField]
     private TMP_Text unitName;
@@ -18,10 +21,25 @@ public class UnitSelectSlotUIController : MonoBehaviour
     [SerializeField]
     private List<Image> subIcons;
 
+    private void Start()
+    {
+        Init();
+    }
 
     public void Init()
     {
         unitName.text = unitData.name;
         unitIcon.sprite = unitData.unitFaceIcon;
+        gameManager = GameManager.Instance;
+
+
+        GetComponent<Button>().onClick.AddListener(OnButtonClick);
+    }
+
+
+    private void OnButtonClick()
+    {
+        //gameManager.currentPrograssState = ProgressState.UnitSelect;
+        gameManager.currentSelectUnitData = unitData;
     }
 }

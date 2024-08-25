@@ -11,6 +11,7 @@ public enum ProgressState
 {
     Stay,
     UnitPlay,
+
     SkillSelect,
     SkillPlay,
 
@@ -20,40 +21,7 @@ public enum ProgressState
 
 public partial class GameManager : Singleton<GameManager>
 {
-    # region UnitSlotVariable
-    [Header("UnitSlot Data")]
-    [Tooltip("유닛 슬롯 리스트")]
-    public List<UnitSlotController> unitSlots;
-
     [SerializeField]
-    [Tooltip("각 슬롯의 원래 위치를 저장할 딕셔너리")]
-    private SerializableDictionary<GameObject, Vector3> originalPositions = new SerializableDictionary<GameObject, Vector3>();
-
-    [SerializeField]
-    private UnitSlotGroupController unitSlotGroupController;
-
-    /// <summary>
-    /// 유닛의 이동 중 상태를 판단하는 값
-    /// </summary>
-    private bool isMoving = false;
-    #endregion
-
-
-    #region TurnVariable
-    [Space(10)]
-    [Header("Turn Data")]
-    [Tooltip("행동력 누적을 위한 Dictionary")]
-    private SerializableDictionary<UnitSlotController, float> actionPoints = new SerializableDictionary<UnitSlotController, float>();
-
-    [Tooltip("유닛 슬롯 리스트")]
-
-    public int playerUseUnitSlotCount;
-
-    /// <summary>
-    /// 현재 턴을 행사 중인 슬롯의 번호
-    /// </summary>
-    public int currentTurnSlotNumber;
-
     private ProgressState _currentPrograssState = ProgressState.UnitSelect;
     /// <summary>
     /// 현재 게임 진행상황
@@ -64,17 +32,68 @@ public partial class GameManager : Singleton<GameManager>
         { return _currentPrograssState; }
         set
         {
-            switch (_currentPrograssState)
+            switch (value)
             {
+                case ProgressState.UnitSelect:
+                    play_UI.SetActive(false);
+                    unitSet_UI.SetActive(true);
+                    break;
+
                 default:
+                    unitSet_UI.SetActive(false);
+                    play_UI.SetActive(true);
                     break;
             }
+            Debug.Log($"{currentPrograssState} => {value}");
 
             _currentPrograssState = value;
         }
     }
+
+
+    #region Unit&SlotVariable
+
+    [Header("UnitSlot Data")]
+
+    [SerializeField]
+    [Tooltip("유닛 슬롯 그룹(unitSlots)을 담당하는 스크립트")]
+    private UnitSlotGroupController unitSlotsController;
+
+    [SerializeField]
+    [Tooltip("현재 선택된 유닛 데이터")]
+    public UnitData currentSelectUnitData;
+
+    [Tooltip("플레이어가 사용 가능한 유닛 슬롯의 카운트")]
+    public int playerUseUnitSlotCount;
+
+    [Tooltip("플레이어가 사용 가능한 유닛 슬롯의 범위")]
+    public int playerUseUnitSlotRange;
+
+    [Tooltip("유닛 슬롯 리스트")]
+    public List<UnitSlotController> unitSlots;
+
+    [SerializeField]
+    [Tooltip("각 슬롯의 원래 위치를 저장할 딕셔너리")]
+    private SerializableDictionary<GameObject, Vector3> originalPositions = new SerializableDictionary<GameObject, Vector3>();
+
+    /// <summary>
+    /// 유닛의 이동 중 상태를 판단하는 값
+    /// </summary>
+    private bool isMoving = false;
     #endregion
 
+    #region TurnVariable
+    [Space(10)]
+    [Header("Turn Data")]
+    [Tooltip("행동력 누적을 위한 Dictionary")]
+    private SerializableDictionary<UnitSlotController, float> actionPoints = new SerializableDictionary<UnitSlotController, float>();
+
+    /// <summary>
+    /// 현재 턴을 행사 중인 슬롯의 번호
+    /// </summary>
+    public int currentTurnSlotNumber;
+
+    #endregion
 
     #region SkillSlotVariable
     [Space(10)]
@@ -88,7 +107,6 @@ public partial class GameManager : Singleton<GameManager>
     public SkillSlotUIController currentSkillSlot;
     private UnitSlotController targetUnitSlot;
     #endregion
-
 
     #region CostVariable
     [Space(10)]
@@ -147,49 +165,65 @@ public partial class GameManager : Singleton<GameManager>
     public ColorState unitStateColorsObject;
 
 
-    private void Awake()
+    /// <summary>
+    /// 게임 초기 설정을 진행하는 단계입니다.
+    /// </summary>
+    public void SetGame()
     {
+        unitSlotsController.UnitSlotsInit();
+        SlotPosInit();
+        unitStateColors = unitStateColorsObject.colorStates;
 
-
-        //SetGame();
+        UnitSetGame();
     }
 
+    /// <summary>
+    /// 플레이어가 유닛을 배치하는 단계입니다.
+    /// </summary>
+    public void UnitSetGame()
+    {
+        if (playerUseUnitSlotCount > 0)
+        {
+            currentPrograssState = ProgressState.UnitSelect;
+
+            for(int i = 0; (i < unitSlots.Count); i++)
+            {
+                if (i < playerUseUnitSlotRange && unitSlots[i].isNull == true)
+                {
+                    unitSlots[i].unitTeam = 1;
+                    unitSlots[i].slotGround.SetSlotGroundState(SlotGroundState.Target);
+                } else
+                {
+                    unitSlots[i].slotGround.SetSlotGroundState(SlotGroundState.Normal);
+                }
+            }
+            
+
+            nullSlotText.text = $"NullSlot : {playerUseUnitSlotCount}";
+        } else
+        {
+
+            for (int i = 0; (i < unitSlots.Count); i++)
+            {
+                if (unitSlots[i].isNull == true)
+                {
+                    unitSlots[i].unitTeam = 0;
+                }
+
+                unitSlots[i].slotGround.SetSlotGroundState(SlotGroundState.Normal);
+            }
+
+            StartGame();
+        }
+    }
 
     /// <summary>
-    /// 게임 초기 설정을 실행합니다.
+    /// 메인 게임을 실시하는 단계입니다.
     /// </summary>
     public void StartGame()
     {
-        currentPrograssState = ProgressState.UnitSelect;
-
-        nullSlotText.text = $"NullSlot : {playerUseUnitSlotCount}";
-
-
-
-
-
-        SetUnitSlot(unitSlotGroupController.unitSlots);
-
-        unitStateColors = unitStateColorsObject.colorStates;
-
-        SlotPosInit();
         ActionPointsInit();
         StartCoroutine(ActionPointAccumulation());
-    }
-
-
-
-    /// <summary>
-    /// 슬롯 위치 초기화를 담당합니다. (현재는 초기 바라보는 방향만 담당)
-    /// </summary>
-    public void SetUnitSlot(List<UnitSlotController> setUnitSlots)
-    {
-        unitSlots = setUnitSlots;
-
-        for (int i = setUnitSlots.Count - 1; setUnitSlots.Count - 6 < i; i--)
-        {
-            setUnitSlots[i].SetDirection(false);
-        }
     }
 
     /// <summary>

@@ -20,21 +20,6 @@ public class SlotGroundSpriteController : MonoBehaviour
     [SerializeField]
     [Tooltip("1.defalut, 2.select, 3.target ")]
     private SlotGroundState _slotGroundState;
-
-    [SerializeField]
-    private SpriteRenderer groundSpriteRenderer;
-
-    [SerializeField]
-    private List<Sprite> groundSprite;
-
-    private GameManager inGameManager;
-
-
-    private void Start()
-    {
-        inGameManager = GameManager.Instance;
-    }
-
     private SlotGroundState slotGroundState
     {
         get { return _slotGroundState; }
@@ -42,7 +27,7 @@ public class SlotGroundSpriteController : MonoBehaviour
         {
             _slotGroundState = value;
 
-            switch (slotGroundState)
+            switch (value)
             {
                 case SlotGroundState.Normal:
                     groundSpriteRenderer.sprite = groundSprite[0];
@@ -57,32 +42,53 @@ public class SlotGroundSpriteController : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    private SpriteRenderer groundSpriteRenderer;
 
-    public void SetSlotGroundState(SlotGroundState setSlotGroundState, Color groundColor)
+    [SerializeField]
+    private List<Sprite> groundSprite;
+
+    private GameManager gameManager;
+
+
+    private void Start()
+    {
+        gameManager = GameManager.Instance;
+    }
+
+    public void SetSlotGroundState(SlotGroundState setSlotGroundState)
     {
         slotGroundState = setSlotGroundState;
-        groundSpriteRenderer.color = groundColor;
+
+        groundSpriteRenderer.color = gameManager.unitStateColors[unitSlot.unitTeam];
     }
 
     public void OnMouseDown()
     {
-        switch(inGameManager.currentPrograssState)
+        switch(gameManager.currentPrograssState)
         {
-            case ProgressState.UnitSet:
-
-                break;
-
-
             case ProgressState.SkillSelect:
-                if (inGameManager.cost >= inGameManager.currentSkillSlot.skillData.skillCost)
+                if (gameManager.cost >= gameManager.currentSkillSlot.skillData.skillCost)
                 {
-                    inGameManager.skillTargetNum = unitSlot.slotNum;
-                    inGameManager.SkillStart();
+                    gameManager.skillTargetNum = unitSlot.slotNum;
+                    gameManager.SkillStart();
                 }
                 else
                 {
                     Debug.Log("Not enough costs");
                 }
+                break;
+
+            case ProgressState.UnitSelect:
+                if(unitSlot.isNull == true && gameManager.currentSelectUnitData.unitName != "Null")
+                {
+                    unitSlot.ChangeUnit(gameManager.currentSelectUnitData, 1);
+                    gameManager.playerUseUnitSlotCount--;
+                    gameManager.UnitSetGame();
+                }
+                break;
+
+            default:
                 break;
         }
     }

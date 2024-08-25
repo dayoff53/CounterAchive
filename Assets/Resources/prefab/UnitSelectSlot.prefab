@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitData: {fileID: 11400000, guid: e665812b9daa76540b468133b53fd33f, type: 2}
+  gameManager: {fileID: 0}
   unitName: {fileID: 8206483906622795267}
   unitIcon: {fileID: 5627919874428325224}
   subIcons: []

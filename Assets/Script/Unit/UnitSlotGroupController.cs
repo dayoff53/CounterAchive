@@ -16,18 +16,19 @@ public class UnitSlotGroupController : MonoBehaviour
 
     // 유닛의 이동 중 상태를 판단하는 값
     private bool isMoving = false;
-    GameManager dataManager;
+    GameManager gameManager;
 
 
 
     public void Start()
     {
-        dataManager = GameManager.Instance;
-        Init();
+        gameManager = GameManager.Instance;
+        //UnitSlotsInit();
     }
 
-    private void Init()
+    public void UnitSlotsInit()
     {
+        gameManager = GameManager.Instance;
         for (int i = 0; i < unitSlots.Count; i++)
         {
             UnitSlotController unit = unitSlots[i];
@@ -41,11 +42,18 @@ public class UnitSlotGroupController : MonoBehaviour
                     originalPositions[unitObject] = unitObject.transform.position;
                 }
 
-                //현재 유닛 데이터 적용
+                if(unit.unitTeam == 2)
+                {
+                    unit.SetDirection(false);
+                }
+
                 unit.slotNum = i;
-                unit.slotGroundSpriteController.SetSlotGroundState(SlotGroundState.Normal, dataManager.unitStateColors[0]);
+                unit.slotGround.SetSlotGroundState(SlotGroundState.Normal);
             }
+
+            unit.StatusInit();
         }
+        gameManager.unitSlots = unitSlots;
     }
 
     public void MoveUnit(int moveUnitNum, int targetUnitNum)
@@ -86,7 +94,6 @@ public class UnitSlotGroupController : MonoBehaviour
 
     }
 
-
     public void DirectMoveUnit(bool rightMove)
     {
         int moveTargetUnitNum = currentSlotNum;
@@ -124,8 +131,7 @@ public class UnitSlotGroupController : MonoBehaviour
 
         for (int i = 0; i < enemyUnitSlots.Count; i++)
         {
-            unitSlots[endNum - i].ChangeUnit(enemyUnitSlots[i]);
-            unitSlots[endNum - i].unitTeam = 2;
+            unitSlots[endNum - i].ChangeUnit(enemyUnitSlots[i], 2);
         }
     }
 }

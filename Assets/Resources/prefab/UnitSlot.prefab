@@ -311,7 +311,7 @@ MonoBehaviour:
   unitAnimator: {fileID: 7329935102176465964}
   hpPointBar: {fileID: 5108306873563217979}
   actionPointBar: {fileID: 1670624977117066652}
-  slotGroundSpriteController: {fileID: 3703163220768527653}
+  slotGround: {fileID: 3703163220768527653}
   unitName: 
   unitFaceIcon: {fileID: 0}
   unitSpriteRenderer: {fileID: 2403760010731243618}
@@ -666,15 +666,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ab68290aed2a54d4ca1454f62402bb37, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.4, y: 6.4}
+  m_Size: {x: 2.64, y: 8.72}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &3703163220768527653
@@ -694,7 +694,7 @@ MonoBehaviour:
   groundSpriteRenderer: {fileID: 82961109543747887}
   groundSprite:
   - {fileID: 21300000, guid: ab68290aed2a54d4ca1454f62402bb37, type: 3}
-  - {fileID: 21300000, guid: fa44bf8637957c64fab2929c9d2d5e43, type: 3}
+  - {fileID: 21300000, guid: 92fd76ca36d59be408ec6102c2d2aead, type: 3}
   - {fileID: 21300000, guid: fa44bf8637957c64fab2929c9d2d5e43, type: 3}
 --- !u!61 &6288313595130764187
 BoxCollider2D:
@@ -733,7 +733,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2.64, y: 8.72}
-    newSize: {x: 6.4, y: 6.4}
+    newSize: {x: 2.64, y: 8.72}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
