@@ -26,6 +26,9 @@ public class UnitSlotGroupController : MonoBehaviour
         //UnitSlotsInit();
     }
 
+    /// <summary>
+    /// GameManager가 해당 스크립트를 사용하기 앞서 초기화하는 작업
+    /// </summary>
     public void UnitSlotsInit()
     {
         gameManager = GameManager.Instance;
@@ -48,7 +51,7 @@ public class UnitSlotGroupController : MonoBehaviour
                 }
 
                 unit.slotNum = i;
-                unit.slotGround.SetSlotGroundState(SlotGroundState.Normal);
+                unit.slotGround.SetSlotGroundState(SlotGroundState.Default);
             }
 
             unit.StatusInit();
@@ -56,6 +59,11 @@ public class UnitSlotGroupController : MonoBehaviour
         gameManager.unitSlots = unitSlots;
     }
 
+    /// <summary>
+    /// 두 Unit간의 위치를 변경합니다. 이 경우 모든 Unit의 Ground가 Normal상태로 변경됩니다.
+    /// </summary>
+    /// <param name="moveUnitNum"></param>
+    /// <param name="targetUnitNum"></param>
     public void MoveUnit(int moveUnitNum, int targetUnitNum)
     {
         if (isMoving || unitSlots[moveUnitNum] == null || unitSlots[targetUnitNum] == null)

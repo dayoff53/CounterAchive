@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public enum SlotGroundState
 {
-    Normal,
+    Default,
     Select,
     Target
 }
@@ -29,7 +29,7 @@ public class SlotGroundSpriteController : MonoBehaviour
 
             switch (value)
             {
-                case SlotGroundState.Normal:
+                case SlotGroundState.Default:
                     groundSpriteRenderer.sprite = groundSprite[0];
                     break;
                 case SlotGroundState.Select:

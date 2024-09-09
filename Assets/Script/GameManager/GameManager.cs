@@ -194,7 +194,7 @@ public partial class GameManager : Singleton<GameManager>
                     unitSlots[i].slotGround.SetSlotGroundState(SlotGroundState.Target);
                 } else
                 {
-                    unitSlots[i].slotGround.SetSlotGroundState(SlotGroundState.Normal);
+                    unitSlots[i].slotGround.SetSlotGroundState(SlotGroundState.Default);
                 }
             }
             
@@ -210,7 +210,7 @@ public partial class GameManager : Singleton<GameManager>
                     unitSlots[i].unitTeam = 0;
                 }
 
-                unitSlots[i].slotGround.SetSlotGroundState(SlotGroundState.Normal);
+                unitSlots[i].slotGround.SetSlotGroundState(SlotGroundState.Default);
             }
 
             StartGame();

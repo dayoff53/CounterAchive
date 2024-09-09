@@ -44,7 +44,7 @@ public class SkillRangeUIController : MonoBehaviour
         {
             groundSprite = inGameManager.unitSlots[i].slotGround;
 
-            groundSprite.SetSlotGroundState(SlotGroundState.Normal);
+            groundSprite.SetSlotGroundState(SlotGroundState.Default);
         }
 
         for (int i = 0; i < skillRange.Length; i++)

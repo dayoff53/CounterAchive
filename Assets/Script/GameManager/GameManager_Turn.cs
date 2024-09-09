@@ -139,7 +139,7 @@ public partial class GameManager
         foreach (var unit in unitSlots)
         {
             SlotGroundSpriteController groundSprite = unit.slotGround;
-            groundSprite.SetSlotGroundState(SlotGroundState.Normal);
+            groundSprite.SetSlotGroundState(SlotGroundState.Default);
         }
 
         currentPrograssState = ProgressState.Stay;
