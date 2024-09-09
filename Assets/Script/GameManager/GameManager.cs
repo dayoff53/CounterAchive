@@ -155,8 +155,11 @@ public partial class GameManager : Singleton<GameManager>
     [SerializeField]
     public GameObject unitSet_UI;
 
+    /// <summary>
+    /// 남아있는 선택 가능한 유닛 슬롯
+    /// </summary>
     [SerializeField]
-    public TMP_Text nullSlotText;
+    public TMP_Text remainingSetUnitSlotText;
 
 
     [Space(10)]
@@ -199,7 +202,7 @@ public partial class GameManager : Singleton<GameManager>
             }
             
 
-            nullSlotText.text = $"NullSlot : {playerUseUnitSlotCount}";
+            remainingSetUnitSlotText.text = $"RemainingUnitSlot : {playerUseUnitSlotCount}";
         } else
         {
 
