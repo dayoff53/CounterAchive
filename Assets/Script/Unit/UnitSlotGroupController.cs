@@ -6,7 +6,7 @@ using DG.Tweening;
 public class UnitSlotGroupController : MonoBehaviour
 {
     [SerializeField]
-    private List<UnitSlotController> unitSlots;
+    public List<UnitSlotController> unitSlots;
 
     [SerializeField]
     private int currentSlotNum;
@@ -16,22 +16,22 @@ public class UnitSlotGroupController : MonoBehaviour
 
     // 유닛의 이동 중 상태를 판단하는 값
     private bool isMoving = false;
-    InGameManager inGameManager;
+    StageManager gameManager;
 
 
-    public void Awake()
-    {
-        inGameManager = InGameManager.Instance;
-        inGameManager.SetUnitSlot(unitSlots);
-    }
 
     public void Start()
     {
-        Init();
+        gameManager = StageManager.Instance;
+        //UnitSlotsInit();
     }
 
-    private void Init()
+    /// <summary>
+    /// GameManager가 해당 스크립트를 사용하기 앞서 초기화하는 작업
+    /// </summary>
+    public void UnitSlotsInit()
     {
+        gameManager = StageManager.Instance;
         for (int i = 0; i < unitSlots.Count; i++)
         {
             UnitSlotController unit = unitSlots[i];
@@ -45,13 +45,25 @@ public class UnitSlotGroupController : MonoBehaviour
                     originalPositions[unitObject] = unitObject.transform.position;
                 }
 
-                //현재 유닛 데이터 적용
+                if(unit.unitTeam == 2)
+                {
+                    unit.SetDirection(true);
+                }
+
                 unit.slotNum = i;
-                unit.slotGroundSpriteController.SetSlotGroundState(SlotGroundState.Normal, inGameManager.unitStateColors[0]);
+                unit.slotGround.SetSlotGroundState(SlotGroundState.Default);
             }
+
+            unit.StatusInit();
         }
+        gameManager.unitSlotList = unitSlots;
     }
 
+    /// <summary>
+    /// 두 Unit간의 위치를 변경합니다. 이 경우 모든 Unit의 Ground가 Normal상태로 변경됩니다.
+    /// </summary>
+    /// <param name="moveUnitNum"></param>
+    /// <param name="targetUnitNum"></param>
     public void MoveUnit(int moveUnitNum, int targetUnitNum)
     {
         if (isMoving || unitSlots[moveUnitNum] == null || unitSlots[targetUnitNum] == null)
@@ -90,7 +102,6 @@ public class UnitSlotGroupController : MonoBehaviour
 
     }
 
-
     public void DirectMoveUnit(bool rightMove)
     {
         int moveTargetUnitNum = currentSlotNum;
@@ -122,4 +133,22 @@ public class UnitSlotGroupController : MonoBehaviour
         }
     }
 
+    public void EnemyUnitInit(List<UnitState> enemyUnitSlots)
+    {
+        int endNum = unitSlots.Count - 1;
+
+        for (int i = 0; i < enemyUnitSlots.Count; i++)
+        {
+            unitSlots[endNum - i].ChangeUnit(enemyUnitSlots[i], 2);
+        }
+    }
+    public void PlayerUnitInit(List<UnitState> playerUnitSlots)
+    {
+        int startNum = 0;
+
+        for (int i = 0; i < playerUnitSlots.Count; i++)
+        {
+            unitSlots[startNum + i].ChangeUnit(playerUnitSlots[i], 1);
+        }
+    }
 }

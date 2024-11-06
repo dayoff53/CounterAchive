@@ -102,7 +102,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1886738584107986508}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.012668628}
+  m_LocalPosition: {x: 0, y: 0, z: 6.8630125e+11}
   m_LocalScale: {x: 0.01, y: 0.01, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -136,7 +136,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &3675662250351457194
 MonoBehaviour:
@@ -303,23 +303,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitFieldController: {fileID: 0}
+  isNull: 0
   unitTeam: 0
   slotNum: 0
-  unitData: {fileID: 11400000, guid: 462dae7ef769d324191a41d0373ebd46, type: 2}
+  unitState:
+    defaultUnitData: {fileID: 0}
+    unitNumber: 0
+    name: Null
+    hp: 0
+    atk: 0
+    speed: 1
+    actionPoint: 0
+    skillNumberList: 
   sprite: {fileID: 2403760010731243618}
   unitAnimator: {fileID: 7329935102176465964}
   hpPointBar: {fileID: 5108306873563217979}
   actionPointBar: {fileID: 1670624977117066652}
-  currentTargetIcon: {fileID: 4209229162616489179}
-  slotGroundSpriteController: {fileID: 3703163220768527653}
+  slotGround: {fileID: 3703163220768527653}
   unitName: 
   unitFaceIcon: {fileID: 0}
+  unitSpriteRenderer: {fileID: 2403760010731243618}
+  unitAnim: {fileID: 7329935102176465964}
   maxHp: 0
   atk: 0
   maxActionPoint: 100
   _currentActionPoint: 0
   speed: 0
-  skillDatas: []
+  skillNumberList: 
 --- !u!1 &4209229162616489179
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +416,7 @@ GameObject:
   - component: {fileID: 5141935388629231591}
   - component: {fileID: 2403760010731243618}
   - component: {fileID: 7329935102176465964}
+  - component: {fileID: 8843243958950859966}
   m_Layer: 0
   m_Name: UnitCharactorSprite
   m_TagString: Untagged
@@ -422,7 +433,7 @@ Transform:
   m_GameObject: {fileID: 4226160541668245583}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -469,15 +480,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 699372828, guid: a13c61be91610f64ba7eb8ee8015e306, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.4, y: 6.4}
+  m_Size: {x: 0.42, y: 0.69}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &7329935102176465964
@@ -490,7 +501,7 @@ Animator:
   m_GameObject: {fileID: 4226160541668245583}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 76bf88905059f7041adbe6da32e191e7, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -501,6 +512,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8843243958950859966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4226160541668245583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cdfe96823191ee47afea3340c961f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7633003348604275864
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,7 +627,7 @@ Transform:
   m_GameObject: {fileID: 7893774166946870718}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.4000001, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -656,7 +679,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.4, y: 6.4}
+  m_Size: {x: 2.64, y: 8.72}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -677,7 +700,7 @@ MonoBehaviour:
   unitSlot: {fileID: 8541648543857941464}
   _slotGroundState: 0
   groundSpriteRenderer: {fileID: 82961109543747887}
-  groundSprite:
+  groundSpriteList:
   - {fileID: 21300000, guid: ab68290aed2a54d4ca1454f62402bb37, type: 3}
   - {fileID: 21300000, guid: 92fd76ca36d59be408ec6102c2d2aead, type: 3}
   - {fileID: 21300000, guid: fa44bf8637957c64fab2929c9d2d5e43, type: 3}
@@ -718,7 +741,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2.64, y: 8.72}
-    newSize: {x: 6.4, y: 6.4}
+    newSize: {x: 2.64, y: 8.72}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
