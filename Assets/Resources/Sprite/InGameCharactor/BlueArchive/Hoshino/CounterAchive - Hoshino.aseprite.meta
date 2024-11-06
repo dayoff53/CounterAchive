@@ -123,15 +123,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: CounterAchive - Hoshino_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.6, y: -0.9545455}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 90
       y: 4
-      width: 128
-      height: 128
+      width: 30
+      height: 44
     spriteID: 14ce6f4a9af18994382f441e86f04eb7
     spriteBone: []
     spriteOutline: []
@@ -140,18 +140,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 90, y: 4}
   - name: CounterAchive - Hoshino_Frame_10
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.58064514, y: -0.9545455}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 140
-      width: 128
-      height: 128
+      x: 46
+      y: 311
+      width: 31
+      height: 44
     spriteID: 6fb8445ad9e783d4492b1ad07d89ef75
     spriteBone: []
     spriteOutline: []
@@ -160,18 +160,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 140}
+    uvTransform: {x: 46, y: 311}
   - name: CounterAchive - Hoshino_Frame_11
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.6, y: -0.9767442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 276
-      width: 128
-      height: 128
+      x: 90
+      y: 108
+      width: 30
+      height: 43
     spriteID: ba734e39883ec2e4d8a2d30f8d647f46
     spriteBone: []
     spriteOutline: []
@@ -180,18 +180,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 276}
+    uvTransform: {x: 90, y: 108}
   - name: CounterAchive - Hoshino_Frame_12
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5925926, y: -0.9767442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 412
-      width: 128
-      height: 128
+      x: 128
+      y: 262
+      width: 27
+      height: 43
     spriteID: b9c630f5bf6aded46ba51782ebbc0392
     spriteBone: []
     spriteOutline: []
@@ -200,18 +200,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 412}
+    uvTransform: {x: 128, y: 262}
   - name: CounterAchive - Hoshino_Frame_13
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.60714287, y: -0.9767442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 548
-      width: 128
-      height: 128
+      x: 128
+      y: 159
+      width: 28
+      height: 43
     spriteID: 6e739749bf8118a4cac43ff7edc4b328
     spriteBone: []
     spriteOutline: []
@@ -220,18 +220,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 548}
+    uvTransform: {x: 128, y: 159}
   - name: CounterAchive - Hoshino_Frame_14
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.61538464, y: -0.9767442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 684
-      width: 128
-      height: 128
+      x: 128
+      y: 313
+      width: 26
+      height: 43
     spriteID: 64a321fdb94f1674bbd626737c06f13d
     spriteBone: []
     spriteOutline: []
@@ -240,18 +240,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 684}
+    uvTransform: {x: 128, y: 313}
   - name: CounterAchive - Hoshino_Frame_15
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5925926, y: -0.9545455}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 820
-      width: 128
-      height: 128
+      x: 128
+      y: 210
+      width: 27
+      height: 44
     spriteID: 9e81f550a6950574ba143d3647b26140
     spriteBone: []
     spriteOutline: []
@@ -260,18 +260,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 820}
+    uvTransform: {x: 128, y: 210}
   - name: CounterAchive - Hoshino_Frame_16
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5862069, y: -0.9545455}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 140
-      y: 4
-      width: 128
-      height: 128
+      x: 90
+      y: 363
+      width: 29
+      height: 44
     spriteID: 15026ae7cd87728459ce7d7ca8877315
     spriteBone: []
     spriteOutline: []
@@ -280,18 +280,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 140, y: 4}
+    uvTransform: {x: 90, y: 363}
   - name: CounterAchive - Hoshino_Frame_17
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.60714287, y: -0.9545455}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 140
-      y: 140
-      width: 128
-      height: 128
+      x: 128
+      y: 55
+      width: 28
+      height: 44
     spriteID: ae7d7222a89374a4787c3702c2f2337f
     spriteBone: []
     spriteOutline: []
@@ -300,18 +300,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 140, y: 140}
+    uvTransform: {x: 128, y: 55}
   - name: CounterAchive - Hoshino_Frame_18
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.60714287, y: -0.9545455}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 140
-      y: 276
-      width: 128
-      height: 128
+      x: 128
+      y: 107
+      width: 28
+      height: 44
     spriteID: aa3a57787aa9ca34aa1a3b6dbe4d5822
     spriteBone: []
     spriteOutline: []
@@ -320,18 +320,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 140, y: 276}
+    uvTransform: {x: 128, y: 107}
   - name: CounterAchive - Hoshino_Frame_19
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.6, y: -0.9767442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 140
-      y: 412
-      width: 128
-      height: 128
+      x: 90
+      y: 159
+      width: 30
+      height: 43
     spriteID: d9470cdb3d4063047a64cbb9de05aa7a
     spriteBone: []
     spriteOutline: []
@@ -340,18 +340,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 140, y: 412}
+    uvTransform: {x: 90, y: 159}
   - name: CounterAchive - Hoshino_Frame_20
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5666667, y: -0.9767442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 140
-      y: 548
-      width: 128
-      height: 128
+      x: 90
+      y: 210
+      width: 30
+      height: 43
     spriteID: c4be7541d84fa3c478cf42abfc8f7f7f
     spriteBone: []
     spriteOutline: []
@@ -360,18 +360,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 140, y: 548}
+    uvTransform: {x: 90, y: 210}
   - name: CounterAchive - Hoshino_Frame_21
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.55172414, y: -0.9767442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 140
-      y: 684
-      width: 128
-      height: 128
+      x: 90
+      y: 415
+      width: 29
+      height: 43
     spriteID: 50b961a5dd06c414e92ed3ff694146a7
     spriteBone: []
     spriteOutline: []
@@ -380,18 +380,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 140, y: 684}
+    uvTransform: {x: 90, y: 415}
   - name: CounterAchive - Hoshino_Frame_22
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.48387095, y: -0.9767442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 140
-      y: 820
-      width: 128
-      height: 128
+      x: 46
+      y: 363
+      width: 31
+      height: 43
     spriteID: 9360e2ec72fd7164e9f94c163720267f
     spriteBone: []
     spriteOutline: []
@@ -400,18 +400,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 140, y: 820}
+    uvTransform: {x: 46, y: 363}
   - name: CounterAchive - Hoshino_Frame_23
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.46875, y: -0.9767442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 276
-      y: 4
-      width: 128
-      height: 128
+      x: 46
+      y: 209
+      width: 32
+      height: 43
     spriteID: 2b75b8a6afca5d341a4672fd70c4ab88
     spriteBone: []
     spriteOutline: []
@@ -420,18 +420,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 276, y: 4}
+    uvTransform: {x: 46, y: 209}
   - name: CounterAchive - Hoshino_Frame_24
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.48387095, y: -0.9767442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 276
-      y: 140
-      width: 128
-      height: 128
+      x: 46
+      y: 414
+      width: 31
+      height: 43
     spriteID: 69a581a7d73856e409e8119cf54e7651
     spriteBone: []
     spriteOutline: []
@@ -440,18 +440,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 276, y: 140}
+    uvTransform: {x: 46, y: 414}
   - name: CounterAchive - Hoshino_Frame_25
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.4848485, y: -0.9767442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 276
-      y: 276
-      width: 128
-      height: 128
+      x: 4
+      y: 460
+      width: 33
+      height: 43
     spriteID: 130b0d9a29e0d17438e01a2ac814a754
     spriteBone: []
     spriteOutline: []
@@ -460,18 +460,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 276, y: 276}
+    uvTransform: {x: 4, y: 460}
   - name: CounterAchive - Hoshino_Frame_26
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.9767442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 276
-      y: 412
-      width: 128
-      height: 128
+      x: 4
+      y: 158
+      width: 34
+      height: 43
     spriteID: 293b07e1a69cf3e48b88ee8cd06e6d2a
     spriteBone: []
     spriteOutline: []
@@ -480,18 +480,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 276, y: 412}
+    uvTransform: {x: 4, y: 158}
   - name: CounterAchive - Hoshino_Frame_27
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.47058824, y: -1}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 276
-      y: 548
-      width: 128
-      height: 128
+      x: 4
+      y: 260
+      width: 34
+      height: 42
     spriteID: a6e9cb2d50541664ca9f1a9343289d7b
     spriteBone: []
     spriteOutline: []
@@ -500,18 +500,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 276, y: 548}
+    uvTransform: {x: 4, y: 260}
   - name: CounterAchive - Hoshino_Frame_29
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.47058824, y: -1}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 276
-      y: 684
-      width: 128
-      height: 128
+      x: 4
+      y: 310
+      width: 34
+      height: 42
     spriteID: 971ca6798575dd64cb8f8e31696659bb
     spriteBone: []
     spriteOutline: []
@@ -520,18 +520,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 276, y: 684}
+    uvTransform: {x: 4, y: 310}
   - name: CounterAchive - Hoshino_Frame_30
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.24358974, y: -0.9545455}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 276
-      y: 820
-      width: 128
-      height: 128
+      x: 4
+      y: 4
+      width: 78
+      height: 44
     spriteID: 0fa2cb6eccb64bd4983ec727809a6a32
     spriteBone: []
     spriteOutline: []
@@ -540,18 +540,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 276, y: 820}
+    uvTransform: {x: 4, y: 4}
   - name: CounterAchive - Hoshino_Frame_31
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.21794872, y: -0.9545455}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 412
-      y: 4
-      width: 128
-      height: 128
+      x: 4
+      y: 56
+      width: 78
+      height: 44
     spriteID: b3cce081f1a30364286b547681f91f6e
     spriteBone: []
     spriteOutline: []
@@ -560,18 +560,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 412, y: 4}
+    uvTransform: {x: 4, y: 56}
   - name: CounterAchive - Hoshino_Frame_32
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.19480519, y: -1}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 412
-      y: 140
-      width: 128
-      height: 128
+      x: 4
+      y: 108
+      width: 77
+      height: 42
     spriteID: 3f1b40e24a3bc6049841fdbd36a3ffe9
     spriteBone: []
     spriteOutline: []
@@ -580,18 +580,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 412, y: 140}
+    uvTransform: {x: 4, y: 108}
   - name: CounterAchive - Hoshino_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.47058824, y: -1}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 412
-      y: 276
-      width: 128
-      height: 128
+      x: 4
+      y: 360
+      width: 34
+      height: 42
     spriteID: a5a2b98def025b945ab4d88436fb5bbb
     spriteBone: []
     spriteOutline: []
@@ -600,18 +600,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 412, y: 276}
+    uvTransform: {x: 4, y: 360}
   - name: CounterAchive - Hoshino_Frame_2
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.47058824, y: -1}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 412
-      y: 412
-      width: 128
-      height: 128
+      x: 4
+      y: 410
+      width: 34
+      height: 42
     spriteID: 27150f3586c2f3145918fa4c8002c2bd
     spriteBone: []
     spriteOutline: []
@@ -620,18 +620,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 412, y: 412}
+    uvTransform: {x: 4, y: 410}
   - name: CounterAchive - Hoshino_Frame_3
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.9767442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 412
-      y: 548
-      width: 128
-      height: 128
+      x: 4
+      y: 209
+      width: 34
+      height: 43
     spriteID: 5711c74191c58c041ad51305adb34c71
     spriteBone: []
     spriteOutline: []
@@ -640,18 +640,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 412, y: 548}
+    uvTransform: {x: 4, y: 209}
   - name: CounterAchive - Hoshino_Frame_4
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.4848485, y: -0.9767442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 412
-      y: 684
-      width: 128
-      height: 128
+      x: 46
+      y: 158
+      width: 33
+      height: 43
     spriteID: d074494100f53574c91fc933be8af604
     spriteBone: []
     spriteOutline: []
@@ -660,18 +660,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 412, y: 684}
+    uvTransform: {x: 46, y: 158}
   - name: CounterAchive - Hoshino_Frame_5
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.46875, y: -0.9767442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 412
-      y: 820
-      width: 128
-      height: 128
+      x: 46
+      y: 260
+      width: 32
+      height: 43
     spriteID: 11e1f5874326f3b438ed0a32acc2f14a
     spriteBone: []
     spriteOutline: []
@@ -680,18 +680,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 412, y: 820}
+    uvTransform: {x: 46, y: 260}
   - name: CounterAchive - Hoshino_Frame_6
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.55172414, y: -0.9767442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 548
+      x: 128
       y: 4
-      width: 128
-      height: 128
+      width: 29
+      height: 43
     spriteID: 363655e78a10d1f479aa7f36a1631473
     spriteBone: []
     spriteOutline: []
@@ -700,18 +700,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 548, y: 4}
+    uvTransform: {x: 128, y: 4}
   - name: CounterAchive - Hoshino_Frame_7
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5666667, y: -0.9767442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 548
-      y: 140
-      width: 128
-      height: 128
+      x: 90
+      y: 261
+      width: 30
+      height: 43
     spriteID: 6df65005172356f4dad2964157c55379
     spriteBone: []
     spriteOutline: []
@@ -720,18 +720,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 548, y: 140}
+    uvTransform: {x: 90, y: 261}
   - name: CounterAchive - Hoshino_Frame_8
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.6, y: -0.9767442}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 548
-      y: 276
-      width: 128
-      height: 128
+      x: 90
+      y: 312
+      width: 30
+      height: 43
     spriteID: 66008a937ce51e246b3a58fd33277ac3
     spriteBone: []
     spriteOutline: []
@@ -740,18 +740,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 548, y: 276}
+    uvTransform: {x: 90, y: 312}
   - name: CounterAchive - Hoshino_Frame_9
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.6, y: -0.9545455}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 548
-      y: 412
-      width: 128
-      height: 128
+      x: 90
+      y: 56
+      width: 30
+      height: 44
     spriteID: 388cac5ad754e2445a001c06fc8fcbfd
     spriteBone: []
     spriteOutline: []
@@ -760,18 +760,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 548, y: 412}
+    uvTransform: {x: 90, y: 56}
   - name: CounterAchive - Hoshino_Frame_28
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.3030303, y: -1.0500001}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 548
-      y: 548
-      width: 128
-      height: 128
+      x: 46
+      y: 465
+      width: 33
+      height: 40
     spriteID: 38d1dbba3d000fc4aaa5d4131b848ccf
     spriteBone: []
     spriteOutline: []
@@ -780,7 +780,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 548, y: 548}
+    uvTransform: {x: 46, y: 465}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -793,266 +793,266 @@ ScriptedImporter:
     - name: CounterAchive - Hoshino_Frame_0
       frameIndex: 0
       cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
+        x: 46
+        y: 42
+        width: 30
+        height: 44
       spriteId: 14ce6f4a9af18994382f441e86f04eb7
-    - name: CounterAchive - Hoshino_Frame_10
-      frameIndex: 10
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 6fb8445ad9e783d4492b1ad07d89ef75
-    - name: CounterAchive - Hoshino_Frame_11
-      frameIndex: 11
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: ba734e39883ec2e4d8a2d30f8d647f46
-    - name: CounterAchive - Hoshino_Frame_12
-      frameIndex: 12
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: b9c630f5bf6aded46ba51782ebbc0392
-    - name: CounterAchive - Hoshino_Frame_13
-      frameIndex: 13
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 6e739749bf8118a4cac43ff7edc4b328
-    - name: CounterAchive - Hoshino_Frame_14
-      frameIndex: 14
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 64a321fdb94f1674bbd626737c06f13d
-    - name: CounterAchive - Hoshino_Frame_15
-      frameIndex: 15
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 9e81f550a6950574ba143d3647b26140
-    - name: CounterAchive - Hoshino_Frame_16
-      frameIndex: 16
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 15026ae7cd87728459ce7d7ca8877315
-    - name: CounterAchive - Hoshino_Frame_17
-      frameIndex: 17
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: ae7d7222a89374a4787c3702c2f2337f
-    - name: CounterAchive - Hoshino_Frame_18
-      frameIndex: 18
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: aa3a57787aa9ca34aa1a3b6dbe4d5822
-    - name: CounterAchive - Hoshino_Frame_19
-      frameIndex: 19
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: d9470cdb3d4063047a64cbb9de05aa7a
-    - name: CounterAchive - Hoshino_Frame_20
-      frameIndex: 20
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: c4be7541d84fa3c478cf42abfc8f7f7f
-    - name: CounterAchive - Hoshino_Frame_21
-      frameIndex: 21
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 50b961a5dd06c414e92ed3ff694146a7
-    - name: CounterAchive - Hoshino_Frame_22
-      frameIndex: 22
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 9360e2ec72fd7164e9f94c163720267f
-    - name: CounterAchive - Hoshino_Frame_23
-      frameIndex: 23
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 2b75b8a6afca5d341a4672fd70c4ab88
-    - name: CounterAchive - Hoshino_Frame_24
-      frameIndex: 24
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 69a581a7d73856e409e8119cf54e7651
-    - name: CounterAchive - Hoshino_Frame_25
-      frameIndex: 25
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 130b0d9a29e0d17438e01a2ac814a754
-    - name: CounterAchive - Hoshino_Frame_26
-      frameIndex: 26
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 293b07e1a69cf3e48b88ee8cd06e6d2a
-    - name: CounterAchive - Hoshino_Frame_27
-      frameIndex: 27
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: a6e9cb2d50541664ca9f1a9343289d7b
-    - name: CounterAchive - Hoshino_Frame_29
-      frameIndex: 29
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 971ca6798575dd64cb8f8e31696659bb
-    - name: CounterAchive - Hoshino_Frame_30
-      frameIndex: 30
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 0fa2cb6eccb64bd4983ec727809a6a32
-    - name: CounterAchive - Hoshino_Frame_31
-      frameIndex: 31
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: b3cce081f1a30364286b547681f91f6e
-    - name: CounterAchive - Hoshino_Frame_32
-      frameIndex: 32
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 3f1b40e24a3bc6049841fdbd36a3ffe9
     - name: CounterAchive - Hoshino_Frame_1
       frameIndex: 1
       cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: a5a2b98def025b945ab4d88436fb5bbb
+        x: 46
+        y: 42
+        width: 31
+        height: 44
+      spriteId: 6fb8445ad9e783d4492b1ad07d89ef75
     - name: CounterAchive - Hoshino_Frame_2
       frameIndex: 2
       cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 27150f3586c2f3145918fa4c8002c2bd
+        x: 46
+        y: 42
+        width: 30
+        height: 43
+      spriteId: ba734e39883ec2e4d8a2d30f8d647f46
     - name: CounterAchive - Hoshino_Frame_3
       frameIndex: 3
       cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 5711c74191c58c041ad51305adb34c71
+        x: 48
+        y: 42
+        width: 27
+        height: 43
+      spriteId: b9c630f5bf6aded46ba51782ebbc0392
     - name: CounterAchive - Hoshino_Frame_4
       frameIndex: 4
       cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: d074494100f53574c91fc933be8af604
+        x: 47
+        y: 42
+        width: 28
+        height: 43
+      spriteId: 6e739749bf8118a4cac43ff7edc4b328
     - name: CounterAchive - Hoshino_Frame_5
       frameIndex: 5
       cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 11e1f5874326f3b438ed0a32acc2f14a
+        x: 48
+        y: 42
+        width: 26
+        height: 43
+      spriteId: 64a321fdb94f1674bbd626737c06f13d
     - name: CounterAchive - Hoshino_Frame_6
       frameIndex: 6
       cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 363655e78a10d1f479aa7f36a1631473
+        x: 48
+        y: 42
+        width: 27
+        height: 44
+      spriteId: 9e81f550a6950574ba143d3647b26140
     - name: CounterAchive - Hoshino_Frame_7
       frameIndex: 7
       cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 6df65005172356f4dad2964157c55379
+        x: 47
+        y: 42
+        width: 29
+        height: 44
+      spriteId: 15026ae7cd87728459ce7d7ca8877315
     - name: CounterAchive - Hoshino_Frame_8
       frameIndex: 8
       cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 66008a937ce51e246b3a58fd33277ac3
+        x: 47
+        y: 42
+        width: 28
+        height: 44
+      spriteId: ae7d7222a89374a4787c3702c2f2337f
     - name: CounterAchive - Hoshino_Frame_9
       frameIndex: 9
       cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 388cac5ad754e2445a001c06fc8fcbfd
+        x: 47
+        y: 42
+        width: 28
+        height: 44
+      spriteId: aa3a57787aa9ca34aa1a3b6dbe4d5822
+    - name: CounterAchive - Hoshino_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 46
+        y: 42
+        width: 30
+        height: 43
+      spriteId: d9470cdb3d4063047a64cbb9de05aa7a
+    - name: CounterAchive - Hoshino_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 47
+        y: 42
+        width: 30
+        height: 43
+      spriteId: c4be7541d84fa3c478cf42abfc8f7f7f
+    - name: CounterAchive - Hoshino_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 48
+        y: 42
+        width: 29
+        height: 43
+      spriteId: 50b961a5dd06c414e92ed3ff694146a7
+    - name: CounterAchive - Hoshino_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 49
+        y: 42
+        width: 31
+        height: 43
+      spriteId: 9360e2ec72fd7164e9f94c163720267f
+    - name: CounterAchive - Hoshino_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 49
+        y: 42
+        width: 32
+        height: 43
+      spriteId: 2b75b8a6afca5d341a4672fd70c4ab88
+    - name: CounterAchive - Hoshino_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 49
+        y: 42
+        width: 31
+        height: 43
+      spriteId: 69a581a7d73856e409e8119cf54e7651
+    - name: CounterAchive - Hoshino_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 48
+        y: 42
+        width: 33
+        height: 43
+      spriteId: 130b0d9a29e0d17438e01a2ac814a754
+    - name: CounterAchive - Hoshino_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 47
+        y: 42
+        width: 34
+        height: 43
+      spriteId: 293b07e1a69cf3e48b88ee8cd06e6d2a
+    - name: CounterAchive - Hoshino_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 48
+        y: 42
+        width: 34
+        height: 42
+      spriteId: a6e9cb2d50541664ca9f1a9343289d7b
+    - name: CounterAchive - Hoshino_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 48
+        y: 42
+        width: 34
+        height: 42
+      spriteId: 971ca6798575dd64cb8f8e31696659bb
+    - name: CounterAchive - Hoshino_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 45
+        y: 42
+        width: 78
+        height: 44
+      spriteId: 0fa2cb6eccb64bd4983ec727809a6a32
+    - name: CounterAchive - Hoshino_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 47
+        y: 42
+        width: 78
+        height: 44
+      spriteId: b3cce081f1a30364286b547681f91f6e
+    - name: CounterAchive - Hoshino_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 49
+        y: 42
+        width: 77
+        height: 42
+      spriteId: 3f1b40e24a3bc6049841fdbd36a3ffe9
+    - name: CounterAchive - Hoshino_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 48
+        y: 42
+        width: 34
+        height: 42
+      spriteId: a5a2b98def025b945ab4d88436fb5bbb
+    - name: CounterAchive - Hoshino_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 48
+        y: 42
+        width: 34
+        height: 42
+      spriteId: 27150f3586c2f3145918fa4c8002c2bd
+    - name: CounterAchive - Hoshino_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 47
+        y: 42
+        width: 34
+        height: 43
+      spriteId: 5711c74191c58c041ad51305adb34c71
+    - name: CounterAchive - Hoshino_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 48
+        y: 42
+        width: 33
+        height: 43
+      spriteId: d074494100f53574c91fc933be8af604
+    - name: CounterAchive - Hoshino_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 49
+        y: 42
+        width: 32
+        height: 43
+      spriteId: 11e1f5874326f3b438ed0a32acc2f14a
     - name: CounterAchive - Hoshino_Frame_28
       frameIndex: 28
       cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
+        x: 48
+        y: 42
+        width: 29
+        height: 43
+      spriteId: 363655e78a10d1f479aa7f36a1631473
+    - name: CounterAchive - Hoshino_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 47
+        y: 42
+        width: 30
+        height: 43
+      spriteId: 6df65005172356f4dad2964157c55379
+    - name: CounterAchive - Hoshino_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 46
+        y: 42
+        width: 30
+        height: 43
+      spriteId: 66008a937ce51e246b3a58fd33277ac3
+    - name: CounterAchive - Hoshino_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 46
+        y: 42
+        width: 30
+        height: 44
+      spriteId: 388cac5ad754e2445a001c06fc8fcbfd
+    - name: CounterAchive - Hoshino_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 54
+        y: 42
+        width: 33
+        height: 40
       spriteId: 38d1dbba3d000fc4aaa5d4131b848ccf
     linkedCells: []
     parentIndex: -1

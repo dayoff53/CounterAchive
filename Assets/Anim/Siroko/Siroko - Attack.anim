@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack - Siroko
+  m_Name: Siroko - Attack
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -127,14 +127,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.6
+  - time: 0.4
     functionName: SkillHit
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.2
+  - time: 2
     functionName: SkillEnd
     data: 
     objectReferenceParameter: {fileID: 0}

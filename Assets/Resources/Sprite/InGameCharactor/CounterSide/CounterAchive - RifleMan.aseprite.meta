@@ -1,0 +1,867 @@
+fileFormatVersion: 2
+guid: 8eea014ebe34d8e469611d25332f08ee
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: CounterAchive - RifleMan_Frame_0
+    originalName: 
+    pivot: {x: 0.34285715, y: -0.93333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 220
+      width: 35
+      height: 45
+    spriteID: 9ac1aec7e2e7d9e41993a3d99b1407bf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 220}
+  - name: CounterAchive - RifleMan_Frame_1
+    originalName: 
+    pivot: {x: 0.34285715, y: -0.93333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 273
+      width: 35
+      height: 45
+    spriteID: 45fd481f2810fee43b43b199d169face
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 273}
+  - name: CounterAchive - RifleMan_Frame_2
+    originalName: 
+    pivot: {x: 0.34285715, y: -0.93333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 326
+      width: 35
+      height: 45
+    spriteID: f1cc6f769c42c3842bbaf9ede7e3da5d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 326}
+  - name: CounterAchive - RifleMan_Frame_3
+    originalName: 
+    pivot: {x: 0.34285715, y: -0.9130435}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 4
+      width: 35
+      height: 46
+    spriteID: 92ff4c982a748b54296618de901dc5a2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 4}
+  - name: CounterAchive - RifleMan_Frame_4
+    originalName: 
+    pivot: {x: 0.34285715, y: -0.9130435}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 58
+      width: 35
+      height: 46
+    spriteID: 0eeaabe0285b40c41bd5c53c3ff84e86
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 58}
+  - name: CounterAchive - RifleMan_Frame_5
+    originalName: 
+    pivot: {x: 0.34285715, y: -0.9130435}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 112
+      width: 35
+      height: 46
+    spriteID: ec464e0ddab4b1e4ab35dd7bab34bbc9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 112}
+  - name: CounterAchive - RifleMan_Frame_6
+    originalName: 
+    pivot: {x: 0.34285715, y: -0.9130435}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 166
+      width: 35
+      height: 46
+    spriteID: 74b95b29c4dcad74ca455f66cfe1a328
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 166}
+  - name: CounterAchive - RifleMan_Frame_7
+    originalName: 
+    pivot: {x: 0.34285715, y: -0.93333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 379
+      width: 35
+      height: 45
+    spriteID: 40b6cfa2150b91641b1f34f47650c383
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 379}
+  - name: CounterAchive - RifleMan_Frame_8
+    originalName: 
+    pivot: {x: 0.34285715, y: -0.93333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 76
+      y: 432
+      width: 35
+      height: 45
+    spriteID: 15faf60847388764bae9233259d52193
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 76, y: 432}
+  - name: CounterAchive - RifleMan_Frame_9
+    originalName: 
+    pivot: {x: 0.34285715, y: -0.93333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 119
+      y: 159
+      width: 35
+      height: 45
+    spriteID: 9de39fc22eccf8a4493c2b62b7eef2cc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 119, y: 159}
+  - name: CounterAchive - RifleMan_Frame_10
+    originalName: 
+    pivot: {x: 0.33333334, y: -0.9545455}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 119
+      y: 55
+      width: 36
+      height: 44
+    spriteID: 6ba14c3b5dffbb043b500328aa27f260
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 119, y: 55}
+  - name: CounterAchive - RifleMan_Frame_11
+    originalName: 
+    pivot: {x: 0.32432434, y: -0.9545455}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 412
+      width: 37
+      height: 44
+    spriteID: 00ec752fbab66674dbae30675e86a359
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 412}
+  - name: CounterAchive - RifleMan_Frame_12
+    originalName: 
+    pivot: {x: 0.31578946, y: -0.9767442}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 259
+      width: 38
+      height: 43
+    spriteID: 7cb6071c0728e19499f838b8442d816d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 259}
+  - name: CounterAchive - RifleMan_Frame_13
+    originalName: 
+    pivot: {x: 0.31578946, y: -0.9767442}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 310
+      width: 38
+      height: 43
+    spriteID: 4fd9bbb55da98a547a8747f279a7f36c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 310}
+  - name: CounterAchive - RifleMan_Frame_14
+    originalName: 
+    pivot: {x: 0.1967213, y: -0.9767442}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 106
+      width: 61
+      height: 43
+    spriteID: e9e46b643e311a3448b28552171db442
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 106}
+  - name: CounterAchive - RifleMan_Frame_15
+    originalName: 
+    pivot: {x: 0.20338982, y: -0.9767442}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 157
+      width: 59
+      height: 43
+    spriteID: bafc8dadb4b62794da06aa940375b37c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 157}
+  - name: CounterAchive - RifleMan_Frame_16
+    originalName: 
+    pivot: {x: 0.21052632, y: -0.9767442}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 208
+      width: 57
+      height: 43
+    spriteID: 07de6b6c2e5152846b67e78cd4ad92d3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 208}
+  - name: CounterAchive - RifleMan_Frame_17
+    originalName: 
+    pivot: {x: 0.1875, y: -0.9767442}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 64
+      height: 43
+    spriteID: 897d4a9072b2a844cbbbe52c4bdb80e7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: CounterAchive - RifleMan_Frame_18
+    originalName: 
+    pivot: {x: 0.19354838, y: -0.9767442}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 55
+      width: 62
+      height: 43
+    spriteID: ef2d8250e5694a64696470dafb67e156
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 55}
+  - name: CounterAchive - RifleMan_Frame_19
+    originalName: 
+    pivot: {x: 0.32432434, y: -0.9767442}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 119
+      y: 4
+      width: 37
+      height: 43
+    spriteID: 7433cc7cba85df34bb02c82eb32ee4bf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 119, y: 4}
+  - name: CounterAchive - RifleMan_Frame_20
+    originalName: 
+    pivot: {x: 0.31578946, y: -0.9767442}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 361
+      width: 38
+      height: 43
+    spriteID: a4f231d93317b804ea04baa98bc3dc3b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 361}
+  - name: CounterAchive - RifleMan_Frame_21
+    originalName: 
+    pivot: {x: 0.32432434, y: -0.9545455}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 464
+      width: 37
+      height: 44
+    spriteID: 768de68a8302e5e45b3e74d9d9a0731b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 464}
+  - name: CounterAchive - RifleMan_Frame_22
+    originalName: 
+    pivot: {x: 0.33333334, y: -0.9545455}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 119
+      y: 107
+      width: 36
+      height: 44
+    spriteID: 076eb995a1f741b4b8d0facc51563a9c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 119, y: 107}
+  - name: CounterAchive - RifleMan_Frame_23
+    originalName: 
+    pivot: {x: 0.34285715, y: -0.93333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 119
+      y: 212
+      width: 35
+      height: 45
+    spriteID: 23ef2ac6479b47c44a6e30f6983dc2a0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 119, y: 212}
+  - name: CounterAchive - RifleMan_Frame_24
+    originalName: 
+    pivot: {x: 0.34285715, y: -0.93333334}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 119
+      y: 265
+      width: 35
+      height: 45
+    spriteID: e9b0b0ed7d9972f4f9f3d47eb3f49cbb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 119, y: 265}
+  - name: CounterAchive - RifleMan_Frame_25
+    originalName: 
+    pivot: {x: 0.42307693, y: -1}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 119
+      y: 318
+      width: 26
+      height: 42
+    spriteID: c21bda4179eac2f43a913fa0c85ead8c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 119, y: 318}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -2085423629
+    name: CounterAchive - RifleMan
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: CounterAchive - RifleMan_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 52
+        y: 42
+        width: 35
+        height: 45
+      spriteId: 9ac1aec7e2e7d9e41993a3d99b1407bf
+    - name: CounterAchive - RifleMan_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 52
+        y: 42
+        width: 35
+        height: 45
+      spriteId: 45fd481f2810fee43b43b199d169face
+    - name: CounterAchive - RifleMan_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 52
+        y: 42
+        width: 35
+        height: 45
+      spriteId: f1cc6f769c42c3842bbaf9ede7e3da5d
+    - name: CounterAchive - RifleMan_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 52
+        y: 42
+        width: 35
+        height: 46
+      spriteId: 92ff4c982a748b54296618de901dc5a2
+    - name: CounterAchive - RifleMan_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 52
+        y: 42
+        width: 35
+        height: 46
+      spriteId: 0eeaabe0285b40c41bd5c53c3ff84e86
+    - name: CounterAchive - RifleMan_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 52
+        y: 42
+        width: 35
+        height: 46
+      spriteId: ec464e0ddab4b1e4ab35dd7bab34bbc9
+    - name: CounterAchive - RifleMan_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 52
+        y: 42
+        width: 35
+        height: 46
+      spriteId: 74b95b29c4dcad74ca455f66cfe1a328
+    - name: CounterAchive - RifleMan_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 52
+        y: 42
+        width: 35
+        height: 45
+      spriteId: 40b6cfa2150b91641b1f34f47650c383
+    - name: CounterAchive - RifleMan_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 52
+        y: 42
+        width: 35
+        height: 45
+      spriteId: 15faf60847388764bae9233259d52193
+    - name: CounterAchive - RifleMan_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 52
+        y: 42
+        width: 35
+        height: 45
+      spriteId: 9de39fc22eccf8a4493c2b62b7eef2cc
+    - name: CounterAchive - RifleMan_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 52
+        y: 42
+        width: 36
+        height: 44
+      spriteId: 6ba14c3b5dffbb043b500328aa27f260
+    - name: CounterAchive - RifleMan_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 52
+        y: 42
+        width: 37
+        height: 44
+      spriteId: 00ec752fbab66674dbae30675e86a359
+    - name: CounterAchive - RifleMan_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 52
+        y: 42
+        width: 38
+        height: 43
+      spriteId: 7cb6071c0728e19499f838b8442d816d
+    - name: CounterAchive - RifleMan_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 52
+        y: 42
+        width: 38
+        height: 43
+      spriteId: 4fd9bbb55da98a547a8747f279a7f36c
+    - name: CounterAchive - RifleMan_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 52
+        y: 42
+        width: 61
+        height: 43
+      spriteId: e9e46b643e311a3448b28552171db442
+    - name: CounterAchive - RifleMan_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 52
+        y: 42
+        width: 59
+        height: 43
+      spriteId: bafc8dadb4b62794da06aa940375b37c
+    - name: CounterAchive - RifleMan_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 52
+        y: 42
+        width: 57
+        height: 43
+      spriteId: 07de6b6c2e5152846b67e78cd4ad92d3
+    - name: CounterAchive - RifleMan_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 52
+        y: 42
+        width: 64
+        height: 43
+      spriteId: 897d4a9072b2a844cbbbe52c4bdb80e7
+    - name: CounterAchive - RifleMan_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 52
+        y: 42
+        width: 62
+        height: 43
+      spriteId: ef2d8250e5694a64696470dafb67e156
+    - name: CounterAchive - RifleMan_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 52
+        y: 42
+        width: 37
+        height: 43
+      spriteId: 7433cc7cba85df34bb02c82eb32ee4bf
+    - name: CounterAchive - RifleMan_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 52
+        y: 42
+        width: 38
+        height: 43
+      spriteId: a4f231d93317b804ea04baa98bc3dc3b
+    - name: CounterAchive - RifleMan_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 52
+        y: 42
+        width: 37
+        height: 44
+      spriteId: 768de68a8302e5e45b3e74d9d9a0731b
+    - name: CounterAchive - RifleMan_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 52
+        y: 42
+        width: 36
+        height: 44
+      spriteId: 076eb995a1f741b4b8d0facc51563a9c
+    - name: CounterAchive - RifleMan_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 52
+        y: 42
+        width: 35
+        height: 45
+      spriteId: 23ef2ac6479b47c44a6e30f6983dc2a0
+    - name: CounterAchive - RifleMan_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 52
+        y: 42
+        width: 35
+        height: 45
+      spriteId: e9b0b0ed7d9972f4f9f3d47eb3f49cbb
+    - name: CounterAchive - RifleMan_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 53
+        y: 42
+        width: 26
+        height: 42
+      spriteId: c21bda4179eac2f43a913fa0c85ead8c
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 128, y: 128}
