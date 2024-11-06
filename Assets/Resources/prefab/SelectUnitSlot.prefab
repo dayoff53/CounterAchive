@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6316461839593045024}
   - component: {fileID: 624252412736438999}
   m_Layer: 5
-  m_Name: UnitSelectSlot
+  m_Name: SelectUnitSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 300}
+  m_SizeDelta: {x: 200, y: 325}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &7555963546928705313
 CanvasRenderer:
@@ -134,8 +134,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e549aa9bf0893d46971dfa877b068ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitData: {fileID: 11400000, guid: 462dae7ef769d324191a41d0373ebd46, type: 2}
-  gameManager: {fileID: 0}
+  unitState:
+    defaultUnitData: {fileID: 0}
+    unitNumber: 0
+    name: Null
+    hp: 0
+    atk: 0
+    speed: 1
+    actionPoint: 0
+    skillNumberList: 
   unitName: {fileID: 8206483906622795267}
   unitIcon: {fileID: 5627919874428325224}
   subIcons:

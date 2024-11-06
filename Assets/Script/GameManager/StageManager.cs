@@ -12,14 +12,14 @@ public enum ProgressState
     Stay,
     UnitPlay,
 
-    SkillSelect,
+    SkillTargetSearch,
     SkillPlay,
 
     UnitSelect,
     UnitSet
 }
 
-public partial class GameManager : Singleton<GameManager>
+public partial class StageManager : Singleton<StageManager>
 {
     [SerializeField]
     private ProgressState _currentPrograssState = ProgressState.UnitSelect;
@@ -60,8 +60,8 @@ public partial class GameManager : Singleton<GameManager>
     private UnitSlotGroupController unitSlotsController;
 
     [SerializeField]
-    [Tooltip("현재 선택된 유닛 데이터")]
-    public UnitData currentSelectUnitData;
+    [Tooltip("현재 선택된 유닛 스텟")]
+    public UnitState currentSelectUnitState;
 
     [Tooltip("플레이어가 사용 가능한 유닛 슬롯의 카운트")]
     public int playerUseUnitSlotCount;
@@ -70,7 +70,7 @@ public partial class GameManager : Singleton<GameManager>
     public int playerUseUnitSlotRange;
 
     [Tooltip("유닛 슬롯 리스트")]
-    public List<UnitSlotController> unitSlots;
+    public List<UnitSlotController> unitSlotList;
 
     [SerializeField]
     [Tooltip("각 슬롯의 원래 위치를 저장할 딕셔너리")]
@@ -100,7 +100,10 @@ public partial class GameManager : Singleton<GameManager>
     [Header("SkillSlot Data")]
     [SerializeField]
     [Tooltip("스킬 슬롯 리스트")]
-    public List<SkillSlotUIController> skillSlot;
+    /// <summary>
+    /// 스킬 데이터를 플레이어에게 보여주는 UI 슬롯 리스트
+    /// </summary>
+    public List<SkillSlotUIController> skillSlotList;
 
     public int skillTargetNum;
 
@@ -174,8 +177,8 @@ public partial class GameManager : Singleton<GameManager>
     public void SetGame()
     {
         unitSlotsController.UnitSlotsInit();
-        SlotPosInit();
         unitStateColors = unitStateColorsObject.colorStates;
+        SlotPosInit();
 
         UnitSetGame();
     }
@@ -189,15 +192,15 @@ public partial class GameManager : Singleton<GameManager>
         {
             currentPrograssState = ProgressState.UnitSelect;
 
-            for(int i = 0; (i < unitSlots.Count); i++)
+            for(int i = 0; (i < unitSlotList.Count); i++)
             {
-                if (i < playerUseUnitSlotRange && unitSlots[i].isNull == true)
+                if (i < playerUseUnitSlotRange && unitSlotList[i].isNull == true)
                 {
-                    unitSlots[i].unitTeam = 1;
-                    unitSlots[i].slotGround.SetSlotGroundState(SlotGroundState.Target);
+                    unitSlotList[i].unitTeam = 1;
+                    unitSlotList[i].slotGround.SetSlotGroundState(SlotGroundState.Target);
                 } else
                 {
-                    unitSlots[i].slotGround.SetSlotGroundState(SlotGroundState.Default);
+                    unitSlotList[i].slotGround.SetSlotGroundState(SlotGroundState.Default);
                 }
             }
             
@@ -206,14 +209,14 @@ public partial class GameManager : Singleton<GameManager>
         } else
         {
 
-            for (int i = 0; (i < unitSlots.Count); i++)
+            for (int i = 0; (i < unitSlotList.Count); i++)
             {
-                if (unitSlots[i].isNull == true)
+                if (unitSlotList[i].isNull == true)
                 {
-                    unitSlots[i].unitTeam = 0;
+                    unitSlotList[i].unitTeam = 0;
                 }
 
-                unitSlots[i].slotGround.SetSlotGroundState(SlotGroundState.Default);
+                unitSlotList[i].slotGround.SetSlotGroundState(SlotGroundState.Default);
             }
 
             StartGame();
@@ -235,7 +238,7 @@ public partial class GameManager : Singleton<GameManager>
     private void ActionPointsInit()
     {
         currentPrograssState = ProgressState.Stay;
-        foreach (var unit in unitSlots)
+        foreach (var unit in unitSlotList)
         {
             if (unit != null && unit != null)
             {
@@ -254,7 +257,7 @@ public partial class GameManager : Singleton<GameManager>
     /// <param name="damage">적용할 데미지입니다.</param>
     public void ExecuteAttack(float damage)
     {
-        unitSlots[skillTargetNum].currentHp -= damage;
+        unitSlotList[skillTargetNum].currentHp -= damage;
     }
 
     /// <summary>
@@ -263,7 +266,7 @@ public partial class GameManager : Singleton<GameManager>
     /// <param name="damage">적용할 데미지입니다.</param>
     public void ExecuteAttack(int targetNum, float damage)
     {
-        unitSlots[targetNum].currentHp -= damage;
+        unitSlotList[targetNum].currentHp -= damage;
     }
 
     /// <summary>
@@ -274,7 +277,7 @@ public partial class GameManager : Singleton<GameManager>
     {
         for (int i = 0; i < targetNums.Count; i++)
         {
-            unitSlots[i].currentHp -= damage;
+            unitSlotList[i].currentHp -= damage;
         }
     }
 }

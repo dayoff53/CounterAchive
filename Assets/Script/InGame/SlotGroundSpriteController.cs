@@ -30,13 +30,13 @@ public class SlotGroundSpriteController : MonoBehaviour
             switch (value)
             {
                 case SlotGroundState.Default:
-                    groundSpriteRenderer.sprite = groundSprite[0];
+                    groundSpriteRenderer.sprite = groundSpriteList[0];
                     break;
                 case SlotGroundState.Select:
-                    groundSpriteRenderer.sprite = groundSprite[1];
+                    groundSpriteRenderer.sprite = groundSpriteList[1];
                     break;
                 case SlotGroundState.Target:
-                    groundSpriteRenderer.sprite = groundSprite[2];
+                    groundSpriteRenderer.sprite = groundSpriteList[2];
                     break;
             }
         }
@@ -46,14 +46,14 @@ public class SlotGroundSpriteController : MonoBehaviour
     private SpriteRenderer groundSpriteRenderer;
 
     [SerializeField]
-    private List<Sprite> groundSprite;
+    private List<Sprite> groundSpriteList;
 
-    private GameManager gameManager;
+    private StageManager gameManager;
 
 
     private void Start()
     {
-        gameManager = GameManager.Instance;
+        gameManager = StageManager.Instance;
     }
 
     public void SetSlotGroundState(SlotGroundState setSlotGroundState)
@@ -67,7 +67,7 @@ public class SlotGroundSpriteController : MonoBehaviour
     {
         switch(gameManager.currentPrograssState)
         {
-            case ProgressState.SkillSelect:
+            case ProgressState.SkillTargetSearch:
                 if (gameManager.cost >= gameManager.currentSkillSlot.skillData.skillCost)
                 {
                     gameManager.skillTargetNum = unitSlot.slotNum;
@@ -80,9 +80,9 @@ public class SlotGroundSpriteController : MonoBehaviour
                 break;
 
             case ProgressState.UnitSelect:
-                if(unitSlot.isNull == true && gameManager.currentSelectUnitData.unitName != "Null")
+                if(unitSlot.isNull == true && gameManager.currentSelectUnitState.name != "Null" && unitSlot.unitTeam == 1)
                 {
-                    unitSlot.ChangeUnit(gameManager.currentSelectUnitData, 1);
+                    unitSlot.ChangeUnit(gameManager.currentSelectUnitState, 1);
                     gameManager.playerUseUnitSlotCount--;
                     gameManager.UnitSetGame();
                 }

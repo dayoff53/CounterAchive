@@ -136,7 +136,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &3675662250351457194
 MonoBehaviour:
@@ -306,7 +306,15 @@ MonoBehaviour:
   isNull: 0
   unitTeam: 0
   slotNum: 0
-  unitData: {fileID: 11400000, guid: e665812b9daa76540b468133b53fd33f, type: 2}
+  unitState:
+    defaultUnitData: {fileID: 0}
+    unitNumber: 0
+    name: Null
+    hp: 0
+    atk: 0
+    speed: 1
+    actionPoint: 0
+    skillNumberList: 
   sprite: {fileID: 2403760010731243618}
   unitAnimator: {fileID: 7329935102176465964}
   hpPointBar: {fileID: 5108306873563217979}
@@ -321,7 +329,7 @@ MonoBehaviour:
   maxActionPoint: 100
   _currentActionPoint: 0
   speed: 0
-  skillDatas: []
+  skillNumberList: 
 --- !u!1 &4209229162616489179
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,7 +700,7 @@ MonoBehaviour:
   unitSlot: {fileID: 8541648543857941464}
   _slotGroundState: 0
   groundSpriteRenderer: {fileID: 82961109543747887}
-  groundSprite:
+  groundSpriteList:
   - {fileID: 21300000, guid: ab68290aed2a54d4ca1454f62402bb37, type: 3}
   - {fileID: 21300000, guid: 92fd76ca36d59be408ec6102c2d2aead, type: 3}
   - {fileID: 21300000, guid: fa44bf8637957c64fab2929c9d2d5e43, type: 3}

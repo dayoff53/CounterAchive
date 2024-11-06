@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class AnimationEventObserver : MonoBehaviour
 {
-    GameManager gameManager;
+    StageManager gameManager;
 
     private void Start()
     {
-        gameManager = GameManager.Instance;
+        gameManager = StageManager.Instance;
     }
 
     public void SkillHit()

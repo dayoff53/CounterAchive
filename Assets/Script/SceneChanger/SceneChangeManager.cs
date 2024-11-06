@@ -118,7 +118,7 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
 				}
 			}
 
-			// Debug.Log($"Loading 진행도 : {(int)(loadingBarImage.fillAmount * 100)}");
+			Debug.Log($"Loading 진행도 : {(int)(loadingBarImage.fillAmount * 100)}");
 		}
 	}
 }

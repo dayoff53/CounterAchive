@@ -19,13 +19,13 @@ public class SkillSlotUIController : MonoBehaviour
     public SkillRangeUIController skillRangeUIController;
     public Button skillButton;
     public UnitSlotController unitSlotController;
-    public GameManager gameManager;
+    public StageManager gameManager;
 
 
 
     void Start()
     {
-        gameManager = GameManager.Instance;
+        gameManager = StageManager.Instance;
 
         Init();
     }
@@ -55,9 +55,9 @@ public class SkillSlotUIController : MonoBehaviour
 
     private void OnButtonClick()
     {
-        gameManager.currentPrograssState = ProgressState.SkillSelect;
+        gameManager.currentPrograssState = ProgressState.SkillTargetSearch;
         gameManager.currentSkillSlot = this;
 
-        skillRangeUIController.SetRangeSprite(skillData.skillRange);
+        skillRangeUIController.SetRangeGround(skillData.skillRange);
     }
 }

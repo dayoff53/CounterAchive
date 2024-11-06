@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public partial class GameManager
+public partial class StageManager
 {
+    private DataManager dataManager;
 
+    private void Start()
+    {
+        dataManager = DataManager.Instance;
+    }
 
     /// <summary>
     /// 스킬 슬롯을 초기화하고 주어진 스킬 데이터로 설정합니다.
     /// </summary>
-    /// <param name="setSkillDatas">설정할 스킬 데이터 리스트입니다.</param>
-    public void SkillSlotInit(List<SkillData> setSkillDatas)
+    /// <param name="setSkillNumberList">설정할 스킬 데이터 리스트입니다.</param>
+    public void SkillSlotInit(List<int> setSkillNumberList)
     {
-        for (int i = 0; i < setSkillDatas.Count; i++)
+        for (int i = 0; i < setSkillNumberList.Count; i++)
         {
-            skillSlot[i].SetSkillData(setSkillDatas[i]);
+            skillSlotList[i].SetSkillData(dataManager.skillList.Find(skill => skill.skillNumber == setSkillNumberList[i]));
         }
     }
 
@@ -24,7 +29,7 @@ public partial class GameManager
     {
         currentPrograssState = ProgressState.SkillPlay;
         //StartCoroutine(inGameManager.DelayTurnEnd(inGameManager.currentSkillSlot.skillData.skillEndTime));
-        unitSlots[currentTurnSlotNumber].SetAnim(1);
+        unitSlotList[currentTurnSlotNumber].SetAnim(1);
         cost -= currentSkillSlot.skillData.skillCost;
     }
 
@@ -36,7 +41,7 @@ public partial class GameManager
         switch(skillData.skillState)
         {
             case SkillState.Attack:
-                skillDamage += (unitSlots[currentTurnSlotNumber].atk * skillData.skillCoefficient);
+                skillDamage += (unitSlotList[currentTurnSlotNumber].atk * skillData.skillCoefficient);
                 break;
 
             default:

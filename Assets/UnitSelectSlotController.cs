@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class UnitSelectSlotUIController : MonoBehaviour
+public class UnitSelectSlotController : MonoBehaviour
 {
-    [SerializeField]
-    private UnitData unitData;
 
 
     [SerializeField]
-    private GameManager gameManager;
+    public UnitState unitState;
+
+    private StageManager gameManager;
+    private DataManager dataManager;
 
     [Header("Object")]
     [SerializeField]
@@ -26,11 +27,14 @@ public class UnitSelectSlotUIController : MonoBehaviour
         Init();
     }
 
+    //UnitSelectSlot이 처음 호출 되었을 경우 Null값으로 한 번, 유닏 데이터가 변경되었을때 한 번 호출 됨
     public void Init()
     {
-        unitName.text = unitData.name;
-        unitIcon.sprite = unitData.unitFaceIcon;
-        gameManager = GameManager.Instance;
+        gameManager = StageManager.Instance;
+        dataManager = DataManager.Instance;
+
+        unitName.text = unitState.name;
+        unitIcon.sprite = dataManager.unitDataList.Find(unit => unit.unitNumber == unitState.unitNumber).unitFaceIcon;
 
 
         GetComponent<Button>().onClick.AddListener(OnButtonClick);
@@ -40,6 +44,6 @@ public class UnitSelectSlotUIController : MonoBehaviour
     private void OnButtonClick()
     {
         //gameManager.currentPrograssState = ProgressState.UnitSelect;
-        gameManager.currentSelectUnitData = unitData;
+        gameManager.currentSelectUnitState = unitState;
     }
 }
