@@ -5,19 +5,40 @@ using UnityEngine.UI;
 
 public class UnitSlotController : MonoBehaviour
 {
+    StageManager gameManager;
+    DataManager dataManager;
+
+    /// <summary>
+    /// 현재 위치한 Field의 UnitFieldController
+    /// </summary>
     [SerializeField]
     [Header("현재 위치한 Field의 UnitFieldController")]
     UnitSlotGroupController unitFieldController;
 
+    /// <summary>
+    /// 유닛 슬롯이 비어있는지 여부
+    /// </summary>
+    [Header("유닛 슬롯이 비어있는지 여부")]
+    public bool isNull = false;
+
+    /// <summary>
+    /// 유닛의 팀
+    /// </summary>
     [Header("유닛의 팀")]
     public int unitTeam = 0;
 
+    /// <summary>
+    /// 유닛 슬롯의 번호
+    /// </summary>
     [Header("유닛 슬롯의 번호")]
     public int slotNum = 0;
 
+    /// <summary>
+    /// 현재 해당 슬롯에 위치한 유닛
+    /// </summary>
     [SerializeField]
     [Header("현재 해당 슬롯에 위치한 유닛")]
-    private UnitData unitData;
+    private UnitState unitState;
 
     [SerializeField]
     private SpriteRenderer sprite;
@@ -32,24 +53,23 @@ public class UnitSlotController : MonoBehaviour
     private Image actionPointBar;
 
     [SerializeField]
-    public GameObject currentTargetIcon;
-
-    [SerializeField]
-    public SlotGroundSpriteController slotGroundSpriteController;
+    public SlotGroundSpriteController slotGround;
 
 
     [Header("Status")]
     public string unitName;
     public Sprite unitFaceIcon;
-    public int maxHp;
-    private int _currentHp;
-    public int atk;
+    public SpriteRenderer unitSpriteRenderer;
+    public Animator unitAnim;
+    public float maxHp;
+    private float _currentHp;
+    public float atk;
     public float maxActionPoint = 100;
     public float _currentActionPoint = 0;
     public int speed;
-    public List<SkillData> skillDatas;
+    public List<int> skillNumberList;
 
-    public int currentHp
+    public float currentHp
     {
         get { return _currentHp; }
         set
@@ -78,20 +98,56 @@ public class UnitSlotController : MonoBehaviour
 
     private void Start()
     {
-        StatusInit();
+        gameManager = StageManager.Instance;
+        dataManager = DataManager.Instance;
     }
 
     public void StatusInit()
     {
-        unitName = unitData.unitName;
-        unitFaceIcon = unitData.unitFaceIcon;
-        maxHp = unitData.hp;
-        currentHp = unitData.hp;
-        atk = unitData.atk;
-        maxActionPoint = unitData.actionPoint;
-        currentActionPoint = 0;
-        speed = unitData.speed;
-        skillDatas = unitData.skillDatas;
+        if (unitState.name == "Null")
+        {
+            isNull = true;
+            hpPointBar.gameObject.transform.parent.gameObject.SetActive(false);
+            actionPointBar.gameObject.SetActive(false);
+        }
+        else if(unitState.name == "SetUnitData")
+        {
+            isNull = false;
+            hpPointBar.gameObject.transform.parent.gameObject.SetActive(true);
+            actionPointBar.gameObject.SetActive(true);
+            unitName = unitState.defaultUnitData.name;
+            unitSpriteRenderer.sprite = unitState.defaultUnitData.unitSprite;
+            unitFaceIcon = unitState.defaultUnitData.unitFaceIcon;
+            unitAnim.runtimeAnimatorController = unitState.defaultUnitData.unitAnimController;
+            maxHp = unitState.defaultUnitData.hp;
+            currentHp = unitState.defaultUnitData.hp;
+            atk = unitState.defaultUnitData.atk;
+            maxActionPoint = unitState.defaultUnitData.actionPoint;
+            currentActionPoint = 0;
+            speed = unitState.defaultUnitData.speed;
+            skillNumberList = new List<int>();
+            foreach(SkillData skillData in unitState.defaultUnitData.skillDataList)
+            {
+                skillNumberList.Add(skillData.skillNumber);
+            }
+        }
+        else
+        {
+            isNull = false;
+            hpPointBar.gameObject.transform.parent.gameObject.SetActive(true);
+            actionPointBar.gameObject.SetActive(true);
+            unitName = unitState.name;
+            unitSpriteRenderer.sprite = dataManager.unitDataList.Find(unit => unit.unitNumber == unitState.unitNumber).unitSprite;
+            unitFaceIcon = dataManager.unitDataList.Find(unit => unit.unitNumber == unitState.unitNumber).unitFaceIcon;
+            unitAnim.runtimeAnimatorController = dataManager.unitDataList.Find(unit => unit.unitNumber == unitState.unitNumber).unitAnimController;
+            maxHp = unitState.hp;
+            currentHp = unitState.hp;
+            atk = unitState.atk;
+            maxActionPoint = unitState.actionPoint;
+            currentActionPoint = 0;
+            speed = unitState.speed;
+            skillNumberList = unitState.skillNumberList;
+        }
     }
 
 
@@ -105,14 +161,30 @@ public class UnitSlotController : MonoBehaviour
         actionPointBar.fillAmount = setActionPoint / 100f;
     }
 
-    public void AddActionPoint(float addPoint)
-    {
-        currentActionPoint += addPoint;
-        actionPointBar.fillAmount = currentActionPoint / maxActionPoint;
-    }
-
     public void SetDirection(bool isRight)
     {
         sprite.flipX = !isRight;
+    }
+
+    public void ChangeUnit(UnitState changeUnitState)
+    {
+        unitState = changeUnitState;
+
+        SetAnim(0);
+        SetActionPointBar(0.0f);
+
+        StatusInit();
+    }
+
+    public void ChangeUnit(UnitState changeUnitState, int teamNum)
+    {
+        unitState = changeUnitState;
+
+        unitTeam = teamNum;
+
+        SetAnim(0);
+        SetActionPointBar(0.0f);
+
+        StatusInit();
     }
 }
