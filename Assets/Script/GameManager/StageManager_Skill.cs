@@ -15,12 +15,12 @@ public partial class StageManager
     /// <summary>
     /// 스킬 슬롯을 초기화하고 주어진 스킬 데이터로 설정합니다.
     /// </summary>
-    /// <param name="setSkillNumberList">설정할 스킬 데이터 리스트입니다.</param>
-    public void SkillSlotInit(List<int> setSkillNumberList)
+    /// <param name="setSkillDataList">설정할 스킬 데이터 리스트입니다.</param>
+    public void SkillSlotInit(List<SkillData> setSkillDataList)
     {
-        for (int i = 0; i < setSkillNumberList.Count; i++)
+        for (int i = 0; i < setSkillDataList.Count; i++)
         {
-            skillSlotList[i].SetSkillData(dataManager.skillList.Find(skill => skill.skillNumber == setSkillNumberList[i]));
+            skillSlotList[i].SetSkillData(setSkillDataList[i]);
         }
     }
 
@@ -29,7 +29,7 @@ public partial class StageManager
     {
         currentPrograssState = ProgressState.SkillPlay;
         //StartCoroutine(inGameManager.DelayTurnEnd(inGameManager.currentSkillSlot.skillData.skillEndTime));
-        unitSlotList[currentTurnSlotNumber].SetAnim(1);
+        unitSlotList[currentTurnSlotNumber].unit.SetAnim(1);
         cost -= currentSkillSlot.skillData.skillCost;
     }
 
@@ -41,7 +41,7 @@ public partial class StageManager
         switch(skillData.skillState)
         {
             case SkillState.Attack:
-                skillDamage += (unitSlotList[currentTurnSlotNumber].atk * skillData.skillCoefficient);
+                skillDamage += (unitSlotList[currentTurnSlotNumber].unit.atk);
                 break;
 
             default:

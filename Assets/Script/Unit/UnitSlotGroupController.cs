@@ -6,7 +6,7 @@ using DG.Tweening;
 public class UnitSlotGroupController : MonoBehaviour
 {
     [SerializeField]
-    public List<UnitSlotController> unitSlots;
+    public List<UnitSlotController_Old> unitSlots;
 
     [SerializeField]
     private int currentSlotNum;
@@ -34,27 +34,27 @@ public class UnitSlotGroupController : MonoBehaviour
         gameManager = StageManager.Instance;
         for (int i = 0; i < unitSlots.Count; i++)
         {
-            UnitSlotController unit = unitSlots[i];
+            UnitSlotController_Old unitSlot = unitSlots[i];
 
-            if (unit != null)
+            if (unitSlot != null)
             {
-                var unitObject = unit.gameObject;
+                var unitObject = unitSlot.gameObject;
                 if (unitObject != null)
                 {
                     // 초기 유닛 위치 설정
                     originalPositions[unitObject] = unitObject.transform.position;
                 }
 
-                if(unit.unitTeam == 2)
+                if(unitSlot.unit.unitTeam == 2)
                 {
-                    unit.SetDirection(true);
+                    unitSlot.unit.SetDirection(true);
                 }
 
-                unit.slotNum = i;
-                unit.slotGround.SetSlotGroundState(SlotGroundState.Default);
+                unitSlot.slotNumber = i;
+                unitSlot.slotGround.SetSlotGroundState(SlotGroundState.Default);
             }
 
-            unit.StatusInit();
+            unitSlot.StatusInit();
         }
         gameManager.unitSlotList = unitSlots;
     }
@@ -89,11 +89,11 @@ public class UnitSlotGroupController : MonoBehaviour
         sequence.OnComplete(() => {
             originalPositions[moveUnit] = moveUnit.transform.position;
             originalPositions[targetUnit] = targetUnit.transform.position;
-            UnitSlotController targetSlot = unitSlots[targetUnitNum];
+            UnitSlotController_Old targetSlot = unitSlots[targetUnitNum];
             unitSlots[targetUnitNum] = unitSlots[moveUnitNum];
             unitSlots[moveUnitNum] = targetSlot;
-            unitSlots[moveUnitNum].slotNum = targetUnitNum;
-            unitSlots[targetUnitNum].slotNum = moveUnitNum;
+            unitSlots[moveUnitNum].slotNumber = targetUnitNum;
+            unitSlots[targetUnitNum].slotNumber = moveUnitNum;
 
 
             Debug.Log("Units have been swapped successfully.");
@@ -139,7 +139,7 @@ public class UnitSlotGroupController : MonoBehaviour
 
         for (int i = 0; i < enemyUnitSlots.Count; i++)
         {
-            unitSlots[endNum - i].ChangeUnit(enemyUnitSlots[i], 2);
+            unitSlots[endNum - i].SetUnit(enemyUnitSlots[i], 2);
         }
     }
     public void PlayerUnitInit(List<UnitState> playerUnitSlots)
@@ -148,7 +148,7 @@ public class UnitSlotGroupController : MonoBehaviour
 
         for (int i = 0; i < playerUnitSlots.Count; i++)
         {
-            unitSlots[startNum + i].ChangeUnit(playerUnitSlots[i], 1);
+            unitSlots[startNum + i].SetUnit(playerUnitSlots[i], 1);
         }
     }
 }

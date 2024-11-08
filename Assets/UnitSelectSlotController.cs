@@ -33,7 +33,7 @@ public class UnitSelectSlotController : MonoBehaviour
         gameManager = StageManager.Instance;
         dataManager = DataManager.Instance;
 
-        unitName.text = unitState.name;
+        unitName.text = unitState.unitName;
         unitIcon.sprite = dataManager.unitDataList.Find(unit => unit.unitNumber == unitState.unitNumber).unitFaceIcon;
 
 

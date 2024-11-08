@@ -29,8 +29,6 @@ public class SkillData : ScriptableObject
     public float damage;
     public float skillEndTime;
 
-    public float skillCoefficient = 1.0f;
-
 
     /* UnitState를 사용하여 더이상은 필요 없는 스크립트
     /// <summary>

@@ -21,7 +21,7 @@ public class UnitState
     [Header("Unit States")]
     public UnitData defaultUnitData;
     public int unitNumber = 0;
-    public string name = "Null";
+    public string unitName = "Null";
     public float hp = 0;
     public int atk = 0;
     public int speed = 1;
@@ -50,7 +50,7 @@ public class UnitState
         if (unitData == null) return;
 
         unitNumber = unitData.unitNumber;
-        name = unitData.unitName;
+        unitName = unitData.unitName;
         hp = unitData.hp;
         atk = unitData.atk;
         speed = unitData.speed;
@@ -73,7 +73,7 @@ public class UnitState
         if (unitData == null) return;
 
         unitNumber = unitData.unitNumber;
-        name = unitData.unitName;
+        unitName = unitData.unitName;
 
         // 기존 값에 unitData의 값을 더해줌
         hp += unitData.hp;
@@ -195,6 +195,10 @@ public class DataManager : Singleton<DataManager>
 
             foreach (UnitState unitState in currentSaveData.playerUnitStates)
             {
+                if(unitState.defaultUnitData == null)
+                {
+                    unitState.defaultUnitData = unitDataList.Find(un => un.unitNumber == unitState.unitNumber);
+                }
                 playerUnitStateList.Add(unitState);
             }
 

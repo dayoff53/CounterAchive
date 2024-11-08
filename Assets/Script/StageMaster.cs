@@ -83,13 +83,13 @@ public class StageMaster : MonoBehaviour
         int startNum = 0;
         for (int i = 0; i < playerUnitList.Count; i++)
         {
-            unitSlotGroupController.unitSlots[startNum + i].ChangeUnit(playerUnitList[i], 1);
+            unitSlotGroupController.unitSlots[startNum + i].SetUnit(playerUnitList[i], 1);
         }
 
         int endNum = unitSlotGroupController.unitSlots.Count - 1;
         for (int i = 0; i < enemyUnitList.Count; i++)
         {
-            unitSlotGroupController.unitSlots[endNum - i].ChangeUnit(enemyUnitList[i], 2);
+            unitSlotGroupController.unitSlots[endNum - i].SetUnit(enemyUnitList[i], 2);
         }
     }
 }
