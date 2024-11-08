@@ -15,7 +15,7 @@ public enum SlotGroundState
 public class SlotGroundSpriteController : MonoBehaviour
 {
     [SerializeField]
-    private UnitSlotController unitSlot;
+    private UnitSlotController_Old unitSlot;
 
     [SerializeField]
     [Tooltip("1.defalut, 2.select, 3.target ")]
@@ -48,30 +48,30 @@ public class SlotGroundSpriteController : MonoBehaviour
     [SerializeField]
     private List<Sprite> groundSpriteList;
 
-    private StageManager gameManager;
+    private StageManager stageManager;
 
 
     private void Start()
     {
-        gameManager = StageManager.Instance;
+        stageManager = StageManager.Instance;
     }
 
     public void SetSlotGroundState(SlotGroundState setSlotGroundState)
     {
         slotGroundState = setSlotGroundState;
 
-        groundSpriteRenderer.color = gameManager.unitStateColors[unitSlot.unitTeam];
+        groundSpriteRenderer.color = stageManager.unitStateColors[unitSlot.unit.unitTeam];
     }
 
     public void OnMouseDown()
     {
-        switch(gameManager.currentPrograssState)
+        switch(stageManager.currentPrograssState)
         {
             case ProgressState.SkillTargetSearch:
-                if (gameManager.cost >= gameManager.currentSkillSlot.skillData.skillCost)
+                if (stageManager.cost >= stageManager.currentSkillSlot.skillData.skillCost)
                 {
-                    gameManager.skillTargetNum = unitSlot.slotNum;
-                    gameManager.SkillStart();
+                    stageManager.skillTargetNum = unitSlot.slotNumber;
+                    stageManager.SkillStart();
                 }
                 else
                 {
@@ -80,11 +80,11 @@ public class SlotGroundSpriteController : MonoBehaviour
                 break;
 
             case ProgressState.UnitSelect:
-                if(unitSlot.isNull == true && gameManager.currentSelectUnitState.name != "Null" && unitSlot.unitTeam == 1)
+                if(unitSlot.isNull == true && stageManager.currentSelectUnitState.unitName != "Null" && unitSlot.unit.unitTeam == 1)
                 {
-                    unitSlot.ChangeUnit(gameManager.currentSelectUnitState, 1);
-                    gameManager.playerUseUnitSlotCount--;
-                    gameManager.UnitSetGame();
+                    unitSlot.SetUnit(stageManager.currentSelectUnitState, 1);
+                    stageManager.playerUseUnitSlotCount--;
+                    stageManager.UnitSetGame();
                 }
                 break;
 

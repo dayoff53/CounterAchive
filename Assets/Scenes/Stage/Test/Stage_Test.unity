@@ -432,7 +432,7 @@ MonoBehaviour:
   playerUnitStateList:
   - defaultUnitData: {fileID: 11400000, guid: 166be0c737ba5d24aa06bafac39e36e9, type: 2}
     unitNumber: 0
-    name: Null
+    unitName: Null
     hp: 0
     atk: 0
     speed: 1
@@ -440,7 +440,7 @@ MonoBehaviour:
     skillNumberList: 
   - defaultUnitData: {fileID: 11400000, guid: 462dae7ef769d324191a41d0373ebd46, type: 2}
     unitNumber: 0
-    name: Null
+    unitName: Null
     hp: 0
     atk: 0
     speed: 1
@@ -1015,6 +1015,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
+      propertyPath: isNull
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: sprite
       value: 
       objectReference: {fileID: 1598607637}
@@ -1046,6 +1050,10 @@ PrefabInstance:
       propertyPath: unitSpriteRenderer
       value: 
       objectReference: {fileID: 1598607637}
+    - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
+      propertyPath: unitFieldController
+      value: 
+      objectReference: {fileID: 827181154}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1235,23 +1243,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentPrograssState: 0
   unitSlotsController: {fileID: 827181154}
-  currentSelectUnitState: {defaultUnitData: {fileID: 0}, unitNumber: 0, name: Null, hp: 0, atk: 0, speed: 1, actionPoint: 0, skillNumberList: }
+  currentSelectUnitState:
+    defaultUnitData: {fileID: 0}
+    unitNumber: 0
+    unitName: Null
+    hp: 0
+    atk: 0
+    speed: 1
+    actionPoint: 0
+    skillNumberList: 
   playerUseUnitSlotCount: 4
   playerUseUnitSlotRange: 4
   unitSlotList: []
   originalPositions:
     keys: []
     values: []
-  isMoving: 0
-  actionPoints:
-    keys: []
-    values: []
   currentTurnSlotNumber: 0
   skillSlotList: []
   skillTargetNum: 0
   currentSkillSlot: {fileID: 0}
-  targetUnitSlot: {fileID: 0}
-  _cost: 0
   costGauge: {fileID: 126954513}
   costText: {fileID: 1132995742}
   costBar: {fileID: 824943148}
@@ -1261,40 +1271,15 @@ MonoBehaviour:
   unitSet_UI: {fileID: 909782868}
   remainingSetUnitSlotText: {fileID: 541961534}
   unitStateColors:
-  - r: 0.7529412
-    g: 0.7529412
-    b: 0.7529412
-    a: 1
-  - r: 0.6745098
-    g: 1
-    b: 0.6745098
-    a: 1
-  - r: 1
-    g: 0.2509804
-    b: 0.2509804
-    a: 1
-  - r: 0.6745098
-    g: 0.6745098
-    b: 1
-    a: 1
-  - r: 1
-    g: 1
-    b: 0.6745098
-    a: 1
-  - r: 1
-    g: 0.6745098
-    b: 1
-    a: 1
-  - r: 0.6745098
-    g: 1
-    b: 1
-    a: 0
-  - r: 0
-    g: 0
-    b: 0
-    a: 0
+  - {r: 0.7529412, g: 0.7529412, b: 0.7529412, a: 1}
+  - {r: 0.6745098, g: 1, b: 0.6745098, a: 1}
+  - {r: 1, g: 0.2509804, b: 0.2509804, a: 1}
+  - {r: 0.6745098, g: 0.6745098, b: 1, a: 1}
+  - {r: 1, g: 1, b: 0.6745098, a: 1}
+  - {r: 1, g: 0.6745098, b: 1, a: 1}
+  - {r: 0.6745098, g: 1, b: 1, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
   unitStateColorsObject: {fileID: 11400000, guid: 779c2907d5b17a647be815895a1f1686, type: 2}
-  dataManager: {fileID: 0}
 --- !u!4 &358140933
 Transform:
   m_ObjectHideFlags: 0
@@ -1608,9 +1593,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
+      propertyPath: isNull
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: unitData
       value: 
       objectReference: {fileID: 11400000, guid: 340a7dc4b68c40741b1738b6f6c9af76, type: 2}
+    - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
+      propertyPath: unitFieldController
+      value: 
+      objectReference: {fileID: 827181154}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2539,9 +2532,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
+      propertyPath: isNull
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: unitData
       value: 
       objectReference: {fileID: 11400000, guid: 340a7dc4b68c40741b1738b6f6c9af76, type: 2}
+    - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
+      propertyPath: unitFieldController
+      value: 
+      objectReference: {fileID: 827181154}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4308,9 +4309,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
+      propertyPath: isNull
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: unitData
       value: 
       objectReference: {fileID: 11400000, guid: 340a7dc4b68c40741b1738b6f6c9af76, type: 2}
+    - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
+      propertyPath: unitFieldController
+      value: 
+      objectReference: {fileID: 827181154}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4357,7 +4366,7 @@ MonoBehaviour:
   enemyUnitList:
   - defaultUnitData: {fileID: 11400000, guid: 462dae7ef769d324191a41d0373ebd46, type: 2}
     unitNumber: 0
-    name: SetUnitData
+    unitName: Default
     hp: 0
     atk: 0
     speed: 1
@@ -4824,9 +4833,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
+      propertyPath: isNull
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: unitData
       value: 
       objectReference: {fileID: 11400000, guid: 340a7dc4b68c40741b1738b6f6c9af76, type: 2}
+    - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
+      propertyPath: unitFieldController
+      value: 
+      objectReference: {fileID: 827181154}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5343,9 +5360,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
+      propertyPath: isNull
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: unitData
       value: 
       objectReference: {fileID: 11400000, guid: 340a7dc4b68c40741b1738b6f6c9af76, type: 2}
+    - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
+      propertyPath: unitFieldController
+      value: 
+      objectReference: {fileID: 827181154}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5613,9 +5638,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
+      propertyPath: isNull
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: unitData
       value: 
       objectReference: {fileID: 11400000, guid: 340a7dc4b68c40741b1738b6f6c9af76, type: 2}
+    - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
+      propertyPath: unitFieldController
+      value: 
+      objectReference: {fileID: 827181154}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5818,6 +5851,14 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
+      propertyPath: isNull
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
+      propertyPath: unitFieldController
+      value: 
+      objectReference: {fileID: 827181154}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6267,26 +6308,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 827181153}
     m_Modifications:
-    - target: {fileID: 2403760010731243618, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
-      propertyPath: m_Size.x
-      value: 10.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 2403760010731243618, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
-      propertyPath: m_Size.y
-      value: 10.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 2403760010731243618, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2403760010731243618, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
-      propertyPath: m_SpriteSortPoint
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2403760010731243618, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2589823910991165270, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: m_Name
       value: UnitSlot_0
@@ -6331,22 +6352,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6317339320161656786, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6317339320161656786, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7329935102176465964, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
-      propertyPath: m_Controller
-      value: 
+    - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
+      propertyPath: isNull
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
-      propertyPath: unitData
+      propertyPath: unitFieldController
       value: 
-      objectReference: {fileID: 11400000, guid: 340a7dc4b68c40741b1738b6f6c9af76, type: 2}
+      objectReference: {fileID: 827181154}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -35,10 +35,11 @@ public partial class StageManager
     /// </summary>
     private void ActionPointUpper(float time)
     {
-        foreach (var unit in unitSlotList)
+        foreach (var unitSlot in unitSlotList)
         {
-            if (unit != null && unit.isNull == false)
+            if (unitSlot.unit != null && unitSlot.isNull == false)
             {
+                UnitController unit = unitSlot.unit;
                 if (actionPoints.TryGetValue(unit, out float currentPoints))
                 {
                     actionPoints[unit] = currentPoints + unit.speed * time;
@@ -48,13 +49,13 @@ public partial class StageManager
 
                     if (unit.currentActionPoint >= unit.maxActionPoint)
                     {
-                        ExecuteTurn(unit);
+                        ExecuteTurn(unitSlot);
                         break;
                     }
                 }
                 else
                 {
-                    Debug.LogWarning($"No key found for {unit.name}. Adding key.");
+                    Debug.LogWarning($"No key found for {unitSlot.name}. Adding key.");
                     actionPoints.Add(unit, unit.speed * time);  // 키가 없을 경우 추가
                     unit.currentActionPoint = actionPoints[unit];
                 }
@@ -67,7 +68,7 @@ public partial class StageManager
     /// 코스트를 지속적으로 상승시키는 스크립트
     /// </summary>
     /// <param name="unit"></param>
-    private void CostIncrease(UnitSlotController unit, float time)
+    private void CostIncrease(UnitController unit, float time)
     {
             if (unit != null)
             {
@@ -96,10 +97,11 @@ public partial class StageManager
 
             while (isSkip)
             {
-                foreach (var unit in unitSlotList)
+                foreach (var unitSlot in unitSlotList)
                 {
-                    if (unit != null && unit.isNull == false)
+                    if (unitSlot != null && unitSlot.isNull == false)
                     {
+                        UnitController unit = unitSlot.unit;
                         if (actionPoints.TryGetValue(unit, out float currentPoints))
                         {
                             actionPoints[unit] = currentPoints + unit.speed * skipTime;
@@ -110,7 +112,7 @@ public partial class StageManager
                             if (unit.currentActionPoint >= unit.maxActionPoint)
                             {
                                 isSkip = false;
-                                ExecuteTurn(unit);
+                                ExecuteTurn(unitSlot);
                                 break;
                             }
                         }
@@ -133,11 +135,11 @@ public partial class StageManager
     {
         for (int i = 0; i < unitSlotList.Count; i++)
         {
-            if (actionPoints[unitSlotList[i]] >= unitSlotList[i].maxActionPoint)
+            if (actionPoints[unitSlotList[i].unit] >= unitSlotList[i].unit.maxActionPoint)
             {
                 currentTurnSlotNumber = i;
 
-                UnitSlotController currentTurnSlot = unitSlotList[currentTurnSlotNumber];
+                UnitSlotController_Old currentTurnSlot = unitSlotList[currentTurnSlotNumber];
                 ExecuteTurn(currentTurnSlot);
                 break;
             }
@@ -147,24 +149,24 @@ public partial class StageManager
     /// <summary>
     /// 유닛의 턴을 실행합니다.
     /// </summary>
-    private void ExecuteTurn(UnitSlotController unit)
+    private void ExecuteTurn(UnitSlotController_Old unit)
     {
         currentPrograssState = ProgressState.UnitPlay;
 
         //초기화
         currentTurnSlotNumber = unitSlotList.IndexOf(unit);
-        UnitSlotController currentTurnSlot = unitSlotList[currentTurnSlotNumber];
-        currentTurnSlotIcon.sprite = currentTurnSlot.unitFaceIcon;
-        currentTurnName.text = currentTurnSlot.unitName;
-        SkillSlotInit(unitSlotList[currentTurnSlotNumber].skillNumberList);
+        UnitSlotController_Old currentTurnSlot = unitSlotList[currentTurnSlotNumber];
+        currentTurnSlotIcon.sprite = currentTurnSlot.unit.unitFaceIcon;
+        currentTurnName.text = currentTurnSlot.unit.unitName;
+        SkillSlotInit(unitSlotList[currentTurnSlotNumber].unit.skillDataList);
 
         //현재 턴을 가진 유닛 구분
         SlotGroundSpriteController groundSprite = unitSlotList[currentTurnSlotNumber].slotGround;
         groundSprite.SetSlotGroundState(SlotGroundState.Select); 
 
         //액션 포인트 초기화
-        actionPoints[currentTurnSlot] = 0;
-        Debug.Log("턴을 시작합니다. 현재 턴은 " + unitSlotList[0].name + " (" + unitSlotList[0].speed + " 속도) 유닛입니다.");
+        actionPoints[currentTurnSlot.unit] = 0;
+        Debug.Log("턴을 시작합니다. 현재 턴은 " + unitSlotList[currentTurnSlotNumber].name + " (" + unitSlotList[currentTurnSlotNumber].unit.speed + " 속도) 유닛입니다.");
     }
 
     /// <summary>
@@ -186,7 +188,7 @@ public partial class StageManager
     /// </summary>
     public void TurnEnd()
     {
-        unitSlotList[currentTurnSlotNumber].SetAnim(0);
+        unitSlotList[currentTurnSlotNumber].unit.SetAnim(0);
 
         //UnitGround의 색상 및 스프라이트 초기화
         foreach (var unit in unitSlotList)

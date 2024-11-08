@@ -70,7 +70,7 @@ public partial class StageManager : Singleton<StageManager>
     public int playerUseUnitSlotRange;
 
     [Tooltip("유닛 슬롯 리스트")]
-    public List<UnitSlotController> unitSlotList;
+    public List<UnitSlotController_Old> unitSlotList;
 
     [SerializeField]
     [Tooltip("각 슬롯의 원래 위치를 저장할 딕셔너리")]
@@ -86,7 +86,7 @@ public partial class StageManager : Singleton<StageManager>
     [Space(10)]
     [Header("Turn Data")]
     [Tooltip("행동력 누적을 위한 Dictionary")]
-    private SerializableDictionary<UnitSlotController, float> actionPoints = new SerializableDictionary<UnitSlotController, float>();
+    private SerializableDictionary<UnitController, float> actionPoints = new SerializableDictionary<UnitController, float>();
 
     /// <summary>
     /// 현재 턴을 행사 중인 슬롯의 번호
@@ -108,7 +108,7 @@ public partial class StageManager : Singleton<StageManager>
     public int skillTargetNum;
 
     public SkillSlotUIController currentSkillSlot;
-    private UnitSlotController targetUnitSlot;
+    private UnitSlotController_Old targetUnitSlot;
     #endregion
 
     #region CostVariable
@@ -196,7 +196,7 @@ public partial class StageManager : Singleton<StageManager>
             {
                 if (i < playerUseUnitSlotRange && unitSlotList[i].isNull == true)
                 {
-                    unitSlotList[i].unitTeam = 1;
+                    unitSlotList[i].unit.unitTeam = 1;
                     unitSlotList[i].slotGround.SetSlotGroundState(SlotGroundState.Target);
                 } else
                 {
@@ -213,7 +213,7 @@ public partial class StageManager : Singleton<StageManager>
             {
                 if (unitSlotList[i].isNull == true)
                 {
-                    unitSlotList[i].unitTeam = 0;
+                    unitSlotList[i].unit.unitTeam = 0;
                 }
 
                 unitSlotList[i].slotGround.SetSlotGroundState(SlotGroundState.Default);
@@ -238,10 +238,11 @@ public partial class StageManager : Singleton<StageManager>
     private void ActionPointsInit()
     {
         currentPrograssState = ProgressState.Stay;
-        foreach (var unit in unitSlotList)
+        foreach (var unitSlot in unitSlotList)
         {
-            if (unit != null && unit != null)
+            if (unitSlot != null && unitSlot != null)
             {
+                UnitController unit = unitSlot.unit;
                 if (!actionPoints.ContainsKey(unit))
                 {
                     actionPoints.Add(unit, unit.currentActionPoint); // 키가 없으면 추가
@@ -257,7 +258,7 @@ public partial class StageManager : Singleton<StageManager>
     /// <param name="damage">적용할 데미지입니다.</param>
     public void ExecuteAttack(float damage)
     {
-        unitSlotList[skillTargetNum].currentHp -= damage;
+        unitSlotList[skillTargetNum].unit.currentHp -= damage;
     }
 
     /// <summary>
@@ -266,7 +267,7 @@ public partial class StageManager : Singleton<StageManager>
     /// <param name="damage">적용할 데미지입니다.</param>
     public void ExecuteAttack(int targetNum, float damage)
     {
-        unitSlotList[targetNum].currentHp -= damage;
+        unitSlotList[targetNum].unit.currentHp -= damage;
     }
 
     /// <summary>
@@ -277,7 +278,7 @@ public partial class StageManager : Singleton<StageManager>
     {
         for (int i = 0; i < targetNums.Count; i++)
         {
-            unitSlotList[i].currentHp -= damage;
+            unitSlotList[i].unit.currentHp -= damage;
         }
     }
 }

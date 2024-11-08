@@ -5,7 +5,7 @@ using UnityEngine;
 public class UnitFieldController : MonoBehaviour
 {
     [SerializeField]
-    public List<UnitSlotController> unitSlots;
+    public List<UnitSlotController_Old> unitSlots;
 
     [SerializeField]
     public int currentSlotNum;

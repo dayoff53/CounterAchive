@@ -15,17 +15,17 @@ public class SkillSlotUIController : MonoBehaviour
     public TMP_Text skillFlavorText;
     public TMP_Text skillCostText;
     public Image skillIcon;
-    public int skillCurrentDamage;
-    public SkillRangeUIController skillRangeUIController;
-    public Button skillButton;
-    public UnitSlotController unitSlotController;
-    public StageManager gameManager;
+    [SerializeField]
+    private SkillRangeUIController skillRangeUIController;
+    [SerializeField]
+    private Button skillButton;
+    private StageManager stageManager;
 
 
 
     void Start()
     {
-        gameManager = StageManager.Instance;
+        stageManager = StageManager.Instance;
 
         Init();
     }
@@ -43,6 +43,16 @@ public class SkillSlotUIController : MonoBehaviour
 
             skillRangeUIController.SkillRangeInit(skillData.skillRange);
         }
+        else
+        {
+            skillIcon.sprite = null;
+            skillNameText.text = "";
+            skillFlavorText.text = "";
+            skillCostText.text = "";
+            skillButton.onClick.AddListener(OnButtonClick);
+            int[] skillRange = { };
+            skillRangeUIController.SkillRangeInit(skillRange);
+        }
     }
 
     public void SetSkillData(SkillData setSkillData)
@@ -55,8 +65,8 @@ public class SkillSlotUIController : MonoBehaviour
 
     private void OnButtonClick()
     {
-        gameManager.currentPrograssState = ProgressState.SkillTargetSearch;
-        gameManager.currentSkillSlot = this;
+        stageManager.currentPrograssState = ProgressState.SkillTargetSearch;
+        stageManager.currentSkillSlot = this;
 
         skillRangeUIController.SetRangeGround(skillData.skillRange);
     }
