@@ -70,7 +70,7 @@ public partial class StageManager : Singleton<StageManager>
     public int playerUseUnitSlotRange;
 
     [Tooltip("유닛 슬롯 리스트")]
-    public List<UnitSlotController_Old> unitSlotList;
+    public List<UnitSlotController> unitSlotList;
 
     [SerializeField]
     [Tooltip("각 슬롯의 원래 위치를 저장할 딕셔너리")]
@@ -108,7 +108,7 @@ public partial class StageManager : Singleton<StageManager>
     public int skillTargetNum;
 
     public SkillSlotUIController currentSkillSlot;
-    private UnitSlotController_Old targetUnitSlot;
+    private UnitSlotController targetUnitSlot;
     #endregion
 
     #region CostVariable

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
 
-public class UnitSlotController_Old : MonoBehaviour
+public class UnitSlotController : MonoBehaviour
 {
     /// <summary>
     /// 현재 위치한 Field의 UnitFieldController

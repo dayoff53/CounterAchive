@@ -451,17 +451,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 205e66c651f1d3644996aa3f8112a335, type: 2}
   - {fileID: 11400000, guid: 06d9979cd4ff6854cb8c7d370b8c0d94, type: 2}
   - {fileID: 11400000, guid: d87d93d1934537a4b8472cf037b7cfee, type: 2}
---- !u!114 &101705154 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5108306873563217979, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
-  m_PrefabInstance: {fileID: 337502797}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &126954511
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,17 +774,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afbf1cdd2c7188b4d8dc8428071a5c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &248675902 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1670624977117066652, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
-  m_PrefabInstance: {fileID: 337502797}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &312394719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,11 +999,11 @@ PrefabInstance:
     - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: sprite
       value: 
-      objectReference: {fileID: 1598607637}
+      objectReference: {fileID: 0}
     - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: unitAnim
       value: 
-      objectReference: {fileID: 1598607636}
+      objectReference: {fileID: 0}
     - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: unitData
       value: 
@@ -1033,7 +1011,7 @@ PrefabInstance:
     - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: hpPointBar
       value: 
-      objectReference: {fileID: 101705154}
+      objectReference: {fileID: 0}
     - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: slotGround
       value: 
@@ -1041,15 +1019,15 @@ PrefabInstance:
     - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: unitAnimator
       value: 
-      objectReference: {fileID: 1598607636}
+      objectReference: {fileID: 0}
     - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: actionPointBar
       value: 
-      objectReference: {fileID: 248675902}
+      objectReference: {fileID: 0}
     - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: unitSpriteRenderer
       value: 
-      objectReference: {fileID: 1598607637}
+      objectReference: {fileID: 0}
     - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: unitFieldController
       value: 
@@ -4865,16 +4843,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d85a608d59df4e49b9ef71731971741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &1598607636 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7329935102176465964, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
-  m_PrefabInstance: {fileID: 337502797}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &1598607637 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 2403760010731243618, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
-  m_PrefabInstance: {fileID: 337502797}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1700904000
 GameObject:
   m_ObjectHideFlags: 0
@@ -6351,10 +6319,6 @@ PrefabInstance:
     - target: {fileID: 5350426313195203715, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
-      propertyPath: isNull
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8541648543857941464, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: unitFieldController

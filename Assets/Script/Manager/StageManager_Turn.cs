@@ -139,7 +139,7 @@ public partial class StageManager
             {
                 currentTurnSlotNumber = i;
 
-                UnitSlotController_Old currentTurnSlot = unitSlotList[currentTurnSlotNumber];
+                UnitSlotController currentTurnSlot = unitSlotList[currentTurnSlotNumber];
                 ExecuteTurn(currentTurnSlot);
                 break;
             }
@@ -149,13 +149,13 @@ public partial class StageManager
     /// <summary>
     /// 유닛의 턴을 실행합니다.
     /// </summary>
-    private void ExecuteTurn(UnitSlotController_Old unit)
+    private void ExecuteTurn(UnitSlotController unit)
     {
         currentPrograssState = ProgressState.UnitPlay;
 
         //초기화
         currentTurnSlotNumber = unitSlotList.IndexOf(unit);
-        UnitSlotController_Old currentTurnSlot = unitSlotList[currentTurnSlotNumber];
+        UnitSlotController currentTurnSlot = unitSlotList[currentTurnSlotNumber];
         currentTurnSlotIcon.sprite = currentTurnSlot.unit.unitFaceIcon;
         currentTurnName.text = currentTurnSlot.unit.unitName;
         SkillSlotInit(unitSlotList[currentTurnSlotNumber].unit.skillDataList);

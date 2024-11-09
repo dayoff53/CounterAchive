@@ -6,7 +6,7 @@ using DG.Tweening;
 public class UnitSlotGroupController : MonoBehaviour
 {
     [SerializeField]
-    public List<UnitSlotController_Old> unitSlots;
+    public List<UnitSlotController> unitSlots;
 
     [SerializeField]
     private int currentSlotNum;
@@ -34,7 +34,7 @@ public class UnitSlotGroupController : MonoBehaviour
         gameManager = StageManager.Instance;
         for (int i = 0; i < unitSlots.Count; i++)
         {
-            UnitSlotController_Old unitSlot = unitSlots[i];
+            UnitSlotController unitSlot = unitSlots[i];
 
             if (unitSlot != null)
             {
@@ -89,7 +89,7 @@ public class UnitSlotGroupController : MonoBehaviour
         sequence.OnComplete(() => {
             originalPositions[moveUnit] = moveUnit.transform.position;
             originalPositions[targetUnit] = targetUnit.transform.position;
-            UnitSlotController_Old targetSlot = unitSlots[targetUnitNum];
+            UnitSlotController targetSlot = unitSlots[targetUnitNum];
             unitSlots[targetUnitNum] = unitSlots[moveUnitNum];
             unitSlots[moveUnitNum] = targetSlot;
             unitSlots[moveUnitNum].slotNumber = targetUnitNum;

@@ -52,7 +52,7 @@ public partial class StageManager
         sequence.OnComplete(() => {
             originalPositions[moveUnit] = moveUnit.transform.position;
             originalPositions[targetUnit] = targetUnit.transform.position;
-            UnitSlotController_Old targetSlot = unitSlotList[targetUnitNum];
+            UnitSlotController targetSlot = unitSlotList[targetUnitNum];
             unitSlotList[targetUnitNum] = unitSlotList[moveUnitNum];
             unitSlotList[moveUnitNum] = targetSlot;
             Debug.Log("Units have been swapped successfully.");

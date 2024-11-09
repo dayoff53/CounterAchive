@@ -15,7 +15,7 @@ public enum SlotGroundState
 public class SlotGroundSpriteController : MonoBehaviour
 {
     [SerializeField]
-    private UnitSlotController_Old unitSlot;
+    private UnitSlotController unitSlot;
 
     [SerializeField]
     [Tooltip("1.defalut, 2.select, 3.target ")]

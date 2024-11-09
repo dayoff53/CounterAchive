@@ -307,7 +307,6 @@ MonoBehaviour:
   unitData: {fileID: 11400000, guid: 340a7dc4b68c40741b1738b6f6c9af76, type: 2}
   unitName: Null
   unitFaceIcon: {fileID: 0}
-  unitSpriteRenderer: {fileID: 0}
   unitAnim: {fileID: 0}
   maxHp: 0
   atk: 0
@@ -426,7 +425,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -100}
+  m_AnchoredPosition: {x: 0, y: -110}
   m_SizeDelta: {x: 256, y: 64}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &7252760802511730746

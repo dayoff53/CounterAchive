@@ -11,6 +11,4 @@ public class GroupSelectManager : MonoBehaviour
         Select,
         Check
     }
-
-
 }
