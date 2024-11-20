@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a93022f714b434a4fa898d548b83fdc3
+guid: b88d06eb1cea3884daf56eb854679524
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,7 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: CounterAchive - Serika_Frame_0
+  - name: CounterAchive - EffectCreate_Frame_0
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 4
       width: 128
       height: 128
-    spriteID: d9434100dd05e7c479afacf648879c44
+    spriteID: 0af0bcee95b02fa40b327690e78fb32b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,7 +141,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: CounterAchive - Serika_Frame_1
+  - name: CounterAchive - EffectCreate_Frame_1
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 140
       width: 128
       height: 128
-    spriteID: c104f6efbfdd9b648b6d66aa620423cc
+    spriteID: 46a2c728a246a9040bfca8ce8eeb1431
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -161,7 +161,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 140}
-  - name: CounterAchive - Serika_Frame_2
+  - name: CounterAchive - EffectCreate_Frame_2
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -172,7 +172,7 @@ ScriptedImporter:
       y: 276
       width: 128
       height: 128
-    spriteID: 2e7a32dbbd01b7b4ba1ed5179ad8bcf3
+    spriteID: a8d92532852820248b08e5607f740d77
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -181,7 +181,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 276}
-  - name: CounterAchive - Serika_Frame_3
+  - name: CounterAchive - EffectCreate_Frame_3
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -192,7 +192,7 @@ ScriptedImporter:
       y: 412
       width: 128
       height: 128
-    spriteID: 96d004127b9d88b4e814e544afd31083
+    spriteID: 6e0d375e4191c094d8534bc52ff58d94
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -201,7 +201,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 412}
-  - name: CounterAchive - Serika_Frame_4
+  - name: CounterAchive - EffectCreate_Frame_4
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -212,7 +212,7 @@ ScriptedImporter:
       y: 548
       width: 128
       height: 128
-    spriteID: 1630cc38d4207b3428878fbe99331820
+    spriteID: 94fbdfca0e6d4694d97a0371da1d2e6a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -221,7 +221,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 548}
-  - name: CounterAchive - Serika_Frame_5
+  - name: CounterAchive - EffectCreate_Frame_5
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -232,7 +232,7 @@ ScriptedImporter:
       y: 684
       width: 128
       height: 128
-    spriteID: c2582fb7b985eb44f9599a7aeab76340
+    spriteID: 6f9cd3dbba639a0448b5dc0e91dd5a57
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -241,7 +241,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 684}
-  - name: CounterAchive - Serika_Frame_6
+  - name: CounterAchive - EffectCreate_Frame_6
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -252,7 +252,7 @@ ScriptedImporter:
       y: 820
       width: 128
       height: 128
-    spriteID: aa72730be2465e449b8df2458379a078
+    spriteID: 85cd369acd0f94c43a2484f2db6ce989
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -261,7 +261,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 820}
-  - name: CounterAchive - Serika_Frame_7
+  - name: CounterAchive - EffectCreate_Frame_7
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -272,7 +272,7 @@ ScriptedImporter:
       y: 4
       width: 128
       height: 128
-    spriteID: 02ab3a31c96b82149a3a9ad19b100854
+    spriteID: 6cd8d4f4092ec7042b1457c020d72e20
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -281,7 +281,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 140, y: 4}
-  - name: CounterAchive - Serika_Frame_8
+  - name: CounterAchive - EffectCreate_Frame_8
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -292,7 +292,7 @@ ScriptedImporter:
       y: 140
       width: 128
       height: 128
-    spriteID: 69f0e7c7641a7304cb11d791fcb36388
+    spriteID: 28af4b448a5965f41ad59a1ce73449a8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -301,7 +301,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 140, y: 140}
-  - name: CounterAchive - Serika_Frame_9
+  - name: CounterAchive - EffectCreate_Frame_9
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -312,7 +312,7 @@ ScriptedImporter:
       y: 276
       width: 128
       height: 128
-    spriteID: dc997a50334ec984eb6a24088a211a24
+    spriteID: 96804585a9f0f484d8ba5b7e0e196481
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -321,7 +321,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 140, y: 276}
-  - name: CounterAchive - Serika_Frame_10
+  - name: CounterAchive - EffectCreate_Frame_10
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -332,7 +332,7 @@ ScriptedImporter:
       y: 412
       width: 128
       height: 128
-    spriteID: e97a77b5a73aa3549a86759f76b436e4
+    spriteID: 62df77f189ef3fb4b946c10eda95e5d9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -341,7 +341,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 140, y: 412}
-  - name: CounterAchive - Serika_Frame_11
+  - name: CounterAchive - EffectCreate_Frame_11
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -352,7 +352,7 @@ ScriptedImporter:
       y: 548
       width: 128
       height: 128
-    spriteID: dd87fc15d2916d143909b200f36b8be6
+    spriteID: 948777305485b15459dbced71ee0ae49
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -361,7 +361,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 140, y: 548}
-  - name: CounterAchive - Serika_Frame_12
+  - name: CounterAchive - EffectCreate_Frame_12
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -372,7 +372,7 @@ ScriptedImporter:
       y: 684
       width: 128
       height: 128
-    spriteID: ba412cbec8ea26e4a9b18d6203f069bd
+    spriteID: 627633a0306778d4698d7abc911bda40
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -381,7 +381,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 140, y: 684}
-  - name: CounterAchive - Serika_Frame_13
+  - name: CounterAchive - EffectCreate_Frame_13
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -392,7 +392,7 @@ ScriptedImporter:
       y: 820
       width: 128
       height: 128
-    spriteID: fea3514cabc83204fa9ad94e2bffa33b
+    spriteID: a5e88e8c3487535408114b3da6fc9c15
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -401,7 +401,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 140, y: 820}
-  - name: CounterAchive - Serika_Frame_14
+  - name: CounterAchive - EffectCreate_Frame_14
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -412,7 +412,7 @@ ScriptedImporter:
       y: 4
       width: 128
       height: 128
-    spriteID: aa8c226df3341c84d95d14f14cf5531d
+    spriteID: 2900d715408e2d44c9a1f45d6e5dcd68
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -421,7 +421,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 276, y: 4}
-  - name: CounterAchive - Serika_Frame_15
+  - name: CounterAchive - EffectCreate_Frame_15
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -432,7 +432,7 @@ ScriptedImporter:
       y: 140
       width: 128
       height: 128
-    spriteID: a854b648a1b808343bfe68509ba5f1d0
+    spriteID: c6c9b394b11c341419173ea1c4340543
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -441,7 +441,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 276, y: 140}
-  - name: CounterAchive - Serika_Frame_16
+  - name: CounterAchive - EffectCreate_Frame_16
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -452,7 +452,7 @@ ScriptedImporter:
       y: 276
       width: 128
       height: 128
-    spriteID: b2d310cc2ec2cea4d953c5ffd33d03d8
+    spriteID: 05e8e49638713db4497a67e07219ca6a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -461,7 +461,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 276, y: 276}
-  - name: CounterAchive - Serika_Frame_17
+  - name: CounterAchive - EffectCreate_Frame_17
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -472,7 +472,7 @@ ScriptedImporter:
       y: 412
       width: 128
       height: 128
-    spriteID: 34f209274c657d64284bb892c2dea954
+    spriteID: d4a5e2dda8a609c488549d672816ec1e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -481,7 +481,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 276, y: 412}
-  - name: CounterAchive - Serika_Frame_18
+  - name: CounterAchive - EffectCreate_Frame_18
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -492,7 +492,7 @@ ScriptedImporter:
       y: 548
       width: 128
       height: 128
-    spriteID: a717a61d90218124cad9716a006602fa
+    spriteID: bda6b2e71fd933543bea1ce627c0e2ca
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -501,7 +501,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 276, y: 548}
-  - name: CounterAchive - Serika_Frame_19
+  - name: CounterAchive - EffectCreate_Frame_19
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -512,7 +512,7 @@ ScriptedImporter:
       y: 684
       width: 128
       height: 128
-    spriteID: e4f3e9a62381e2448a9faea4fe5cd55c
+    spriteID: 958fa50a72178754d9beeb479cd52dfc
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -521,7 +521,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 276, y: 684}
-  - name: CounterAchive - Serika_Frame_20
+  - name: CounterAchive - EffectCreate_Frame_20
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -532,7 +532,7 @@ ScriptedImporter:
       y: 820
       width: 128
       height: 128
-    spriteID: d915d118efb6c984a9ba7e9879b9706f
+    spriteID: 84d8d9d070a46b5488967c2cadfd7097
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -541,7 +541,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 276, y: 820}
-  - name: CounterAchive - Serika_Frame_21
+  - name: CounterAchive - EffectCreate_Frame_21
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -552,7 +552,7 @@ ScriptedImporter:
       y: 4
       width: 128
       height: 128
-    spriteID: b9d864691512c634f8e7ad2d9a33df2e
+    spriteID: 2905918a7c2f5024bab32a4fdf004228
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -561,7 +561,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 412, y: 4}
-  - name: CounterAchive - Serika_Frame_22
+  - name: CounterAchive - EffectCreate_Frame_22
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -572,7 +572,7 @@ ScriptedImporter:
       y: 140
       width: 128
       height: 128
-    spriteID: 8a99e95fb7a684045b6238c32fccf2e6
+    spriteID: a705afa8a778c7745acc274e846195f4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -581,7 +581,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 412, y: 140}
-  - name: CounterAchive - Serika_Frame_23
+  - name: CounterAchive - EffectCreate_Frame_23
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -592,7 +592,7 @@ ScriptedImporter:
       y: 276
       width: 128
       height: 128
-    spriteID: ce2c6677ae590544d89970d0d70fda90
+    spriteID: 950c7c9404d2b35449dbe4c7c720fa3d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -601,7 +601,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 412, y: 276}
-  - name: CounterAchive - Serika_Frame_24
+  - name: CounterAchive - EffectCreate_Frame_24
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -612,7 +612,7 @@ ScriptedImporter:
       y: 412
       width: 128
       height: 128
-    spriteID: a56ba1b3b2fe8b3429b03c88940e83d1
+    spriteID: e8dc728832c9825468eedda310e2cfdb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -621,7 +621,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 412, y: 412}
-  - name: CounterAchive - Serika_Frame_25
+  - name: CounterAchive - EffectCreate_Frame_25
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -632,7 +632,7 @@ ScriptedImporter:
       y: 548
       width: 128
       height: 128
-    spriteID: a7092c57a2912a142b0855548418d1eb
+    spriteID: 5fddd9bc387dbb443abc4d735c000a11
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -641,7 +641,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 412, y: 548}
-  - name: CounterAchive - Serika_Frame_26
+  - name: CounterAchive - EffectCreate_Frame_26
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -652,7 +652,7 @@ ScriptedImporter:
       y: 684
       width: 128
       height: 128
-    spriteID: e3ce18650e4f2d2499da66dff8ece999
+    spriteID: f667b46feb6cba94ba092c6c88e4a04d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -661,7 +661,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 412, y: 684}
-  - name: CounterAchive - Serika_Frame_27
+  - name: CounterAchive - EffectCreate_Frame_27
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -672,7 +672,7 @@ ScriptedImporter:
       y: 820
       width: 128
       height: 128
-    spriteID: 47d1ad201172a104d8fd6b01c26f9a4a
+    spriteID: 9b2b21f7c7ad3c0459b88b8bce88cc46
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -681,7 +681,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 412, y: 820}
-  - name: CounterAchive - Serika_Frame_28
+  - name: CounterAchive - EffectCreate_Frame_28
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -692,7 +692,7 @@ ScriptedImporter:
       y: 4
       width: 128
       height: 128
-    spriteID: 59cf580090f4a2049928820a4ef3197d
+    spriteID: 8647ff8f0aaa795459d23c0e287327a4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -701,7 +701,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 548, y: 4}
-  - name: CounterAchive - Serika_Frame_29
+  - name: CounterAchive - EffectCreate_Frame_29
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -712,7 +712,7 @@ ScriptedImporter:
       y: 140
       width: 128
       height: 128
-    spriteID: edc2d0d18b8e7874d899b8ac7b57fdcd
+    spriteID: 1c185b9e65716bf42a6d97b8602da12b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -721,7 +721,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 548, y: 140}
-  - name: CounterAchive - Serika_Frame_30
+  - name: CounterAchive - EffectCreate_Frame_30
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -732,7 +732,7 @@ ScriptedImporter:
       y: 276
       width: 128
       height: 128
-    spriteID: c2c2b5f20e9fdac4693efa663edd164f
+    spriteID: 68f4a95236f0acf47ac1203d5d1e884d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -741,7 +741,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 548, y: 276}
-  - name: CounterAchive - Serika_Frame_31
+  - name: CounterAchive - EffectCreate_Frame_31
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -752,7 +752,7 @@ ScriptedImporter:
       y: 412
       width: 128
       height: 128
-    spriteID: 67c530ad20dffe9429648f72a13b8448
+    spriteID: b4f456d1ddb422d41a7acbece01ed78f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -761,383 +761,271 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 548, y: 412}
-  - name: CounterAchive - Serika_Frame_31
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 548
-      y: 548
-      width: 128
-      height: 128
-    spriteID: 39dd979e47b6eb54a99a113e907096b4
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 548, y: 548}
-  - name: CounterAchive - Serika_Frame_31
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 548
-      y: 684
-      width: 128
-      height: 128
-    spriteID: c73235350c747e24ca532d9a8e1f31fd
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 548, y: 684}
-  - name: CounterAchive - Serika_Frame_31
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 548
-      y: 820
-      width: 128
-      height: 128
-    spriteID: 69e8cc1e5a7b00449b55f349a1759801
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 548, y: 820}
-  - name: CounterAchive - Serika_Frame_31
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 684
-      y: 4
-      width: 128
-      height: 128
-    spriteID: 231f37a392f89fb4da6418c2efa5b8b2
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 684, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 228036524
-    name: CounterAchive - Serika
+    guid: -404795552
+    name: CounterAchive - EffectCreate
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: CounterAchive - Serika_Frame_0
+    - name: CounterAchive - EffectCreate_Frame_0
       frameIndex: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: d9434100dd05e7c479afacf648879c44
-    - name: CounterAchive - Serika_Frame_32
-      frameIndex: 32
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: c104f6efbfdd9b648b6d66aa620423cc
-    - name: CounterAchive - Serika_Frame_33
-      frameIndex: 33
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 2e7a32dbbd01b7b4ba1ed5179ad8bcf3
-    - name: CounterAchive - Serika_Frame_34
-      frameIndex: 34
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 96d004127b9d88b4e814e544afd31083
-    - name: CounterAchive - Serika_Frame_35
-      frameIndex: 35
-      cellRect:
-        x: 0
-        y: 0
-        width: 128
-        height: 128
-      spriteId: 1630cc38d4207b3428878fbe99331820
-    - name: CounterAchive - Serika_Frame_1
+      spriteId: 0af0bcee95b02fa40b327690e78fb32b
+    - name: CounterAchive - EffectCreate_Frame_1
       frameIndex: 1
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: c2582fb7b985eb44f9599a7aeab76340
-    - name: CounterAchive - Serika_Frame_2
+      spriteId: 46a2c728a246a9040bfca8ce8eeb1431
+    - name: CounterAchive - EffectCreate_Frame_2
       frameIndex: 2
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: aa72730be2465e449b8df2458379a078
-    - name: CounterAchive - Serika_Frame_3
+      spriteId: a8d92532852820248b08e5607f740d77
+    - name: CounterAchive - EffectCreate_Frame_3
       frameIndex: 3
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: 02ab3a31c96b82149a3a9ad19b100854
-    - name: CounterAchive - Serika_Frame_4
+      spriteId: 6e0d375e4191c094d8534bc52ff58d94
+    - name: CounterAchive - EffectCreate_Frame_4
       frameIndex: 4
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: 69f0e7c7641a7304cb11d791fcb36388
-    - name: CounterAchive - Serika_Frame_5
+      spriteId: 94fbdfca0e6d4694d97a0371da1d2e6a
+    - name: CounterAchive - EffectCreate_Frame_5
       frameIndex: 5
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: dc997a50334ec984eb6a24088a211a24
-    - name: CounterAchive - Serika_Frame_6
+      spriteId: 6f9cd3dbba639a0448b5dc0e91dd5a57
+    - name: CounterAchive - EffectCreate_Frame_6
       frameIndex: 6
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: e97a77b5a73aa3549a86759f76b436e4
-    - name: CounterAchive - Serika_Frame_7
+      spriteId: 85cd369acd0f94c43a2484f2db6ce989
+    - name: CounterAchive - EffectCreate_Frame_7
       frameIndex: 7
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: dd87fc15d2916d143909b200f36b8be6
-    - name: CounterAchive - Serika_Frame_8
+      spriteId: 6cd8d4f4092ec7042b1457c020d72e20
+    - name: CounterAchive - EffectCreate_Frame_8
       frameIndex: 8
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: ba412cbec8ea26e4a9b18d6203f069bd
-    - name: CounterAchive - Serika_Frame_9
+      spriteId: 28af4b448a5965f41ad59a1ce73449a8
+    - name: CounterAchive - EffectCreate_Frame_9
       frameIndex: 9
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: fea3514cabc83204fa9ad94e2bffa33b
-    - name: CounterAchive - Serika_Frame_10
+      spriteId: 96804585a9f0f484d8ba5b7e0e196481
+    - name: CounterAchive - EffectCreate_Frame_10
       frameIndex: 10
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: aa8c226df3341c84d95d14f14cf5531d
-    - name: CounterAchive - Serika_Frame_11
+      spriteId: 62df77f189ef3fb4b946c10eda95e5d9
+    - name: CounterAchive - EffectCreate_Frame_11
       frameIndex: 11
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: a854b648a1b808343bfe68509ba5f1d0
-    - name: CounterAchive - Serika_Frame_12
+      spriteId: 948777305485b15459dbced71ee0ae49
+    - name: CounterAchive - EffectCreate_Frame_12
       frameIndex: 12
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: b2d310cc2ec2cea4d953c5ffd33d03d8
-    - name: CounterAchive - Serika_Frame_13
+      spriteId: 627633a0306778d4698d7abc911bda40
+    - name: CounterAchive - EffectCreate_Frame_13
       frameIndex: 13
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: 34f209274c657d64284bb892c2dea954
-    - name: CounterAchive - Serika_Frame_14
+      spriteId: a5e88e8c3487535408114b3da6fc9c15
+    - name: CounterAchive - EffectCreate_Frame_14
       frameIndex: 14
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: a717a61d90218124cad9716a006602fa
-    - name: CounterAchive - Serika_Frame_15
+      spriteId: 2900d715408e2d44c9a1f45d6e5dcd68
+    - name: CounterAchive - EffectCreate_Frame_15
       frameIndex: 15
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: e4f3e9a62381e2448a9faea4fe5cd55c
-    - name: CounterAchive - Serika_Frame_16
+      spriteId: c6c9b394b11c341419173ea1c4340543
+    - name: CounterAchive - EffectCreate_Frame_16
       frameIndex: 16
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: d915d118efb6c984a9ba7e9879b9706f
-    - name: CounterAchive - Serika_Frame_17
+      spriteId: 05e8e49638713db4497a67e07219ca6a
+    - name: CounterAchive - EffectCreate_Frame_17
       frameIndex: 17
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: b9d864691512c634f8e7ad2d9a33df2e
-    - name: CounterAchive - Serika_Frame_18
+      spriteId: d4a5e2dda8a609c488549d672816ec1e
+    - name: CounterAchive - EffectCreate_Frame_18
       frameIndex: 18
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: 8a99e95fb7a684045b6238c32fccf2e6
-    - name: CounterAchive - Serika_Frame_19
+      spriteId: bda6b2e71fd933543bea1ce627c0e2ca
+    - name: CounterAchive - EffectCreate_Frame_19
       frameIndex: 19
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: ce2c6677ae590544d89970d0d70fda90
-    - name: CounterAchive - Serika_Frame_20
+      spriteId: 958fa50a72178754d9beeb479cd52dfc
+    - name: CounterAchive - EffectCreate_Frame_20
       frameIndex: 20
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: a56ba1b3b2fe8b3429b03c88940e83d1
-    - name: CounterAchive - Serika_Frame_21
+      spriteId: 84d8d9d070a46b5488967c2cadfd7097
+    - name: CounterAchive - EffectCreate_Frame_21
       frameIndex: 21
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: a7092c57a2912a142b0855548418d1eb
-    - name: CounterAchive - Serika_Frame_22
+      spriteId: 2905918a7c2f5024bab32a4fdf004228
+    - name: CounterAchive - EffectCreate_Frame_22
       frameIndex: 22
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: e3ce18650e4f2d2499da66dff8ece999
-    - name: CounterAchive - Serika_Frame_23
+      spriteId: a705afa8a778c7745acc274e846195f4
+    - name: CounterAchive - EffectCreate_Frame_23
       frameIndex: 23
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: 47d1ad201172a104d8fd6b01c26f9a4a
-    - name: CounterAchive - Serika_Frame_24
+      spriteId: 950c7c9404d2b35449dbe4c7c720fa3d
+    - name: CounterAchive - EffectCreate_Frame_24
       frameIndex: 24
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: 59cf580090f4a2049928820a4ef3197d
-    - name: CounterAchive - Serika_Frame_25
+      spriteId: e8dc728832c9825468eedda310e2cfdb
+    - name: CounterAchive - EffectCreate_Frame_25
       frameIndex: 25
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: edc2d0d18b8e7874d899b8ac7b57fdcd
-    - name: CounterAchive - Serika_Frame_26
+      spriteId: 5fddd9bc387dbb443abc4d735c000a11
+    - name: CounterAchive - EffectCreate_Frame_26
       frameIndex: 26
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: c2c2b5f20e9fdac4693efa663edd164f
-    - name: CounterAchive - Serika_Frame_27
+      spriteId: f667b46feb6cba94ba092c6c88e4a04d
+    - name: CounterAchive - EffectCreate_Frame_27
       frameIndex: 27
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: 67c530ad20dffe9429648f72a13b8448
-    - name: CounterAchive - Serika_Frame_28
+      spriteId: 9b2b21f7c7ad3c0459b88b8bce88cc46
+    - name: CounterAchive - EffectCreate_Frame_28
       frameIndex: 28
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: 39dd979e47b6eb54a99a113e907096b4
-    - name: CounterAchive - Serika_Frame_29
+      spriteId: 8647ff8f0aaa795459d23c0e287327a4
+    - name: CounterAchive - EffectCreate_Frame_29
       frameIndex: 29
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: c73235350c747e24ca532d9a8e1f31fd
-    - name: CounterAchive - Serika_Frame_30
+      spriteId: 1c185b9e65716bf42a6d97b8602da12b
+    - name: CounterAchive - EffectCreate_Frame_30
       frameIndex: 30
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: 69e8cc1e5a7b00449b55f349a1759801
-    - name: CounterAchive - Serika_Frame_31
+      spriteId: 68f4a95236f0acf47ac1203d5d1e884d
+    - name: CounterAchive - EffectCreate_Frame_31
       frameIndex: 31
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
-      spriteId: 231f37a392f89fb4da6418c2efa5b8b2
+      spriteId: b4f456d1ddb422d41a7acbece01ed78f
     linkedCells: []
     parentIndex: -1
   platformSettings: []
