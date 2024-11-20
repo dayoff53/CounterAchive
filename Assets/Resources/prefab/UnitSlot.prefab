@@ -110,8 +110,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5350426313195203715}
-  - component: {fileID: 8541648543857941464}
-  - component: {fileID: 4518110642417359245}
+  - component: {fileID: 143019244720255663}
   m_Layer: 0
   m_Name: UnitSlot
   m_TagString: Untagged
@@ -137,7 +136,7 @@ Transform:
   - {fileID: 5270092141793327646}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8541648543857941464
+--- !u!114 &143019244720255663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,7 +145,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2589823910991165270}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d85a608d59df4e49b9ef71731971741, type: 3}
+  m_Script: {fileID: 11500000, guid: d9025688114374c43bed67a6c4cc9979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   unitFieldController: {fileID: 0}
@@ -154,18 +153,6 @@ MonoBehaviour:
   unit: {fileID: 412560792552139733}
   isNull: 1
   slotGround: {fileID: 3703163220768527653}
---- !u!114 &4518110642417359245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2589823910991165270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f6207b8206f4d947bcc46ce551f25aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7893774166946870718
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,8 +163,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8054753825030651564}
   - component: {fileID: 82961109543747887}
-  - component: {fileID: 3703163220768527653}
   - component: {fileID: 6288313595130764187}
+  - component: {fileID: 3703163220768527653}
   m_Layer: 0
   m_Name: SlotGroundSprite
   m_TagString: Untagged
@@ -252,25 +239,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3703163220768527653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7893774166946870718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dce603d9a2f16c74daed47866ceb76a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitSlot: {fileID: 8541648543857941464}
-  _slotGroundState: 0
-  groundSpriteRenderer: {fileID: 82961109543747887}
-  groundSpriteList:
-  - {fileID: 21300000, guid: ab68290aed2a54d4ca1454f62402bb37, type: 3}
-  - {fileID: 21300000, guid: 92fd76ca36d59be408ec6102c2d2aead, type: 3}
-  - {fileID: 21300000, guid: fa44bf8637957c64fab2929c9d2d5e43, type: 3}
 --- !u!61 &6288313595130764187
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -316,6 +284,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.64, y: 7}
   m_EdgeRadius: 0
+--- !u!114 &3703163220768527653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7893774166946870718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dce603d9a2f16c74daed47866ceb76a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitSlot: {fileID: 143019244720255663}
+  _slotGroundState: 0
+  groundSpriteRenderer: {fileID: 82961109543747887}
+  groundSpriteList:
+  - {fileID: 21300000, guid: ab68290aed2a54d4ca1454f62402bb37, type: 3}
+  - {fileID: 21300000, guid: 92fd76ca36d59be408ec6102c2d2aead, type: 3}
+  - {fileID: 21300000, guid: fa44bf8637957c64fab2929c9d2d5e43, type: 3}
 --- !u!1001 &1272659257099164212
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 /// <summary>
 /// UnitSlot ¹Ù´Ú¿¡ ±ò¸®´Â SlotGround (1.defalut, 2.select, 3.target)
@@ -60,6 +61,12 @@ public class SlotGroundSpriteController : MonoBehaviour
     {
         slotGroundState = setSlotGroundState;
 
+        Assert.IsNotNull(groundSpriteRenderer, "groundSpriteRenderer is null");
+        Assert.IsNotNull(stageManager, "stageManager is null");
+        Assert.IsNotNull(stageManager.unitStateColors, "stageManager.unitStateColors is null");
+        Assert.IsNotNull(unitSlot, "unitSlot is null");
+        Assert.IsNotNull(unitSlot.unit, "unitSlot.unit is null");
+
         groundSpriteRenderer.color = stageManager.unitStateColors[unitSlot.unit.unitTeam];
     }
 
@@ -68,7 +75,7 @@ public class SlotGroundSpriteController : MonoBehaviour
         switch(stageManager.currentPrograssState)
         {
             case ProgressState.SkillTargetSearch:
-                if (stageManager.cost >= stageManager.currentSkillSlot.skillData.skillCost)
+                if (stageManager.cost >= stageManager.currentSkillSlot.skillState.skillCost)
                 {
                     stageManager.skillTargetNum = unitSlot.slotNumber;
                     stageManager.SkillStart();
