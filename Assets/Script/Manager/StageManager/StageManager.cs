@@ -251,34 +251,4 @@ public partial class StageManager : Singleton<StageManager>
         }
     }
 
-
-    /// <summary>
-    /// 현 목표에게 공격을 수행합니다.
-    /// </summary>
-    /// <param name="damage">적용할 데미지입니다.</param>
-    public void ExecuteAttack(float damage)
-    {
-        unitSlotList[skillTargetNum].unit.currentHp -= damage;
-    }
-
-    /// <summary>
-    /// 지정된 대상에게 데미지로 공격을 수행합니다.
-    /// </summary>
-    /// <param name="damage">적용할 데미지입니다.</param>
-    public void ExecuteAttack(int targetNum, float damage)
-    {
-        unitSlotList[targetNum].unit.currentHp -= damage;
-    }
-
-    /// <summary>
-    /// 지정된 대상들에게 데미지로 공격을 수행합니다.
-    /// </summary>
-    /// <param name="damage">적용할 데미지입니다.</param>
-    public void ExecuteAttack(List<int> targetNums, float damage)
-    {
-        for (int i = 0; i < targetNums.Count; i++)
-        {
-            unitSlotList[i].unit.currentHp -= damage;
-        }
-    }
 }
