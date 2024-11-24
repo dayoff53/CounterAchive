@@ -13,6 +13,7 @@ public enum SkillTypeState
 }
 
 [System.Serializable]
+[CreateAssetMenu(fileName = "New SkillData", menuName = "Datas/SkillData")]
 public class SkillData : ScriptableObject
 {
     public int skillNumber;

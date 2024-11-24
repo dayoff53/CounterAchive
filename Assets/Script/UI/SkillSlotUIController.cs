@@ -33,7 +33,7 @@ public class SkillSlotUIController : MonoBehaviour
     // Start is called before the first frame update
     private void Init()
     {
-        if (skillData)
+        if (skillData != null)
         {
             skillIcon.sprite = skillData.skillIcon;
             skillNameText.text = skillData.skillName;

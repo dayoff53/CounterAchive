@@ -108,7 +108,6 @@ public partial class StageManager : Singleton<StageManager>
     public int skillTargetNum;
 
     public SkillSlotUIController currentSkillSlot;
-    private UnitSlotController targetUnitSlot;
     #endregion
 
     #region CostVariable
@@ -142,7 +141,7 @@ public partial class StageManager : Singleton<StageManager>
     private Image costBar;
     #endregion
 
-
+    #region UIVariable
     [Space(10)]
     [Header("UI Object")]
     [SerializeField]
@@ -159,7 +158,7 @@ public partial class StageManager : Singleton<StageManager>
     public GameObject unitSet_UI;
 
     /// <summary>
-    /// 남아있는 선택 가능한 유닛 슬롯
+    /// 남아있는 선택 가능한 유닛 슬롯 갯수를 보여주는 텍스트
     /// </summary>
     [SerializeField]
     public TMP_Text remainingSetUnitSlotText;
@@ -169,6 +168,7 @@ public partial class StageManager : Singleton<StageManager>
     [Header("Color Data")]
     public List<Color> unitStateColors;
     public ColorState unitStateColorsObject;
+    #endregion
 
 
     /// <summary>

@@ -761,6 +761,86 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 548, y: 412}
+  - name: CounterAchive - EffectCreate_Frame_28
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 548
+      y: 548
+      width: 128
+      height: 128
+    spriteID: 62705e55808000647aa7b7e7346a7ea2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 548, y: 548}
+  - name: CounterAchive - EffectCreate_Frame_29
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 548
+      y: 684
+      width: 128
+      height: 128
+    spriteID: 158336b694eb24544824cccca76c116b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 548, y: 684}
+  - name: CounterAchive - EffectCreate_Frame_30
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 548
+      y: 820
+      width: 128
+      height: 128
+    spriteID: 639b88c6832105245a5a9b27df65dc4b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 548, y: 820}
+  - name: CounterAchive - EffectCreate_Frame_31
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 684
+      y: 4
+      width: 128
+      height: 128
+    spriteID: 8a33de58410a04e438b556a6b6535c70
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 684, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -778,6 +858,38 @@ ScriptedImporter:
         width: 128
         height: 128
       spriteId: 0af0bcee95b02fa40b327690e78fb32b
+    - name: CounterAchive - EffectCreate_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      spriteId: 46a2c728a246a9040bfca8ce8eeb1431
+    - name: CounterAchive - EffectCreate_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      spriteId: a8d92532852820248b08e5607f740d77
+    - name: CounterAchive - EffectCreate_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      spriteId: 6e0d375e4191c094d8534bc52ff58d94
+    - name: CounterAchive - EffectCreate_Frame_35
+      frameIndex: 35
+      cellRect:
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      spriteId: 94fbdfca0e6d4694d97a0371da1d2e6a
     - name: CounterAchive - EffectCreate_Frame_1
       frameIndex: 1
       cellRect:
@@ -785,7 +897,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 46a2c728a246a9040bfca8ce8eeb1431
+      spriteId: 6f9cd3dbba639a0448b5dc0e91dd5a57
     - name: CounterAchive - EffectCreate_Frame_2
       frameIndex: 2
       cellRect:
@@ -793,7 +905,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: a8d92532852820248b08e5607f740d77
+      spriteId: 85cd369acd0f94c43a2484f2db6ce989
     - name: CounterAchive - EffectCreate_Frame_3
       frameIndex: 3
       cellRect:
@@ -801,7 +913,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 6e0d375e4191c094d8534bc52ff58d94
+      spriteId: 6cd8d4f4092ec7042b1457c020d72e20
     - name: CounterAchive - EffectCreate_Frame_4
       frameIndex: 4
       cellRect:
@@ -809,7 +921,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 94fbdfca0e6d4694d97a0371da1d2e6a
+      spriteId: 28af4b448a5965f41ad59a1ce73449a8
     - name: CounterAchive - EffectCreate_Frame_5
       frameIndex: 5
       cellRect:
@@ -817,7 +929,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 6f9cd3dbba639a0448b5dc0e91dd5a57
+      spriteId: 96804585a9f0f484d8ba5b7e0e196481
     - name: CounterAchive - EffectCreate_Frame_6
       frameIndex: 6
       cellRect:
@@ -825,7 +937,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 85cd369acd0f94c43a2484f2db6ce989
+      spriteId: 62df77f189ef3fb4b946c10eda95e5d9
     - name: CounterAchive - EffectCreate_Frame_7
       frameIndex: 7
       cellRect:
@@ -833,7 +945,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 6cd8d4f4092ec7042b1457c020d72e20
+      spriteId: 948777305485b15459dbced71ee0ae49
     - name: CounterAchive - EffectCreate_Frame_8
       frameIndex: 8
       cellRect:
@@ -841,7 +953,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 28af4b448a5965f41ad59a1ce73449a8
+      spriteId: 627633a0306778d4698d7abc911bda40
     - name: CounterAchive - EffectCreate_Frame_9
       frameIndex: 9
       cellRect:
@@ -849,7 +961,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 96804585a9f0f484d8ba5b7e0e196481
+      spriteId: a5e88e8c3487535408114b3da6fc9c15
     - name: CounterAchive - EffectCreate_Frame_10
       frameIndex: 10
       cellRect:
@@ -857,7 +969,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 62df77f189ef3fb4b946c10eda95e5d9
+      spriteId: 2900d715408e2d44c9a1f45d6e5dcd68
     - name: CounterAchive - EffectCreate_Frame_11
       frameIndex: 11
       cellRect:
@@ -865,7 +977,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 948777305485b15459dbced71ee0ae49
+      spriteId: c6c9b394b11c341419173ea1c4340543
     - name: CounterAchive - EffectCreate_Frame_12
       frameIndex: 12
       cellRect:
@@ -873,7 +985,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 627633a0306778d4698d7abc911bda40
+      spriteId: 05e8e49638713db4497a67e07219ca6a
     - name: CounterAchive - EffectCreate_Frame_13
       frameIndex: 13
       cellRect:
@@ -881,7 +993,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: a5e88e8c3487535408114b3da6fc9c15
+      spriteId: d4a5e2dda8a609c488549d672816ec1e
     - name: CounterAchive - EffectCreate_Frame_14
       frameIndex: 14
       cellRect:
@@ -889,7 +1001,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 2900d715408e2d44c9a1f45d6e5dcd68
+      spriteId: bda6b2e71fd933543bea1ce627c0e2ca
     - name: CounterAchive - EffectCreate_Frame_15
       frameIndex: 15
       cellRect:
@@ -897,7 +1009,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: c6c9b394b11c341419173ea1c4340543
+      spriteId: 958fa50a72178754d9beeb479cd52dfc
     - name: CounterAchive - EffectCreate_Frame_16
       frameIndex: 16
       cellRect:
@@ -905,7 +1017,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 05e8e49638713db4497a67e07219ca6a
+      spriteId: 84d8d9d070a46b5488967c2cadfd7097
     - name: CounterAchive - EffectCreate_Frame_17
       frameIndex: 17
       cellRect:
@@ -913,7 +1025,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: d4a5e2dda8a609c488549d672816ec1e
+      spriteId: 2905918a7c2f5024bab32a4fdf004228
     - name: CounterAchive - EffectCreate_Frame_18
       frameIndex: 18
       cellRect:
@@ -921,7 +1033,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: bda6b2e71fd933543bea1ce627c0e2ca
+      spriteId: a705afa8a778c7745acc274e846195f4
     - name: CounterAchive - EffectCreate_Frame_19
       frameIndex: 19
       cellRect:
@@ -929,7 +1041,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 958fa50a72178754d9beeb479cd52dfc
+      spriteId: 950c7c9404d2b35449dbe4c7c720fa3d
     - name: CounterAchive - EffectCreate_Frame_20
       frameIndex: 20
       cellRect:
@@ -937,7 +1049,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 84d8d9d070a46b5488967c2cadfd7097
+      spriteId: e8dc728832c9825468eedda310e2cfdb
     - name: CounterAchive - EffectCreate_Frame_21
       frameIndex: 21
       cellRect:
@@ -945,7 +1057,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 2905918a7c2f5024bab32a4fdf004228
+      spriteId: 5fddd9bc387dbb443abc4d735c000a11
     - name: CounterAchive - EffectCreate_Frame_22
       frameIndex: 22
       cellRect:
@@ -953,7 +1065,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: a705afa8a778c7745acc274e846195f4
+      spriteId: f667b46feb6cba94ba092c6c88e4a04d
     - name: CounterAchive - EffectCreate_Frame_23
       frameIndex: 23
       cellRect:
@@ -961,7 +1073,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 950c7c9404d2b35449dbe4c7c720fa3d
+      spriteId: 9b2b21f7c7ad3c0459b88b8bce88cc46
     - name: CounterAchive - EffectCreate_Frame_24
       frameIndex: 24
       cellRect:
@@ -969,7 +1081,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: e8dc728832c9825468eedda310e2cfdb
+      spriteId: 8647ff8f0aaa795459d23c0e287327a4
     - name: CounterAchive - EffectCreate_Frame_25
       frameIndex: 25
       cellRect:
@@ -977,7 +1089,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 5fddd9bc387dbb443abc4d735c000a11
+      spriteId: 1c185b9e65716bf42a6d97b8602da12b
     - name: CounterAchive - EffectCreate_Frame_26
       frameIndex: 26
       cellRect:
@@ -985,7 +1097,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: f667b46feb6cba94ba092c6c88e4a04d
+      spriteId: 68f4a95236f0acf47ac1203d5d1e884d
     - name: CounterAchive - EffectCreate_Frame_27
       frameIndex: 27
       cellRect:
@@ -993,7 +1105,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 9b2b21f7c7ad3c0459b88b8bce88cc46
+      spriteId: b4f456d1ddb422d41a7acbece01ed78f
     - name: CounterAchive - EffectCreate_Frame_28
       frameIndex: 28
       cellRect:
@@ -1001,7 +1113,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 8647ff8f0aaa795459d23c0e287327a4
+      spriteId: 62705e55808000647aa7b7e7346a7ea2
     - name: CounterAchive - EffectCreate_Frame_29
       frameIndex: 29
       cellRect:
@@ -1009,7 +1121,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 1c185b9e65716bf42a6d97b8602da12b
+      spriteId: 158336b694eb24544824cccca76c116b
     - name: CounterAchive - EffectCreate_Frame_30
       frameIndex: 30
       cellRect:
@@ -1017,7 +1129,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: 68f4a95236f0acf47ac1203d5d1e884d
+      spriteId: 639b88c6832105245a5a9b27df65dc4b
     - name: CounterAchive - EffectCreate_Frame_31
       frameIndex: 31
       cellRect:
@@ -1025,7 +1137,7 @@ ScriptedImporter:
         y: 0
         width: 128
         height: 128
-      spriteId: b4f456d1ddb422d41a7acbece01ed78f
+      spriteId: 8a33de58410a04e438b556a6b6535c70
     linkedCells: []
     parentIndex: -1
   platformSettings: []

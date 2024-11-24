@@ -10,7 +10,7 @@ public class StageMaster : MonoBehaviour
     [Header("스테이지 별 게임 환경을 설정하는 스크립트 스테이지를 불러올때 가장 우선적으로 작동하는 스크립트이다. (적 유닛 종류 등)")]
 
     [SerializeField]
-    private StageManager gameManager;
+    private StageManager stageManager;
 
     /// <summary>
     /// 플레이어가 사용 가능한 유닛 슬롯의 카운트
@@ -58,21 +58,21 @@ public class StageMaster : MonoBehaviour
 
     private void Start()
     {
-        gameManager = StageManager.Instance;
+        stageManager = StageManager.Instance;
 
         unitSelectSlotsGroupController.SetUnitSelectSlot();
 
         PlaceUnitSlot();
 
-        gameManager.playerUseUnitSlotCount = playerUseUnitSlotCount;
-        gameManager.playerUseUnitSlotRange = playerUseUnitSlotRange;
+        stageManager.playerUseUnitSlotCount = playerUseUnitSlotCount;
+        stageManager.playerUseUnitSlotRange = playerUseUnitSlotRange;
 
-        gameManager.skillSlotList = skillSlotList;
+        stageManager.skillSlotList = skillSlotList;
         Debug.Log($"skillSlotList.Count {skillSlotList.Count}\n skillSlotList[0] : {skillSlotList[0]}");
-        Debug.Log($"gameManager.skillSlotList.Count {gameManager.skillSlotList.Count}\n gameManager.skillSlotList[0] : {gameManager.skillSlotList[0]}");
+        Debug.Log($"gameManager.skillSlotList.Count {stageManager.skillSlotList.Count}\n gameManager.skillSlotList[0] : {stageManager.skillSlotList[0]}");
 
          
-        gameManager.SetGame();
+        stageManager.SetGame();
     }
 
     /// <summary>

@@ -61,12 +61,6 @@ public class SlotGroundSpriteController : MonoBehaviour
     {
         slotGroundState = setSlotGroundState;
 
-        Assert.IsNotNull(groundSpriteRenderer, "groundSpriteRenderer is null");
-        Assert.IsNotNull(stageManager, "stageManager is null");
-        Assert.IsNotNull(stageManager.unitStateColors, "stageManager.unitStateColors is null");
-        Assert.IsNotNull(unitSlot, "unitSlot is null");
-        Assert.IsNotNull(unitSlot.unit, "unitSlot.unit is null");
-
         groundSpriteRenderer.color = stageManager.unitStateColors[unitSlot.unit.unitTeam];
     }
 
@@ -75,7 +69,7 @@ public class SlotGroundSpriteController : MonoBehaviour
         switch(stageManager.currentPrograssState)
         {
             case ProgressState.SkillTargetSearch:
-                if (stageManager.cost >= stageManager.currentSkillSlot.skillState.skillCost)
+                if (stageManager.cost >= stageManager.currentSkillSlot.skillData.skillCost)
                 {
                     stageManager.skillTargetNum = unitSlot.slotNumber;
                     stageManager.SkillStart();

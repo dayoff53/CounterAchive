@@ -30,12 +30,12 @@ public partial class StageManager
         currentPrograssState = ProgressState.SkillPlay;
         //StartCoroutine(inGameManager.DelayTurnEnd(inGameManager.currentSkillSlot.skillData.skillEndTime));
         unitSlotList[currentTurnSlotNumber].unit.SetAnim(1);
-        cost -= currentSkillSlot.skillState.skillCost;
+        cost -= currentSkillSlot.skillData.skillCost;
     }
 
     public void SkillHitPlay()
     {
-        SkillData skillData = currentSkillSlot.skillState;
+        SkillData skillData = currentSkillSlot.skillData;
         float skillDamage = skillData.damage;
 
         switch(skillData.skillTypeState)

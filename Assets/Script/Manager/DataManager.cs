@@ -7,6 +7,7 @@ using System.IO;
 /// <summary>
 /// 세이브 데이터 클래스
 /// </summary>
+[System.Serializable]
 public class SaveData
 {
     public List<UnitState> playerUnitStates;
@@ -37,7 +38,6 @@ public class UnitState
     {
         unitNumber = unitData.unitNumber;
 
-
             ApplyBaseState(unitData);
     }
 
@@ -65,7 +65,7 @@ public class UnitState
     }
 
     /// <summary>
-    /// 추가 상태를 적용 (기본 상태에 더해주는 방식)
+    /// 추가 스텟를 적용 (기본 스텟에 더해주는 방식)
     /// </summary>
     /// <param name="unitData">기준이 될 UnitData</param>
     public void ApplyPlusState(UnitData unitData)
@@ -81,7 +81,7 @@ public class UnitState
         speed += unitData.speed;
         actionPoint += unitData.actionPoint;
 
-        // skillDataList에 있는 각 SkillData의 ID만 추가 (중복되지 않도록 관리)
+        // skillDataList에 있는 각 SkillData의 Number(ID값)만 추가 (중복되지 않도록 관리)
         if (skillNumberList == null)
         {
             skillNumberList = new List<int>();
