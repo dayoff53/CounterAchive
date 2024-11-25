@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 using UnityEditor;
 using System.IO;
 
@@ -105,7 +106,6 @@ public class DataManager : Singleton<DataManager>
     /// </summary>
     [SerializeField]
     string saveDataFilePath;
-
     public SaveData currentSaveData;
 
     /// <summary>
@@ -117,6 +117,7 @@ public class DataManager : Singleton<DataManager>
     /// UnitData를 저장해 둔 저장소, 이미지나 애니메이션 등의 리소스를 주로 불러 사용한다.
     /// </summary>
     public List<UnitData> unitDataList;
+
     /// <summary>
     /// SkillData를 저장해둔 List
     /// </summary>

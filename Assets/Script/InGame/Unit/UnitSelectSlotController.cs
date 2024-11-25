@@ -6,8 +6,6 @@ using TMPro;
 
 public class UnitSelectSlotController : MonoBehaviour
 {
-
-
     [SerializeField]
     public UnitState unitState;
 

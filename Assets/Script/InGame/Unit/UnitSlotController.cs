@@ -19,7 +19,7 @@ public class UnitSlotController : MonoBehaviour
     /// </summary>
     [SerializeField]
     [Header("현재 해당 슬롯에 위치한 유닛")]
-    public UnitController unit;
+    public UnitBase unit;
 
     /// <summary>
     /// 유닛 슬롯이 비어있는지 여부
@@ -55,6 +55,11 @@ public class UnitSlotController : MonoBehaviour
         StatusInit();
     }
 
+    /// <summary>
+    /// 해당 위치에 새로운 유닛을 배치
+    /// </summary>
+    /// <param name="setUnitState"></param>
+    /// <param name="teamNum"></param>
     public void SetUnit(UnitState setUnitState, int teamNum)
     {
         unit.unitTeam = teamNum;
@@ -64,7 +69,7 @@ public class UnitSlotController : MonoBehaviour
 
     public void SetUnit(GameObject setUnit, int teamNum)
     {
-        if (setUnit.GetComponent<UnitController>() != null)
+        if (setUnit.GetComponent<UnitBase>() != null)
         {
             if (unit != null)
             {
@@ -72,7 +77,7 @@ public class UnitSlotController : MonoBehaviour
             }
 
             GameObject newUnit = Instantiate(setUnit, gameObject.transform);
-            unit = newUnit.GetComponent<UnitController>();
+            unit = newUnit.GetComponent<UnitBase>();
         }
         else
         {

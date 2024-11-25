@@ -39,7 +39,7 @@ public partial class StageManager
         {
             if (unitSlot.unit != null && unitSlot.isNull == false)
             {
-                UnitController unit = unitSlot.unit;
+                UnitBase unit = unitSlot.unit;
                 if (actionPoints.TryGetValue(unit, out float currentPoints))
                 {
                     actionPoints[unit] = currentPoints + unit.speed * time;
@@ -68,7 +68,7 @@ public partial class StageManager
     /// 코스트를 지속적으로 상승시키는 스크립트
     /// </summary>
     /// <param name="unit"></param>
-    private void CostIncrease(UnitController unit, float time)
+    private void CostIncrease(UnitBase unit, float time)
     {
             if (unit != null)
             {
@@ -101,7 +101,7 @@ public partial class StageManager
                 {
                     if (unitSlot != null && unitSlot.isNull == false)
                     {
-                        UnitController unit = unitSlot.unit;
+                        UnitBase unit = unitSlot.unit;
                         if (actionPoints.TryGetValue(unit, out float currentPoints))
                         {
                             actionPoints[unit] = currentPoints + unit.speed * skipTime;

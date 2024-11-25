@@ -19,12 +19,11 @@ public class SkillData : ScriptableObject
     public int skillNumber;
     public string skillName;
     public string skillFlavorText;
-    public SkillTypeState skillTypeState;
     public float skillCost;
-    public Sprite skillIcon;
     public int[] skillRange;
     public float damage;
-
-    public float skillScale;
+    public SkillTypeState skillTypeState;
+    public Sprite skillIcon;
+    public GameObject skilIHitProductionObject;
 }
 
