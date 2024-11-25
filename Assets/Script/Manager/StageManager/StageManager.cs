@@ -21,6 +21,9 @@ public enum ProgressState
 
 public partial class StageManager : Singleton<StageManager>
 {
+    private DataManager dataManager;
+    private PoolManager poolManager;
+
     [SerializeField]
     private ProgressState _currentPrograssState = ProgressState.UnitSelect;
     /// <summary>
@@ -86,7 +89,7 @@ public partial class StageManager : Singleton<StageManager>
     [Space(10)]
     [Header("Turn Data")]
     [Tooltip("행동력 누적을 위한 Dictionary")]
-    private SerializableDictionary<UnitController, float> actionPoints = new SerializableDictionary<UnitController, float>();
+    private SerializableDictionary<UnitBase, float> actionPoints = new SerializableDictionary<UnitBase, float>();
 
     /// <summary>
     /// 현재 턴을 행사 중인 슬롯의 번호
@@ -170,6 +173,12 @@ public partial class StageManager : Singleton<StageManager>
     public ColorState unitStateColorsObject;
     #endregion
 
+    protected virtual void Start()
+    {
+        dataManager = DataManager.Instance;
+        poolManager = PoolManager.Instance;
+    }
+
 
     /// <summary>
     /// 게임 초기 설정을 진행하는 단계입니다.
@@ -242,7 +251,7 @@ public partial class StageManager : Singleton<StageManager>
         {
             if (unitSlot != null && unitSlot != null)
             {
-                UnitController unit = unitSlot.unit;
+                UnitBase unit = unitSlot.unit;
                 if (!actionPoints.ContainsKey(unit))
                 {
                     actionPoints.Add(unit, unit.currentActionPoint); // 키가 없으면 추가
