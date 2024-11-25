@@ -121,7 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: NormalHit_Frame_0
+  - name: Production_Hit_Normal_Frame_0
     originalName: 
     pivot: {x: 0.5, y: -0.5}
     alignment: 9
@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 50
       width: 10
       height: 10
-    spriteID: a69ac391a1d051c48af245c9af44163d
+    spriteID: 625257c7600aaaf43a826d2fb820f07a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,7 +141,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 50}
-  - name: NormalHit_Frame_1
+  - name: Production_Hit_Normal_Frame_1
     originalName: 
     pivot: {x: 0.5, y: -0.33333334}
     alignment: 9
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 4
       width: 12
       height: 12
-    spriteID: fc0868088cef79b41bade3a75caf3930
+    spriteID: 35b02094f49f45d4baad87e05d42b693
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -161,7 +161,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 28, y: 4}
-  - name: NormalHit_Frame_2
+  - name: Production_Hit_Normal_Frame_2
     originalName: 
     pivot: {x: 0.5, y: -0.21428573}
     alignment: 9
@@ -172,7 +172,7 @@ ScriptedImporter:
       y: 28
       width: 14
       height: 14
-    spriteID: 5e9e8e263a87a2845a881f227ddd1332
+    spriteID: 280a3c02f5e9da24ab74eb67b2757b4c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -181,7 +181,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 28}
-  - name: NormalHit_Frame_3
+  - name: Production_Hit_Normal_Frame_3
     originalName: 
     pivot: {x: 0.5, y: -0.125}
     alignment: 9
@@ -192,7 +192,7 @@ ScriptedImporter:
       y: 4
       width: 16
       height: 16
-    spriteID: 65bf9bd95603fd84186bf8c59e1e307d
+    spriteID: ca62540406a3a7142b813edd4111cb8b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -204,44 +204,44 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1837534806
-    name: NormalHit
+    guid: -1807876467
+    name: Production_Hit_Normal
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: NormalHit_Frame_0
+    - name: Production_Hit_Normal_Frame_0
       frameIndex: 0
       cellRect:
         x: 5
         y: 5
         width: 10
         height: 10
-      spriteId: a69ac391a1d051c48af245c9af44163d
-    - name: NormalHit_Frame_1
+      spriteId: 625257c7600aaaf43a826d2fb820f07a
+    - name: Production_Hit_Normal_Frame_1
       frameIndex: 1
       cellRect:
         x: 4
         y: 4
         width: 12
         height: 12
-      spriteId: fc0868088cef79b41bade3a75caf3930
-    - name: NormalHit_Frame_2
+      spriteId: 35b02094f49f45d4baad87e05d42b693
+    - name: Production_Hit_Normal_Frame_2
       frameIndex: 2
       cellRect:
         x: 3
         y: 3
         width: 14
         height: 14
-      spriteId: 5e9e8e263a87a2845a881f227ddd1332
-    - name: NormalHit_Frame_3
+      spriteId: 280a3c02f5e9da24ab74eb67b2757b4c
+    - name: Production_Hit_Normal_Frame_3
       frameIndex: 3
       cellRect:
         x: 2
         y: 2
         width: 16
         height: 16
-      spriteId: 65bf9bd95603fd84186bf8c59e1e307d
+      spriteId: ca62540406a3a7142b813edd4111cb8b
     linkedCells: []
     parentIndex: -1
   platformSettings: []
