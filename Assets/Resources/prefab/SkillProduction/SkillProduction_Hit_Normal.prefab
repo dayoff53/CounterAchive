@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4684350929404640539}
   - component: {fileID: 2659893796697209592}
   - component: {fileID: 7851548547189449389}
-  - component: {fileID: -409910435384076904}
+  - component: {fileID: 8450342884555857688}
   m_Layer: 0
-  m_Name: Hit_Normal
+  m_Name: SkillProduction_Hit_Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.8, y: 0.8}
+  m_Size: {x: 1.6, y: 1.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -96,7 +96,7 @@ Animator:
   m_GameObject: {fileID: 8418865080969946635}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 75c288e35aba9f5409eb6985a694a0ac, type: 2}
+  m_Controller: {fileID: 9100000, guid: 635c4495ab1e78542934e270696ef32e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -107,7 +107,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-409910435384076904
+--- !u!114 &8450342884555857688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,6 +116,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8418865080969946635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c80008fe41f814c43b2bb4a5a17a7804, type: 3}
+  m_Script: {fileID: 11500000, guid: 52838cd6d74223b428862daae2f788a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destoryTime: 1
