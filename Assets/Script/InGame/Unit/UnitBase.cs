@@ -12,7 +12,7 @@ public class UnitBase : MonoBehaviour
 
     [Header("연동될 컴포넌트")]
     [SerializeField]
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
 
     [SerializeField]
     private Animator unitAnimator;
@@ -22,6 +22,9 @@ public class UnitBase : MonoBehaviour
 
     [SerializeField]
     private Image actionPointBar;
+
+    [SerializeField]
+    private GameObject hitPosition;
 
 
     [Header("Status")]

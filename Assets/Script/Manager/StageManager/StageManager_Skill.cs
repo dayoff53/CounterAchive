@@ -58,7 +58,7 @@ public partial class StageManager
     public virtual void HitProduction()
     {
         GameObject hitProductonObject = poolManager.Pop(currentSkillSlot.skillData.skilIHitProductionObject);
-        hitProductonObject.transform.position = unitSlotList[skillTargetNum].transform.position;
+        hitProductonObject.transform.position = unitSlotList[skillTargetNum].unit.spriteRenderer.gameObject.transform.position;
     }
 
 
