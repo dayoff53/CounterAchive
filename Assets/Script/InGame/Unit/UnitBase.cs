@@ -24,7 +24,7 @@ public class UnitBase : MonoBehaviour
     private Image actionPointBar;
 
     [SerializeField]
-    private GameObject hitPosition;
+    public GameObject hitPosition;
 
 
     [Header("Status")]
