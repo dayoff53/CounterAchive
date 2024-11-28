@@ -59,7 +59,7 @@ public class UnitBase : MonoBehaviour
     private float _currentHp;
     public float atk;
     public float def;
-    public float maxActionPoint = 100;
+    public float maxAP = 100;
     public float _currentActionPoint = 0;
     public float speed;
     public float currentHp
@@ -78,7 +78,7 @@ public class UnitBase : MonoBehaviour
             }
         }
     }
-    public float currentActionPoint
+    public float currentAP
     {
         get { return _currentActionPoint; }
         set
@@ -87,7 +87,7 @@ public class UnitBase : MonoBehaviour
             {
                 _currentActionPoint = value;
 
-                actionPointBar.fillAmount = currentActionPoint / maxActionPoint;
+                actionPointBar.fillAmount = currentAP / maxAP;
             }
         }
     }
@@ -120,8 +120,8 @@ public class UnitBase : MonoBehaviour
             currentHp = unitData.hp;
             atk = unitData.atk;
             def = unitData.def;
-            maxActionPoint = unitData.actionPoint;
-            currentActionPoint = 0;
+            maxAP = unitData.actionPoint;
+            currentAP = 0;
             speed = unitData.speed;
             skillDataList = unitData.skillDataList;
             
@@ -156,13 +156,13 @@ public class UnitBase : MonoBehaviour
                 break;
 
             case PublicUnitStatus.maxActionPoint:
-                maxActionPoint = newValue;
+                maxAP = newValue;
                 // 현재 액션 포인트가 최대치를 초과하지 않도록 조정
-                currentActionPoint = Mathf.Clamp(currentActionPoint, 0, maxActionPoint);
+                currentAP = Mathf.Clamp(currentAP, 0, maxAP);
                 break;
 
             case PublicUnitStatus.currentActionPoint:
-                currentActionPoint = newValue;
+                currentAP = newValue;
                 break;
 
             case PublicUnitStatus.speed:
@@ -203,8 +203,8 @@ public class UnitBase : MonoBehaviour
                 maxHp = setStatus.hp;
                 currentHp = setStatus.hp;
                 atk = setStatus.atk;
-                maxActionPoint = setStatus.actionPoint;
-                currentActionPoint = 0;
+                maxAP = setStatus.actionPoint;
+                currentAP = 0;
                 speed = setStatus.speed;
                 skillDataList = new List<SkillData>();
                 foreach (int skillNum in setStatus.skillNumberList)
@@ -218,8 +218,8 @@ public class UnitBase : MonoBehaviour
                 maxHp = setStatus.defaultUnitData.hp;
                 currentHp = setStatus.defaultUnitData.hp;
                 atk = setStatus.defaultUnitData.atk;
-                maxActionPoint = setStatus.defaultUnitData.actionPoint;
-                currentActionPoint = 0;
+                maxAP = setStatus.defaultUnitData.actionPoint;
+                currentAP = 0;
                 speed = setStatus.defaultUnitData.speed;
                 skillDataList = new List<SkillData>();
                 foreach (int skillNum in setStatus.skillNumberList)

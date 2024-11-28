@@ -43,11 +43,11 @@ public partial class StageManager
                 if (actionPoints.TryGetValue(unit, out float currentPoints))
                 {
                     actionPoints[unit] = currentPoints + unit.speed * time;
-                    unit.currentActionPoint = actionPoints[unit];
+                    unit.currentAP = actionPoints[unit];
 
                     CostIncrease(unit, time);
 
-                    if (unit.currentActionPoint >= unit.maxActionPoint)
+                    if (unit.currentAP >= unit.maxAP)
                     {
                         ExecuteTurn(unitSlot);
                         break;
@@ -57,7 +57,7 @@ public partial class StageManager
                 {
                     Debug.LogWarning($"No key found for {unitSlot.name}. Adding key.");
                     actionPoints.Add(unit, unit.speed * time);  // 키가 없을 경우 추가
-                    unit.currentActionPoint = actionPoints[unit];
+                    unit.currentAP = actionPoints[unit];
                 }
             }
         }
@@ -105,11 +105,11 @@ public partial class StageManager
                         if (actionPoints.TryGetValue(unit, out float currentPoints))
                         {
                             actionPoints[unit] = currentPoints + unit.speed * skipTime;
-                            unit.currentActionPoint = actionPoints[unit];
+                            unit.currentAP = actionPoints[unit];
 
                             CostIncrease(unit, skipTime);
 
-                            if (unit.currentActionPoint >= unit.maxActionPoint)
+                            if (unit.currentAP >= unit.maxAP)
                             {
                                 isSkip = false;
                                 ExecuteTurn(unitSlot);
@@ -120,7 +120,7 @@ public partial class StageManager
                         {
                             Debug.LogWarning($"No key found for {unit.name}. Adding key.");
                             actionPoints.Add(unit, unit.speed * Time.deltaTime);  // 키가 없을 경우 추가
-                            unit.currentActionPoint = actionPoints[unit];
+                            unit.currentAP = actionPoints[unit];
                         }
                     }
                 }
@@ -135,7 +135,7 @@ public partial class StageManager
     {
         for (int i = 0; i < unitSlotList.Count; i++)
         {
-            if (actionPoints[unitSlotList[i].unit] >= unitSlotList[i].unit.maxActionPoint)
+            if (actionPoints[unitSlotList[i].unit] >= unitSlotList[i].unit.maxAP)
             {
                 currentTurnSlotNumber = i;
 
@@ -155,9 +155,12 @@ public partial class StageManager
 
         //초기화
         currentTurnSlotNumber = unitSlotList.IndexOf(unit);
-        UnitSlotController currentTurnSlot = unitSlotList[currentTurnSlotNumber];
-        currentTurnSlotIcon.sprite = currentTurnSlot.unit.unitFaceIcon;
-        currentTurnName.text = currentTurnSlot.unit.unitName;
+        UnitBase currentTurnUnit = unitSlotList[currentTurnSlotNumber].unit;
+
+        currentTurnSlotIcon.sprite = currentTurnUnit.unitFaceIcon;
+        currentTurnName.text = currentTurnUnit.unitName;
+        currentTurnHpText.text = $"{currentTurnUnit.currentHp}/{currentTurnUnit.maxHp}";
+        currentTurnHpGaugeBar.fillAmount = ((float)currentTurnUnit.currentHp / (float)currentTurnUnit.maxHp);
         SkillSlotInit(unitSlotList[currentTurnSlotNumber].unit.skillDataList);
 
         //현재 턴을 가진 유닛 구분
@@ -165,7 +168,7 @@ public partial class StageManager
         groundSprite.SetSlotGroundState(SlotGroundState.Select); 
 
         //액션 포인트 초기화
-        actionPoints[currentTurnSlot.unit] = 0;
+        actionPoints[currentTurnUnit] = 0;
         Debug.Log("턴을 시작합니다. 현재 턴은 " + unitSlotList[currentTurnSlotNumber].name + " (" + unitSlotList[currentTurnSlotNumber].unit.speed + " 속도) 유닛입니다.");
     }
 

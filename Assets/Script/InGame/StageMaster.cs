@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 /// <summary>
 /// 스테이지 별 게임 환경을 설정하는 스크립트. 적과 아군의 배치, 스테이지의 패베 및 승리 조건, gameManager에 스테이지 관련 데이터 보내기 등, 스테이지를 불러올때 가장 우선적으로 작동하여 스테이지 환경을 구성하는 스크립트이다.
@@ -56,11 +58,56 @@ public class StageMaster : MonoBehaviour
     private UnitSelectSlotGroupController unitSelectSlotsGroupController;
 
 
+
+    [Space(10)]
+    [Header("UI Object")]
+    [SerializeField]
+    [Tooltip("현재 턴을 지닌 유닛의 얼굴 아이콘")]
+    public Image currentTurnSlotIcon;
+
+    [SerializeField]
+    [Tooltip("현재 턴을 지닌 유닛의 이름 텍스트")]
+    public TMP_Text currentTurnName;
+
+    [SerializeField]
+    [Tooltip("현재 턴을 지닌 유닛의 Hp 텍스트")]
+    public TMP_Text currentTurnHpText;
+
+    [Tooltip("현재 턴을 지닌 유닛의 Hp 게이지")]
+    [SerializeField]
+    public Image currentTurnHpGaugeBar;
+
+    [Tooltip("게임을 주로 플래이하는 UI")]
+    [SerializeField]
+    public GameObject play_UI;
+
+    [Tooltip("게임 플레이 이전 유닛을 선택하는 UI")]
+    [SerializeField]
+    public GameObject unitSet_UI;
+
+    [Tooltip("남아있는 선택 가능한 유닛 슬롯 갯수를 보여주는 텍스트")]
+    [SerializeField]
+    public TMP_Text remainingSetUnitSlotText;
+
+
+    private void InitUIObject()
+    {
+        stageManager.currentTurnSlotIcon = currentTurnSlotIcon;
+        stageManager.currentTurnName = currentTurnName;
+        stageManager.currentTurnHpText = currentTurnHpText;
+        stageManager.currentTurnHpGaugeBar = currentTurnHpGaugeBar;
+        stageManager.play_UI = play_UI;
+        stageManager.unitSet_UI = unitSet_UI;
+        stageManager.remainingSetUnitSlotText = remainingSetUnitSlotText;
+    }
+
     private void Start()
     {
         stageManager = StageManager.Instance;
 
-        unitSelectSlotsGroupController.SetUnitSelectSlot();
+        InitUIObject();
+
+        unitSelectSlotsGroupController.InitUnitSelectSlot();
 
         PlaceUnitSlot();
 

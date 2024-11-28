@@ -146,23 +146,12 @@ public partial class StageManager : Singleton<StageManager>
     #region UIVariable
     [Space(10)]
     [Header("UI Object")]
-    [SerializeField]
-    [Tooltip("현재 턴을 지닌 유닛의 얼굴 아이콘")]
     public Image currentTurnSlotIcon;
-
-    [SerializeField]
-    [Tooltip("현재 턴을 지닌 유닛의 이름 텍스트")]
     public TMP_Text currentTurnName;
-
-    [SerializeField]
+    public TMP_Text currentTurnHpText;
+    public Image currentTurnHpGaugeBar;
     public GameObject play_UI;
-    [SerializeField]
     public GameObject unitSet_UI;
-
-    /// <summary>
-    /// 남아있는 선택 가능한 유닛 슬롯 갯수를 보여주는 텍스트
-    /// </summary>
-    [SerializeField]
     public TMP_Text remainingSetUnitSlotText;
 
 
@@ -253,7 +242,7 @@ public partial class StageManager : Singleton<StageManager>
                 UnitBase unit = unitSlot.unit;
                 if (!actionPoints.ContainsKey(unit))
                 {
-                    actionPoints.Add(unit, unit.currentActionPoint); // 키가 없으면 추가
+                    actionPoints.Add(unit, unit.currentAP); // 키가 없으면 추가
                 }
             }
         }

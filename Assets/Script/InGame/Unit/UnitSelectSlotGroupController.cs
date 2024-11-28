@@ -19,7 +19,10 @@ public class UnitSelectSlotGroupController : MonoBehaviour
     public List<UnitSelectSlotController> selectUnitSlotList;
     private DataManager dataManager;
 
-    public void SetUnitSelectSlot()
+    /// <summary>
+    /// 플레이어가 배치 가능한 유닛의 슬롯들을 초기화하는 스크립트
+    /// </summary>
+    public void InitUnitSelectSlot()
     {
         dataManager = DataManager.Instance;
         selectUnitSlotList = new List<UnitSelectSlotController>();
