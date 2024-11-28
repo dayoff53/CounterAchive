@@ -20,14 +20,10 @@ public class SlotGroundSpriteController : MonoBehaviour
 
     [SerializeField]
     [Tooltip("1.defalut, 2.select, 3.target ")]
-    private SlotGroundState _slotGroundState;
     private SlotGroundState slotGroundState
     {
-        get { return _slotGroundState; }
         set
         {
-            _slotGroundState = value;
-
             switch (value)
             {
                 case SlotGroundState.Default:
@@ -69,9 +65,10 @@ public class SlotGroundSpriteController : MonoBehaviour
         switch(stageManager.currentPrograssState)
         {
             case ProgressState.SkillTargetSearch:
-                if (stageManager.cost >= stageManager.currentSkillSlot.skillData.skillCost)
+                if (stageManager.cost >= stageManager.currentSkillData.skillCost)
                 {
-                    stageManager.skillTargetNum = unitSlot.slotNumber;
+                    stageManager.skillTargetNum = stageManager.unitSlotList.IndexOf(unitSlot);
+                    Debug.Log($"stageManager.skillTargetNum = {stageManager.skillTargetNum}");
                     stageManager.SkillStart();
                 }
                 else

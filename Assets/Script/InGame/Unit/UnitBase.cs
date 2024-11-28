@@ -2,6 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
+
+/// <summary>
+/// 수정 가능한 스텟의
+/// </summary>
+[System.Serializable]
+public enum PublicUnitStatus
+{
+    maxHp,
+    currentHp,
+    atk,
+    def,
+    maxActionPoint,
+    currentActionPoint,
+    speed,
+}
 
 public class UnitBase : MonoBehaviour
 {
@@ -19,6 +36,8 @@ public class UnitBase : MonoBehaviour
 
     [SerializeField]
     private Image hpPointBar;
+    [SerializeField]
+    private TextMeshProUGUI hpPointText;
 
     [SerializeField]
     private Image actionPointBar;
@@ -27,20 +46,22 @@ public class UnitBase : MonoBehaviour
     public GameObject hitPosition;
 
 
-    [Header("Status")]
+    [Header("Static Status")]
     public UnitData unitData;
     public string unitName;
     public Sprite unitFaceIcon;
     public RuntimeAnimatorController unitAnim;
-    public float maxHp;
-    private float _currentHp;
-    public float atk;
-    public float maxActionPoint = 100;
-    public float _currentActionPoint = 0;
-    public int speed;
     public List<SkillData> skillDataList;
 
 
+    [Header("Public Status")]
+    public float maxHp;
+    private float _currentHp;
+    public float atk;
+    public float def;
+    public float maxActionPoint = 100;
+    public float _currentActionPoint = 0;
+    public float speed;
     public float currentHp
     {
         get { return _currentHp; }
@@ -51,6 +72,9 @@ public class UnitBase : MonoBehaviour
                 _currentHp = value;
 
                 hpPointBar.fillAmount = ((float)currentHp / (float)maxHp);
+
+
+                hpPointText.text = $"{currentHp}/{maxHp}";
             }
         }
     }
@@ -81,6 +105,7 @@ public class UnitBase : MonoBehaviour
         if (unitData.name == "Null")
         {
             hpPointBar.gameObject.transform.parent.gameObject.SetActive(false);
+            hpPointText.text = "";
             actionPointBar.gameObject.SetActive(false);
         }
         else
@@ -94,6 +119,7 @@ public class UnitBase : MonoBehaviour
             maxHp = unitData.hp;
             currentHp = unitData.hp;
             atk = unitData.atk;
+            def = unitData.def;
             maxActionPoint = unitData.actionPoint;
             currentActionPoint = 0;
             speed = unitData.speed;
@@ -103,52 +129,100 @@ public class UnitBase : MonoBehaviour
     }
 
     /// <summary>
-    /// 받은 UnitState값에 알맞게 UnitController의 State값을 변경
+    /// 원하는 스테이더스의 값을 변경합니다.
     /// </summary>
-    /// <param name="setState"></param>
-    public void SetState(UnitState setState)
+    /// <param name="statusToUpdate"></param>
+    /// <param name="newValue"></param>
+    public void SetStatus(PublicUnitStatus statusToUpdate, float newValue)
     {
-        unitData = dataManager.unitDataList.Find(un => un.unitNumber == setState.unitNumber);
-
-            if (!string.IsNullOrEmpty(setState.unitName) && setState.unitName.StartsWith("*"))
-            {
-                unitName = unitName + setState.unitName.Substring(1);
-            } else
+        switch (statusToUpdate)
         {
-            unitName = setState.unitName;
+            case PublicUnitStatus.maxHp:
+                maxHp = newValue;
+                // 현재 HP가 최대 HP를 초과하지 않도록 조정
+                currentHp = Mathf.Clamp(currentHp, 0, maxHp);
+                break;
+
+            case PublicUnitStatus.currentHp:
+                currentHp = newValue;
+                break;
+
+            case PublicUnitStatus.atk:
+                atk = newValue;
+                break;
+
+            case PublicUnitStatus.def:
+                def = newValue;
+                break;
+
+            case PublicUnitStatus.maxActionPoint:
+                maxActionPoint = newValue;
+                // 현재 액션 포인트가 최대치를 초과하지 않도록 조정
+                currentActionPoint = Mathf.Clamp(currentActionPoint, 0, maxActionPoint);
+                break;
+
+            case PublicUnitStatus.currentActionPoint:
+                currentActionPoint = newValue;
+                break;
+
+            case PublicUnitStatus.speed:
+                speed = newValue;
+                break;
+
+            default:
+                Debug.LogWarning("Unknown status type");
+                break;
+        }
+    }
+
+    /// <summary>
+    /// 받은 UnitState값에 알맞게 UnitController의 Status값을 변경
+    /// </summary>
+    /// <param name="setStatus">초기화 할 스테이터스</param>
+    public void SetStatus(UnitStatus setStatus)
+    {
+        unitData = dataManager.unitDataList.Find(un => un.unitNumber == setStatus.unitNumber);
+
+        if (!string.IsNullOrEmpty(setStatus.unitName) && setStatus.unitName.StartsWith("*"))
+        {
+            unitName = unitName + setStatus.unitName.Substring(1);
+        }
+        else
+        {
+            unitName = setStatus.unitName;
         }
 
-            spriteRenderer.sprite = setState.defaultUnitData.unitSprite;
-            unitFaceIcon = setState.defaultUnitData.unitFaceIcon;
+        spriteRenderer.sprite = setStatus.defaultUnitData.unitSprite;
+        unitFaceIcon = setStatus.defaultUnitData.unitFaceIcon;
 
-        switch(unitName)
+        switch (unitName)
         {
             case "Null":
-                unitAnim = setState.defaultUnitData.unitAnimController;
+                unitAnim = setStatus.defaultUnitData.unitAnimController;
                 unitAnimator.runtimeAnimatorController = unitAnim;
-                maxHp = setState.hp;
-                currentHp = setState.hp;
-                atk = setState.atk;
-                maxActionPoint = setState.actionPoint;
+                maxHp = setStatus.hp;
+                currentHp = setStatus.hp;
+                atk = setStatus.atk;
+                maxActionPoint = setStatus.actionPoint;
                 currentActionPoint = 0;
-                speed = setState.speed;
+                speed = setStatus.speed;
                 skillDataList = new List<SkillData>();
-                foreach (int skillNum in setState.skillNumberList)
+                foreach (int skillNum in setStatus.skillNumberList)
                 {
                     skillDataList.Add(dataManager.skillList[skillNum]);
                 }
                 break;
             case "Default":
-                unitAnim = setState.defaultUnitData.unitAnimController;
+                unitAnim = setStatus.defaultUnitData.unitAnimController;
                 unitAnimator.runtimeAnimatorController = unitAnim;
-                maxHp = setState.defaultUnitData.hp;
-                currentHp = setState.defaultUnitData.hp;
-                atk = setState.defaultUnitData.atk;
-                maxActionPoint = setState.defaultUnitData.actionPoint;
+                maxHp = setStatus.defaultUnitData.hp;
+                currentHp = setStatus.defaultUnitData.hp;
+                atk = setStatus.defaultUnitData.atk;
+                maxActionPoint = setStatus.defaultUnitData.actionPoint;
                 currentActionPoint = 0;
-                speed = setState.defaultUnitData.speed;
+                speed = setStatus.defaultUnitData.speed;
                 skillDataList = new List<SkillData>();
-                foreach (int skillNum in setState.skillNumberList)
+                foreach (int skillNum in setStatus.skillNumberList)
                 {
                     skillDataList.Add(dataManager.skillList[skillNum]);
                 }
@@ -157,6 +231,7 @@ public class UnitBase : MonoBehaviour
                 break;
         }
     }
+
 
     public void SetAnim(int animNum)
     {
@@ -173,4 +248,21 @@ public class UnitBase : MonoBehaviour
         spriteRenderer.flipX = !isRight;
     }
 
+    public void Damage(float damage)
+    {
+        if (damage / 2 > def)
+        {
+            damage = damage - def;
+        } else
+        {
+            damage = (damage / 2) - ((def - (damage / 2)) / 2);
+        }
+
+        if(damage <= 1)
+        {
+            damage = 1;
+        }
+
+        SetStatus(PublicUnitStatus.currentHp, damage);
+    }
 }

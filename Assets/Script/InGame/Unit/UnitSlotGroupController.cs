@@ -50,7 +50,6 @@ public class UnitSlotGroupController : MonoBehaviour
                     unitSlot.unit.SetDirection(true);
                 }
 
-                unitSlot.slotNumber = i;
                 unitSlot.slotGround.SetSlotGroundState(SlotGroundState.Default);
             }
 
@@ -90,10 +89,6 @@ public class UnitSlotGroupController : MonoBehaviour
             originalPositions[moveUnit] = moveUnit.transform.position;
             originalPositions[targetUnit] = targetUnit.transform.position;
             UnitSlotController targetSlot = unitSlots[targetUnitNum];
-            unitSlots[targetUnitNum] = unitSlots[moveUnitNum];
-            unitSlots[moveUnitNum] = targetSlot;
-            unitSlots[moveUnitNum].slotNumber = targetUnitNum;
-            unitSlots[targetUnitNum].slotNumber = moveUnitNum;
 
 
             Debug.Log("Units have been swapped successfully.");
@@ -133,7 +128,7 @@ public class UnitSlotGroupController : MonoBehaviour
         }
     }
 
-    public void EnemyUnitInit(List<UnitState> enemyUnitSlots)
+    public void EnemyUnitInit(List<UnitStatus> enemyUnitSlots)
     {
         int endNum = unitSlots.Count - 1;
 
@@ -142,7 +137,7 @@ public class UnitSlotGroupController : MonoBehaviour
             unitSlots[endNum - i].SetUnit(enemyUnitSlots[i], 2);
         }
     }
-    public void PlayerUnitInit(List<UnitState> playerUnitSlots)
+    public void PlayerUnitInit(List<UnitStatus> playerUnitSlots)
     {
         int startNum = 0;
 

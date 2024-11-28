@@ -12,7 +12,6 @@ public class UnitSlotController : MonoBehaviour
     [Header("현재 위치한 Field의 UnitFieldController")]
     UnitSlotGroupController unitFieldController;
 
-    public int slotNumber;
 
     /// <summary>
     /// 현재 해당 슬롯에 위치한 유닛
@@ -45,9 +44,9 @@ public class UnitSlotController : MonoBehaviour
         unit.StatusInit();
     }
 
-    public void SetUnit(UnitState setUnitState)
+    public void SetUnit(UnitStatus setUnitState)
     {
-        unit.SetState(setUnitState);
+        unit.SetStatus(setUnitState);
 
         unit.SetAnim(0);
         unit.SetActionPointBar(0.0f);
@@ -60,7 +59,7 @@ public class UnitSlotController : MonoBehaviour
     /// </summary>
     /// <param name="setUnitState"></param>
     /// <param name="teamNum"></param>
-    public void SetUnit(UnitState setUnitState, int teamNum)
+    public void SetUnit(UnitStatus setUnitState, int teamNum)
     {
         unit.unitTeam = teamNum;
 

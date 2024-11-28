@@ -64,7 +64,7 @@ public partial class StageManager : Singleton<StageManager>
 
     [SerializeField]
     [Tooltip("현재 선택된 유닛 스텟")]
-    public UnitState currentSelectUnitState;
+    public UnitStatus currentSelectUnitState;
 
     [Tooltip("플레이어가 사용 가능한 유닛 슬롯의 카운트")]
     public int playerUseUnitSlotCount;
@@ -110,7 +110,6 @@ public partial class StageManager : Singleton<StageManager>
 
     public int skillTargetNum;
 
-    public SkillSlotUIController currentSkillSlot;
     #endregion
 
     #region CostVariable

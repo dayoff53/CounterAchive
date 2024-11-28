@@ -5,6 +5,10 @@ using UnityEngine;
 
 public partial class StageManager
 {
+    UnitBase currentSkillUser = new UnitBase();
+    UnitBase currentSkillTarget = new UnitBase();
+    public SkillData currentSkillData;
+
 
     /// <summary>
     /// 스킬 슬롯을 초기화하고 주어진 스킬 데이터로 설정합니다.
@@ -21,60 +25,41 @@ public partial class StageManager
 
     public void SkillStart()
     {
-        SkillData skillData = currentSkillSlot.skillData;
+        currentSkillUser = unitSlotList[currentTurnSlotNumber].unit;
+        currentSkillTarget = unitSlotList[skillTargetNum].unit;
         currentPrograssState = ProgressState.SkillPlay;
-        //StartCoroutine(inGameManager.DelayTurnEnd(inGameManager.currentSkillSlot.skillData.skillEndTime));
         unitSlotList[currentTurnSlotNumber].unit.SetAnim(1);
-        cost -= skillData.skillCost;
-
-
-        NormalAttack(skillData, unitSlotList[currentTurnSlotNumber].unit, unitSlotList[skillTargetNum].unit);
+        cost -= currentSkillData.skillCost;
     }
 
     public void SkillHitPlay()
     {
-        SkillData skillData = currentSkillSlot.skillData;
+        HitProduction();
 
-        switch(skillData.skillTypeState)
+        foreach (SkillEffect skilleffect in currentSkillData.skillEffectList)
         {
-            case SkillTypeState.Attack:
-                HitProduction();
-                break;
+            switch (skilleffect.skillEffectState)
+            {
+                case SkillEffectState.Damage:
+                    currentSkillTarget.Damage(skilleffect.valueList[0]);
+                    break;
 
-            default:
-                break;
+                case SkillEffectState.StatusDown:
+                    currentSkillTarget.currentHp -= skilleffect.valueList[0];
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 
     /// <summary>
-    /// 현 목표에게 공격을 수행합니다.
+    /// 스킬의 효과 발동 연출을 담당하는 메서드
     /// </summary>
-    /// <param name="damage">적용할 데미지입니다.</param>
-    public void ExecuteAttack(UnitBase target, float damage)
-    {
-        target.currentHp -= damage;
-    }
-
     public virtual void HitProduction()
     {
-        GameObject hitProductonObject = poolManager.Pop(currentSkillSlot.skillData.skilIHitProductionObject);
-        hitProductonObject.transform.position = unitSlotList[skillTargetNum].unit.spriteRenderer.gameObject.transform.position;
-    }
-
-
-    protected virtual void NormalAttack(SkillData skillData, UnitBase user, UnitBase target)
-    {
-        float skillDamage = skillData.damage;
-
-        switch (skillData.skillTypeState)
-        {
-            case SkillTypeState.Attack:
-                skillDamage += (user.atk);
-                ExecuteAttack(target, skillDamage);
-                break;
-
-            default:
-                break;
-        }
+        GameObject hitProductonObject = poolManager.Pop(currentSkillData.skilIHitProductionObject);
+        hitProductonObject.transform.position = unitSlotList[skillTargetNum].unit.hitPosition.gameObject.transform.position;
     }
 }

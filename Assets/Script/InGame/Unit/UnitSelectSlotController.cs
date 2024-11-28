@@ -7,7 +7,7 @@ using TMPro;
 public class UnitSelectSlotController : MonoBehaviour
 {
     [SerializeField]
-    public UnitState unitState;
+    public UnitStatus unitState;
 
     private StageManager gameManager;
     private DataManager dataManager;

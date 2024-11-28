@@ -17,9 +17,11 @@ public class UnitData : ScriptableObject
     public RuntimeAnimatorController unitAnimController;
     public float hp;
     public int atk;
+    public int def;
     public int speed;
     public float actionPoint = 100;
     public List<SkillData> skillDataList;
+    public Vector3 hitPosition;
 
     /* UnitState를 사용하여 더이상은 필요 없는 스크립트
     /// <summary>

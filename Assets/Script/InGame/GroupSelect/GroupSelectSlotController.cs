@@ -29,13 +29,13 @@ public class GroupSelectSlotController : MonoBehaviour
     public void OnGroupSelectButton()
     {
         groupSelectCheckUIObject.SetActive(true);
-        dataManager.playerUnitStateList = new List<UnitState>();
+        dataManager.playerUnitStateList = new List<UnitStatus>();
 
         for (int i = 0; i < groupUnitsData.groupUnitList.Count; i++)
         {
             UnitData data;
             data = groupUnitsData.groupUnitList[i];
-            UnitState state = new UnitState(data);
+            UnitStatus state = new UnitStatus(data);
 
             dataManager.playerUnitStateList.Add(state);
         }

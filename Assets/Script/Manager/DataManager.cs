@@ -11,14 +11,14 @@ using System.IO;
 [System.Serializable]
 public class SaveData
 {
-    public List<UnitState> playerUnitStates;
+    public List<UnitStatus> playerUnitStates;
 }
 
 /// <summary>
 /// 유닛의 현 상태에 관한 데이터 (Json에 저장될 데이터)
 /// </summary>
 [System.Serializable]
-public class UnitState
+public class UnitStatus
 {
     [Header("Unit States")]
     public UnitData defaultUnitData;
@@ -26,16 +26,17 @@ public class UnitState
     public string unitName = "Null";
     public float hp = 0;
     public int atk = 0;
+    public int def = 0;
     public int speed = 1;
     public float actionPoint = 0;
     public List<int> skillNumberList; // skillDataList 대신 스킬의 식별자(Number)를 사용하여 저장
     
-    public UnitState()
+    public UnitStatus()
     {
         ApplyBaseState(defaultUnitData);
     }
 
-    public UnitState(UnitData unitData)
+    public UnitStatus(UnitData unitData)
     {
         unitNumber = unitData.unitNumber;
 
@@ -54,6 +55,7 @@ public class UnitState
         unitName = unitData.unitName;
         hp = unitData.hp;
         atk = unitData.atk;
+        def = unitData.def;
         speed = unitData.speed;
         actionPoint = unitData.actionPoint;
 
@@ -79,6 +81,7 @@ public class UnitState
         // 기존 값에 unitData의 값을 더해줌
         hp += unitData.hp;
         atk += unitData.atk;
+        def += unitData.def;
         speed += unitData.speed;
         actionPoint += unitData.actionPoint;
 
@@ -111,7 +114,7 @@ public class DataManager : Singleton<DataManager>
     /// <summary>
     /// 플레이어가 사용할 유닛의 State List
     /// </summary>
-    public List<UnitState> playerUnitStateList;
+    public List<UnitStatus> playerUnitStateList;
 
     /// <summary>
     /// UnitData를 저장해 둔 저장소, 이미지나 애니메이션 등의 리소스를 주로 불러 사용한다.
@@ -192,9 +195,9 @@ public class DataManager : Singleton<DataManager>
         }
         else
         {
-            playerUnitStateList = new List<UnitState>();
+            playerUnitStateList = new List<UnitStatus>();
 
-            foreach (UnitState unitState in currentSaveData.playerUnitStates)
+            foreach (UnitStatus unitState in currentSaveData.playerUnitStates)
             {
                 if(unitState.defaultUnitData == null)
                 {

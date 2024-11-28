@@ -149,7 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitFieldController: {fileID: 0}
-  slotNumber: 0
   unit: {fileID: 412560792552139733}
   isNull: 1
   slotGround: {fileID: 3703163220768527653}
@@ -297,7 +296,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitSlot: {fileID: 143019244720255663}
-  _slotGroundState: 0
   groundSpriteRenderer: {fileID: 82961109543747887}
   groundSpriteList:
   - {fileID: 21300000, guid: ab68290aed2a54d4ca1454f62402bb37, type: 3}
@@ -311,6 +309,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5350426313195203715}
     m_Modifications:
+    - target: {fileID: 1295230293889631611, guid: 8e0b2955ee1b41d45865095fed3143f1, type: 3}
+      propertyPath: m_Name
+      value: HpText
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445885291667714529, guid: 8e0b2955ee1b41d45865095fed3143f1, type: 3}
+      propertyPath: hpPointText
+      value: 
+      objectReference: {fileID: 5373839594670692236}
     - target: {fileID: 4445867403141786884, guid: 8e0b2955ee1b41d45865095fed3143f1, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -388,3 +394,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6379986831691817002, guid: 8e0b2955ee1b41d45865095fed3143f1, type: 3}
   m_PrefabInstance: {fileID: 1272659257099164212}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5373839594670692236 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6573798028665458104, guid: 8e0b2955ee1b41d45865095fed3143f1, type: 3}
+  m_PrefabInstance: {fileID: 1272659257099164212}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -28,13 +28,13 @@ public class StageMaster : MonoBehaviour
     /// 해당 스테이지에서 플레이어가 사용 가능하도록 배치되어 있는 유닛 리스트
     /// </summary>
     [SerializeField]
-    private List<UnitState> playerUnitList;
+    private List<UnitStatus> playerUnitList;
 
     /// <summary>
     /// 해당 스테이지에서 적으로 등장하는 유닛 리스트
     /// </summary>
     [SerializeField]
-    private List<UnitState> enemyUnitList;
+    private List<UnitStatus> enemyUnitList;
 
     /// <summary>
     /// 스킬 데이터를 플레이어에게 보여주는 UI 슬롯 리스트
