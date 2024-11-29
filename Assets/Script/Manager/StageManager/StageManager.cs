@@ -171,7 +171,7 @@ public partial class StageManager : Singleton<StageManager>
     /// <summary>
     /// 게임 초기 설정을 진행하는 단계입니다.
     /// </summary>
-    public void SetGame()
+    public void InitGame()
     {
         unitSlotsController.UnitSlotsInit();
         unitStateColors = unitStateColorsObject.colorStates;
