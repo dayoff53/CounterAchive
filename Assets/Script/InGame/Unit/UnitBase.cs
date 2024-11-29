@@ -5,20 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 
 
-/// <summary>
-/// 수정 가능한 스텟의
-/// </summary>
-[System.Serializable]
-public enum PublicUnitStatus
-{
-    maxHp,
-    currentHp,
-    atk,
-    def,
-    maxActionPoint,
-    currentActionPoint,
-    speed,
-}
 
 public class UnitBase : MonoBehaviour
 {
@@ -60,7 +46,7 @@ public class UnitBase : MonoBehaviour
     public float atk;
     public float def;
     public float maxAP = 100;
-    public float _currentActionPoint = 0;
+    public float _currentAp = 0;
     public float speed;
     public float currentHp
     {
@@ -73,19 +59,18 @@ public class UnitBase : MonoBehaviour
 
                 hpPointBar.fillAmount = ((float)currentHp / (float)maxHp);
 
-
                 hpPointText.text = $"{currentHp}/{maxHp}";
             }
         }
     }
     public float currentAP
     {
-        get { return _currentActionPoint; }
+        get { return _currentAp; }
         set
         {
-            if (_currentActionPoint != value)
+            if (_currentAp != value)
             {
-                _currentActionPoint = value;
+                _currentAp = value;
 
                 actionPointBar.fillAmount = currentAP / maxAP;
             }
@@ -120,7 +105,7 @@ public class UnitBase : MonoBehaviour
             currentHp = unitData.hp;
             atk = unitData.atk;
             def = unitData.def;
-            maxAP = unitData.actionPoint;
+            maxAP = unitData.ap;
             currentAP = 0;
             speed = unitData.speed;
             skillDataList = unitData.skillDataList;
@@ -133,39 +118,39 @@ public class UnitBase : MonoBehaviour
     /// </summary>
     /// <param name="statusToUpdate"></param>
     /// <param name="newValue"></param>
-    public void SetStatus(PublicUnitStatus statusToUpdate, float newValue)
+    public void SetStatus(PublicUnitStatusState statusToUpdate, float newValue)
     {
         switch (statusToUpdate)
         {
-            case PublicUnitStatus.maxHp:
+            case PublicUnitStatusState.maxHp:
                 maxHp = newValue;
                 // 현재 HP가 최대 HP를 초과하지 않도록 조정
                 currentHp = Mathf.Clamp(currentHp, 0, maxHp);
                 break;
 
-            case PublicUnitStatus.currentHp:
+            case PublicUnitStatusState.currentHp:
                 currentHp = newValue;
                 break;
 
-            case PublicUnitStatus.atk:
+            case PublicUnitStatusState.atk:
                 atk = newValue;
                 break;
 
-            case PublicUnitStatus.def:
+            case PublicUnitStatusState.def:
                 def = newValue;
                 break;
 
-            case PublicUnitStatus.maxActionPoint:
+            case PublicUnitStatusState.maxAp:
                 maxAP = newValue;
                 // 현재 액션 포인트가 최대치를 초과하지 않도록 조정
                 currentAP = Mathf.Clamp(currentAP, 0, maxAP);
                 break;
 
-            case PublicUnitStatus.currentActionPoint:
+            case PublicUnitStatusState.currentActionPoint:
                 currentAP = newValue;
                 break;
 
-            case PublicUnitStatus.speed:
+            case PublicUnitStatusState.speed:
                 speed = newValue;
                 break;
 
@@ -203,7 +188,7 @@ public class UnitBase : MonoBehaviour
                 maxHp = setStatus.hp;
                 currentHp = setStatus.hp;
                 atk = setStatus.atk;
-                maxAP = setStatus.actionPoint;
+                maxAP = setStatus.ap;
                 currentAP = 0;
                 speed = setStatus.speed;
                 skillDataList = new List<SkillData>();
@@ -218,7 +203,7 @@ public class UnitBase : MonoBehaviour
                 maxHp = setStatus.defaultUnitData.hp;
                 currentHp = setStatus.defaultUnitData.hp;
                 atk = setStatus.defaultUnitData.atk;
-                maxAP = setStatus.defaultUnitData.actionPoint;
+                maxAP = setStatus.defaultUnitData.ap;
                 currentAP = 0;
                 speed = setStatus.defaultUnitData.speed;
                 skillDataList = new List<SkillData>();
@@ -263,6 +248,6 @@ public class UnitBase : MonoBehaviour
             damage = 1;
         }
 
-        SetStatus(PublicUnitStatus.currentHp, damage);
+        SetStatus(PublicUnitStatusState.currentHp, damage);
     }
 }
