@@ -13,6 +13,9 @@ public enum SlotGroundState
     Target
 }
 
+/// <summary>
+/// 각 유닛의 클릭 입력값을 담당하는 Ground 기능을 담당하는 클래스
+/// </summary>
 public class SlotGroundSpriteController : MonoBehaviour
 {
     [SerializeField]
@@ -67,9 +70,13 @@ public class SlotGroundSpriteController : MonoBehaviour
             case ProgressState.SkillTargetSearch:
                 if (stageManager.cost >= stageManager.currentSkillData.skillCost)
                 {
+                    if (stageManager.skillTargetNum == stageManager.unitSlotList.IndexOf(unitSlot))
+                    {
+                        stageManager.SkillStart();
+                    }
+
                     stageManager.skillTargetNum = stageManager.unitSlotList.IndexOf(unitSlot);
                     Debug.Log($"stageManager.skillTargetNum = {stageManager.skillTargetNum}");
-                    stageManager.SkillStart();
                 }
                 else
                 {

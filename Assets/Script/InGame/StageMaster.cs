@@ -77,6 +77,18 @@ public class StageMaster : MonoBehaviour
     [SerializeField]
     public Image currentTurnHpGaugeBar;
 
+    [Tooltip("현재 턴을 지닌 플레이어의 유닛 카드 UI")]
+    [SerializeField]
+    public Image currentPlayerUnitCardUI;
+
+    [Tooltip("현재 타겟이 된 유닛 카드 UI")]
+    [SerializeField]
+    public Image currentTargetUnitCardUI;
+
+    [Tooltip("타겟 유닛카드를 가리키는 화살표")]
+    [SerializeField]
+    public Image unitCardTargetArrow;
+
     [Tooltip("게임을 주로 플래이하는 UI")]
     [SerializeField]
     public GameObject play_UI;
@@ -119,7 +131,7 @@ public class StageMaster : MonoBehaviour
         Debug.Log($"gameManager.skillSlotList.Count {stageManager.skillSlotList.Count}\n gameManager.skillSlotList[0] : {stageManager.skillSlotList[0]}");
 
          
-        stageManager.SetGame();
+        stageManager.InitGame();
     }
 
     /// <summary>
