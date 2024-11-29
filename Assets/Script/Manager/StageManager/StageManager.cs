@@ -108,7 +108,24 @@ public partial class StageManager : Singleton<StageManager>
     /// </summary>
     public List<SkillSlotUIController> skillSlotList;
 
-    public int skillTargetNum;
+    private int _skillTargetNum;
+
+    public int skillTargetNum
+    {
+        get
+        {
+            return _skillTargetNum;
+        }
+        set
+        {
+            _skillTargetNum = value;
+
+            if (currentTargetUnitCardUI != null)
+            {
+                currentTargetUnitCardUI.unitStatus.SetStatus(unitSlotList[skillTargetNum].unit);
+            }
+        }
+    }
 
     #endregion
 
@@ -146,10 +163,8 @@ public partial class StageManager : Singleton<StageManager>
     #region UIVariable
     [Space(10)]
     [Header("UI Object")]
-    public Image currentTurnSlotIcon;
-    public TMP_Text currentTurnName;
-    public TMP_Text currentTurnHpText;
-    public Image currentTurnHpGaugeBar;
+    public UnitCardController currentPlayerUnitCardUI;
+    public UnitCardController currentTargetUnitCardUI;
     public GameObject play_UI;
     public GameObject unitSet_UI;
     public TMP_Text remainingSetUnitSlotText;

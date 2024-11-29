@@ -34,7 +34,7 @@ public class GroupSelectSlotController : MonoBehaviour
         {
             UnitData data;
             data = groupUnitsData.groupUnitList[i];
-            UnitStatus state = new UnitStatus(data);
+            UnitStatus state = new UnitStatus();
 
             dataManager.playerUnitStateList.Add(state);
         }

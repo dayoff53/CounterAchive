@@ -49,8 +49,12 @@ public class DataManager : Singleton<DataManager>
     private void DataInit()
     {
         unitDataList = new List<UnitData>(Resources.LoadAll<UnitData>("ScriptableObject/UnitData"));
+        unitDataList.Sort((unit1, unit2) => unit1.unitNumber.CompareTo(unit2.unitNumber));
+
         skillList = new List<SkillData>(Resources.LoadAll<SkillData>("ScriptableObject/SkillData"));
         saveDataFilePath = Path.Combine(Application.persistentDataPath, "saveData.json");
+
+
 
         LoadGame();
     }

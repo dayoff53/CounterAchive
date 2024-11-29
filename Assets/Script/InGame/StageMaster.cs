@@ -59,31 +59,13 @@ public class StageMaster : MonoBehaviour
 
 
 
-    [Space(10)]
-    [Header("UI Object")]
-    [SerializeField]
-    [Tooltip("현재 턴을 지닌 유닛의 얼굴 아이콘")]
-    public Image currentTurnSlotIcon;
-
-    [SerializeField]
-    [Tooltip("현재 턴을 지닌 유닛의 이름 텍스트")]
-    public TMP_Text currentTurnName;
-
-    [SerializeField]
-    [Tooltip("현재 턴을 지닌 유닛의 Hp 텍스트")]
-    public TMP_Text currentTurnHpText;
-
-    [Tooltip("현재 턴을 지닌 유닛의 Hp 게이지")]
-    [SerializeField]
-    public Image currentTurnHpGaugeBar;
-
     [Tooltip("현재 턴을 지닌 플레이어의 유닛 카드 UI")]
     [SerializeField]
-    public Image currentPlayerUnitCardUI;
+    public UnitCardController currentPlayerUnitCardUI;
 
     [Tooltip("현재 타겟이 된 유닛 카드 UI")]
     [SerializeField]
-    public Image currentTargetUnitCardUI;
+    public UnitCardController currentTargetUnitCardUI;
 
     [Tooltip("타겟 유닛카드를 가리키는 화살표")]
     [SerializeField]
@@ -104,10 +86,8 @@ public class StageMaster : MonoBehaviour
 
     private void InitUIObject()
     {
-        stageManager.currentTurnSlotIcon = currentTurnSlotIcon;
-        stageManager.currentTurnName = currentTurnName;
-        stageManager.currentTurnHpText = currentTurnHpText;
-        stageManager.currentTurnHpGaugeBar = currentTurnHpGaugeBar;
+        stageManager.currentPlayerUnitCardUI = currentPlayerUnitCardUI;
+        stageManager.currentTargetUnitCardUI = currentTargetUnitCardUI;
         stageManager.play_UI = play_UI;
         stageManager.unitSet_UI = unitSet_UI;
         stageManager.remainingSetUnitSlotText = remainingSetUnitSlotText;

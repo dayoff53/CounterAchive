@@ -34,6 +34,7 @@ public class UnitBase : MonoBehaviour
 
     [Header("Static Status")]
     public UnitData unitData;
+    public int unitNumber;
     public string unitName;
     public Sprite unitFaceIcon;
     public RuntimeAnimatorController unitAnim;
@@ -43,10 +44,12 @@ public class UnitBase : MonoBehaviour
     [Header("Public Status")]
     public float maxHp;
     private float _currentHp;
+    public float maxAp = 100;
+    public float _currentAp = 0;
     public float atk;
     public float def;
-    public float maxAP = 100;
-    public float _currentAp = 0;
+    public float acc = 1;
+    public float eva = 1;
     public float speed;
     public float currentHp
     {
@@ -72,7 +75,7 @@ public class UnitBase : MonoBehaviour
             {
                 _currentAp = value;
 
-                actionPointBar.fillAmount = currentAP / maxAP;
+                actionPointBar.fillAmount = currentAP / maxAp;
             }
         }
     }
@@ -95,6 +98,7 @@ public class UnitBase : MonoBehaviour
         }
         else
         {
+            unitNumber = unitData.unitNumber;
             hpPointBar.gameObject.transform.parent.gameObject.SetActive(true);
             actionPointBar.gameObject.SetActive(true);
             unitName = unitData.name;
@@ -105,7 +109,7 @@ public class UnitBase : MonoBehaviour
             currentHp = unitData.hp;
             atk = unitData.atk;
             def = unitData.def;
-            maxAP = unitData.ap;
+            maxAp = unitData.ap;
             currentAP = 0;
             speed = unitData.speed;
             skillDataList = unitData.skillDataList;
@@ -141,9 +145,9 @@ public class UnitBase : MonoBehaviour
                 break;
 
             case PublicUnitStatusState.maxAp:
-                maxAP = newValue;
+                maxAp = newValue;
                 // 현재 액션 포인트가 최대치를 초과하지 않도록 조정
-                currentAP = Mathf.Clamp(currentAP, 0, maxAP);
+                currentAP = Mathf.Clamp(currentAP, 0, maxAp);
                 break;
 
             case PublicUnitStatusState.currentActionPoint:
@@ -161,12 +165,13 @@ public class UnitBase : MonoBehaviour
     }
 
     /// <summary>
-    /// 받은 UnitState값에 알맞게 UnitController의 Status값을 변경
+    /// 받은 UnitState값에 알맞게 UnitBase의 Status값을 변경
     /// </summary>
     /// <param name="setStatus">초기화 할 스테이터스</param>
     public void SetStatus(UnitStatus setStatus)
     {
         unitData = dataManager.unitDataList.Find(un => un.unitNumber == setStatus.unitNumber);
+        unitNumber = unitData.unitNumber;
 
         if (!string.IsNullOrEmpty(setStatus.unitName) && setStatus.unitName.StartsWith("*"))
         {
@@ -177,6 +182,7 @@ public class UnitBase : MonoBehaviour
             unitName = setStatus.unitName;
         }
 
+        unitNumber = setStatus.unitNumber;
         spriteRenderer.sprite = setStatus.defaultUnitData.unitSprite;
         unitFaceIcon = setStatus.defaultUnitData.unitFaceIcon;
 
@@ -185,10 +191,10 @@ public class UnitBase : MonoBehaviour
             case "Null":
                 unitAnim = setStatus.defaultUnitData.unitAnimController;
                 unitAnimator.runtimeAnimatorController = unitAnim;
-                maxHp = setStatus.hp;
-                currentHp = setStatus.hp;
+                maxHp = setStatus.maxHp;
+                currentHp = setStatus.maxHp;
                 atk = setStatus.atk;
-                maxAP = setStatus.ap;
+                maxAp = setStatus.ap;
                 currentAP = 0;
                 speed = setStatus.speed;
                 skillDataList = new List<SkillData>();
@@ -203,7 +209,7 @@ public class UnitBase : MonoBehaviour
                 maxHp = setStatus.defaultUnitData.hp;
                 currentHp = setStatus.defaultUnitData.hp;
                 atk = setStatus.defaultUnitData.atk;
-                maxAP = setStatus.defaultUnitData.ap;
+                maxAp = setStatus.defaultUnitData.ap;
                 currentAP = 0;
                 speed = setStatus.defaultUnitData.speed;
                 skillDataList = new List<SkillData>();

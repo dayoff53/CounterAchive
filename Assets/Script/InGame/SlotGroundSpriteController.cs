@@ -75,7 +75,9 @@ public class SlotGroundSpriteController : MonoBehaviour
                         stageManager.SkillStart();
                     }
 
-                    stageManager.skillTargetNum = stageManager.unitSlotList.IndexOf(unitSlot);
+                    int targetNum = stageManager.unitSlotList.IndexOf(unitSlot);
+                    stageManager.skillTargetNum = targetNum;
+                    stageManager.SetCurrentUnitCardUI(false, targetNum);
                     Debug.Log($"stageManager.skillTargetNum = {stageManager.skillTargetNum}");
                 }
                 else

@@ -435,7 +435,8 @@ MonoBehaviour:
   - defaultUnitData: {fileID: 11400000, guid: 166be0c737ba5d24aa06bafac39e36e9, type: 2}
     unitNumber: 0
     unitName: Null
-    hp: 0
+    maxHp: 10
+    currentHp: 10
     ap: 0
     atk: 0
     def: 0
@@ -446,7 +447,8 @@ MonoBehaviour:
   - defaultUnitData: {fileID: 11400000, guid: 462dae7ef769d324191a41d0373ebd46, type: 2}
     unitNumber: 0
     unitName: Null
-    hp: 0
+    maxHp: 10
+    currentHp: 10
     ap: 0
     atk: 0
     def: 0
@@ -1230,7 +1232,8 @@ MonoBehaviour:
     defaultUnitData: {fileID: 0}
     unitNumber: 0
     unitName: Null
-    hp: 0
+    maxHp: 10
+    currentHp: 10
     ap: 0
     atk: 0
     def: 0
@@ -1246,14 +1249,11 @@ MonoBehaviour:
     values: []
   currentTurnSlotNumber: 0
   skillSlotList: []
-  skillTargetNum: 0
   costGauge: {fileID: 126954513}
   costText: {fileID: 1132995742}
   costBar: {fileID: 824943148}
-  currentTurnSlotIcon: {fileID: 0}
-  currentTurnName: {fileID: 0}
-  currentTurnHpText: {fileID: 0}
-  currentTurnHpGaugeBar: {fileID: 0}
+  currentPlayerUnitCardUI: {fileID: 0}
+  currentTargetUnitCardUI: {fileID: 0}
   play_UI: {fileID: 0}
   unitSet_UI: {fileID: 0}
   remainingSetUnitSlotText: {fileID: 0}
@@ -5045,6 +5045,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1070040276}
   - component: {fileID: 1070040277}
+  - component: {fileID: 1070040278}
   m_Layer: 5
   m_Name: CurrentTargetUnitCardUI
   m_TagString: Untagged
@@ -5085,6 +5086,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070040275}
   m_CullTransparentMesh: 1
+--- !u!114 &1070040278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070040275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78211a0f4bb3fce4caa1de74443d81af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frontPage:
+    unitCardIcon: {fileID: 833949410}
+    unitCardName: {fileID: 855075200}
+    currentTurnHpGaugeBar: {fileID: 1757249248}
+    currentTurnHpText: {fileID: 1812828409}
+  backPage:
+    unitCardIcon: {fileID: 0}
+    unitCardName: {fileID: 0}
+  cardImage: {fileID: 0}
 --- !u!1 &1087417324
 GameObject:
   m_ObjectHideFlags: 0
@@ -5465,7 +5487,8 @@ MonoBehaviour:
   - defaultUnitData: {fileID: 11400000, guid: 462dae7ef769d324191a41d0373ebd46, type: 2}
     unitNumber: 0
     unitName: Default
-    hp: 0
+    maxHp: 10
+    currentHp: 10
     ap: 0
     atk: 0
     def: 0
@@ -5480,13 +5503,9 @@ MonoBehaviour:
   - {fileID: 1867956726}
   unitSlotGroupController: {fileID: 827181154}
   unitSelectSlotsGroupController: {fileID: 75596168}
-  currentTurnSlotIcon: {fileID: 57398356}
-  currentTurnName: {fileID: 1977247602}
-  currentTurnHpText: {fileID: 550827198}
-  currentTurnHpGaugeBar: {fileID: 1368331338}
-  currentPlayerUnitCardUI: {fileID: 0}
-  currentTargetUnitCardUI: {fileID: 0}
-  unitCardTargetArrow: {fileID: 0}
+  currentPlayerUnitCardUI: {fileID: 2146055813}
+  currentTargetUnitCardUI: {fileID: 1070040278}
+  unitCardTargetArrow: {fileID: 147266410}
   play_UI: {fileID: 1087417324}
   unitSet_UI: {fileID: 909782868}
   remainingSetUnitSlotText: {fileID: 541961534}
@@ -7734,6 +7753,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2146055810}
   - component: {fileID: 2146055812}
+  - component: {fileID: 2146055813}
   m_Layer: 5
   m_Name: CurrentPlayerUnitCardUI
   m_TagString: Untagged
@@ -7774,6 +7794,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146055809}
   m_CullTransparentMesh: 1
+--- !u!114 &2146055813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146055809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78211a0f4bb3fce4caa1de74443d81af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frontPage:
+    unitCardIcon: {fileID: 57398356}
+    unitCardName: {fileID: 1977247602}
+    currentTurnHpGaugeBar: {fileID: 1368331338}
+    currentTurnHpText: {fileID: 550827198}
+  backPage:
+    unitCardIcon: {fileID: 0}
+    unitCardName: {fileID: 0}
+  cardImage: {fileID: 0}
 --- !u!1001 &2125228703438789163
 PrefabInstance:
   m_ObjectHideFlags: 0

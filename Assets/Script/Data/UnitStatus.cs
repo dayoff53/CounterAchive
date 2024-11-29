@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 /// <summary>
-/// 유닛의 현 상태에 관한 데이터 (Json에 저장될 데이터이며, 유닛 생성시 사용하게 될 데이터)
+/// 유닛의 현 상태에 관한 데이터 (Json과 UnitCard에 저장될 데이터, 유닛 생성시 사용하게 될 데이터)
 /// </summary>
 [System.Serializable]
 public class UnitStatus
@@ -13,37 +13,42 @@ public class UnitStatus
     public UnitData defaultUnitData;
     public int unitNumber = 0;
     public string unitName = "Null";
-    public float hp = 10;
+    public float maxHp = 10;
+    public float currentHp = 10;
     public float ap = 10;
-    public int atk = 1;
-    public int def = 1;
+    public float atk = 1;
+    public float def = 1;
     public float acc = 1;
     public float eva = 1;
-    public int speed = 1;
+    public float speed = 1;
     public List<int> skillNumberList; // skillDataList 대신 스킬의 식별자(Number)를 사용하여 저장
 
     public UnitStatus()
     {
-        ApplyBaseStatus(defaultUnitData);
+        if (defaultUnitData != null) // null 체크 추가
+        {
+            SetStatus(defaultUnitData);
+        }
     }
 
     public UnitStatus(UnitData unitData)
     {
         unitNumber = unitData.unitNumber;
-        ApplyBaseStatus(unitData);
+        SetStatus(unitData);
     }
 
     /// <summary>
-    /// 기본 유닛 데이터를 적용
+    /// UnitData의 데이터를 적용
     /// </summary>
     /// <param name="unitData">기준이 될 UnitData</param>
-    public void ApplyBaseStatus(UnitData unitData)
+    public void SetStatus(UnitData unitData)
     {
         if (unitData == null) return;
 
         unitNumber = unitData.unitNumber;
         unitName = unitData.unitName;
-        hp = unitData.hp;
+        maxHp = unitData.hp;
+        currentHp = maxHp;
         ap = unitData.ap;
         atk = unitData.atk;
         def = unitData.def;
@@ -54,6 +59,33 @@ public class UnitStatus
         // skillDataList에 있는 각 SkillData의 ID만 저장
         skillNumberList = new List<int>();
         foreach (SkillData skill in unitData.skillDataList)
+        {
+            skillNumberList.Add(skill.skillNumber);
+        }
+    }
+
+    /// <summary>
+    /// UnitBase의 데이터를 적용
+    /// </summary>
+    /// <param name="unitBase">기준이 될 UnitData</param>
+    public void SetStatus(UnitBase unitBase)
+    {
+        if (unitBase == null) return;
+
+        unitNumber = unitBase.unitData.unitNumber;
+        unitName = unitBase.unitName;
+        maxHp = unitBase.maxHp;
+        currentHp = unitBase.currentHp;
+        ap = unitBase.maxAp;
+        atk = unitBase.atk;
+        def = unitBase.def;
+        acc = unitBase.acc;
+        eva = unitBase.eva;
+        speed = unitBase.speed;
+
+        // skillDataList에 있는 각 SkillData의 ID만 저장
+        skillNumberList = new List<int>();
+        foreach (SkillData skill in unitBase.skillDataList)
         {
             skillNumberList.Add(skill.skillNumber);
         }
@@ -71,7 +103,8 @@ public class UnitStatus
         unitName = unitData.unitName;
 
         // 기존 값에 unitData의 값을 더해줌
-        hp += unitData.hp;
+        maxHp += unitData.hp;
+        currentHp = maxHp;
         ap += unitData.ap;
         atk += unitData.atk;
         def += unitData.def;

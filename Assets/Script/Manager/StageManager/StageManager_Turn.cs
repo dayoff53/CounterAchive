@@ -47,7 +47,7 @@ public partial class StageManager
 
                     CostIncrease(unit, time);
 
-                    if (unit.currentAP >= unit.maxAP)
+                    if (unit.currentAP >= unit.maxAp)
                     {
                         ExecuteTurn(unitSlot);
                         break;
@@ -109,7 +109,7 @@ public partial class StageManager
 
                             CostIncrease(unit, skipTime);
 
-                            if (unit.currentAP >= unit.maxAP)
+                            if (unit.currentAP >= unit.maxAp)
                             {
                                 isSkip = false;
                                 ExecuteTurn(unitSlot);
@@ -135,7 +135,7 @@ public partial class StageManager
     {
         for (int i = 0; i < unitSlotList.Count; i++)
         {
-            if (actionPoints[unitSlotList[i].unit] >= unitSlotList[i].unit.maxAP)
+            if (actionPoints[unitSlotList[i].unit] >= unitSlotList[i].unit.maxAp)
             {
                 currentTurnSlotNumber = i;
 
@@ -155,13 +155,10 @@ public partial class StageManager
 
         //초기화
         currentTurnSlotNumber = unitSlotList.IndexOf(unit);
-        UnitBase currentTurnUnit = unitSlotList[currentTurnSlotNumber].unit;
-
-        currentTurnSlotIcon.sprite = currentTurnUnit.unitFaceIcon;
-        currentTurnName.text = currentTurnUnit.unitName;
-        currentTurnHpText.text = $"{currentTurnUnit.currentHp}/{currentTurnUnit.maxHp}";
-        currentTurnHpGaugeBar.fillAmount = ((float)currentTurnUnit.currentHp / (float)currentTurnUnit.maxHp);
+        UnitBase currentTurnUnit = unit.unit;
+        SetCurrentUnitCardUI(true, currentTurnSlotNumber);
         SkillSlotInit(unitSlotList[currentTurnSlotNumber].unit.skillDataList);
+
 
         //현재 턴을 가진 유닛 구분
         SlotGroundSpriteController groundSprite = unitSlotList[currentTurnSlotNumber].slotGround;
@@ -170,6 +167,26 @@ public partial class StageManager
         //액션 포인트 초기화
         actionPoints[currentTurnUnit] = 0;
         Debug.Log("턴을 시작합니다. 현재 턴은 " + unitSlotList[currentTurnSlotNumber].name + " (" + unitSlotList[currentTurnSlotNumber].unit.speed + " 속도) 유닛입니다.");
+    }
+
+    /// <summary>
+    /// 인 게임의 현 상황을 보여주는 UnitCardUI를 변경하는 스크립트
+    /// </summary>
+    /// <param name="unitNumber"></param>
+    public void SetCurrentUnitCardUI(bool isPlayer, int unitNumber)
+    {
+        if (isPlayer)
+        {
+            UnitStatus changeUnitStatus = new UnitStatus();
+            changeUnitStatus.SetStatus(dataManager.unitDataList.Find(u => u.unitNumber == unitSlotList[unitNumber].unit.unitNumber));
+            currentPlayerUnitCardUI.unitStatus = changeUnitStatus;
+        }
+        else
+        {
+            UnitStatus changeUnitStatus = new UnitStatus();
+            changeUnitStatus.SetStatus(dataManager.unitDataList.Find(u => u.unitNumber == unitSlotList[unitNumber].unit.unitNumber));
+            currentTargetUnitCardUI.unitStatus = changeUnitStatus;
+        }
     }
 
     /// <summary>
