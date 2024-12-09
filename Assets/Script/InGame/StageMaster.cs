@@ -19,19 +19,16 @@ public class StageMaster : MonoBehaviour
     /// </summary>
     [SerializeField]
     private int playerUseUnitSlotCount;
-
     /// <summary>
     /// 플레이어가 사용 가능한 유닛 슬롯의 범위
     /// </summary>
     [SerializeField]
     private int playerUseUnitSlotRange;
-
     /// <summary>
     /// 해당 스테이지에서 플레이어가 사용 가능하도록 배치되어 있는 유닛 리스트
     /// </summary>
     [SerializeField]
     private List<UnitStatus> playerUnitList;
-
     /// <summary>
     /// 해당 스테이지에서 적으로 등장하는 유닛 리스트
     /// </summary>
@@ -43,14 +40,11 @@ public class StageMaster : MonoBehaviour
     /// </summary>
     [SerializeField]
     private List<SkillSlotUIController> skillSlotList;
-
-
     /// <summary>
     /// 인 게임에서 유닛이 존재하는 슬롯의 그룹
     /// </summary>
     [SerializeField]
     private UnitSlotGroupController unitSlotGroupController;
-
     /// <summary>
     /// 플레이어가 배치 가능한 유닛이 존재하는 슬롯의 그룹
     /// </summary>
@@ -58,36 +52,41 @@ public class StageMaster : MonoBehaviour
     private UnitSelectSlotGroupController unitSelectSlotsGroupController;
 
 
-
-    [Tooltip("현재 턴을 지닌 플레이어의 유닛 카드 UI")]
-    [SerializeField]
-    public UnitCardController currentPlayerUnitCardUI;
-
-    [Tooltip("현재 타겟이 된 유닛 카드 UI")]
-    [SerializeField]
-    public UnitCardController currentTargetUnitCardUI;
-
-    [Tooltip("타겟 유닛카드를 가리키는 화살표")]
-    [SerializeField]
-    public Image unitCardTargetArrow;
-
-    [Tooltip("게임을 주로 플래이하는 UI")]
-    [SerializeField]
-    public GameObject play_UI;
-
+    [Header("unitSet_UI")]
     [Tooltip("게임 플레이 이전 유닛을 선택하는 UI")]
     [SerializeField]
     public GameObject unitSet_UI;
-
     [Tooltip("남아있는 선택 가능한 유닛 슬롯 갯수를 보여주는 텍스트")]
     [SerializeField]
     public TMP_Text remainingSetUnitSlotText;
 
 
+    [Header("play_UI")]
+    [Tooltip("게임을 주로 플래이하는 UI")]
+    [SerializeField]
+    public GameObject play_UI;
+    [Tooltip("턴을 지닌 플레이어의 유닛 카드 UI")]
+    [SerializeField]
+    public UnitCardController turnUnitCardUI;
+    [Tooltip("현재 타겟이 된 유닛 카드 UI")]
+    [SerializeField]
+    public UnitCardController targetUnitCardUI;
+    [Tooltip("타겟 유닛카드를 가리키는 화살표")]
+    [SerializeField]
+    public Image unitCardTargetArrow;
+    [Tooltip("턴을 지닌 유닛을 표기하는 마커")]
+    [SerializeField]
+    public GameObject turnUnitMarker;
+    [Tooltip("타겟 유닛을 표기하는 마커")]
+    [SerializeField]
+    public GameObject targetUnitMarker;
+
     private void InitUIObject()
     {
-        stageManager.currentPlayerUnitCardUI = currentPlayerUnitCardUI;
-        stageManager.currentTargetUnitCardUI = currentTargetUnitCardUI;
+        stageManager.turnUnitCardUI = turnUnitCardUI;
+        stageManager.targetUnitCardUI = targetUnitCardUI;
+        stageManager.turnUnitMarker = turnUnitMarker;
+        stageManager.targetUnitMarker = targetUnitMarker;
         stageManager.play_UI = play_UI;
         stageManager.unitSet_UI = unitSet_UI;
         stageManager.remainingSetUnitSlotText = remainingSetUnitSlotText;

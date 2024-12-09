@@ -29,6 +29,7 @@ public partial class StageManager
         currentSkillTarget = unitSlotList[skillTargetNum].unit;
         currentPrograssState = ProgressState.SkillPlay;
         unitSlotList[currentTurnSlotNumber].unit.SetAnim(1);
+        targetUnitMarker.SetActive(false);
         cost -= currentSkillData.skillCost;
     }
 

@@ -21,6 +21,7 @@ public class UnitStatus
     public float acc = 1;
     public float eva = 1;
     public float speed = 1;
+    public List<UnitTag> unitTagList;
     public List<int> skillNumberList; // skillDataList 대신 스킬의 식별자(Number)를 사용하여 저장
 
     public UnitStatus()
@@ -55,6 +56,7 @@ public class UnitStatus
         acc = unitData.acc;
         eva = unitData.eva;
         speed = unitData.speed;
+        unitTagList = unitData.unitTagList;
 
         // skillDataList에 있는 각 SkillData의 ID만 저장
         skillNumberList = new List<int>();
@@ -82,6 +84,7 @@ public class UnitStatus
         acc = unitBase.acc;
         eva = unitBase.eva;
         speed = unitBase.speed;
+        unitTagList = unitBase.unitTagList;
 
         // skillDataList에 있는 각 SkillData의 ID만 저장
         skillNumberList = new List<int>();

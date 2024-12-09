@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 유닛의 출신지 (필드에 따라 스텟의 차이가 발생한다)
+/// 유닛의 테그
 /// </summary>
 [System.Serializable]
 public enum UnitNative
@@ -12,6 +12,27 @@ public enum UnitNative
     BlueAchive,
     Nikke
 }
+
+public enum UnitTag
+{
+    #region Gender
+    Male,
+    Female,
+    #endregion
+    #region Species
+    Human,
+    Beast,
+    #endregion
+    #region Age
+    Kid,
+    Student,
+    Youth,
+    Elder,
+    Longevous,
+    Immortal
+    #endregion
+}
+
 
 /// <summary>
 /// 유닛의 작품 중 역할 (파티 구성에 따라 스텟에 차이가 발생한다)
@@ -61,8 +82,9 @@ public class UnitData : ScriptableObject
     public int atk = 1;
     public int def = 1;
     public int speed = 1;
-    public float acc = 1;
-    public float eva = 1;
+    public float acc = 100;
+    public float eva = 5;
+    public List<UnitTag> unitTagList;
     public List<SkillData> skillDataList; 
 }
  

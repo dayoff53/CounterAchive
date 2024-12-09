@@ -123,7 +123,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: UnitDataCard
     originalName: 
-    pivot: {x: 0.48333332, y: -0.035087723}
+    pivot: {x: 0.48333332, y: -0.03846154}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -131,7 +131,7 @@ ScriptedImporter:
       x: 4
       y: 4
       width: 30
-      height: 57
+      height: 52
     spriteID: ac066a79f23b4b647be45bfc786ae62c
     spriteBone: []
     spriteOutline: []
@@ -140,7 +140,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 4}
+    uvTransform: {x: 1, y: 2}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -153,10 +153,10 @@ ScriptedImporter:
     - name: UnitDataCard
       frameIndex: 0
       cellRect:
-        x: 3
-        y: 2
-        width: 30
-        height: 57
+        x: 0
+        y: 0
+        width: 35
+        height: 60
       spriteId: ac066a79f23b4b647be45bfc786ae62c
     linkedCells: []
     parentIndex: -1

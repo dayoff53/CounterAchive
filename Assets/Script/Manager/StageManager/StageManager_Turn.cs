@@ -149,20 +149,23 @@ public partial class StageManager
     /// <summary>
     /// 유닛의 턴을 실행합니다.
     /// </summary>
-    private void ExecuteTurn(UnitSlotController unit)
+    private void ExecuteTurn(UnitSlotController unitSlot)
     {
         currentPrograssState = ProgressState.UnitPlay;
 
         //초기화
-        currentTurnSlotNumber = unitSlotList.IndexOf(unit);
-        UnitBase currentTurnUnit = unit.unit;
+        currentTurnSlotNumber = unitSlotList.IndexOf(unitSlot);
+        UnitBase currentTurnUnit = unitSlot.unit;
         SetCurrentUnitCardUI(true, currentTurnSlotNumber);
         SkillSlotInit(unitSlotList[currentTurnSlotNumber].unit.skillDataList);
 
 
         //현재 턴을 가진 유닛 구분
         SlotGroundSpriteController groundSprite = unitSlotList[currentTurnSlotNumber].slotGround;
-        groundSprite.SetSlotGroundState(SlotGroundState.Select); 
+        groundSprite.SetSlotGroundState(SlotGroundState.Select);
+        turnUnitMarker.SetActive(true);
+        turnUnitMarker.transform.parent = unitSlot.unit.hitPosition.transform;
+        turnUnitMarker.transform.position = unitSlot.unit.hitPosition.transform.position;
 
         //액션 포인트 초기화
         actionPoints[currentTurnUnit] = 0;
@@ -179,13 +182,13 @@ public partial class StageManager
         {
             UnitStatus changeUnitStatus = new UnitStatus();
             changeUnitStatus.SetStatus(dataManager.unitDataList.Find(u => u.unitNumber == unitSlotList[unitNumber].unit.unitNumber));
-            currentPlayerUnitCardUI.unitStatus = changeUnitStatus;
+            turnUnitCardUI.unitStatus = changeUnitStatus;
         }
         else
         {
             UnitStatus changeUnitStatus = new UnitStatus();
             changeUnitStatus.SetStatus(dataManager.unitDataList.Find(u => u.unitNumber == unitSlotList[unitNumber].unit.unitNumber));
-            currentTargetUnitCardUI.unitStatus = changeUnitStatus;
+            targetUnitCardUI.unitStatus = changeUnitStatus;
         }
     }
 
@@ -216,6 +219,9 @@ public partial class StageManager
             SlotGroundSpriteController groundSprite = unit.slotGround;
             groundSprite.SetSlotGroundState(SlotGroundState.Default);
         }
+
+        turnUnitMarker.SetActive(false);
+        targetUnitMarker.SetActive(false);
 
         currentPrograssState = ProgressState.Stay;
     }

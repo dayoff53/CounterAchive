@@ -38,7 +38,6 @@ public class UnitBase : MonoBehaviour
     public string unitName;
     public Sprite unitFaceIcon;
     public RuntimeAnimatorController unitAnim;
-    public List<SkillData> skillDataList;
 
 
     [Header("Public Status")]
@@ -51,6 +50,8 @@ public class UnitBase : MonoBehaviour
     public float acc = 1;
     public float eva = 1;
     public float speed;
+    public List<UnitTag> unitTagList;
+    public List<SkillData> skillDataList;
     public float currentHp
     {
         get { return _currentHp; }
