@@ -22,15 +22,41 @@ public partial class StageManager
         }
     }
 
+    public void SkillSelect(UnitSlotController selectTargetSlot)
+    {
+        if (cost >= currentSkillData.skillCost)
+        {
+            if (skillTargetNum == unitSlotList.IndexOf(selectTargetSlot))
+            {
+                SkillStart();
+            }
+
+            skillTargetNum = unitSlotList.IndexOf(selectTargetSlot);
+            SetCurrentUnitCardUI(false, skillTargetNum);
+
+            targetUnitMarker.SetActive(true);
+            targetUnitMarker.transform.parent = selectTargetSlot.unit.hitPosition.transform;
+            targetUnitMarker.transform.position = selectTargetSlot.unit.hitPosition.transform.position;
+            Debug.Log($"stageManager.skillTargetNum = {skillTargetNum}");
+        }
+        else
+        {
+            SetCurrentUnitCardUI(false, 0);
+            Debug.Log("Not enough costs");
+        }
+    }
 
     public void SkillStart()
     {
-        currentSkillUser = unitSlotList[currentTurnSlotNumber].unit;
-        currentSkillTarget = unitSlotList[skillTargetNum].unit;
-        currentPrograssState = ProgressState.SkillPlay;
-        unitSlotList[currentTurnSlotNumber].unit.SetAnim(1);
-        targetUnitMarker.SetActive(false);
-        cost -= currentSkillData.skillCost;
+        if (currentSkillData )
+        {
+            currentSkillUser = unitSlotList[currentTurnSlotNumber].unit;
+            currentSkillTarget = unitSlotList[skillTargetNum].unit;
+            currentPrograssState = ProgressState.SkillPlay;
+            unitSlotList[currentTurnSlotNumber].unit.SetAnim(1);
+            targetUnitMarker.SetActive(false);
+            cost -= currentSkillData.skillCost;
+        }
     }
 
     public void SkillHitPlay()

@@ -21,12 +21,20 @@ public class SlotGroundSpriteController : MonoBehaviour
     [SerializeField]
     private UnitSlotController unitSlot;
 
+    private SlotGroundState _slotGroundState;
     [SerializeField]
     [Tooltip("1.defalut, 2.select, 3.target ")]
     private SlotGroundState slotGroundState
     {
+        get
+        {
+            return _slotGroundState;
+        }
+
         set
         {
+            _slotGroundState = slotGroundState;
+
             switch (value)
             {
                 case SlotGroundState.Default:
@@ -68,25 +76,12 @@ public class SlotGroundSpriteController : MonoBehaviour
         switch(stageManager.currentPrograssState)
         {
             case ProgressState.SkillTargetSearch:
-                if (stageManager.cost >= stageManager.currentSkillData.skillCost)
-                {
-                    if (stageManager.skillTargetNum == stageManager.unitSlotList.IndexOf(unitSlot))
-                    {
-                        stageManager.SkillStart();
-                    }
 
-                    int targetNum = stageManager.unitSlotList.IndexOf(unitSlot);
-                    stageManager.skillTargetNum = targetNum;
-                    stageManager.SetCurrentUnitCardUI(false, targetNum);
-                    stageManager.targetUnitMarker.SetActive(true);
-                    stageManager.targetUnitMarker.transform.parent = unitSlot.unit.hitPosition.transform; 
-                    stageManager.targetUnitMarker.transform.position = unitSlot.unit.hitPosition.transform.position;
-                    Debug.Log($"stageManager.skillTargetNum = {stageManager.skillTargetNum}");
-                }
-                else
+                switch(slotGroundState)
                 {
-                    stageManager.SetCurrentUnitCardUI(false, 0);
-                    Debug.Log("Not enough costs");
+                    case SlotGroundState.Target:
+                        stageManager.SkillSelect(unitSlot);
+                        break;
                 }
                 break;
 
