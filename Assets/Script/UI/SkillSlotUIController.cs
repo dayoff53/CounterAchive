@@ -66,11 +66,6 @@ public class SkillSlotUIController : MonoBehaviour
     private void OnButtonClick()
     {
         if (skillData != null)
-        {
-            stageManager.currentPrograssState = ProgressState.SkillTargetSearch;
-            stageManager.currentSkillData = skillData;
-
-            skillRangeUIController.SetRangeGround(skillData.skillRange);
-        }
+            stageManager.SkillTypeSelect(skillData);
     }
 }

@@ -8,6 +8,8 @@ public partial class StageManager
     UnitBase currentSkillUser = new UnitBase();
     UnitBase currentSkillTarget = new UnitBase();
     public SkillData currentSkillData;
+    private float skillAcc = 0;
+    private SkillRangeUIController skillRangeUIController;
 
 
     /// <summary>
@@ -22,7 +24,25 @@ public partial class StageManager
         }
     }
 
-    public void SkillSelect(UnitSlotController selectTargetSlot)
+    /// <summary>
+    /// 선택된 스킬의 데이터를 적용합니다.
+    /// </summary>
+    /// <param name="skillData"></param>
+    public void SkillTypeSelect(SkillData skillData)
+    {
+        if (skillData != null)
+        {
+            currentPrograssState = ProgressState.SkillTargetSearch;
+            SetRangeGround(skillData.skillRange);
+            currentSkillData = skillData;
+        }
+    }
+
+    /// <summary>
+    /// 스킬의 목표 데이터를 적용합니다.
+    /// </summary>
+    /// <param name="selectTargetSlot"></param>
+    public void SkillTargetSelect(UnitSlotController selectTargetSlot)
     {
         if (cost >= currentSkillData.skillCost)
         {
@@ -34,9 +54,13 @@ public partial class StageManager
             skillTargetNum = unitSlotList.IndexOf(selectTargetSlot);
             SetCurrentUnitCardUI(false, skillTargetNum);
 
+            skillAcc = ((unitSlotList[currentTurnSlotNumber].unit.acc * (currentSkillData.acc * 0.01f)) / unitSlotList[skillTargetNum].unit.eva) * 100f;
+            skillAccuracyText.text = $"{skillAcc}%";
+
             targetUnitMarker.SetActive(true);
             targetUnitMarker.transform.parent = selectTargetSlot.unit.hitPosition.transform;
             targetUnitMarker.transform.position = selectTargetSlot.unit.hitPosition.transform.position;
+
             Debug.Log($"stageManager.skillTargetNum = {skillTargetNum}");
         }
         else
@@ -88,5 +112,43 @@ public partial class StageManager
     {
         GameObject hitProductonObject = poolManager.Pop(currentSkillData.skilIHitProductionObject);
         hitProductonObject.transform.position = unitSlotList[skillTargetNum].unit.hitPosition.gameObject.transform.position;
+    }
+
+
+    /// <summary>
+    /// 스킬 사거리만큼 groundSprite를 변경
+    /// </summary>
+    /// <param name="skillRange"></param>
+    public void SetRangeGround(int[] skillRange)
+    {
+        SlotGroundSpriteController groundSprite;
+
+        for (int i = 0; i < unitSlotList.Count; i++)
+        {
+            groundSprite = unitSlotList[i].slotGround;
+
+            groundSprite.SetSlotGroundState(SlotGroundState.Default);
+        }
+
+        for (int i = 0; i < skillRange.Length; i++)
+        {
+
+            if (currentTurnSlotNumber + skillRange[i] < unitSlotList.Count)
+            {
+                groundSprite = unitSlotList[currentTurnSlotNumber + skillRange[i]].slotGround;
+
+                groundSprite.SetSlotGroundState(SlotGroundState.Target);
+            }
+
+            if (currentTurnSlotNumber - skillRange[i] >= 0)
+            {
+                groundSprite = unitSlotList[currentTurnSlotNumber - skillRange[i]].slotGround;
+
+                groundSprite.SetSlotGroundState(SlotGroundState.Target);
+            }
+        }
+
+        groundSprite = unitSlotList[currentTurnSlotNumber].slotGround;
+        groundSprite.SetSlotGroundState(SlotGroundState.Select);
     }
 }

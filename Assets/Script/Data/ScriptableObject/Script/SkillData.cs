@@ -50,7 +50,8 @@ public class SkillData : ScriptableObject
     public int skillNumber;
     public string skillName;
     public string skillFlavorText;
-    public float skillCost;
+    public float skillCost = 1;
+    public float acc = 100;
     public int[] skillRange;
     public SkillTypeState skillTypeState;
     public List<SkillEffect> skillEffectList;

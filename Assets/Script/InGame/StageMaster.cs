@@ -74,6 +74,9 @@ public class StageMaster : MonoBehaviour
     [Tooltip("타겟 유닛카드를 가리키는 화살표")]
     [SerializeField]
     public Image unitCardTargetArrow;
+    [Tooltip("스킬 명중률 텍스트")]
+    [SerializeField]
+    public TMP_Text skillAccuracyText;
     [Tooltip("턴을 지닌 유닛을 표기하는 마커")]
     [SerializeField]
     public GameObject turnUnitMarker;
@@ -85,6 +88,7 @@ public class StageMaster : MonoBehaviour
     {
         stageManager.turnUnitCardUI = turnUnitCardUI;
         stageManager.targetUnitCardUI = targetUnitCardUI;
+        stageManager.skillAccuracyText = skillAccuracyText;
         stageManager.turnUnitMarker = turnUnitMarker;
         stageManager.targetUnitMarker = targetUnitMarker;
         stageManager.play_UI = play_UI;

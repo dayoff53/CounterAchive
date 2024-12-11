@@ -128,26 +128,9 @@ public partial class StageManager
         }
     }
 
-    /// <summary>
-    /// 다음 턴을 실행할 유닛을 결정합니다.
-    /// </summary>
-    private void GetNextTurnSlotNumber()
-    {
-        for (int i = 0; i < unitSlotList.Count; i++)
-        {
-            if (actionPoints[unitSlotList[i].unit] >= unitSlotList[i].unit.maxAp)
-            {
-                currentTurnSlotNumber = i;
-
-                UnitSlotController currentTurnSlot = unitSlotList[currentTurnSlotNumber];
-                ExecuteTurn(currentTurnSlot);
-                break;
-            }
-        }
-    }
 
     /// <summary>
-    /// 유닛의 턴을 실행합니다.
+    /// 해당 유닛의 턴을 실행합니다.
     /// </summary>
     private void ExecuteTurn(UnitSlotController unitSlot)
     {
@@ -172,25 +155,6 @@ public partial class StageManager
         Debug.Log("턴을 시작합니다. 현재 턴은 " + unitSlotList[currentTurnSlotNumber].name + " (" + unitSlotList[currentTurnSlotNumber].unit.speed + " 속도) 유닛입니다.");
     }
 
-    /// <summary>
-    /// 인 게임의 현 상황을 보여주는 UnitCardUI를 변경하는 스크립트
-    /// </summary>
-    /// <param name="unitNumber"></param>
-    public void SetCurrentUnitCardUI(bool isPlayer, int unitNumber)
-    {
-        if (isPlayer)
-        {
-            UnitStatus changeUnitStatus = new UnitStatus();
-            changeUnitStatus.SetStatus(dataManager.unitDataList.Find(u => u.unitNumber == unitSlotList[unitNumber].unit.unitNumber));
-            turnUnitCardUI.unitStatus = changeUnitStatus;
-        }
-        else
-        {
-            UnitStatus changeUnitStatus = new UnitStatus();
-            changeUnitStatus.SetStatus(dataManager.unitDataList.Find(u => u.unitNumber == unitSlotList[unitNumber].unit.unitNumber));
-            targetUnitCardUI.unitStatus = changeUnitStatus;
-        }
-    }
 
     /// <summary>
     /// 일정 시간 대기 후 턴을 종료합니다. 
@@ -205,6 +169,7 @@ public partial class StageManager
         yield return new WaitForSeconds(delay); // 지정된 시간만큼 대기
         TurnEnd(); // 대기 후 호출할 함수
     }
+
 
     /// <summary>
     /// 턴을 종료합니다.

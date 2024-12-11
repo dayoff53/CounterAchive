@@ -160,24 +160,6 @@ public partial class StageManager : Singleton<StageManager>
     private Image costBar;
     #endregion
 
-    #region UIVariable
-    [Space(10)]
-    [Header("UI Object")]
-    public GameObject play_UI;
-    public GameObject unitSet_UI;
-    public UnitCardController turnUnitCardUI;
-    public UnitCardController targetUnitCardUI;
-    public TMP_Text remainingSetUnitSlotText;
-    public GameObject turnUnitMarker;
-    public GameObject targetUnitMarker;
-
-
-    [Space(10)]
-    [Header("Color Data")]
-    public List<Color> unitStateColors;
-    public ColorState unitStateColorsObject;
-    #endregion
-
     protected virtual void Start()
     {
         dataManager = DataManager.Instance;

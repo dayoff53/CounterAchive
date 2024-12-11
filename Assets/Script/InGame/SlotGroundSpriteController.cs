@@ -33,7 +33,7 @@ public class SlotGroundSpriteController : MonoBehaviour
 
         set
         {
-            _slotGroundState = slotGroundState;
+            _slotGroundState = value;
 
             switch (value)
             {
@@ -67,6 +67,7 @@ public class SlotGroundSpriteController : MonoBehaviour
     public void SetSlotGroundState(SlotGroundState setSlotGroundState)
     {
         slotGroundState = setSlotGroundState;
+        Debug.Log($"setSlotGroundState = { slotGroundState }");
 
         groundSpriteRenderer.color = stageManager.unitStateColors[unitSlot.unit.unitTeam];
     }
@@ -80,7 +81,7 @@ public class SlotGroundSpriteController : MonoBehaviour
                 switch(slotGroundState)
                 {
                     case SlotGroundState.Target:
-                        stageManager.SkillSelect(unitSlot);
+                        stageManager.SkillTargetSelect(unitSlot);
                         break;
                 }
                 break;
