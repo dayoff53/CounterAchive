@@ -67,7 +67,7 @@ public class UnitBase : MonoBehaviour
             }
         }
     }
-    public float currentAP
+    public float currentAp
     {
         get { return _currentAp; }
         set
@@ -76,7 +76,7 @@ public class UnitBase : MonoBehaviour
             {
                 _currentAp = value;
 
-                actionPointBar.fillAmount = currentAP / maxAp;
+                actionPointBar.fillAmount = currentAp / maxAp;
             }
         }
     }
@@ -111,7 +111,7 @@ public class UnitBase : MonoBehaviour
             atk = unitData.atk;
             def = unitData.def;
             maxAp = unitData.ap;
-            currentAP = 0;
+            currentAp = 0;
             speed = unitData.speed;
             skillDataList = unitData.skillDataList;
             
@@ -148,11 +148,11 @@ public class UnitBase : MonoBehaviour
             case PublicUnitStatusState.maxAp:
                 maxAp = newValue;
                 // 현재 액션 포인트가 최대치를 초과하지 않도록 조정
-                currentAP = Mathf.Clamp(currentAP, 0, maxAp);
+                currentAp = Mathf.Clamp(currentAp, 0, maxAp);
                 break;
 
             case PublicUnitStatusState.currentActionPoint:
-                currentAP = newValue;
+                currentAp = newValue;
                 break;
 
             case PublicUnitStatusState.speed:
@@ -171,8 +171,17 @@ public class UnitBase : MonoBehaviour
     /// <param name="setStatus">초기화 할 스테이터스</param>
     public void SetStatus(UnitStatus setStatus)
     {
-        unitData = dataManager.unitDataList.Find(un => un.unitNumber == setStatus.unitNumber);
-        unitNumber = unitData.unitNumber;
+        if(setStatus.defaultUnitData != null)
+        {
+            unitData = setStatus.defaultUnitData;
+            unitNumber = unitData.unitNumber;
+        }
+        else
+        {
+            unitData = dataManager.unitDataList.Find(un => un.unitNumber == setStatus.unitNumber);
+            unitNumber = unitData.unitNumber;
+        }
+
 
         if (!string.IsNullOrEmpty(setStatus.unitName) && setStatus.unitName.StartsWith("*"))
         {
@@ -196,7 +205,7 @@ public class UnitBase : MonoBehaviour
                 currentHp = setStatus.maxHp;
                 atk = setStatus.atk;
                 maxAp = setStatus.ap;
-                currentAP = 0;
+                currentAp = 0;
                 speed = setStatus.speed;
                 skillDataList = new List<SkillData>();
                 foreach (int skillNum in setStatus.skillNumberList)
@@ -211,7 +220,7 @@ public class UnitBase : MonoBehaviour
                 currentHp = setStatus.defaultUnitData.hp;
                 atk = setStatus.defaultUnitData.atk;
                 maxAp = setStatus.defaultUnitData.ap;
-                currentAP = 0;
+                currentAp = 0;
                 speed = setStatus.defaultUnitData.speed;
                 skillDataList = new List<SkillData>();
                 foreach (int skillNum in setStatus.skillNumberList)

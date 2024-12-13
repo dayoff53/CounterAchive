@@ -51,11 +51,16 @@ public class SkillData : ScriptableObject
     public string skillName;
     public string skillFlavorText;
     public float skillCost = 1;
-    public float acc = 100;
+    public float skillAcc = 100;
     public int[] skillRange;
+    /// <summary>
+    /// 범위 0을 중심으로 피격 당하는 범위를 가리킨다.
+    /// </summary>
+    public int[] skillArea;
+
     public SkillTypeState skillTypeState;
     public List<SkillEffect> skillEffectList;
     public Sprite skillIcon;
-    public GameObject skilIHitProductionObject;
+    public List<GameObject> skilIHitProductionObjects;
 }
 

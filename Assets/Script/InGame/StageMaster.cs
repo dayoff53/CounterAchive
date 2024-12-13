@@ -63,26 +63,21 @@ public class StageMaster : MonoBehaviour
 
     [Header("play_UI")]
     [Tooltip("게임을 주로 플래이하는 UI")]
-    [SerializeField]
     public GameObject play_UI;
     [Tooltip("턴을 지닌 플레이어의 유닛 카드 UI")]
-    [SerializeField]
     public UnitCardController turnUnitCardUI;
     [Tooltip("현재 타겟이 된 유닛 카드 UI")]
-    [SerializeField]
     public UnitCardController targetUnitCardUI;
     [Tooltip("타겟 유닛카드를 가리키는 화살표")]
-    [SerializeField]
-    public Image unitCardTargetArrow;
+    public GameObject unitCardTargetArrow;
     [Tooltip("스킬 명중률 텍스트")]
-    [SerializeField]
     public TMP_Text skillAccuracyText;
     [Tooltip("턴을 지닌 유닛을 표기하는 마커")]
-    [SerializeField]
     public GameObject turnUnitMarker;
     [Tooltip("타겟 유닛을 표기하는 마커")]
-    [SerializeField]
     public GameObject targetUnitMarker;
+    [Tooltip("스테이지 우측 하단의 메뉴 UI")]
+    public StageMenuController stageMenuController;
 
     private void InitUIObject()
     {
@@ -94,6 +89,7 @@ public class StageMaster : MonoBehaviour
         stageManager.play_UI = play_UI;
         stageManager.unitSet_UI = unitSet_UI;
         stageManager.remainingSetUnitSlotText = remainingSetUnitSlotText;
+        stageManager.stageMenuController = stageMenuController;
     }
 
     private void Start()
@@ -131,6 +127,10 @@ public class StageMaster : MonoBehaviour
         int endNum = unitSlotGroupController.unitSlots.Count - 1;
         for (int i = 0; i < enemyUnitList.Count; i++)
         {
+            if(enemyUnitList[i].unitName != "Null")
+            {
+                enemyUnitList[i].SetStatus(enemyUnitList[i].defaultUnitData);
+            }
             unitSlotGroupController.unitSlots[endNum - i].SetUnit(enemyUnitList[i], 2);
         }
     }

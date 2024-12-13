@@ -5,11 +5,24 @@ using UnityEngine;
 
 public partial class StageManager
 {
-    UnitBase currentSkillUser = new UnitBase();
-    UnitBase currentSkillTarget = new UnitBase();
-    public SkillData currentSkillData;
+    List<UnitSlotController> currentSkillTargetSlots;
+    private SkillData _currentSkillData;
+    public SkillData currentSkillData
+    {
+        get
+        {
+            return _currentSkillData;
+        }
+        set
+        {
+            _currentSkillData = value;
+
+            stageMenuController.StageMenuInit();
+        }
+    }
     private float skillAcc = 0;
     private SkillRangeUIController skillRangeUIController;
+    public StageMenuController stageMenuController;
 
 
     /// <summary>
@@ -54,7 +67,7 @@ public partial class StageManager
             skillTargetNum = unitSlotList.IndexOf(selectTargetSlot);
             SetCurrentUnitCardUI(false, skillTargetNum);
 
-            skillAcc = ((unitSlotList[currentTurnSlotNumber].unit.acc * (currentSkillData.acc * 0.01f)) / unitSlotList[skillTargetNum].unit.eva) * 100f;
+            skillAcc = ((unitSlotList[currentTurnSlotNumber].unit.acc * (currentSkillData.skillAcc * 0.01f)) / unitSlotList[skillTargetNum].unit.eva) * 100f;
             skillAccuracyText.text = $"{skillAcc}%";
 
             targetUnitMarker.SetActive(true);
@@ -70,33 +83,48 @@ public partial class StageManager
         }
     }
 
+    /// <summary>
+    /// PrograssState를 변경하거나, Unit의 Anim를 작동 시키는등의 스킬의 초기 구동을 진행한다.
+    /// </summary>
     public void SkillStart()
     {
-        if (currentSkillData )
+        if (currentSkillData)
         {
-            currentSkillUser = unitSlotList[currentTurnSlotNumber].unit;
-            currentSkillTarget = unitSlotList[skillTargetNum].unit;
+            currentSkillTargetSlots = new List<UnitSlotController>();
+
+            foreach (int skillAreaNum in currentSkillData.skillArea)
+            {
+                if (currentSkillTargetSlots.IndexOf(unitSlotList[skillAreaNum]) != -1)
+                {
+                    currentSkillTargetSlots.Add(unitSlotList[skillAreaNum]);
+                }
+            }
+
+            cost -= currentSkillData.skillCost;
             currentPrograssState = ProgressState.SkillPlay;
             unitSlotList[currentTurnSlotNumber].unit.SetAnim(1);
+
             targetUnitMarker.SetActive(false);
-            cost -= currentSkillData.skillCost;
         }
     }
 
-    public void SkillHitPlay()
+    /// <summary>
+    /// 스킬이 종료 된 이후 해당 스킬의 요과를 순서대로 실행시킨다.
+    /// </summary>
+    public void SkillEndPlay()
     {
-        HitProduction();
-
         foreach (SkillEffect skilleffect in currentSkillData.skillEffectList)
         {
             switch (skilleffect.skillEffectState)
             {
                 case SkillEffectState.Damage:
-                    currentSkillTarget.Damage(skilleffect.valueList[0]);
+                    foreach (UnitSlotController targetUnit in currentSkillTargetSlots)
+                        targetUnit.unit.Damage(skilleffect.valueList[0]);
                     break;
 
                 case SkillEffectState.StatusDown:
-                    currentSkillTarget.currentHp -= skilleffect.valueList[0];
+                    foreach(UnitSlotController targetUnit in currentSkillTargetSlots)
+                        targetUnit.unit.currentHp -= skilleffect.valueList[0];
                     break;
 
                 default:
@@ -106,11 +134,18 @@ public partial class StageManager
     }
 
     /// <summary>
-    /// 스킬의 효과 발동 연출을 담당하는 메서드
+    /// 스킬의 연출을 담당하는 메서드
     /// </summary>
-    public virtual void HitProduction()
+    public virtual void HitProduction(int hitProductionNum)
     {
-        GameObject hitProductonObject = poolManager.Pop(currentSkillData.skilIHitProductionObject);
+        foreach (UnitSlotController targetUnit in currentSkillTargetSlots)
+        {
+            if (!targetUnit.isNull)
+            {
+                targetUnit.unit.SetAnim(2);
+            }
+        }
+        GameObject hitProductonObject = poolManager.Pop(currentSkillData.skilIHitProductionObjects[hitProductionNum]);
         hitProductonObject.transform.position = unitSlotList[skillTargetNum].unit.hitPosition.gameObject.transform.position;
     }
 

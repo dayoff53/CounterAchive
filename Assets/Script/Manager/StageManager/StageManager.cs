@@ -85,18 +85,6 @@ public partial class StageManager : Singleton<StageManager>
     private bool isMoving = false;
     #endregion
 
-    #region TurnVariable
-    [Space(10)]
-    [Header("Turn Data")]
-    [Tooltip("행동력 누적을 위한 Dictionary")]
-    private SerializableDictionary<UnitBase, float> actionPoints = new SerializableDictionary<UnitBase, float>();
-
-    /// <summary>
-    /// 현재 턴을 행사 중인 슬롯의 번호
-    /// </summary>
-    public int currentTurnSlotNumber;
-
-    #endregion
 
     #region SkillSlotVariable
     [Space(10)]
@@ -241,7 +229,7 @@ public partial class StageManager : Singleton<StageManager>
                 UnitBase unit = unitSlot.unit;
                 if (!actionPoints.ContainsKey(unit))
                 {
-                    actionPoints.Add(unit, unit.currentAP); // 키가 없으면 추가
+                    actionPoints.Add(unit, unit.currentAp); // 키가 없으면 추가
                 }
             }
         }

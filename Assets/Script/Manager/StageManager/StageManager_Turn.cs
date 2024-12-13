@@ -6,6 +6,20 @@ using UnityEngine;
 
 public partial class StageManager
 {
+    #region TurnVariable
+    [Space(10)]
+    [Header("Turn Data")]
+    [Tooltip("행동력 누적을 위한 Dictionary")]
+    private SerializableDictionary<UnitBase, float> actionPoints = new SerializableDictionary<UnitBase, float>();
+
+
+    /// <summary>
+    /// 현재 턴을 행사 중인 슬롯의 번호
+    /// </summary>
+    public int currentTurnSlotNumber;
+    #endregion
+
+
     /// <summary>
     /// actionPoints를 지속적으로 각 유닛의 속도만큼 증가시킵니다.
     /// </summary>
@@ -29,6 +43,17 @@ public partial class StageManager
         }
     }
 
+    private void NextTurnCalculator()
+    {
+        foreach (var unitSlot in unitSlotList)
+        {
+            if (unitSlot.unit != null && unitSlot.isNull == false)
+            {
+                UnitBase unit = unitSlot.unit;
+
+            }
+        }
+    }
 
     /// <summary>
     /// ActionPoint를 상승시키는 스크립트
@@ -43,11 +68,11 @@ public partial class StageManager
                 if (actionPoints.TryGetValue(unit, out float currentPoints))
                 {
                     actionPoints[unit] = currentPoints + unit.speed * time;
-                    unit.currentAP = actionPoints[unit];
+                    unit.currentAp = actionPoints[unit];
 
                     CostIncrease(unit, time);
 
-                    if (unit.currentAP >= unit.maxAp)
+                    if (unit.currentAp >= unit.maxAp)
                     {
                         ExecuteTurn(unitSlot);
                         break;
@@ -57,7 +82,7 @@ public partial class StageManager
                 {
                     Debug.LogWarning($"No key found for {unitSlot.name}. Adding key.");
                     actionPoints.Add(unit, unit.speed * time);  // 키가 없을 경우 추가
-                    unit.currentAP = actionPoints[unit];
+                    unit.currentAp = actionPoints[unit];
                 }
             }
         }
@@ -105,11 +130,11 @@ public partial class StageManager
                         if (actionPoints.TryGetValue(unit, out float currentPoints))
                         {
                             actionPoints[unit] = currentPoints + unit.speed * skipTime;
-                            unit.currentAP = actionPoints[unit];
+                            unit.currentAp = actionPoints[unit];
 
                             CostIncrease(unit, skipTime);
 
-                            if (unit.currentAP >= unit.maxAp)
+                            if (unit.currentAp >= unit.maxAp)
                             {
                                 isSkip = false;
                                 ExecuteTurn(unitSlot);
@@ -120,7 +145,7 @@ public partial class StageManager
                         {
                             Debug.LogWarning($"No key found for {unit.name}. Adding key.");
                             actionPoints.Add(unit, unit.speed * Time.deltaTime);  // 키가 없을 경우 추가
-                            unit.currentAP = actionPoints[unit];
+                            unit.currentAp = actionPoints[unit];
                         }
                     }
                 }

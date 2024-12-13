@@ -53,7 +53,6 @@ public class UnitSlotController : MonoBehaviour
 
         StatusInit();
     }
-
     /// <summary>
     /// 해당 위치에 새로운 유닛을 배치
     /// </summary>
