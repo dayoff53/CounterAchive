@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Serika - Hit
+  m_Name: Nonomi - Hit
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,15 +21,15 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -1486356401, guid: a13c61be91610f64ba7eb8ee8015e306, type: 3}
-    - time: 0.1
-      value: {fileID: -1134081120, guid: a13c61be91610f64ba7eb8ee8015e306, type: 3}
+      value: {fileID: -1398378139, guid: 62626c6a74ebcb84a8846e88a45b8928, type: 3}
+    - time: 0.083333336
+      value: {fileID: -1398378139, guid: 62626c6a74ebcb84a8846e88a45b8928, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 10
+  m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -46,19 +46,19 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -1486356401, guid: a13c61be91610f64ba7eb8ee8015e306, type: 3}
-    - {fileID: -1134081120, guid: a13c61be91610f64ba7eb8ee8015e306, type: 3}
+    - {fileID: -1398378139, guid: 62626c6a74ebcb84a8846e88a45b8928, type: 3}
+    - {fileID: -1398378139, guid: 62626c6a74ebcb84a8846e88a45b8928, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.2
+    m_StopTime: 0.16666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 0
+    m_LoopTime: 1
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
