@@ -58,6 +58,7 @@ public class SkillData : ScriptableObject
     /// </summary>
     public int[] skillArea;
 
+    //(산탄이나 특수 효과들의 경우 피격 연출 prefab에서 구현할 예정)
     public bool isSkillHitMultiple;
     public int skillHitCount;
     public float skillHitRadius = 0;

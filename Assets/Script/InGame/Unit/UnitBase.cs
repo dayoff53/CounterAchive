@@ -239,9 +239,9 @@ public class UnitBase : MonoBehaviour
         actionPointBar.fillAmount = setActionPoint / 100f;
     }
 
-    public void SetDirection(bool isRight)
+    public void SetDirection(bool isLeft)
     {
-        spriteRenderer.flipX = !isRight;
+        spriteRenderer.flipX = isLeft;
     }
 
     public void Damage(float damage)

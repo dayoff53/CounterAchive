@@ -32,6 +32,7 @@ public partial class StageManager
     /// <param name="setSkillDataList">설정할 스킬 데이터 리스트입니다.</param>
     public void SkillSlotInit(List<SkillData> setSkillDataList)
     {
+        skillTargetNum = -1;
         for (int i = 0; i < setSkillDataList.Count; i++)
         {
             skillSlotList[i].SetSkillData(setSkillDataList[i]);
@@ -68,12 +69,18 @@ public partial class StageManager
             skillTargetNum = unitSlotList.IndexOf(selectTargetSlot);
             SetCurrentUnitCardUI(false, skillTargetNum);
 
+            if (currentTurnSlotNumber <= skillTargetNum)
+                unitSlotList[currentTurnSlotNumber].unit.SetDirection(false);
+            else
+                unitSlotList[currentTurnSlotNumber].unit.SetDirection(true);
+
             skillAcc = ((unitSlotList[currentTurnSlotNumber].unit.acc * (currentSkillData.skillAcc * 0.01f)) / unitSlotList[skillTargetNum].unit.eva);
             skillAccuracyText.text = $"{skillAcc * 100}%";
 
             targetUnitMarker.SetActive(true);
             targetUnitMarker.transform.parent = selectTargetSlot.unit.hitPosition.transform;
             targetUnitMarker.transform.position = selectTargetSlot.unit.hitPosition.transform.position;
+
 
             Debug.Log($"stageManager.skillTargetNum = {skillTargetNum}");
         }

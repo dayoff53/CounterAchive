@@ -108,7 +108,7 @@ public partial class StageManager : Singleton<StageManager>
         {
             _skillTargetNum = value;
 
-            if (targetUnitCardUI != null)
+            if (targetUnitCardUI != null && skillTargetNum >= 0)
             {
                 targetUnitCardUI.unitStatus.SetStatus(unitSlotList[skillTargetNum].unit);
             }
