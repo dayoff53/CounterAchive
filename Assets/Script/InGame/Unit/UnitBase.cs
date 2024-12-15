@@ -8,6 +8,7 @@ using TMPro;
 
 public class UnitBase : MonoBehaviour
 {
+    PoolManager poolManager;
     DataManager dataManager;
 
     [Header("À¯´ÖÀÇ ÆÀ")]
@@ -57,14 +58,10 @@ public class UnitBase : MonoBehaviour
         get { return _currentHp; }
         set
         {
-            if (_currentHp != value)
-            {
-                _currentHp = value;
+            _currentHp = Mathf.Clamp(value, 0, maxHp);
 
-                hpPointBar.fillAmount = ((float)currentHp / (float)maxHp);
-
-                hpPointText.text = $"{currentHp}/{maxHp}";
-            }
+            hpPointBar.fillAmount = ((float)currentHp / (float)maxHp);
+            hpPointText.text = $"{currentHp}/{maxHp}";
         }
     }
     public float currentAp
@@ -72,18 +69,16 @@ public class UnitBase : MonoBehaviour
         get { return _currentAp; }
         set
         {
-            if (_currentAp != value)
-            {
                 _currentAp = value;
 
                 actionPointBar.fillAmount = currentAp / maxAp;
-            }
         }
     }
 
 
     private void Start()
     {
+        poolManager = PoolManager.Instance;
         dataManager = DataManager.Instance;
 
         StatusInit();
@@ -264,6 +259,27 @@ public class UnitBase : MonoBehaviour
             damage = 1;
         }
 
-        SetStatus(PublicUnitStatusState.currentHp, damage);
+        currentHp -= damage;
+    }
+
+
+    public void HitProduction(GameObject hitProductonObject, float skillHitRadius)
+    {
+        Debug.Log("HitProduction");
+        Vector3 hitPos = hitPosition.gameObject.transform.position;
+        hitProductonObject.transform.position = hitPos;
+
+        if (skillHitRadius > 0)
+        {
+            Debug.Log("skillHitRadius > 0");
+            float angle = Random.Range(0, 360);
+
+            float randomRadius = Random.Range(0f, skillHitRadius);
+
+            float x = hitPos.x + randomRadius * Mathf.Cos(angle * Mathf.Deg2Rad);
+            float y = hitPos.y + randomRadius * Mathf.Sin(angle * Mathf.Deg2Rad);
+
+            hitProductonObject.transform.position = new Vector3(x, y, hitPos.z);
+        }
     }
 }

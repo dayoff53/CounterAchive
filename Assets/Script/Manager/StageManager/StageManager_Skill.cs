@@ -5,7 +5,7 @@ using UnityEngine;
 
 public partial class StageManager
 {
-    List<UnitSlotController> currentSkillTargetSlots;
+    public List<UnitSlotController> currentSkillTargetSlots;
     private SkillData _currentSkillData;
     public SkillData currentSkillData
     {
@@ -21,6 +21,7 @@ public partial class StageManager
         }
     }
     private float skillAcc = 0;
+    private bool isSkillSuccess = false;
     private SkillRangeUIController skillRangeUIController;
     public StageMenuController stageMenuController;
 
@@ -38,7 +39,7 @@ public partial class StageManager
     }
 
     /// <summary>
-    /// 선택된 스킬의 데이터를 적용합니다.
+    /// 선택된 스킬의 데이터를 UI에 적용합니다.
     /// </summary>
     /// <param name="skillData"></param>
     public void SkillTypeSelect(SkillData skillData)
@@ -52,7 +53,7 @@ public partial class StageManager
     }
 
     /// <summary>
-    /// 스킬의 목표 데이터를 적용합니다.
+    /// 스킬의 목표 데이터를 UI에 적용합니다.
     /// </summary>
     /// <param name="selectTargetSlot"></param>
     public void SkillTargetSelect(UnitSlotController selectTargetSlot)
@@ -67,8 +68,8 @@ public partial class StageManager
             skillTargetNum = unitSlotList.IndexOf(selectTargetSlot);
             SetCurrentUnitCardUI(false, skillTargetNum);
 
-            skillAcc = ((unitSlotList[currentTurnSlotNumber].unit.acc * (currentSkillData.skillAcc * 0.01f)) / unitSlotList[skillTargetNum].unit.eva) * 100f;
-            skillAccuracyText.text = $"{skillAcc}%";
+            skillAcc = ((unitSlotList[currentTurnSlotNumber].unit.acc * (currentSkillData.skillAcc * 0.01f)) / unitSlotList[skillTargetNum].unit.eva);
+            skillAccuracyText.text = $"{skillAcc * 100}%";
 
             targetUnitMarker.SetActive(true);
             targetUnitMarker.transform.parent = selectTargetSlot.unit.hitPosition.transform;
@@ -84,19 +85,30 @@ public partial class StageManager
     }
 
     /// <summary>
-    /// PrograssState를 변경하거나, Unit의 Anim를 작동 시키는등의 스킬의 초기 구동을 진행한다.
+    /// 스킬의 초기 구동을 진행합니다. (PrograssState를 SkillPlay으로 변경하거나, Unit의 Anim를 작동 시키는등의 작업)
     /// </summary>
     public void SkillStart()
     {
         if (currentSkillData)
         {
-            currentSkillTargetSlots = new List<UnitSlotController>();
+            isSkillSuccess = false;
+            float randomValue = Random.value;
+            if (randomValue < skillAcc)
+            {
+                isSkillSuccess = true;
+                Debug.Log($"{currentSkillData.skillName}의 스킬 판정 성공");
+            } else
+            {
+                Debug.Log($"{currentSkillData.skillName}의 스킬 판정 실패");
+            }
 
+            //스킬 효과(SkillEndPlay)의 적용 범위를 계산함
+            currentSkillTargetSlots = new List<UnitSlotController>();
             foreach (int skillAreaNum in currentSkillData.skillArea)
             {
-                if (currentSkillTargetSlots.IndexOf(unitSlotList[skillAreaNum]) != -1)
+                if (unitSlotList.IndexOf(unitSlotList[skillTargetNum + skillAreaNum]) != -1)
                 {
-                    currentSkillTargetSlots.Add(unitSlotList[skillAreaNum]);
+                    currentSkillTargetSlots.Add(unitSlotList[skillTargetNum + skillAreaNum]);
                 }
             }
 
@@ -113,25 +125,43 @@ public partial class StageManager
     /// </summary>
     public void SkillEndPlay()
     {
-        foreach (SkillEffect skilleffect in currentSkillData.skillEffectList)
+        if (isSkillSuccess)
         {
-            switch (skilleffect.skillEffectState)
+            foreach (SkillEffect skilleffect in currentSkillData.skillEffectList)
             {
-                case SkillEffectState.Damage:
-                    foreach (UnitSlotController targetUnit in currentSkillTargetSlots)
-                        targetUnit.unit.Damage(skilleffect.valueList[0]);
-                    break;
+                switch (skilleffect.skillEffectState)
+                {
+                    case SkillEffectState.Damage:
+                        foreach (UnitSlotController targetUnit in currentSkillTargetSlots)
+                            targetUnit.unit.Damage(skilleffect.valueList[0]);
+                        break;
 
-                case SkillEffectState.StatusDown:
-                    foreach(UnitSlotController targetUnit in currentSkillTargetSlots)
-                        targetUnit.unit.currentHp -= skilleffect.valueList[0];
-                    break;
+                    case SkillEffectState.StatusDown:
+                        foreach (UnitSlotController targetUnit in currentSkillTargetSlots)
+                            targetUnit.unit.currentHp -= skilleffect.valueList[0];
+                        break;
 
-                default:
-                    break;
+                    default:
+                        break;
+                }
             }
         }
     }
+
+    /// <summary>
+    /// 스킬의 연출을 담당하는 메서드
+    /// </summary>
+    public virtual void SkillProduction(int hitProductionNum)
+    {
+        foreach (UnitSlotController targetUnit in currentSkillTargetSlots)
+        {
+            Debug.Log($"{targetUnit}의 SkillProduction");
+            GameObject hitProductonObject = poolManager.Pop(currentSkillData.skilIHitProductionObjects[hitProductionNum]);
+            targetUnit.unit.HitProduction(hitProductonObject, currentSkillData.skillHitRadius);
+            targetUnit.unit.SetAnim(2);
+        }
+    }
+
 
     /// <summary>
     /// 스킬의 연출을 담당하는 메서드
@@ -146,8 +176,22 @@ public partial class StageManager
             }
         }
         GameObject hitProductonObject = poolManager.Pop(currentSkillData.skilIHitProductionObjects[hitProductionNum]);
-        hitProductonObject.transform.position = unitSlotList[skillTargetNum].unit.hitPosition.gameObject.transform.position;
+
+        Vector3 hitPos = unitSlotList[skillTargetNum].unit.hitPosition.gameObject.transform.position;
+
+        if (currentSkillData.skillHitRadius != 0)
+        {
+            float angle = Random.Range(0, 360);
+
+            float randomRadius = Random.Range(0f, currentSkillData.skillHitRadius);
+
+            float x = hitPos.x + randomRadius * Mathf.Cos(angle * Mathf.Deg2Rad);
+            float y = hitPos.y + randomRadius * Mathf.Sin(angle * Mathf.Deg2Rad);
+
+            hitProductonObject.transform.position = new Vector3(x, y, hitPos.z);
+        }
     }
+
 
 
     /// <summary>

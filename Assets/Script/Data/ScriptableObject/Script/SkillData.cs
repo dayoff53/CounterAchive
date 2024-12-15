@@ -58,6 +58,10 @@ public class SkillData : ScriptableObject
     /// </summary>
     public int[] skillArea;
 
+    public bool isSkillHitMultiple;
+    public int skillHitCount;
+    public float skillHitRadius = 0;
+
     public SkillTypeState skillTypeState;
     public List<SkillEffect> skillEffectList;
     public Sprite skillIcon;

@@ -13,7 +13,7 @@ public class AnimationEventObserver : MonoBehaviour
 
     public void SkillHit()
     {
-        gameManager.HitProduction(0);
+        gameManager.SkillProduction(0);
         Debug.Log($"SkillHit ¿€µø");
     }
 

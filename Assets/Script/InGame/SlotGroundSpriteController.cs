@@ -67,7 +67,7 @@ public class SlotGroundSpriteController : MonoBehaviour
     public void SetSlotGroundState(SlotGroundState setSlotGroundState)
     {
         slotGroundState = setSlotGroundState;
-        Debug.Log($"setSlotGroundState = { slotGroundState }");
+        Debug.Log($"{gameObject.name}.setSlotGroundState = { slotGroundState }");
 
         groundSpriteRenderer.color = stageManager.unitStateColors[unitSlot.unit.unitTeam];
     }
