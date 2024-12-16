@@ -43,18 +43,6 @@ public partial class StageManager
         }
     }
 
-    private void NextTurnCalculator()
-    {
-        foreach (var unitSlot in unitSlotList)
-        {
-            if (unitSlot.unit != null && unitSlot.isNull == false)
-            {
-                UnitBase unit = unitSlot.unit;
-
-            }
-        }
-    }
-
     /// <summary>
     /// ActionPoint를 상승시키는 스크립트
     /// </summary>
@@ -175,6 +163,7 @@ public partial class StageManager
         turnUnitMarker.transform.parent = unitSlot.unit.hitPosition.transform;
         turnUnitMarker.transform.position = unitSlot.unit.hitPosition.transform.position;
 
+
         //액션 포인트 초기화
         actionPoints[currentTurnUnit] = 0;
         Debug.Log("턴을 시작합니다. 현재 턴은 " + unitSlotList[currentTurnSlotNumber].name + " (" + unitSlotList[currentTurnSlotNumber].unit.speed + " 속도) 유닛입니다.");
@@ -201,12 +190,11 @@ public partial class StageManager
     /// </summary>
     public void TurnEnd()
     {
-        unitSlotList[currentTurnSlotNumber].unit.SetAnim(0);
-
-        //UnitGround의 색상 및 스프라이트 초기화
-        foreach (var unit in unitSlotList)
+        //UnitGround의 색상 및 스프라이트, 애니메이션 초기화
+        foreach (UnitSlotController unitSlot in unitSlotList)
         {
-            SlotGroundSpriteController groundSprite = unit.slotGround;
+            unitSlot.unit.SetAnim(0);
+            SlotGroundSpriteController groundSprite = unitSlot.slotGround;
             groundSprite.SetSlotGroundState(SlotGroundState.Default);
         }
 

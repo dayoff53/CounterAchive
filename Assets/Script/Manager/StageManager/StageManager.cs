@@ -85,7 +85,6 @@ public partial class StageManager : Singleton<StageManager>
     private bool isMoving = false;
     #endregion
 
-
     #region SkillSlotVariable
     [Space(10)]
     [Header("SkillSlot Data")]
@@ -148,12 +147,13 @@ public partial class StageManager : Singleton<StageManager>
     private Image costBar;
     #endregion
 
+
+
     protected virtual void Start()
     {
         dataManager = DataManager.Instance;
         poolManager = PoolManager.Instance;
     }
-
 
     /// <summary>
     /// 게임 초기 설정을 진행하는 단계입니다.

@@ -87,6 +87,7 @@ public class SlotGroundSpriteController : MonoBehaviour
                 break;
 
             case ProgressState.UnitSelect:
+
                 if(unitSlot.isNull == true && stageManager.currentSelectUnitState.unitName != "Null" && unitSlot.unit.unitTeam == 1)
                 {
                     unitSlot.SetUnit(stageManager.currentSelectUnitState, 1);
