@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class GroupSelectSlotController : MonoBehaviour
+public class FirstPartySelectSlotController : MonoBehaviour
 {
     /// <summary>
     /// 선택한 그룹의 유닛 데이터

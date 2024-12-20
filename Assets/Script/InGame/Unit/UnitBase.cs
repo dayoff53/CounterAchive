@@ -32,6 +32,9 @@ public class UnitBase : MonoBehaviour
     [SerializeField]
     public GameObject hitPosition;
 
+    [SerializeField]
+    public GameObject corpseObject;
+
 
     [Header("Static Status")]
     public UnitData unitData;
@@ -39,6 +42,7 @@ public class UnitBase : MonoBehaviour
     public string unitName;
     public Sprite unitFaceIcon;
     public RuntimeAnimatorController unitAnim;
+    private bool isDeath = false;
 
 
     [Header("Public Status")]
@@ -109,7 +113,6 @@ public class UnitBase : MonoBehaviour
             currentAp = 0;
             speed = unitData.speed;
             skillDataList = unitData.skillDataList;
-            
         }
     }
 
@@ -262,16 +265,29 @@ public class UnitBase : MonoBehaviour
         currentHp -= damage;
     }
 
+    public void Death()
+    {
+        //corpseObject.SetActive(true);
+
+        // UnitData를 Null로 설정하여 죽음을 처리
+        unitData = dataManager.unitDataList.Find(un => un.unitNumber == 0); // Null 유닛 데이터로 설정
+    }
+
+
+    private void DeathProduction()
+    {
+        Debug.Log("DeathProduction");
+
+    }
+
 
     public void HitProduction(GameObject hitProductonObject, float skillHitRadius)
     {
-        Debug.Log("HitProduction");
         Vector3 hitPos = hitPosition.gameObject.transform.position;
         hitProductonObject.transform.position = hitPos;
 
         if (skillHitRadius > 0)
         {
-            Debug.Log("skillHitRadius > 0");
             float angle = Random.Range(0, 360);
 
             float randomRadius = Random.Range(0f, skillHitRadius);

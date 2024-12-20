@@ -20,7 +20,14 @@ public class AnimationEventObserver : MonoBehaviour
     public void SkillEnd()
     {
         gameManager.SkillEndPlay();
-        gameManager.DelayTurnEnd(0.5f);
+        StartCoroutine(DelayTurnEnd(0.5f));
         Debug.Log($"SkillEnd 작동");
+    }
+
+
+    public IEnumerator DelayTurnEnd(float delay)
+    {
+        yield return new WaitForSeconds(delay); // 지정된 시간만큼 대기
+        gameManager.TurnEnd(); // 대기 후 호출할 함수
     }
 }

@@ -23,7 +23,6 @@ public class UnitSlotGroupController : MonoBehaviour
     public void Start()
     {
         gameManager = StageManager.Instance;
-        //UnitSlotsInit();
     }
 
     /// <summary>
@@ -32,25 +31,18 @@ public class UnitSlotGroupController : MonoBehaviour
     public void UnitSlotsInit()
     {
         gameManager = StageManager.Instance;
-        for (int i = 0; i < unitSlots.Count; i++)
+        foreach (UnitSlotController unitSlot in unitSlots)
         {
-            UnitSlotController unitSlot = unitSlots[i];
-
             if (unitSlot != null)
             {
-                var unitObject = unitSlot.gameObject;
+                GameObject unitObject = unitSlot.gameObject;
                 if (unitObject != null)
                 {
-                    // 초기 유닛 위치 설정
+                    // 초기 유닛 오브젝트의 위치 설정
                     originalPositions[unitObject] = unitObject.transform.position;
                 }
 
-                if(unitSlot.unit.unitTeam == 2)
-                {
-                    unitSlot.unit.SetDirection(true);
-                }
-
-                unitSlot.slotGround.SetSlotGroundState(SlotGroundState.Default);
+                unitSlot.slotGround. SetSlotGroundState(SlotGroundState.Default);
             }
 
             unitSlot.StatusInit();

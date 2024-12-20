@@ -171,21 +171,6 @@ public partial class StageManager
 
 
     /// <summary>
-    /// 일정 시간 대기 후 턴을 종료합니다. 
-    /// </summary>
-    /// <param name="delay">대기시간</param>
-    public void DelayTurnEnd(float delay)
-    {
-        StartCoroutine(_DelayTurnEnd(delay));
-    }
-    public IEnumerator _DelayTurnEnd(float delay)
-    {
-        yield return new WaitForSeconds(delay); // 지정된 시간만큼 대기
-        TurnEnd(); // 대기 후 호출할 함수
-    }
-
-
-    /// <summary>
     /// 턴을 종료합니다.
     /// </summary>
     public void TurnEnd()
@@ -193,7 +178,11 @@ public partial class StageManager
         //UnitGround의 색상 및 스프라이트, 애니메이션 초기화
         foreach (UnitSlotController unitSlot in unitSlotList)
         {
-            unitSlot.unit.SetAnim(0);
+            if (unitSlot.isNull)
+            {
+                unitSlot.unit.SetAnim(0);
+            }
+            unitSlot.StatusInit();
             SlotGroundSpriteController groundSprite = unitSlot.slotGround;
             groundSprite.SetSlotGroundState(SlotGroundState.Default);
         }
