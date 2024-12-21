@@ -45,7 +45,7 @@ public class UnitSlotGroupController : MonoBehaviour
                 unitSlot.slotGround. SetSlotGroundState(SlotGroundState.Default);
             }
 
-            unitSlot.StatusInit();
+            unitSlot.UnitStatusInit();
         }
         gameManager.unitSlotList = unitSlots;
     }

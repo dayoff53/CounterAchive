@@ -8,12 +8,18 @@ public class UnitSlotController : MonoBehaviour
     /// <summary>
     /// 현재 위치한 Field의 UnitFieldController
     /// </summary>
-    [SerializeField]
     [Header("현재 위치한 Field의 UnitFieldController")]
     UnitSlotGroupController unitFieldController;
 
     [Header("유닛의 팀")]
     public int unitTeam = 0;
+
+    /// <summary>
+    /// 유닛 슬롯이 자식으로 위치할 오브젝트
+    /// </summary>
+    [SerializeField]
+    [Header("유닛 슬롯이 자식으로 위치할 오브젝트")]
+    public GameObject unitParent;
 
     /// <summary>
     /// 현재 해당 슬롯에 위치한 유닛
@@ -32,7 +38,7 @@ public class UnitSlotController : MonoBehaviour
     public SlotGroundSpriteController slotGround;
 
 
-    public void StatusInit()
+    public void UnitStatusInit()
     {
         if (unit.unitData.name == "Null")
         {
@@ -49,11 +55,8 @@ public class UnitSlotController : MonoBehaviour
     public void SetUnit(UnitStatus setUnitState)
     {
         unit.SetStatus(setUnitState);
-
-        unit.SetAnim(0);
-        unit.SetActionPointBar(0.0f);
-
-        StatusInit();
+        
+        UnitStatusInit();
     }
     /// <summary>
     /// 해당 위치에 새로운 유닛을 배치

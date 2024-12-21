@@ -9982,10 +9982,6 @@ PrefabInstance:
       propertyPath: unitFieldController
       value: 
       objectReference: {fileID: 827181154}
-    - target: {fileID: 412560792552139733, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
-      propertyPath: corpseObject
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2589823910991165270, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: m_Name
       value: UnitSlot_0

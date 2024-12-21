@@ -180,7 +180,7 @@ public partial class StageManager : Singleton<StageManager>
             {
                 if (i < playerUseUnitSlotRange && unitSlotList[i].isNull == true)
                 {
-                    unitSlotList[i].unit.unitTeam = 1;
+                    unitSlotList[i].unitTeam = 1;
                     unitSlotList[i].slotGround.SetSlotGroundState(SlotGroundState.Target);
                 } else
                 {
@@ -197,7 +197,7 @@ public partial class StageManager : Singleton<StageManager>
             {
                 if (unitSlotList[i].isNull == true)
                 {
-                    unitSlotList[i].unit.unitTeam = 0;
+                    unitSlotList[i].unitTeam = 0;
                 }
 
                 unitSlotList[i].slotGround.SetSlotGroundState(SlotGroundState.Default);

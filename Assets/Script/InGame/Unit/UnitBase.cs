@@ -11,9 +11,6 @@ public class UnitBase : MonoBehaviour
     PoolManager poolManager;
     DataManager dataManager;
 
-    [Header("À¯´ÖÀÇ ÆÀ")]
-    public int unitTeam = 0;
-
     [Header("¿¬µ¿µÉ ÄÄÆ÷³ÍÆ®")]
     [SerializeField]
     public SpriteRenderer spriteRenderer;
@@ -113,6 +110,9 @@ public class UnitBase : MonoBehaviour
             currentAp = 0;
             speed = unitData.speed;
             skillDataList = unitData.skillDataList;
+
+            SetAnim(0);
+            SetActionPointBar(0.0f);
         }
     }
 

@@ -58,7 +58,7 @@ public partial class StageManager
                     actionPoints[unit] = currentPoints + unit.speed * time;
                     unit.currentAp = actionPoints[unit];
 
-                    CostIncrease(unit, time);
+                    CostIncrease(unitSlot, time);
 
                     if (unit.currentAp >= unit.maxAp)
                     {
@@ -80,14 +80,14 @@ public partial class StageManager
     /// <summary>
     /// 코스트를 지속적으로 상승시키는 스크립트
     /// </summary>
-    /// <param name="unit"></param>
-    private void CostIncrease(UnitBase unit, float time)
+    /// <param name="unitSlot"></param>
+    private void CostIncrease(UnitSlotController unitSlot, float time)
     {
-            if (unit != null)
+            if (unitSlot != null)
             {
-                if (unit.unitTeam == 1)
+                if (unitSlot.unitTeam == 1)
                 {
-                    float currentSpeed = unit.speed;
+                    float currentSpeed = unitSlot.unit.speed;
 
                     if (cost < 10)
                     {
@@ -120,7 +120,7 @@ public partial class StageManager
                             actionPoints[unit] = currentPoints + unit.speed * skipTime;
                             unit.currentAp = actionPoints[unit];
 
-                            CostIncrease(unit, skipTime);
+                            CostIncrease(unitSlot, skipTime);
 
                             if (unit.currentAp >= unit.maxAp)
                             {
@@ -182,7 +182,7 @@ public partial class StageManager
             {
                 unitSlot.unit.SetAnim(0);
             }
-            unitSlot.StatusInit();
+            unitSlot.UnitStatusInit();
             SlotGroundSpriteController groundSprite = unitSlot.slotGround;
             groundSprite.SetSlotGroundState(SlotGroundState.Default);
         }
