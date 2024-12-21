@@ -12,6 +12,8 @@ public class UnitSlotController : MonoBehaviour
     [Header("현재 위치한 Field의 UnitFieldController")]
     UnitSlotGroupController unitFieldController;
 
+    [Header("유닛의 팀")]
+    public int unitTeam = 0;
 
     /// <summary>
     /// 현재 해당 슬롯에 위치한 유닛
@@ -60,8 +62,6 @@ public class UnitSlotController : MonoBehaviour
     /// <param name="teamNum"></param>
     public void SetUnit(UnitStatus setUnitState, int teamNum)
     {
-        unit.unitTeam = teamNum;
-
         SetUnit(setUnitState);
     }
 

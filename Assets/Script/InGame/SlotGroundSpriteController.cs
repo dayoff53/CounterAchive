@@ -69,7 +69,7 @@ public class SlotGroundSpriteController : MonoBehaviour
         slotGroundState = setSlotGroundState;
         Debug.Log($"{gameObject.name}.setSlotGroundState = { slotGroundState }");
 
-        groundSpriteRenderer.color = stageManager.unitStateColors[unitSlot.unit.unitTeam];
+        groundSpriteRenderer.color = stageManager.unitStateColors[unitSlot.unitTeam];
     }
 
     public void OnMouseDown()
@@ -88,7 +88,7 @@ public class SlotGroundSpriteController : MonoBehaviour
 
             case ProgressState.UnitSelect:
 
-                if(unitSlot.isNull == true && stageManager.currentSelectUnitState.unitName != "Null" && unitSlot.unit.unitTeam == 1)
+                if(unitSlot.isNull == true && stageManager.currentSelectUnitState.unitName != "Null" && unitSlot.unitTeam == 1)
                 {
                     unitSlot.SetUnit(stageManager.currentSelectUnitState, 1);
                     stageManager.playerUseUnitSlotCount--;
