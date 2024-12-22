@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class UnitCardController : MonoBehaviour
+public class UnitCard : MonoBehaviour
 {
     private DataManager dataManager;
 
@@ -74,15 +74,13 @@ public class UnitCardController : MonoBehaviour
     }
 
     [SerializeField]
-    private BoxCollider2D boxCollider2D;
-    [SerializeField]
     private FrontPage frontPage;
     [SerializeField]
-    private GameObject frontPageGameObject;
+    private GameObject frontPageObject;
     [SerializeField]
     private BackPage backPage;
     [SerializeField]
-    private GameObject backPageGameObject;
+    private GameObject backPageObject;
     public bool isFront;
 
 
@@ -95,8 +93,12 @@ public class UnitCardController : MonoBehaviour
 
     public void InitUnitCard()
     {
-        frontPageGameObject.SetActive(true);
-        backPageGameObject.SetActive(true);
+        if(dataManager == null)
+            dataManager = DataManager.Instance;
+
+        Debug.Log($"InitUnitCard : {gameObject.name}");
+        frontPageObject.SetActive(true);
+        backPageObject.SetActive(true);
 
         if (unitStatus.unitNumber != 0)
         {
@@ -126,12 +128,12 @@ public class UnitCardController : MonoBehaviour
 
         if(isFront)
         {
-            frontPageGameObject.SetActive(true);
-            backPageGameObject.SetActive(false);
+            frontPageObject.SetActive(true);
+            backPageObject.SetActive(false);
         } else
         {
-            frontPageGameObject.SetActive(false);
-            backPageGameObject.SetActive(true);
+            frontPageObject.SetActive(false);
+            backPageObject.SetActive(true);
         }
     }
 

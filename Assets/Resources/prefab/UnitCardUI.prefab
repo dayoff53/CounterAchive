@@ -186,7 +186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1719747742425876269}
   m_Layer: 5
-  m_Name: BackCard
+  m_Name: BackPage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2064,7 +2064,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6728200652416415894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78211a0f4bb3fce4caa1de74443d81af, type: 3}
+  m_Script: {fileID: 11500000, guid: 205d9e26f7cadbd43a0b0bb11a3abdb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _unitStatus:
@@ -2081,13 +2081,12 @@ MonoBehaviour:
     speed: 1
     unitTagList: 
     skillNumberList: 
-  boxCollider2D: {fileID: 0}
   frontPage:
     unitCardIcon: {fileID: 267734053267916719}
     unitCardName: {fileID: 4564769106059965075}
     currentTurnHpGaugeBar: {fileID: 2255950976292761036}
     currentTurnHpText: {fileID: 4368215298928885232}
-  frontPageGameObject: {fileID: 641868019903522901}
+  frontPageObject: {fileID: 7386189851661318625}
   backPage:
     unitCardIcon: {fileID: 6140408750572890595}
     unitCardName: {fileID: 7600027779666241959}
@@ -2099,9 +2098,10 @@ MonoBehaviour:
     evaText: {fileID: 701749185008038995}
     speedText: {fileID: 6746414350042434054}
     tagText: {fileID: 2255105438148795531}
+    unitNative: 0
     unitTagList: 
-  backPageGameObject: {fileID: 7386189851661318625}
-  isFront: 0
+  backPageObject: {fileID: 641868019903522901}
+  isFront: 1
 --- !u!114 &4617438790650183096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2404,7 +2404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1564061861044132518}
   m_Layer: 5
-  m_Name: FrontCard
+  m_Name: FrontPage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

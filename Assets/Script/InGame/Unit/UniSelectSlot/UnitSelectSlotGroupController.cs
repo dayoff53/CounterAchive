@@ -16,7 +16,8 @@ public class UnitSelectSlotGroupController : MonoBehaviour
     /// <summary>
     /// 배치할 수 있는 UnitSlot의 List
     /// </summary>
-    public List<UnitSelectSlotController> selectUnitSlotList;
+    public List<UnitCard> selectUnitCardList;
+    public List<UnitSelectController> selectUnitSelectList;
     private DataManager dataManager;
 
     /// <summary>
@@ -25,17 +26,23 @@ public class UnitSelectSlotGroupController : MonoBehaviour
     public void InitUnitSelectSlot()
     {
         dataManager = DataManager.Instance;
-        selectUnitSlotList = new List<UnitSelectSlotController>();
+        selectUnitCardList = new List<UnitCard>();
+        selectUnitSelectList = new List<UnitSelectController>();
 
         Debug.Log($"dataManager.playerUnitStateList.Count : {dataManager.playerUnitStateList.Count}");
         for (int i = 0; i < dataManager.playerUnitStateList.Count; i++)
         {
             GameObject currentSelectUnitSlot = Instantiate(selectUnitSlot, contentObject.transform);
-            selectUnitSlotList.Add(currentSelectUnitSlot.GetComponent<UnitSelectSlotController>());
-            selectUnitSlotList[i].unitState = dataManager.playerUnitStateList[i];
-            selectUnitSlotList[i].Init();
 
-            Debug.Log($"selectUnitSlotList.Count : {selectUnitSlotList.Count}");
+            selectUnitCardList.Add(currentSelectUnitSlot.GetComponent<UnitCard>());
+            selectUnitCardList[i].unitStatus = dataManager.playerUnitStateList[i];
+            selectUnitCardList[i].InitUnitCard();
+
+            selectUnitSelectList.Add(currentSelectUnitSlot.AddComponent<UnitSelectController>());
+            selectUnitSelectList[i].unitStatus = dataManager.playerUnitStateList[i];
+            selectUnitSelectList[i].Init();
+
+            Debug.Log($"selectUnitSlotList.Count : {selectUnitCardList.Count}");
         }
     }
 }

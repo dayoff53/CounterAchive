@@ -65,9 +65,9 @@ public class StageMaster : MonoBehaviour
     [Tooltip("게임을 주로 플래이하는 UI")]
     public GameObject play_UI;
     [Tooltip("턴을 지닌 플레이어의 유닛 카드 UI")]
-    public UnitCardController turnUnitCardUI;
+    public UnitCard turnUnitCardUI;
     [Tooltip("현재 타겟이 된 유닛 카드 UI")]
-    public UnitCardController targetUnitCardUI;
+    public UnitCard targetUnitCardUI;
     [Tooltip("타겟 유닛카드를 가리키는 화살표")]
     public GameObject unitCardTargetArrow;
     [Tooltip("스킬 명중률 텍스트")]

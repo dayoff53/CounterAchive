@@ -11,8 +11,8 @@ public partial class StageManager
     [Header("UI Object")]
     public GameObject play_UI;
     public GameObject unitSet_UI;
-    public UnitCardController turnUnitCardUI;
-    public UnitCardController targetUnitCardUI;
+    public UnitCard turnUnitCardUI;
+    public UnitCard targetUnitCardUI;
     public TMP_Text skillAccuracyText;
     public TMP_Text remainingSetUnitSlotText;
     public GameObject turnUnitMarker;
