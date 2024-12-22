@@ -33,6 +33,12 @@ public partial class StageManager
     public void SkillSlotInit(List<SkillData> setSkillDataList)
     {
         skillTargetNum = -1;
+
+        for (int i = 0; i < skillSlotList.Count; i++)
+        {
+            skillSlotList[i].SetSkillData(null);
+        }
+
         for (int i = 0; i < setSkillDataList.Count; i++)
         {
             skillSlotList[i].SetSkillData(setSkillDataList[i]);
@@ -163,7 +169,7 @@ public partial class StageManager
         foreach (UnitSlotController targetUnit in currentSkillTargetSlots)
         {
             Debug.Log($"{targetUnit}ÀÇ SkillProduction");
-            GameObject hitProductonObject = poolManager.Pop(currentSkillData.skilIHitProductionObjects[hitProductionNum]);
+            GameObject hitProductonObject = poolManager.Pop(currentSkillData.skillHitProductionObjects[hitProductionNum]);
             targetUnit.unit.HitProduction(hitProductonObject, currentSkillData.skillHitRadius);
             targetUnit.unit.SetAnim(2);
         }
@@ -182,7 +188,7 @@ public partial class StageManager
                 targetUnit.unit.SetAnim(2);
             }
         }
-        GameObject hitProductonObject = poolManager.Pop(currentSkillData.skilIHitProductionObjects[hitProductionNum]);
+        GameObject hitProductonObject = poolManager.Pop(currentSkillData.skillHitProductionObjects[hitProductionNum]);
 
         Vector3 hitPos = unitSlotList[skillTargetNum].unit.hitPosition.gameObject.transform.position;
 

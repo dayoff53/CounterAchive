@@ -17,6 +17,8 @@ public partial class StageManager
     /// 현재 턴을 행사 중인 슬롯의 번호
     /// </summary>
     public int currentTurnSlotNumber;
+
+
     #endregion
 
 
@@ -175,21 +177,27 @@ public partial class StageManager
     /// </summary>
     public void TurnEnd()
     {
-        //UnitGround의 색상 및 스프라이트, 애니메이션 초기화
-        foreach (UnitSlotController unitSlot in unitSlotList)
+        // 턴을 종료해도 되는지 확인 후 턴 종료 실행
+        if (!isUnitDying)
         {
-            if (unitSlot.isNull)
+            //UnitGround의 색상 및 스프라이트, 애니메이션 초기화
+            foreach (UnitSlotController unitSlot in unitSlotList)
             {
                 unitSlot.unit.SetAnim(0);
+                unitSlot.TurnEndInit();
+                SlotGroundSpriteController groundSprite = unitSlot.slotGround;
+                groundSprite.SetSlotGroundState(SlotGroundState.Default);
             }
-            unitSlot.UnitStatusInit();
-            SlotGroundSpriteController groundSprite = unitSlot.slotGround;
-            groundSprite.SetSlotGroundState(SlotGroundState.Default);
+
+            turnUnitMarker.SetActive(false);
+            targetUnitMarker.SetActive(false);
+
+            currentPrograssState = ProgressState.Stay;
         }
-
-        turnUnitMarker.SetActive(false);
-        targetUnitMarker.SetActive(false);
-
-        currentPrograssState = ProgressState.Stay;
+        else
+        {
+            Debug.Log("턴을 정상적으로 종료하지 못하였습니다.");
+        }
     }
+
 }

@@ -8,6 +8,7 @@ using TMPro;
 
 public class UnitBase : MonoBehaviour
 {
+    StageManager stageManager;
     PoolManager poolManager;
     DataManager dataManager;
 
@@ -25,24 +26,23 @@ public class UnitBase : MonoBehaviour
 
     [SerializeField]
     private Image actionPointBar;
-
     [SerializeField]
     public GameObject hitPosition;
-
     [SerializeField]
-    public GameObject corpseObject;
+    public CorpseDissolve corpseDissolve;
 
 
-    [Header("Static Status")]
+    [Space(10)]
+    [Header("Status")]
     public UnitData unitData;
     public int unitNumber;
     public string unitName;
     public Sprite unitFaceIcon;
     public RuntimeAnimatorController unitAnim;
-    private bool isDeath = false;
 
 
-    [Header("Public Status")]
+    [Space(10)]
+    [Header("Status")]
     public float maxHp;
     private float _currentHp;
     public float maxAp = 100;
@@ -81,14 +81,30 @@ public class UnitBase : MonoBehaviour
     {
         poolManager = PoolManager.Instance;
         dataManager = DataManager.Instance;
+        stageManager = StageManager.Instance;
 
         StatusInit();
     }
 
     public void StatusInit()
     {
-        if (unitData.name == "Null")
+        if (unitData.unitNumber == 0)
         {
+            unitNumber = unitData.unitNumber;
+            unitName = unitData.name;
+            unitAnimator.runtimeAnimatorController = null;
+            spriteRenderer.sprite = null;
+            unitFaceIcon = null;
+            maxHp = unitData.hp;
+            currentHp = unitData.hp;
+            atk = unitData.atk;
+            def = unitData.def;
+            maxAp = unitData.ap;
+            currentAp = 0;
+            speed = unitData.speed;
+            skillDataList = unitData.skillDataList;
+            
+
             hpPointBar.gameObject.transform.parent.gameObject.SetActive(false);
             hpPointText.text = "";
             actionPointBar.gameObject.SetActive(false);
@@ -110,56 +126,12 @@ public class UnitBase : MonoBehaviour
             currentAp = 0;
             speed = unitData.speed;
             skillDataList = unitData.skillDataList;
+            corpseDissolve.CorpseInit();
+
+
 
             SetAnim(0);
             SetActionPointBar(0.0f);
-        }
-    }
-
-    /// <summary>
-    /// 원하는 스테이더스의 값을 변경합니다.
-    /// </summary>
-    /// <param name="statusToUpdate"></param>
-    /// <param name="newValue"></param>
-    public void SetStatus(PublicUnitStatusState statusToUpdate, float newValue)
-    {
-        switch (statusToUpdate)
-        {
-            case PublicUnitStatusState.maxHp:
-                maxHp = newValue;
-                // 현재 HP가 최대 HP를 초과하지 않도록 조정
-                currentHp = Mathf.Clamp(currentHp, 0, maxHp);
-                break;
-
-            case PublicUnitStatusState.currentHp:
-                currentHp = newValue;
-                break;
-
-            case PublicUnitStatusState.atk:
-                atk = newValue;
-                break;
-
-            case PublicUnitStatusState.def:
-                def = newValue;
-                break;
-
-            case PublicUnitStatusState.maxAp:
-                maxAp = newValue;
-                // 현재 액션 포인트가 최대치를 초과하지 않도록 조정
-                currentAp = Mathf.Clamp(currentAp, 0, maxAp);
-                break;
-
-            case PublicUnitStatusState.currentActionPoint:
-                currentAp = newValue;
-                break;
-
-            case PublicUnitStatusState.speed:
-                speed = newValue;
-                break;
-
-            default:
-                Debug.LogWarning("Unknown status type");
-                break;
         }
     }
 
@@ -263,21 +235,19 @@ public class UnitBase : MonoBehaviour
         }
 
         currentHp -= damage;
+
+        if (currentHp <= 0 && unitData.name != "Null")
+            Death();
     }
 
     public void Death()
     {
-        //corpseObject.SetActive(true);
+        stageManager.isUnitDying = false;
+
+        corpseDissolve.DissolveStart(spriteRenderer.sprite);
 
         // UnitData를 Null로 설정하여 죽음을 처리
         unitData = dataManager.unitDataList.Find(un => un.unitNumber == 0); // Null 유닛 데이터로 설정
-    }
-
-
-    private void DeathProduction()
-    {
-        Debug.Log("DeathProduction");
-
     }
 
 

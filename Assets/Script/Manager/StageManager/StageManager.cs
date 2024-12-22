@@ -82,7 +82,11 @@ public partial class StageManager : Singleton<StageManager>
     /// <summary>
     /// 유닛의 이동 중 상태를 판단하는 값
     /// </summary>
-    private bool isMoving = false;
+    private bool isUnitMoving = false;
+    /// <summary>
+    /// 유닛의 죽는 중 상태를 판단하는 값
+    /// </summary>
+    public bool isUnitDying = false;
     #endregion
 
     #region SkillSlotVariable

@@ -40,16 +40,22 @@ public class UnitSlotController : MonoBehaviour
 
     public void UnitStatusInit()
     {
+        TurnEndInit();
+        unit.StatusInit();
+    }
+
+    public void TurnEndInit()
+    {
         if (unit.unitData.name == "Null")
         {
             isNull = true;
+            unitTeam = 0;
+            unit.StatusInit();
         }
         else
         {
             isNull = false;
         }
-
-        unit.StatusInit();
     }
 
     public void SetUnit(UnitStatus setUnitState)

@@ -30,7 +30,6 @@ public class SkillSlotUIController : MonoBehaviour
         Init();
     }
 
-    // Start is called before the first frame update
     private void Init()
     {
         if (skillData != null)
@@ -57,7 +56,10 @@ public class SkillSlotUIController : MonoBehaviour
 
     public void SetSkillData(SkillData setSkillData)
     {
-        skillData = setSkillData;
+        if (setSkillData != null)
+            skillData = setSkillData;
+        else
+            skillData = null;
 
         Init();
     }

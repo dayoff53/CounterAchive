@@ -66,6 +66,6 @@ public class SkillData : ScriptableObject
     public SkillTypeState skillTypeState;
     public List<SkillEffect> skillEffectList;
     public Sprite skillIcon;
-    public List<GameObject> skilIHitProductionObjects;
+    public List<GameObject> skillHitProductionObjects;
 }
 
