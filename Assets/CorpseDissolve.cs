@@ -33,15 +33,16 @@ public class CorpseDissolve : MonoBehaviour
         spriteRenderer.materials = mats;
     }
 
-    public void DissolveStart(Sprite corpseSprite)
+    public void DissolveStart(SpriteRenderer corpseSpriteRenderer)
     {
-        StartCoroutine(DissolveStartCorutine(corpseSprite));
+        StartCoroutine(DissolveStartCorutine(corpseSpriteRenderer));
     }
 
-    public IEnumerator DissolveStartCorutine(Sprite corpseSprite)
+    public IEnumerator DissolveStartCorutine(SpriteRenderer corpseSpriteRenderer)
     {
         Debug.Log(gameObject.name + " : DissolveStartCorutine");
-        spriteRenderer.sprite = corpseSprite;
+        spriteRenderer.sprite = corpseSpriteRenderer.sprite;
+        spriteRenderer.flipX = corpseSpriteRenderer.flipX;
         spriteRenderer.material = dissolveMaterial;
         while (true)
         {

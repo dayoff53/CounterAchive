@@ -244,7 +244,8 @@ public class UnitBase : MonoBehaviour
     {
         stageManager.isUnitDying = false;
 
-        corpseDissolve.DissolveStart(spriteRenderer.sprite);
+        corpseDissolve.DissolveStart(spriteRenderer);
+        spriteRenderer.sprite = null;
 
         // UnitData를 Null로 설정하여 죽음을 처리
         unitData = dataManager.unitDataList.Find(un => un.unitNumber == 0); // Null 유닛 데이터로 설정
