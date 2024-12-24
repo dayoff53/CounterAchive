@@ -12,11 +12,11 @@ public partial class StageManager
         {
             if (unitSlotList[i] != null)
             {
-                var unit = unitSlotList[i].gameObject;
+                GameObject unit = unitSlotList[i].gameObject;
                 if (unit != null)
                 {
                     // 초기 유닛 슬롯 위치 설정
-                    originalPositions[unit] = unit.transform.position;
+                    originalPositions[i] = unit.transform.position;
                 }
             }
         }
@@ -25,42 +25,20 @@ public partial class StageManager
     /// <summary>
     /// 지정된 유닛을 다른 유닛의 위치로 이동시킵니다.
     /// </summary>
-    /// <param name="moveUnitNum">이동할 유닛의 인덱스입니다.</param>
-    /// <param name="targetUnitNum">목표 유닛의 인덱스입니다.</param>
-    public void MoveUnit(int moveUnitNum, int targetUnitNum)
+    public void MoveUnits()
     {
-        /*
-        if (isUnitMoving || unitSlotList[moveUnitNum] == null || unitSlotList[targetUnitNum] == null)
+        for (int i = 0; i < unitSlotList.Count; i++)
         {
-            Debug.LogError("Movement is currently locked or invalid slot numbers provided.");
-            return;
+            GameObject moveSlot = unitSlotList[i].gameObject;
+
+
+            Tween tween = DOTween.Sequence();
+            tween = (moveSlot.transform.DOMove(originalPositions[i], 0.25f).SetEase(Ease.InOutQuad));
+            tween.OnComplete(() =>
+            {
+                moveSlot.transform.position = originalPositions[i];
+            });
         }
-        */
-
-        isUnitMoving = true;
-
-        GameObject moveUnit = unitSlotList[moveUnitNum].gameObject;
-        GameObject targetUnit = unitSlotList[targetUnitNum].gameObject;
-
-        moveUnit.transform.DOKill();
-        targetUnit.transform.DOKill();
-
-        moveUnit.transform.position = originalPositions[moveUnit];
-        targetUnit.transform.position = originalPositions[targetUnit];
-
-        Sequence sequence = DOTween.Sequence();
-        sequence.Append(moveUnit.transform.DOMove(originalPositions[targetUnit], 0.25f).SetEase(Ease.InOutQuad));
-        sequence.Join(targetUnit.transform.DOMove(originalPositions[moveUnit], 0.25f).SetEase(Ease.InOutQuad));
-        sequence.OnComplete(() => {
-            originalPositions[moveUnit] = moveUnit.transform.position;
-            originalPositions[targetUnit] = targetUnit.transform.position;
-            UnitSlotController targetSlot = unitSlotList[targetUnitNum];
-            unitSlotList[targetUnitNum] = unitSlotList[moveUnitNum];
-            unitSlotList[moveUnitNum] = targetSlot;
-            Debug.Log("Units have been swapped successfully.");
-
-            isUnitMoving = false; // 이동 완료 후 이동 중 상태 해제
-        });
     }
 
     /// <summary>
@@ -71,20 +49,26 @@ public partial class StageManager
     {
         if(currentPrograssState == ProgressState.UnitPlay || currentPrograssState == ProgressState.SkillTargetSearch)
         {
-            int moveTargetUnitNum = currentTurnSlotNumber;
+            UnitSlotController changeSlot = null;
 
             if (rightMove)
             {
                 if (currentTurnSlotNumber < unitSlotList.Count - 1)
                 {
-                    moveTargetUnitNum = currentTurnSlotNumber + 1;
+                    changeSlot = unitSlotList[currentTurnSlotNumber];
+                    unitSlotList[currentTurnSlotNumber] = unitSlotList[currentTurnSlotNumber + 1];
+                    unitSlotList[currentTurnSlotNumber + 1] = changeSlot;
+                    currentTurnSlotNumber = currentTurnSlotNumber + 1;
                 }
             }
             else
             {
                 if (currentTurnSlotNumber > 0)
                 {
-                    moveTargetUnitNum = currentTurnSlotNumber - 1;
+                    changeSlot = unitSlotList[currentTurnSlotNumber];
+                    unitSlotList[currentTurnSlotNumber] = unitSlotList[currentTurnSlotNumber - 1];
+                    unitSlotList[currentTurnSlotNumber - 1] = changeSlot;
+                    currentTurnSlotNumber = currentTurnSlotNumber - 1;
                 }
             }
 
@@ -96,15 +80,13 @@ public partial class StageManager
             }
             */
 
-            MoveUnit(currentTurnSlotNumber, moveTargetUnitNum);
-            Debug.Log($"moveTargetUnitNum : {moveTargetUnitNum}");
+            MoveUnits();
 
             for (int i = 0; i < unitSlotList.Count; i++)
             {
                 unitSlotList[i].slotGround.SetSlotGroundState(SlotGroundState.Default);
             }
             unitSlotList[currentTurnSlotNumber].slotGround.SetSlotGroundState(SlotGroundState.Select);
-            currentTurnSlotNumber = moveTargetUnitNum;
             currentPrograssState = ProgressState.UnitPlay;
         }
     }

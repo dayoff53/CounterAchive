@@ -81,7 +81,7 @@ public class StageMaster : MonoBehaviour
     [Tooltip("스테이지 우측 하단의 메뉴 UI")]
     [SerializeField]
     public StageMenuController stageMenuController;
-
+    
     [Space(20)]
     [Header("Skill Settings")]
     [Tooltip("스킬 데이터를 플레이어에게 보여주는 UI 슬롯 리스트")]
@@ -121,6 +121,7 @@ public class StageMaster : MonoBehaviour
 
         PlaceUnitSlot();
 
+        stageManager.unitSlotGroupController = unitSlotGroupController;
         stageManager.stageClearCondition = stageClearCondition;
         stageManager.targetEnemyId = targetEnemyId;
         stageManager.surviveTurnCount = surviveTurnCount;

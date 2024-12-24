@@ -12,10 +12,8 @@ public class UnitSlotGroupController : MonoBehaviour
     private int currentSlotNum;
 
     // 각 슬롯의 원래 위치를 저장할 딕셔너리
-    private Dictionary<GameObject, Vector3> originalPositions = new Dictionary<GameObject, Vector3>();
+    private Dictionary<int, Vector3> originalPositions = new Dictionary<int, Vector3>();
 
-    // 유닛의 이동 중 상태를 판단하는 값
-    private bool isMoving = false;
     StageManager gameManager;
 
 
@@ -31,21 +29,21 @@ public class UnitSlotGroupController : MonoBehaviour
     public void UnitSlotsInit()
     {
         gameManager = StageManager.Instance;
-        foreach (UnitSlotController unitSlot in unitSlots)
+        for (int i = 0; i >= unitSlots.Count; i++)
         {
-            if (unitSlot != null)
+            if (unitSlots[i] != null)
             {
-                GameObject unitObject = unitSlot.gameObject;
+                GameObject unitObject = unitSlots[i].gameObject;
                 if (unitObject != null)
                 {
                     // 초기 유닛 오브젝트의 위치 설정
-                    originalPositions[unitObject] = unitObject.transform.position;
+                    originalPositions[i] = unitObject.transform.position;
                 }
 
-                unitSlot.slotGround. SetSlotGroundState(SlotGroundState.Default);
+                unitSlots[i].slotGround. SetSlotGroundState(SlotGroundState.Default);
             }
 
-            unitSlot.UnitStatusInit();
+            unitSlots[i].UnitStatusInit();
         }
         gameManager.unitSlotList = unitSlots;
     }
@@ -55,68 +53,19 @@ public class UnitSlotGroupController : MonoBehaviour
     /// </summary>
     /// <param name="moveUnitNum"></param>
     /// <param name="targetUnitNum"></param>
-    public void MoveUnit(int moveUnitNum, int targetUnitNum)
+    public void MoveUnit()
     {
-        if (isMoving || unitSlots[moveUnitNum] == null || unitSlots[targetUnitNum] == null)
+        for (int i = 0; i < unitSlots.Count; i++)
         {
-            Debug.LogError("Movement is currently locked or invalid slot numbers provided.");
-            return;
-        }
-
-        isMoving = true;
-
-        GameObject moveUnit = unitSlots[moveUnitNum].gameObject;
-        GameObject targetUnit = unitSlots[targetUnitNum].gameObject;
-
-        moveUnit.transform.DOKill();
-        targetUnit.transform.DOKill();
-
-        moveUnit.transform.position = originalPositions[moveUnit];
-        targetUnit.transform.position = originalPositions[targetUnit];
-
-        Sequence sequence = DOTween.Sequence();
-        sequence.Append(moveUnit.transform.DOMove(originalPositions[targetUnit], 1f).SetEase(Ease.InOutQuad));
-        sequence.Join(targetUnit.transform.DOMove(originalPositions[moveUnit], 1f).SetEase(Ease.InOutQuad));
-        sequence.OnComplete(() => {
-            originalPositions[moveUnit] = moveUnit.transform.position;
-            originalPositions[targetUnit] = targetUnit.transform.position;
-            UnitSlotController targetSlot = unitSlots[targetUnitNum];
+            GameObject moveSlot = unitSlots[i].gameObject;
 
 
-            Debug.Log("Units have been swapped successfully.");
-            isMoving = false; // 이동 완료 후 이동 중 상태 해제
-        });
-
-    }
-
-    public void DirectMoveUnit(bool rightMove)
-    {
-        int moveTargetUnitNum = currentSlotNum;
-
-        if (isMoving || unitSlots[currentSlotNum] == null || unitSlots[moveTargetUnitNum] == null)
-        {
-            Debug.LogWarning("Movement is currently locked or invalid slot numbers provided.");
-            return;
-        }
-
-
-        if (rightMove)
-        {
-            if (currentSlotNum > 0)
+            Tween tween = DOTween.Sequence();
+            tween = (moveSlot.transform.DOMove(originalPositions[i], 1f).SetEase(Ease.InOutQuad));
+            tween.OnComplete(() =>
             {
-                MoveUnit(currentSlotNum, currentSlotNum - 1);
-
-                currentSlotNum = currentSlotNum - 1;
-            }
-        }
-        else
-        {
-            if (currentSlotNum < 3)
-            {
-                MoveUnit(currentSlotNum, currentSlotNum + 1);
-
-                currentSlotNum = currentSlotNum + 1;
-            }
+                moveSlot.transform.position = originalPositions[i];
+            });
         }
     }
 

@@ -65,13 +65,21 @@ public partial class StageManager : Singleton<StageManager>
     #region Unit&SlotVariable
 
     [Header("UnitSlot Data")]
-
     [SerializeField]
     [Tooltip("유닛 슬롯 그룹(unitSlots)을 담당하는 스크립트")]
-    private UnitSlotGroupController unitSlotsController;
+    public UnitSlotGroupController unitSlotGroupController;
+
+    [Tooltip("유닛 슬롯 리스트")]
+    public List<UnitSlotController> unitSlotList;
 
     [SerializeField]
-    [Tooltip("현재 선택된 유닛 스텟")]
+    [Tooltip("각 슬롯의 원래 위치를 저장할 딕셔너리")]
+    private SerializableDictionary<int, Vector3> originalPositions = new SerializableDictionary<int, Vector3>();
+
+
+    [Header("UnitSelect Data")]
+    [SerializeField]
+    [Tooltip("유닛 배치 단계에서 선택된 유닛 스텟")]
     public UnitStatus currentSelectUnitState;
 
     [Tooltip("플레이어가 사용 가능한 유닛 슬롯의 카운트")]
@@ -79,13 +87,6 @@ public partial class StageManager : Singleton<StageManager>
 
     [Tooltip("플레이어가 사용 가능한 유닛 슬롯의 범위")]
     public int playerUseUnitSlotRange;
-
-    [Tooltip("유닛 슬롯 리스트")]
-    public List<UnitSlotController> unitSlotList;
-
-    [SerializeField]
-    [Tooltip("각 슬롯의 원래 위치를 저장할 딕셔너리")]
-    private SerializableDictionary<GameObject, Vector3> originalPositions = new SerializableDictionary<GameObject, Vector3>();
 
     /// <summary>
     /// 유닛의 이동 중 상태를 판단하는 값
@@ -172,7 +173,7 @@ public partial class StageManager : Singleton<StageManager>
     /// </summary>
     public void InitGame()
     {
-        unitSlotsController.UnitSlotsInit();
+        unitSlotGroupController.UnitSlotsInit();
         unitStateColors = unitStateColorsObject.colorStates;
         SlotPosInit();
 
