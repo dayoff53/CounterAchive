@@ -10,10 +10,9 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
 	[SerializeField]
 	private string loadSceneName;
 
-	[SerializeField]
-	private Image loadingBarImage;
-	[SerializeField]
+	private GameObject deactiveObject;
 	private GameObject loadingBar;
+	private Image loadingBarImage;
 	[SerializeField]
 	private float loadingBarSpeed = 1;
 	[SerializeField]
@@ -72,6 +71,7 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
 		asyncOperation.allowSceneActivation = false;
 
 
+		deactiveObject = GameObject.Find("DeactiveObject");
 		loadingBar = GameObject.Find("LoadingBar");
 		loadingBarImage = loadingBar.GetComponent<Image>();
 		loadingBarImage.fillAmount = 0f;
@@ -107,12 +107,13 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
 					yield return FadeManager.Instance.FadeCoroutineStart(false, 1, Color.black);
 					FadeManager.Instance.FadeStart(false, 0, Color.black);
 
+					deactiveObject.SetActive(false);
 					asyncOperation.allowSceneActivation = true;
+
 
 					while (SceneManager.GetActiveScene().name != loadSceneName)
 					{
-						loadingBar.SetActive(false);
-						FadeManager.Instance.FadeStart(true, 0, Color.black);
+						FadeManager.Instance.FadeStart(true, 0.25f, Color.black);
 						yield break;
 					}
 				}

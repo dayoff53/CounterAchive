@@ -83,6 +83,7 @@ public class FadeManager : Singleton<FadeManager>
 
 
     #region FadeInOut
+
     /// <summary>
     /// 페이드를 시작하는 함수입니다. 인자로 페이드인, 페이드아웃 여부, 페이드 시간, 페이드 색상을 받습니다.
     /// </summary>
