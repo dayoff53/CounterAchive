@@ -229,7 +229,9 @@ public class UnitBase : MonoBehaviour
             damage = (damage / 2) - ((def - (damage / 2)) / 2);
         }
 
-        if(damage <= 1)
+        damage = (int)damage;
+
+        if (damage <= 1)
         {
             damage = 1;
         }

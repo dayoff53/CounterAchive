@@ -2328,9 +2328,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentPrograssState: 0
-  stageClearCondition: 0
-  targetEnemyId: 0
-  surviveTurnCount: 0
   unitSlotsController: {fileID: 827181154}
   currentSelectUnitState:
     defaultUnitData: {fileID: 0}
@@ -2881,7 +2878,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &460609989
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5880,9 +5877,9 @@ RectTransform:
   - {fileID: 312394720}
   m_Father: {fileID: 933623616}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &907929682
@@ -7022,9 +7019,9 @@ RectTransform:
   - {fileID: 413563567}
   m_Father: {fileID: 933623616}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1050878599
@@ -7913,9 +7910,9 @@ RectTransform:
   - {fileID: 78135992}
   m_Father: {fileID: 933623616}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -350}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1273439034
@@ -8042,14 +8039,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageManager: {fileID: 0}
-  stageClearCondition: 0
-  targetEnemyId: 0
-  surviveTurnCount: 0
   playerUseUnitSlotCount: 3
   playerUseUnitSlotRange: 4
   playerUnitList: []
   enemyUnitList:
-  - defaultUnitData: {fileID: 11400000, guid: 421508ca4c6996548810e9a3dd5ff153, type: 2}
+  - defaultUnitData: {fileID: 11400000, guid: 462dae7ef769d324191a41d0373ebd46, type: 2}
     unitNumber: 0
     unitName: Default
     maxHp: 10
@@ -8062,6 +8056,13 @@ MonoBehaviour:
     speed: 1
     unitTagList: 
     skillNumberList: 
+  skillSlotList:
+  - {fileID: 6817067420464118152}
+  - {fileID: 1961393111}
+  - {fileID: 209877385}
+  - {fileID: 1867956726}
+  unitSlotGroupController: {fileID: 827181154}
+  unitSelectSlotsGroupController: {fileID: 75596168}
   unitSet_UI: {fileID: 909782868}
   remainingSetUnitSlotText: {fileID: 541961534}
   play_UI: {fileID: 1087417324}
@@ -8072,13 +8073,6 @@ MonoBehaviour:
   turnUnitMarker: {fileID: 1885682078}
   targetUnitMarker: {fileID: 758801877}
   stageMenuController: {fileID: 477709053}
-  skillSlotList:
-  - {fileID: 6817067420464118152}
-  - {fileID: 1961393111}
-  - {fileID: 209877385}
-  - {fileID: 1867956726}
-  unitSlotGroupController: {fileID: 827181154}
-  unitSelectSlotsGroupController: {fileID: 75596168}
 --- !u!4 &1275894347
 Transform:
   m_ObjectHideFlags: 0
@@ -10693,14 +10687,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnitSlot_8
       objectReference: {fileID: 0}
-    - target: {fileID: 3178274703441868592, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
-      propertyPath: m_Size.x
-      value: 10.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 3178274703441868592, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
-      propertyPath: m_Size.y
-      value: 10.24
-      objectReference: {fileID: 0}
     - target: {fileID: 5350426313195203715, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11
@@ -10740,10 +10726,6 @@ PrefabInstance:
     - target: {fileID: 5350426313195203715, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8257870656888390221, guid: f30786f851083d44faa108db2c0d4bdb, type: 3}
-      propertyPath: m_Controller
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

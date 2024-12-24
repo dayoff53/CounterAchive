@@ -192,6 +192,9 @@ public partial class StageManager
             turnUnitMarker.SetActive(false);
             targetUnitMarker.SetActive(false);
 
+            currentTurnCount++;
+            UpdateStageClearCondition();
+
             currentPrograssState = ProgressState.Stay;
         }
         else

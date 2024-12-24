@@ -29,11 +29,13 @@ public partial class StageManager
     /// <param name="targetUnitNum">목표 유닛의 인덱스입니다.</param>
     public void MoveUnit(int moveUnitNum, int targetUnitNum)
     {
+        /*
         if (isUnitMoving || unitSlotList[moveUnitNum] == null || unitSlotList[targetUnitNum] == null)
         {
             Debug.LogError("Movement is currently locked or invalid slot numbers provided.");
             return;
         }
+        */
 
         isUnitMoving = true;
 
@@ -73,7 +75,7 @@ public partial class StageManager
 
             if (rightMove)
             {
-                if (currentTurnSlotNumber < unitSlotList.Count)
+                if (currentTurnSlotNumber < unitSlotList.Count - 1)
                 {
                     moveTargetUnitNum = currentTurnSlotNumber + 1;
                 }
@@ -86,14 +88,17 @@ public partial class StageManager
                 }
             }
 
+            /*
             if (isUnitMoving || unitSlotList[currentTurnSlotNumber] == null || unitSlotList[moveTargetUnitNum] == null)
             {
                 Debug.LogWarning("Movement is currently locked or invalid slot numbers provided.");
                 return;
             }
+            */
 
             MoveUnit(currentTurnSlotNumber, moveTargetUnitNum);
             Debug.Log($"moveTargetUnitNum : {moveTargetUnitNum}");
+
             for (int i = 0; i < unitSlotList.Count; i++)
             {
                 unitSlotList[i].slotGround.SetSlotGroundState(SlotGroundState.Default);

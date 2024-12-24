@@ -57,6 +57,12 @@ public class CorpseDissolve : MonoBehaviour
             spriteRenderer.materials = mats;
 
             stageManager.isUnitDying = false;
+
+
+            if (time >= 2f && stageManager.isUnitDying == false)
+            {
+                yield break;
+            }
         }
     }
 }

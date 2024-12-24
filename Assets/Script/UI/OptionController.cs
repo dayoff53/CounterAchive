@@ -9,6 +9,10 @@ public class OptionController : MonoBehaviour
 
     [SerializeField]
     private GameObject optionObject;
+
+    [SerializeField]
+    private GameObject SceneChanger;
+
     private bool isGamePaused = false;
 
     void Start()
@@ -62,5 +66,11 @@ public class OptionController : MonoBehaviour
     public void GameSave()
     {
         dataManager.SaveGame();
+    }
+
+
+    public void SceneChangerOpen()
+    {
+        SceneChanger.SetActive(true);
     }
 }

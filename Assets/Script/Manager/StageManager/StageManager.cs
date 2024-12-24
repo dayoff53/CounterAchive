@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 /// <summary>
 /// 턴 종류 (대기 => 유닛 플레이 => 스킬 대상 선택 => 스킬 이펙트 재생)
@@ -24,6 +25,8 @@ public partial class StageManager : Singleton<StageManager>
     private DataManager dataManager;
     private PoolManager poolManager;
 
+
+    #region StageVariable
     [SerializeField]
     private ProgressState _currentPrograssState = ProgressState.UnitSelect;
     /// <summary>
@@ -53,6 +56,11 @@ public partial class StageManager : Singleton<StageManager>
         }
     }
 
+    public StageClearState stageClearCondition;
+    public int targetEnemyId; // KillTargetEnemy 조건일 경우 특정 적의 ID
+    public int surviveTurnCount; // SurviveTurn 조건일 경우 생존해야 할 턴 수
+    private int currentTurnCount; // 현재 진행된 턴 수
+    #endregion
 
     #region Unit&SlotVariable
 
@@ -237,6 +245,42 @@ public partial class StageManager : Singleton<StageManager>
                 }
             }
         }
+    }
+
+
+    private void UpdateStageClearCondition()
+    {
+        switch (stageClearCondition)
+        {
+            case StageClearState.KillAllEnemy:
+                if (unitSlotList.All(slot => slot.isNull || slot.unitTeam != 2)) // 적이 전멸했는지 확인
+                {
+                    StageClear();
+                }
+                break;
+
+            case StageClearState.KillTargetEnemy:
+                if (unitSlotList.Any(slot => slot.unit.unitNumber == targetEnemyId && slot.isNull))
+                {
+                    StageClear();
+                }
+                break;
+
+            case StageClearState.SurviveTurn:
+                if (currentTurnCount >= surviveTurnCount)
+                {
+                    StageClear();
+                }
+                break;
+
+            default:
+                break;
+        }
+    }
+    private void StageClear()
+    {
+        Debug.Log("Stage Cleared!");
+        // 클리어 연출 및 다음 단계 처리 로직 추가
     }
 
 }

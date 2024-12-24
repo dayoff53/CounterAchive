@@ -146,7 +146,7 @@ public partial class StageManager
                 {
                     case SkillEffectState.Damage:
                         foreach (UnitSlotController targetUnit in currentSkillTargetSlots)
-                            targetUnit.unit.Damage(skilleffect.valueList[0]);
+                            targetUnit.unit.Damage(skilleffect.valueList[0] * unitSlotList[currentTurnSlotNumber].unit.atk);
                         break;
 
                     case SkillEffectState.StatusDown:
