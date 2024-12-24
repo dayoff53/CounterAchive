@@ -34,7 +34,7 @@ public class FirstPartySelectSlotController : MonoBehaviour
         {
             UnitData data;
             data = groupUnitsData.groupUnitList[i];
-            UnitStatus state = new UnitStatus();
+            UnitStatus state = new UnitStatus(data);
 
             dataManager.playerUnitStateList.Add(state);
         }

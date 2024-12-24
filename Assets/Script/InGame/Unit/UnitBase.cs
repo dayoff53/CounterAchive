@@ -163,8 +163,8 @@ public class UnitBase : MonoBehaviour
         }
 
         unitNumber = setStatus.unitNumber;
-        spriteRenderer.sprite = setStatus.defaultUnitData.unitSprite;
-        unitFaceIcon = setStatus.defaultUnitData.unitFaceIcon;
+        spriteRenderer.sprite = dataManager.unitDataList.Find(n => n.unitNumber == unitNumber).unitSprite;
+        unitFaceIcon = dataManager.unitDataList.Find(n => n.unitNumber == unitNumber).unitFaceIcon;
 
         switch (unitName)
         {
