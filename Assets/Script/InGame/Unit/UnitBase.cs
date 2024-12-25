@@ -12,7 +12,7 @@ public class UnitBase : MonoBehaviour
     PoolManager poolManager;
     DataManager dataManager;
 
-    [Header("¿¬µ¿µÉ ÄÄÆ÷³ÍÆ®")]
+    [Header("ì—°ë™ë  ì»´í¬ë„ŒíŠ¸")]
     [SerializeField]
     public SpriteRenderer spriteRenderer;
 
@@ -136,9 +136,9 @@ public class UnitBase : MonoBehaviour
     }
 
     /// <summary>
-    /// ¹ŞÀº UnitState°ª¿¡ ¾Ë¸Â°Ô UnitBaseÀÇ Status°ªÀ» º¯°æ
+    /// ë°›ì€ UnitStateê°’ì— ì•Œë§ê²Œ UnitBaseì˜ Statusê°’ì„ ë³€ê²½
     /// </summary>
-    /// <param name="setStatus">ÃÊ±âÈ­ ÇÒ ½ºÅ×ÀÌÅÍ½º</param>
+    /// <param name="setStatus">ì´ˆê¸°í™” í•  ìŠ¤í…Œì´í„°ìŠ¤</param>
     public void SetStatus(UnitStatus setStatus)
     {
         if(setStatus.defaultUnitData != null)
@@ -249,8 +249,8 @@ public class UnitBase : MonoBehaviour
         corpseDissolve.DissolveStart(spriteRenderer);
         spriteRenderer.sprite = null;
 
-        // UnitData¸¦ Null·Î ¼³Á¤ÇÏ¿© Á×À½À» Ã³¸®
-        unitData = dataManager.unitDataList.Find(un => un.unitNumber == 0); // Null À¯´Ö µ¥ÀÌÅÍ·Î ¼³Á¤
+        // UnitDataë¥¼ Nullë¡œ ì„¤ì •í•˜ì—¬ ì£½ìŒì„ ì²˜ë¦¬
+        unitData = dataManager.unitDataList.Find(un => un.unitNumber == 0); // Null ìœ ë‹› ë°ì´í„°ë¡œ ì„¤ì •
     }
 
 

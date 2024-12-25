@@ -27,9 +27,9 @@ public partial class StageManager
 
 
     /// <summary>
-    /// ½ºÅ³ ½½·ÔÀ» ÃÊ±âÈ­ÇÏ°í ÁÖ¾îÁø ½ºÅ³ µ¥ÀÌÅÍ·Î ¼³Á¤ÇÕ´Ï´Ù.
+    /// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½Ï°ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     /// </summary>
-    /// <param name="setSkillDataList">¼³Á¤ÇÒ ½ºÅ³ µ¥ÀÌÅÍ ¸®½ºÆ®ÀÔ´Ï´Ù.</param>
+    /// <param name="setSkillDataList">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Ô´Ï´ï¿½.</param>
     public void SkillSlotInit(List<SkillData> setSkillDataList)
     {
         skillTargetNum = -1;
@@ -46,7 +46,7 @@ public partial class StageManager
     }
 
     /// <summary>
-    /// ¼±ÅÃµÈ ½ºÅ³ÀÇ µ¥ÀÌÅÍ¸¦ UI¿¡ Àû¿ëÇÕ´Ï´Ù.
+    /// ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ UIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     /// </summary>
     /// <param name="skillData"></param>
     public void SkillTypeSelect(SkillData skillData)
@@ -60,7 +60,7 @@ public partial class StageManager
     }
 
     /// <summary>
-    /// ½ºÅ³ÀÇ ¸ñÇ¥ µ¥ÀÌÅÍ¸¦ UI¿¡ Àû¿ëÇÕ´Ï´Ù.
+    /// ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ UIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
     /// </summary>
     /// <param name="selectTargetSlot"></param>
     public void SkillTargetSelect(UnitSlotController selectTargetSlot)
@@ -98,7 +98,7 @@ public partial class StageManager
     }
 
     /// <summary>
-    /// ½ºÅ³ÀÇ ÃÊ±â ±¸µ¿À» ÁøÇàÇÕ´Ï´Ù. (PrograssState¸¦ SkillPlayÀ¸·Î º¯°æÇÏ°Å³ª, UnitÀÇ Anim¸¦ ÀÛµ¿ ½ÃÅ°´ÂµîÀÇ ÀÛ¾÷)
+    /// ï¿½ï¿½Å³ï¿½ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½. (PrograssStateï¿½ï¿½ SkillPlayï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°Å³ï¿½, Unitï¿½ï¿½ Animï¿½ï¿½ ï¿½Ûµï¿½ ï¿½ï¿½Å°ï¿½Âµï¿½ï¿½ï¿½ ï¿½Û¾ï¿½)
     /// </summary>
     public void SkillStart()
     {
@@ -109,13 +109,13 @@ public partial class StageManager
             if (randomValue < skillAcc)
             {
                 isSkillSuccess = true;
-                Debug.Log($"{currentSkillData.skillName}ÀÇ ½ºÅ³ ÆÇÁ¤ ¼º°ø");
+                Debug.Log($"{currentSkillData.skillName}ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
             } else
             {
-                Debug.Log($"{currentSkillData.skillName}ÀÇ ½ºÅ³ ÆÇÁ¤ ½ÇÆÐ");
+                Debug.Log($"{currentSkillData.skillName}ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
             }
 
-            //½ºÅ³ È¿°ú(SkillEndPlay)ÀÇ Àû¿ë ¹üÀ§¸¦ °è»êÇÔ
+            //ï¿½ï¿½Å³ È¿ï¿½ï¿½(SkillEndPlay)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
             currentSkillTargetSlots = new List<UnitSlotController>();
             foreach (int skillAreaNum in currentSkillData.skillArea)
             {
@@ -134,7 +134,7 @@ public partial class StageManager
     }
 
     /// <summary>
-    /// ½ºÅ³ÀÌ Á¾·á µÈ ÀÌÈÄ ÇØ´ç ½ºÅ³ÀÇ ¿ä°ú¸¦ ¼ø¼­´ë·Î ½ÇÇà½ÃÅ²´Ù.
+    /// ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½.
     /// </summary>
     public void SkillEndPlay()
     {
@@ -162,13 +162,13 @@ public partial class StageManager
     }
 
     /// <summary>
-    /// ½ºÅ³ÀÇ ¿¬ÃâÀ» ´ã´çÇÏ´Â ¸Þ¼­µå
+    /// ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     /// </summary>
     public virtual void SkillProduction(int hitProductionNum)
     {
         foreach (UnitSlotController targetUnit in currentSkillTargetSlots)
         {
-            Debug.Log($"{targetUnit}ÀÇ SkillProduction");
+            Debug.Log($"{targetUnit}ï¿½ï¿½ SkillProduction");
             GameObject hitProductonObject = poolManager.Pop(currentSkillData.skillHitProductionObjects[hitProductionNum]);
             targetUnit.unit.HitProduction(hitProductonObject, currentSkillData.skillHitRadius);
             targetUnit.unit.SetAnim(2);
@@ -177,7 +177,7 @@ public partial class StageManager
 
 
     /// <summary>
-    /// ½ºÅ³ÀÇ ¿¬ÃâÀ» ´ã´çÇÏ´Â ¸Þ¼­µå
+    /// ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     /// </summary>
     public virtual void HitProduction(int hitProductionNum)
     {
@@ -208,7 +208,7 @@ public partial class StageManager
 
 
     /// <summary>
-    /// ½ºÅ³ »ç°Å¸®¸¸Å­ groundSprite¸¦ º¯°æ
+    /// ï¿½ï¿½Å³ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½Å­ groundSpriteï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     /// <param name="skillRange"></param>
     public void SetRangeGround(int[] skillRange)

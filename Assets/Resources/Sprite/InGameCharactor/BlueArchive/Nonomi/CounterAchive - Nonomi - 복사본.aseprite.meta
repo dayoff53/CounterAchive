@@ -105,6 +105,7 @@ ScriptedImporter:
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -126,6 +127,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -146,6 +148,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -166,6 +169,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -186,6 +190,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -206,6 +211,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -226,6 +232,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -246,6 +253,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -266,6 +274,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 140
@@ -286,6 +295,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 140
@@ -306,6 +316,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 140
@@ -326,6 +337,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 140
@@ -346,6 +358,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 140
@@ -366,6 +379,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 140
@@ -386,6 +400,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 140
@@ -406,6 +421,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 276
@@ -426,6 +442,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 276
@@ -446,6 +463,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 276
@@ -466,6 +484,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 276
@@ -486,6 +505,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 276
@@ -506,6 +526,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 276
@@ -526,6 +547,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 276
@@ -546,6 +568,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 412
@@ -566,6 +589,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 412
@@ -586,6 +610,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 412
@@ -610,192 +635,216 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_0"
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: bf3e9909078b58d429daadfc72d75d02
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_1"
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: d2a643968de55f84c80be41eedf111f2
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_2"
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: 8041470ff3312bd499d31064cad3ffcd
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_3"
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: ef45e050042c1954bb9c031644c4cbf2
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_4"
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: 741a073b42ff21b4db4f304ac1564e1e
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_5"
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: b053f0ea49d9be44e853311ea69196ba
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_6"
+    - name: Frame_6
       frameIndex: 6
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: 66a20547566ea924ca66d3e7075f562c
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_7"
+    - name: Frame_7
       frameIndex: 7
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: 6c5793bfa0f7ab140ad011a494e6977d
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_8"
+    - name: Frame_8
       frameIndex: 8
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: 8701fbb69b49f4949b578ae475678e4a
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_9"
+    - name: Frame_9
       frameIndex: 9
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: 2510f33756456f347947d0d31de9000f
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_10"
+    - name: Frame_10
       frameIndex: 10
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: 0effeaa8b01f5f2419d1df20997cf13e
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_11"
+    - name: Frame_11
       frameIndex: 11
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: 49fce5d4ab342654cb624a2c1ad3d4f6
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_12"
+    - name: Frame_12
       frameIndex: 12
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: db28c1aaec6b4494ab0246b574ca2edb
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_13"
+    - name: Frame_13
       frameIndex: 13
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: 6fe5d7a2f8580274393482594807be93
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_14"
+    - name: Frame_14
       frameIndex: 14
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: f4bfb280446b6b4448be24f2a2f2bba2
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_15"
+    - name: Frame_15
       frameIndex: 15
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: 92b1b7d8e36a4bb4fb0cdeea971e466c
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_16"
+    - name: Frame_16
       frameIndex: 16
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: cc75b7820f9b3594db1db3d78922d2e8
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_17"
+    - name: Frame_17
       frameIndex: 17
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: 46493174327caaf4c85b47314cdfc5c3
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_18"
+    - name: Frame_18
       frameIndex: 18
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: 3d0971b26aff80b4d8d74305a40d0121
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_19"
+    - name: Frame_19
       frameIndex: 19
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: 753e321d3c655884f85077a18d0700c4
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_20"
+    - name: Frame_20
       frameIndex: 20
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: b5f8d9e6e8c0f574d8da907e85450b19
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_21"
+    - name: Frame_21
       frameIndex: 21
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: 0cbd19453a3da0444ad4d725bb5cacb9
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_22"
+    - name: Frame_22
       frameIndex: 22
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 128
         height: 128
       spriteId: e84b23dc4af35ff4aaf00e449710d969
-    - name: "CounterAchive - Nonomi - \uBCF5\uC0AC\uBCF8_Frame_23"
+    - name: Frame_23
       frameIndex: 23
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0

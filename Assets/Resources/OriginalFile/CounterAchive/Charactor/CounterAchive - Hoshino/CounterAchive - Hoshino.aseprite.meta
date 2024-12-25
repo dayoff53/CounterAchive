@@ -105,6 +105,7 @@ ScriptedImporter:
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -126,6 +127,7 @@ ScriptedImporter:
     pivot: {x: 0.61616164, y: -0.2783505}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -146,6 +148,7 @@ ScriptedImporter:
     pivot: {x: 0.4516129, y: -0.42424244}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 123
@@ -166,6 +169,7 @@ ScriptedImporter:
     pivot: {x: 0.4516129, y: -0.41791043}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 45
@@ -186,6 +190,7 @@ ScriptedImporter:
     pivot: {x: 0.4516129, y: -0.41791043}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 84
@@ -206,6 +211,7 @@ ScriptedImporter:
     pivot: {x: 0.4516129, y: -0.42424244}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 162
@@ -226,6 +232,7 @@ ScriptedImporter:
     pivot: {x: 0.47368422, y: -0.4375}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -246,6 +253,7 @@ ScriptedImporter:
     pivot: {x: 0.67346936, y: -0.4375}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 111
@@ -266,6 +274,7 @@ ScriptedImporter:
     pivot: {x: 0.58536583, y: -0.4375}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 168
@@ -286,6 +295,7 @@ ScriptedImporter:
     pivot: {x: 0.47368422, y: -0.4375}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 50
@@ -306,6 +316,7 @@ ScriptedImporter:
     pivot: {x: 0.4516129, y: -0.42424244}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 201
@@ -326,6 +337,7 @@ ScriptedImporter:
     pivot: {x: 0.6774193, y: -0.44444448}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 140
@@ -346,6 +358,7 @@ ScriptedImporter:
     pivot: {x: 0.4848485, y: -0.43076923}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 217
@@ -366,6 +379,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.4375}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 96
@@ -386,6 +400,7 @@ ScriptedImporter:
     pivot: {x: 0.4848485, y: -0.43076923}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -410,112 +425,126 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: CounterAchive - Hoshino_Frame_0
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 3
         y: 27
         width: 99
         height: 97
       spriteId: f198ac50930f45841acc0e386c3bba48
-    - name: CounterAchive - Hoshino_Frame_1
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 50
         y: 28
         width: 31
         height: 66
       spriteId: ba0b1dd924aafea4b9787e710e3a1fdf
-    - name: CounterAchive - Hoshino_Frame_2
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 50
         y: 28
         width: 31
         height: 67
       spriteId: 042e3328c8d47f24a92e1463c3f8386c
-    - name: CounterAchive - Hoshino_Frame_3
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 50
         y: 28
         width: 31
         height: 67
       spriteId: d940d5efa0fc91b48a4bc8694995b5a8
-    - name: CounterAchive - Hoshino_Frame_4
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 50
         y: 28
         width: 31
         height: 66
       spriteId: bedc45a4530370f4ebcf4b96205847e4
-    - name: CounterAchive - Hoshino_Frame_6
+    - name: Frame_6
       frameIndex: 6
+      additiveSortOrder: 0
       cellRect:
         x: 46
         y: 28
         width: 38
         height: 64
       spriteId: 7c2a3cd4d43c35b44ab3b0c3e8875044
-    - name: CounterAchive - Hoshino_Frame_7
+    - name: Frame_7
       frameIndex: 7
+      additiveSortOrder: 0
       cellRect:
         x: 31
         y: 28
         width: 49
         height: 64
       spriteId: c4263c7a562b7c0468808c118e355c9c
-    - name: CounterAchive - Hoshino_Frame_8
+    - name: Frame_8
       frameIndex: 8
+      additiveSortOrder: 0
       cellRect:
         x: 40
         y: 28
         width: 41
         height: 64
       spriteId: a636a87359182454c8e22f5d959e989e
-    - name: CounterAchive - Hoshino_Frame_10
+    - name: Frame_10
       frameIndex: 10
+      additiveSortOrder: 0
       cellRect:
         x: 46
         y: 28
         width: 38
         height: 64
       spriteId: b90dd333622d1a94192a608b3c7aa30b
-    - name: CounterAchive - Hoshino_Frame_12
+    - name: Frame_12
       frameIndex: 12
+      additiveSortOrder: 0
       cellRect:
         x: 50
         y: 28
         width: 31
         height: 66
       spriteId: 8fb9c81d7ee96b9458dfced013c107ee
-    - name: CounterAchive - Hoshino_Frame_13
+    - name: Frame_13
       frameIndex: 13
+      additiveSortOrder: 0
       cellRect:
         x: 43
         y: 28
         width: 31
         height: 63
       spriteId: af89147ba06c5e64091373ef12cdd79f
-    - name: CounterAchive - Hoshino_Frame_5
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 48
         y: 28
         width: 33
         height: 65
       spriteId: 6969d1a62b19ff341a8bb7a4d4dca990
-    - name: CounterAchive - Hoshino_Frame_9
+    - name: Frame_9
       frameIndex: 9
+      additiveSortOrder: 0
       cellRect:
         x: 46
         y: 28
         width: 36
         height: 64
       spriteId: a78d8c19c4afb2b4fbe2078b9a001d7a
-    - name: CounterAchive - Hoshino_Frame_11
+    - name: Frame_11
       frameIndex: 11
+      additiveSortOrder: 0
       cellRect:
         x: 48
         y: 28
