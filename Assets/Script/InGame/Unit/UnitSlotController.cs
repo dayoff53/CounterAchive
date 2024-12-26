@@ -3,35 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
+
 public class UnitSlotController : MonoBehaviour
 {
     /// <summary>
-    /// ÇöÀç À§Ä¡ÇÑ FieldÀÇ UnitFieldController
+    /// ìŠ¬ë¡¯ì´ ì†í•œ í•„ë“œì˜ UnitFieldController
     /// </summary>
-    [Header("ÇöÀç À§Ä¡ÇÑ FieldÀÇ UnitFieldController")]
+    [Header("ìŠ¬ë¡¯ì´ ì†í•œ í•„ë“œì˜ UnitFieldController")]
     UnitSlotGroupController unitFieldController;
 
-    [Header("À¯´ÖÀÇ ÆÀ")]
+    [Header("ìœ ë‹› íŒ€")]
     public int unitTeam = 0;
 
     /// <summary>
-    /// À¯´Ö ½½·ÔÀÌ ÀÚ½ÄÀ¸·Î À§Ä¡ÇÒ ¿ÀºêÁ§Æ®
+    /// ìœ ë‹›ì˜ ë¶€ëª¨ ì˜¤ë¸Œì íŠ¸
     /// </summary>
     [SerializeField]
-    [Header("À¯´Ö ½½·ÔÀÌ ÀÚ½ÄÀ¸·Î À§Ä¡ÇÒ ¿ÀºêÁ§Æ®")]
+    [Header("ìœ ë‹›ì˜ ë¶€ëª¨ ì˜¤ë¸Œì íŠ¸")]
     public GameObject unitParent;
 
     /// <summary>
-    /// ÇöÀç ÇØ´ç ½½·Ô¿¡ À§Ä¡ÇÑ À¯´Ö
+    /// í˜„ì¬ ìŠ¬ë¡¯ì— ìˆëŠ” ìœ ë‹›ì˜ ì°¸ì¡°
     /// </summary>
     [SerializeField]
-    [Header("ÇöÀç ÇØ´ç ½½·Ô¿¡ À§Ä¡ÇÑ À¯´Ö")]
+    [Header("í˜„ì¬ ìŠ¬ë¡¯ì— ìˆëŠ” ìœ ë‹›ì˜ ì°¸ì¡°")]
     public UnitBase unit;
 
     /// <summary>
-    /// À¯´Ö ½½·ÔÀÌ ºñ¾îÀÖ´ÂÁö ¿©ºÎ
+    /// ìœ ë‹›ì˜ ì¡´ì¬ ì—¬ë¶€
     /// </summary>
-    [Header("À¯´Ö ½½·ÔÀÌ ºñ¾îÀÖ´ÂÁö ¿©ºÎ")]
+    [Header("ìœ ë‹›ì˜ ì¡´ì¬ ì—¬ë¶€")]
     public bool isNull = false;
 
     [SerializeField]
@@ -64,16 +65,22 @@ public class UnitSlotController : MonoBehaviour
         
         UnitStatusInit();
     }
+
     /// <summary>
-    /// ÇØ´ç À§Ä¡¿¡ »õ·Î¿î À¯´ÖÀ» ¹èÄ¡
+    /// í˜„ì¬ ìŠ¬ë¡¯ì— ìˆëŠ” ìœ ë‹›ì˜ ìƒíƒœì™€ íŒ€ ë²ˆí˜¸ë¥¼ ì„¤ì •
     /// </summary>
-    /// <param name="setUnitState"></param>
-    /// <param name="teamNum"></param>
+    /// <param name="setUnitState">ì„¤ì •í•  ìœ ë‹› ìƒíƒœ</param>
+    /// <param name="teamNum">íŒ€ ë²ˆí˜¸</param>
     public void SetUnit(UnitStatus setUnitState, int teamNum)
     {
         SetUnit(setUnitState);
     }
 
+    /// <summary>
+    /// ì§€ì •ëœ ìœ ë‹› ì˜¤ë¸Œì íŠ¸ë¡œ í˜„ì¬ ìŠ¬ë¡¯ì˜ ìœ ë‹›ì„ ì„¤ì •
+    /// </summary>
+    /// <param name="setUnit">ì„¤ì •í•  ìœ ë‹› ê²Œì„ ì˜¤ë¸Œì íŠ¸</param>
+    /// <param name="teamNum">íŒ€ ë²ˆí˜¸</param>
     public void SetUnit(GameObject setUnit, int teamNum)
     {
         if (setUnit.GetComponent<UnitBase>() != null)
@@ -88,7 +95,7 @@ public class UnitSlotController : MonoBehaviour
         }
         else
         {
-            Debug.LogError("ÇØ´ç ÇÁ¸®ÆÕ¿¡ UnitController ÄÄÆ÷³ÍÆ®°¡ ¾ø½À´Ï´Ù.");
+            Debug.LogError("í˜„ì¬ ì˜¤ë¸Œì íŠ¸ì— UnitBase ì»´í¬ë„ŒíŠ¸ê°€ ì¶”ê°€ëœ ìœ ë‹›ì„ ì„¤ì •í•´ì•¼ í•©ë‹ˆë‹¤.");
         }
     }
 }

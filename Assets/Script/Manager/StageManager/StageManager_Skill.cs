@@ -27,9 +27,9 @@ public partial class StageManager
 
 
     /// <summary>
-    /// ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½Ï°ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+    /// ½ºÅ³ ½½·ÔÀ» ÃÊ±âÈ­ÇÏ°í ¼³Á¤µÈ ½ºÅ³ µ¥ÀÌÅÍ¸¦ ½½·Ô¿¡ ÇÒ´çÇÕ´Ï´Ù.
     /// </summary>
-    /// <param name="setSkillDataList">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½Ô´Ï´ï¿½.</param>
+    /// <param name="setSkillDataList">ÃÊ±âÈ­ÇÒ ½ºÅ³ µ¥ÀÌÅÍ ¸®½ºÆ®ÀÔ´Ï´Ù.</param>
     public void SkillSlotInit(List<SkillData> setSkillDataList)
     {
         skillTargetNum = -1;
@@ -46,12 +46,12 @@ public partial class StageManager
     }
 
     /// <summary>
-    /// ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ UIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+    /// ½ºÅ³ À¯ÇüÀ» ¼±ÅÃÇÏ°í ÇØ´ç ½ºÅ³ÀÇ ¹üÀ§¸¦ ¼³Á¤ÇÕ´Ï´Ù.
     /// </summary>
-    /// <param name="skillData"></param>
+    /// <param name="skillData">¼±ÅÃµÈ ½ºÅ³ µ¥ÀÌÅÍÀÔ´Ï´Ù.</param>
     public void SkillTypeSelect(SkillData skillData)
     {
-        if (skillData != null)
+        if (skillData != null && (currentPrograssState == ProgressState.UnitPlay || currentPrograssState == ProgressState.SkillTargetSearch))
         {
             currentPrograssState = ProgressState.SkillTargetSearch;
             SetRangeGround(skillData.skillRange);
@@ -60,9 +60,9 @@ public partial class StageManager
     }
 
     /// <summary>
-    /// ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½Ç¥ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ UIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+    /// ½ºÅ³ÀÇ Å¸°Ù ½½·ÔÀ» ¼±ÅÃÇÏ°í ÇÊ¿äÇÑ Á¶°ÇÀ» È®ÀÎÇÕ´Ï´Ù.
     /// </summary>
-    /// <param name="selectTargetSlot"></param>
+    /// <param name="selectTargetSlot">¼±ÅÃµÈ Å¸°Ù ½½·Ô ÄÁÆ®·Ñ·¯ÀÔ´Ï´Ù.</param>
     public void SkillTargetSelect(UnitSlotController selectTargetSlot)
     {
         if (cost >= currentSkillData.skillCost)
@@ -93,12 +93,13 @@ public partial class StageManager
         else
         {
             SetCurrentUnitCardUI(false, 0);
-            Debug.Log("Not enough costs");
+            Debug.Log("ºñ¿ëÀÌ ºÎÁ·ÇÕ´Ï´Ù.");
         }
     }
 
     /// <summary>
-    /// ï¿½ï¿½Å³ï¿½ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½. (PrograssStateï¿½ï¿½ SkillPlayï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°Å³ï¿½, Unitï¿½ï¿½ Animï¿½ï¿½ ï¿½Ûµï¿½ ï¿½ï¿½Å°ï¿½Âµï¿½ï¿½ï¿½ ï¿½Û¾ï¿½)
+    /// ½ºÅ³À» ½ÃÀÛÇÏ°í ¼º°ø ¿©ºÎ¸¦ ÆÇ´ÜÇÕ´Ï´Ù. 
+    /// (ÇöÀç ÁøÇà »óÅÂ°¡ SkillPlay·Î ÀüÈ¯µÇ°í, À¯´Ö ¾Ö´Ï¸ÞÀÌ¼ÇÀÌ ½ÃÀÛµË´Ï´Ù.)
     /// </summary>
     public void SkillStart()
     {
@@ -109,13 +110,13 @@ public partial class StageManager
             if (randomValue < skillAcc)
             {
                 isSkillSuccess = true;
-                Debug.Log($"{currentSkillData.skillName}ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+                Debug.Log($"{currentSkillData.skillName} ½ºÅ³ÀÌ ¼º°øÀûÀ¸·Î ¹ßµ¿µÇ¾ú½À´Ï´Ù.");
             } else
             {
-                Debug.Log($"{currentSkillData.skillName}ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+                Debug.Log($"{currentSkillData.skillName} ½ºÅ³ÀÌ ½ÇÆÐÇÏ¿´½À´Ï´Ù.");
             }
 
-            //ï¿½ï¿½Å³ È¿ï¿½ï¿½(SkillEndPlay)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+            // ½ºÅ³ È¿°ú¸¦ Àû¿ëÇÕ´Ï´Ù (SkillEndPlay È£Ãâ)
             currentSkillTargetSlots = new List<UnitSlotController>();
             foreach (int skillAreaNum in currentSkillData.skillArea)
             {
@@ -134,7 +135,7 @@ public partial class StageManager
     }
 
     /// <summary>
-    /// ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½.
+    /// ½ºÅ³ÀÌ Á¾·áµÇ¾úÀ» ¶§ ½ºÅ³ È¿°ú¸¦ Àû¿ëÇÕ´Ï´Ù.
     /// </summary>
     public void SkillEndPlay()
     {
@@ -162,13 +163,13 @@ public partial class StageManager
     }
 
     /// <summary>
-    /// ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
+    /// ½ºÅ³ÀÇ Å¸°Ý È¿°ú¸¦ »ý¼ºÇÕ´Ï´Ù.
     /// </summary>
     public virtual void SkillProduction(int hitProductionNum)
     {
         foreach (UnitSlotController targetUnit in currentSkillTargetSlots)
         {
-            Debug.Log($"{targetUnit}ï¿½ï¿½ SkillProduction");
+            Debug.Log($"{targetUnit}ÀÇ SkillProduction È£Ãâ");
             GameObject hitProductonObject = poolManager.Pop(currentSkillData.skillHitProductionObjects[hitProductionNum]);
             targetUnit.unit.HitProduction(hitProductonObject, currentSkillData.skillHitRadius);
             targetUnit.unit.SetAnim(2);
@@ -177,7 +178,7 @@ public partial class StageManager
 
 
     /// <summary>
-    /// ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
+    /// ½ºÅ³ÀÇ È÷Æ® È¿°ú¸¦ »ý¼ºÇÕ´Ï´Ù.
     /// </summary>
     public virtual void HitProduction(int hitProductionNum)
     {
@@ -208,9 +209,9 @@ public partial class StageManager
 
 
     /// <summary>
-    /// ï¿½ï¿½Å³ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½Å­ groundSpriteï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    /// ½ºÅ³ÀÇ ¹üÀ§¿¡ µû¶ó ±×¸®µå »óÅÂ¸¦ ¼³Á¤ÇÕ´Ï´Ù.
     /// </summary>
-    /// <param name="skillRange"></param>
+    /// <param name="skillRange">½ºÅ³ÀÇ ¹üÀ§ ¹è¿­ÀÔ´Ï´Ù.</param>
     public void SetRangeGround(int[] skillRange)
     {
         SlotGroundSpriteController groundSprite;

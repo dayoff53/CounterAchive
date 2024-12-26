@@ -2,28 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public partial class StageManager
 {
     #region TurnVariable
     [Space(10)]
-    [Header("Turn Data")]
-    [Tooltip("Çàµ¿·Â ´©ÀûÀ» À§ÇÑ Dictionary")]
+    [Header("í„´ ë°ì´í„°")]
+    [Tooltip("ìœ ë‹›ì˜ í–‰ë™ í¬ì¸íŠ¸ë¥¼ ì €ì¥í•˜ëŠ” Dictionary")]
     private SerializableDictionary<UnitBase, float> actionPoints = new SerializableDictionary<UnitBase, float>();
 
-
     /// <summary>
-    /// ÇöÀç ÅÏÀ» Çà»ç ÁßÀÎ ½½·ÔÀÇ ¹øÈ£
+    /// í˜„ì¬ í„´ì˜ ìŠ¬ë¡¯ ë²ˆí˜¸
     /// </summary>
     public int currentTurnSlotNumber;
 
-
     #endregion
 
-
     /// <summary>
-    /// actionPoints¸¦ Áö¼ÓÀûÀ¸·Î °¢ À¯´ÖÀÇ ¼Óµµ¸¸Å­ Áõ°¡½ÃÅµ´Ï´Ù.
+    /// actionPointsì˜ í˜„ì¬ ìƒíƒœë¥¼ ì§€ì†ì ìœ¼ë¡œ ì—…ë°ì´íŠ¸í•˜ëŠ” ì½”ë£¨í‹´
     /// </summary>
     private IEnumerator ActionPointAccumulation()
     {
@@ -46,13 +41,14 @@ public partial class StageManager
     }
 
     /// <summary>
-    /// ActionPoint¸¦ »ó½Â½ÃÅ°´Â ½ºÅ©¸³Æ®
+    /// ActionPointë¥¼ ëˆ„ì í•˜ì—¬ ìœ ë‹›ì˜ í–‰ë™ í¬ì¸íŠ¸ë¥¼ ì¦ê°€ì‹œí‚µë‹ˆë‹¤.
     /// </summary>
+    /// <param name="time">ì‹œê°„ ë¸íƒ€ ê°’</param>
     private void ActionPointUpper(float time)
     {
         foreach (var unitSlot in unitSlotList)
         {
-            if (unitSlot.unit != null && unitSlot.isNull == false)
+            if (unitSlot.unit != null && !unitSlot.isNull)
             {
                 UnitBase unit = unitSlot.unit;
                 if (actionPoints.TryGetValue(unit, out float currentPoints))
@@ -70,39 +66,42 @@ public partial class StageManager
                 }
                 else
                 {
-                    Debug.LogWarning($"No key found for {unitSlot.name}. Adding key.");
-                    actionPoints.Add(unit, unit.speed * time);  // Å°°¡ ¾øÀ» °æ¿ì Ãß°¡
+                    Debug.LogWarning($"í‚¤ê°€ {unitSlot.name}ì— ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. í‚¤ë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.");
+                    actionPoints.Add(unit, unit.speed * time);  // ìœ ë‹›ì˜ í–‰ë™ í¬ì¸íŠ¸ ì´ˆê¸°í™”
                     unit.currentAp = actionPoints[unit];
                 }
             }
         }
     }
 
-
     /// <summary>
-    /// ÄÚ½ºÆ®¸¦ Áö¼ÓÀûÀ¸·Î »ó½Â½ÃÅ°´Â ½ºÅ©¸³Æ®
+    /// í•´ë‹¹ ìœ ë‹› ìŠ¬ë¡¯ì˜ ë¹„ìš©ì„ ì¦ê°€ì‹œí‚µë‹ˆë‹¤.
     /// </summary>
-    /// <param name="unitSlot"></param>
+    /// <param name="unitSlot">ë¹„ìš©ì„ ì¦ê°€ì‹œí‚¬ ìœ ë‹› ìŠ¬ë¡¯</param>
+    /// <param name="time">ì‹œê°„ ë¸íƒ€ ê°’</param>
     private void CostIncrease(UnitSlotController unitSlot, float time)
     {
-            if (unitSlot != null)
+        if (unitSlot != null)
+        {
+            if (unitSlot.unitTeam == 1)
             {
-                if (unitSlot.unitTeam == 1)
-                {
-                    float currentSpeed = unitSlot.unit.speed;
+                float currentSpeed = unitSlot.unit.speed;
 
-                    if (cost < 10)
-                    {
-                        cost += (currentSpeed / 10) * time;
-                    }
-                    else if (cost >= 10)
-                    {
-                        cost = 10;
-                    }
+                if (cost < 10)
+                {
+                    cost += (currentSpeed / 10) * time;
+                }
+                else if (cost >= 10)
+                {
+                    cost = 10;
                 }
             }
+        }
     }
 
+    /// <summary>
+    /// í„´ì„ ê±´ë„ˆë›°ëŠ” ë©”ì„œë“œ
+    /// </summary>
     public void TurnSkip()
     {
         if (currentPrograssState == ProgressState.Stay)
@@ -114,7 +113,7 @@ public partial class StageManager
             {
                 foreach (var unitSlot in unitSlotList)
                 {
-                    if (unitSlot != null && unitSlot.isNull == false)
+                    if (unitSlot != null && !unitSlot.isNull)
                     {
                         UnitBase unit = unitSlot.unit;
                         if (actionPoints.TryGetValue(unit, out float currentPoints))
@@ -133,8 +132,8 @@ public partial class StageManager
                         }
                         else
                         {
-                            Debug.LogWarning($"No key found for {unit.name}. Adding key.");
-                            actionPoints.Add(unit, unit.speed * Time.deltaTime);  // Å°°¡ ¾øÀ» °æ¿ì Ãß°¡
+                            Debug.LogWarning($"í‚¤ê°€ {unit.name}ì— ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. í‚¤ë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.");
+                            actionPoints.Add(unit, unit.speed * Time.deltaTime);  // ìœ ë‹›ì˜ í–‰ë™ í¬ì¸íŠ¸ ì´ˆê¸°í™”
                             unit.currentAp = actionPoints[unit];
                         }
                     }
@@ -143,44 +142,41 @@ public partial class StageManager
         }
     }
 
-
     /// <summary>
-    /// ÇØ´ç À¯´ÖÀÇ ÅÏÀ» ½ÇÇàÇÕ´Ï´Ù.
+    /// ì„ íƒëœ ìœ ë‹›ì˜ í„´ì„ ì‹¤í–‰í•©ë‹ˆë‹¤.
     /// </summary>
+    /// <param name="unitSlot">í„´ì„ ì‹¤í–‰í•  ìœ ë‹› ìŠ¬ë¡¯</param>
     private void ExecuteTurn(UnitSlotController unitSlot)
     {
         currentPrograssState = ProgressState.UnitPlay;
 
-        //ÃÊ±âÈ­
+        // ì´ˆê¸°í™”
         currentTurnSlotNumber = unitSlotList.IndexOf(unitSlot);
         UnitBase currentTurnUnit = unitSlot.unit;
         SetCurrentUnitCardUI(true, currentTurnSlotNumber);
         SkillSlotInit(unitSlotList[currentTurnSlotNumber].unit.skillDataList);
 
-
-        //ÇöÀç ÅÏÀ» °¡Áø À¯´Ö ±¸ºĞ
+        // ìŠ¬ë¡¯ ìƒíƒœ ì—…ë°ì´íŠ¸
         SlotGroundSpriteController groundSprite = unitSlotList[currentTurnSlotNumber].slotGround;
         groundSprite.SetSlotGroundState(SlotGroundState.Select);
         turnUnitMarker.SetActive(true);
         turnUnitMarker.transform.parent = unitSlot.unit.hitPosition.transform;
         turnUnitMarker.transform.position = unitSlot.unit.hitPosition.transform.position;
 
-
-        //¾×¼Ç Æ÷ÀÎÆ® ÃÊ±âÈ­
+        // ì´ˆê¸°í™”
         actionPoints[currentTurnUnit] = 0;
-        Debug.Log("ÅÏÀ» ½ÃÀÛÇÕ´Ï´Ù. ÇöÀç ÅÏÀº " + unitSlotList[currentTurnSlotNumber].name + " (" + unitSlotList[currentTurnSlotNumber].unit.speed + " ¼Óµµ) À¯´ÖÀÔ´Ï´Ù.");
+        Debug.Log($"í„´ì´ ì‹œì‘ë˜ì—ˆìŠµë‹ˆë‹¤. í˜„ì¬ ìœ ë‹›: {unitSlotList[currentTurnSlotNumber].name} (ì†ë„: {unitSlotList[currentTurnSlotNumber].unit.speed})");
     }
 
-
     /// <summary>
-    /// ÅÏÀ» Á¾·áÇÕ´Ï´Ù.
+    /// í„´ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.
     /// </summary>
     public void TurnEnd()
     {
-        // ÅÏÀ» Á¾·áÇØµµ µÇ´ÂÁö È®ÀÎ ÈÄ ÅÏ Á¾·á ½ÇÇà
+        // ìœ ë‹› ì‚¬ë§ ì—¬ë¶€ í™•ì¸
         if (!isUnitDying)
         {
-            //UnitGroundÀÇ »ö»ó ¹× ½ºÇÁ¶óÀÌÆ®, ¾Ö´Ï¸ŞÀÌ¼Ç ÃÊ±âÈ­
+            // ëª¨ë“  ìœ ë‹›ì˜ ì• ë‹ˆë©”ì´ì…˜ ë° ìŠ¬ë¡¯ ìƒíƒœ ì´ˆê¸°í™”
             foreach (UnitSlotController unitSlot in unitSlotList)
             {
                 unitSlot.unit.SetAnim(0);
@@ -199,7 +195,7 @@ public partial class StageManager
         }
         else
         {
-            Debug.Log("ÅÏÀ» Á¤»óÀûÀ¸·Î Á¾·áÇÏÁö ¸øÇÏ¿´½À´Ï´Ù.");
+            Debug.Log("ìœ ë‹›ì´ ì‚¬ë§í•˜ì—¬ í„´ì„ ì¢…ë£Œí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
         }
     }
 

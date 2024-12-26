@@ -27,7 +27,7 @@ public partial class StageManager
 
 
     /// <summary>
-    /// ÀÎ °ÔÀÓÀÇ Çö »óÈ²À» º¸¿©ÁÖ´Â UnitCardUI¸¦ º¯°æÇÏ´Â ½ºÅ©¸³Æ®
+    /// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ UnitCardUIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ®
     /// </summary>
     /// <param name="unitNumber"></param>
     public void SetCurrentUnitCardUI(bool isPlayer, int unitNumber)

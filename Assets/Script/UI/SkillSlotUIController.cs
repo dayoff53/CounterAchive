@@ -23,7 +23,7 @@ public class SkillSlotUIController : MonoBehaviour
 
 
 
-    void Start()
+    private void Start()
     {
         stageManager = StageManager.Instance;
 
@@ -32,6 +32,8 @@ public class SkillSlotUIController : MonoBehaviour
 
     private void Init()
     {
+        skillButton.onClick.RemoveListener(OnButtonClick);
+
         if (skillData != null)
         {
             skillIcon.sprite = skillData.skillIcon;

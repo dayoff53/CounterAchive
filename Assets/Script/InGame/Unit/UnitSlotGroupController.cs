@@ -11,7 +11,7 @@ public class UnitSlotGroupController : MonoBehaviour
     [SerializeField]
     private int currentSlotNum;
 
-    // °¢ ½½·ÔÀÇ ¿ø·¡ À§Ä¡¸¦ ÀúÀåÇÒ µñ¼Å³Ê¸®
+    // ê° ìŠ¬ë¡¯ì˜ ì›ë˜ ìœ„ì¹˜ë¥¼ ì €ì¥í•˜ëŠ” ë”•ì…”ë„ˆë¦¬
     private Dictionary<int, Vector3> originalPositions = new Dictionary<int, Vector3>();
 
     StageManager gameManager;
@@ -24,23 +24,23 @@ public class UnitSlotGroupController : MonoBehaviour
     }
 
     /// <summary>
-    /// GameManager°¡ ÇØ´ç ½ºÅ©¸³Æ®¸¦ »ç¿ëÇÏ±â ¾Õ¼­ ÃÊ±âÈ­ÇÏ´Â ÀÛ¾÷
+    /// GameManagerì—ì„œ í˜„ì¬ ìœ ë‹› ìŠ¬ë¡¯ì„ ì´ˆê¸°í™”í•˜ê³  ìŠ¬ë¡¯ ìƒíƒœë¥¼ ì´ˆê¸°í™”í•˜ëŠ” ë©”ì„œë“œ
     /// </summary>
     public void UnitSlotsInit()
     {
         gameManager = StageManager.Instance;
-        for (int i = 0; i >= unitSlots.Count; i++)
+        for (int i = 0; i < unitSlots.Count; i++)
         {
             if (unitSlots[i] != null)
             {
                 GameObject unitObject = unitSlots[i].gameObject;
                 if (unitObject != null)
                 {
-                    // ÃÊ±â À¯´Ö ¿ÀºêÁ§Æ®ÀÇ À§Ä¡ ¼³Á¤
+                    // ëª¨ë“  ìŠ¬ë¡¯ ìœ„ì¹˜ ì´ˆê¸°í™”
                     originalPositions[i] = unitObject.transform.position;
                 }
 
-                unitSlots[i].slotGround. SetSlotGroundState(SlotGroundState.Default);
+                unitSlots[i].slotGround.SetSlotGroundState(SlotGroundState.Default);
             }
 
             unitSlots[i].UnitStatusInit();
@@ -49,10 +49,8 @@ public class UnitSlotGroupController : MonoBehaviour
     }
 
     /// <summary>
-    /// µÎ Unit°£ÀÇ À§Ä¡¸¦ º¯°æÇÕ´Ï´Ù. ÀÌ °æ¿ì ¸ğµç UnitÀÇ Ground°¡ Normal»óÅÂ·Î º¯°æµË´Ï´Ù.
+    /// ìœ ë‹›ì˜ ìœ„ì¹˜ë¥¼ ì›ë˜ ìœ„ì¹˜ë¡œ ì´ë™ì‹œí‚µë‹ˆë‹¤. ì´ë™ í›„ ì• ë‹ˆë©”ì´ì…˜ì„ ì ìš©í•©ë‹ˆë‹¤.
     /// </summary>
-    /// <param name="moveUnitNum"></param>
-    /// <param name="targetUnitNum"></param>
     public void MoveUnit()
     {
         for (int i = 0; i < unitSlots.Count; i++)
@@ -61,7 +59,7 @@ public class UnitSlotGroupController : MonoBehaviour
 
 
             Tween tween = DOTween.Sequence();
-            tween = (moveSlot.transform.DOMove(originalPositions[i], 1f).SetEase(Ease.InOutQuad));
+            tween = moveSlot.transform.DOMove(originalPositions[i], 1f).SetEase(Ease.InOutQuad);
             tween.OnComplete(() =>
             {
                 moveSlot.transform.position = originalPositions[i];
@@ -78,6 +76,7 @@ public class UnitSlotGroupController : MonoBehaviour
             unitSlots[endNum - i].SetUnit(enemyUnitSlots[i], 2);
         }
     }
+
     public void PlayerUnitInit(List<UnitStatus> playerUnitSlots)
     {
         int startNum = 0;

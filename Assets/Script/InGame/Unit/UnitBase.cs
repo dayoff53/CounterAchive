@@ -4,15 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-
-
 public class UnitBase : MonoBehaviour
 {
     StageManager stageManager;
     PoolManager poolManager;
     DataManager dataManager;
 
-    [Header("연동될 컴포넌트")]
+    [Header("스프라이트 렌더러")]
     [SerializeField]
     public SpriteRenderer spriteRenderer;
 
@@ -31,7 +29,6 @@ public class UnitBase : MonoBehaviour
     [SerializeField]
     public CorpseDissolve corpseDissolve;
 
-
     [Space(10)]
     [Header("Status")]
     public UnitData unitData;
@@ -39,7 +36,6 @@ public class UnitBase : MonoBehaviour
     public string unitName;
     public Sprite unitFaceIcon;
     public RuntimeAnimatorController unitAnim;
-
 
     [Space(10)]
     [Header("Status")]
@@ -76,7 +72,6 @@ public class UnitBase : MonoBehaviour
         }
     }
 
-
     private void Start()
     {
         poolManager = PoolManager.Instance;
@@ -103,7 +98,6 @@ public class UnitBase : MonoBehaviour
             currentAp = 0;
             speed = unitData.speed;
             skillDataList = unitData.skillDataList;
-            
 
             hpPointBar.gameObject.transform.parent.gameObject.SetActive(false);
             hpPointText.text = "";
@@ -128,17 +122,15 @@ public class UnitBase : MonoBehaviour
             skillDataList = unitData.skillDataList;
             corpseDissolve.CorpseInit();
 
-
-
             SetAnim(0);
             SetActionPointBar(0.0f);
         }
     }
 
     /// <summary>
-    /// 받은 UnitState값에 알맞게 UnitBase의 Status값을 변경
+    /// UnitState 변경에 필요한 UnitBase의 Status를 초기화합니다.
     /// </summary>
-    /// <param name="setStatus">초기화 할 스테이터스</param>
+    /// <param name="setStatus">초기화할 UnitStatus 객체</param>
     public void SetStatus(UnitStatus setStatus)
     {
         if(setStatus.defaultUnitData != null)
@@ -151,7 +143,6 @@ public class UnitBase : MonoBehaviour
             unitData = dataManager.unitDataList.Find(un => un.unitNumber == setStatus.unitNumber);
             unitNumber = unitData.unitNumber;
         }
-
 
         if (!string.IsNullOrEmpty(setStatus.unitName) && setStatus.unitName.StartsWith("*"))
         {
@@ -203,7 +194,6 @@ public class UnitBase : MonoBehaviour
         }
     }
 
-
     public void SetAnim(int animNum)
     {
         unitAnimator.SetInteger("State", animNum);
@@ -249,10 +239,9 @@ public class UnitBase : MonoBehaviour
         corpseDissolve.DissolveStart(spriteRenderer);
         spriteRenderer.sprite = null;
 
-        // UnitData를 Null로 설정하여 죽음을 처리
-        unitData = dataManager.unitDataList.Find(un => un.unitNumber == 0); // Null 유닛 데이터로 설정
+        // UnitData를 Null로 변경하여 유닛을 비활성화합니다.
+        unitData = dataManager.unitDataList.Find(un => un.unitNumber == 0); // Null 값을 갖는 UnitData로 설정
     }
-
 
     public void HitProduction(GameObject hitProductonObject, float skillHitRadius)
     {
