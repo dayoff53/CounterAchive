@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 /// <summary>
-/// ÇÃ·¹ÀÌ¾î°¡ ¹èÄ¡ °¡´ÉÇÑ À¯´ÖÀÌ Á¸ÀçÇÏ´Â ½½·ÔÀ» ÃÑ°ıÇÏ´Â ½ºÅ©¸³Æ®
+/// í”Œë ˆì´ì–´ê°€ ë°°ì¹˜ ê°€ëŠ¥í•œ ìœ ë‹›ì´ ì¡´ì¬í•˜ëŠ” ìŠ¬ë¡¯ì„ ì´ê´„í•˜ëŠ” ìŠ¤í¬ë¦½íŠ¸
 /// </summary>
 public class UnitSelectSlotGroupController : MonoBehaviour
 {
@@ -14,14 +14,14 @@ public class UnitSelectSlotGroupController : MonoBehaviour
     private GameObject contentObject;
 
     /// <summary>
-    /// ¹èÄ¡ÇÒ ¼ö ÀÖ´Â UnitSlotÀÇ List
+    /// ë°°ì¹˜í•  ìˆ˜ ìˆëŠ” UnitSlotì˜ List
     /// </summary>
     public List<UnitCard> selectUnitCardList;
     public List<UnitSelectController> selectUnitSelectList;
     private DataManager dataManager;
 
     /// <summary>
-    /// ÇÃ·¹ÀÌ¾î°¡ ¹èÄ¡ °¡´ÉÇÑ À¯´ÖÀÇ ½½·ÔµéÀ» ÃÊ±âÈ­ÇÏ´Â ½ºÅ©¸³Æ®
+    /// í”Œë ˆì´ì–´ê°€ ë°°ì¹˜ ê°€ëŠ¥í•œ ìœ ë‹›ì˜ ìŠ¬ë¡¯ë“¤ì„ ì´ˆê¸°í™”í•˜ëŠ” ìŠ¤í¬ë¦½íŠ¸
     /// </summary>
     public void InitUnitSelectSlot()
     {

@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-
-/// <summary>
-/// ½ºÅ³ÀÇ Á¾·ù¸¦ ºĞº°ÇÏ´Â State
-/// </summary>
 [System.Serializable]
+[Tooltip("ìŠ¤í‚¬ì˜ íƒ€ì…ì„ ë‚˜íƒ€ë‚´ëŠ” ìƒíƒœ")]
 public enum SkillTypeState
 {
     Attack,
@@ -15,10 +12,8 @@ public enum SkillTypeState
     Buff
 }
 
-/// <summary>
-/// ½ºÅ³ÀÇ È¿°ú¸¦ ºĞº°ÇÏ´Â State
-/// </summary>
 [System.Serializable]
+[Tooltip("ìŠ¤í‚¬ íš¨ê³¼ì˜ ìƒíƒœ")]
 public enum SkillEffectState
 {
     Damage,
@@ -26,20 +21,14 @@ public enum SkillEffectState
     StatusDown
 }
 
-/// <summary>
-/// ½ºÅ³ÀÇ È¿°ú¸¦ ´ã´çÇÏ´Â Å¬·¡½º
-/// </summary>
 [System.Serializable]
+[Tooltip("ìŠ¤í‚¬ íš¨ê³¼ë¥¼ ì •ì˜í•˜ëŠ” í´ë˜ìŠ¤")]
 public class SkillEffect
 {
-    /// <summary>
-    /// ½ºÅ³ÀÇ È¿°ú Á¾·ù
-    /// </summary>
+    [Tooltip("ìŠ¤í‚¬ íš¨ê³¼ì˜ ìƒíƒœ")]
     public SkillEffectState skillEffectState;
 
-    /// <summary>
-    /// ½ºÅ³ÀÇ È¿°ú °è¼ö
-    /// </summary>
+    [Tooltip("ìŠ¤í‚¬ íš¨ê³¼ì˜ ê°’ ë¦¬ìŠ¤íŠ¸")]
     public List<float> valueList;
 }
 
@@ -47,25 +36,40 @@ public class SkillEffect
 [CreateAssetMenu(fileName = "New SkillData", menuName = "Datas/SkillData")]
 public class SkillData : ScriptableObject
 {
+    [Header("ê¸°ë³¸ ì •ë³´")]
     public int skillNumber;
     public string skillName;
     public string skillFlavorText;
+
+    [Space(20)]
+    [Header("ìŠ¤í‚¬ ì†ì„±")]
     public float skillCost = 1;
     public float skillAcc = 100;
     public int[] skillRange;
-    /// <summary>
-    /// ¹üÀ§ 0À» Áß½ÉÀ¸·Î ÇÇ°İ ´çÇÏ´Â ¹üÀ§¸¦ °¡¸®Å²´Ù.
-    /// </summary>
+
+    [Space(10)]
+    [Header("ìŠ¤í‚¬ ì˜ì—­")]
+    [Tooltip("ìŠ¤í‚¬ì˜ ë²”ìœ„ë¥¼ ì •ì˜í•˜ëŠ” ë°°ì—´")]
     public int[] skillArea;
 
-    //(»êÅºÀÌ³ª Æ¯¼ö È¿°úµéÀÇ °æ¿ì ÇÇ°İ ¿¬Ãâ prefab¿¡¼­ ±¸ÇöÇÒ ¿¹Á¤)
+    [Space(10)]
+    [Header("ìŠ¤í‚¬ íƒ€ì… ë° íš¨ê³¼")]
+    [Tooltip("ìŠ¤í‚¬ íƒ€ì… (ê³µê²©, ë””ë²„í”„, ë²„í”„ ë“±)")]
+    public SkillTypeState skillTypeState;
+    [Tooltip("ìŠ¤í‚¬ íš¨ê³¼ ë¦¬ìŠ¤íŠ¸")]
+    public List<SkillEffect> skillEffectList;
+    
+    [Space(20)]
+    [Header("íˆíŠ¸ ì„¤ì •")]
+    [Tooltip("íˆíŠ¸ê°€ ì—¬ëŸ¬ ë²ˆ ë°œìƒí•˜ëŠ”ì§€ ì—¬ë¶€ì™€ ê´€ë ¨ëœ ì„¤ì •")]
     public bool isSkillHitMultiple;
+    [Tooltip("isSkillHitMultipleê°€ trueì¼ ë•Œ íˆíŠ¸ê°€ ë°œìƒí•˜ëŠ” íšŸìˆ˜")]
     public int skillHitCount;
+    [Tooltip("íˆíŠ¸ ë°˜ê²½")]
     public float skillHitRadius = 0;
 
-    public SkillTypeState skillTypeState;
-    public List<SkillEffect> skillEffectList;
+    [Space(10)]
+    [Header("ì‹œê°ì  ìš”ì†Œ")]
     public Sprite skillIcon;
     public List<GameObject> skillHitProductionObjects;
 }
-

@@ -14,20 +14,20 @@ public class AnimationEventObserver : MonoBehaviour
     public void SkillHit()
     {
         gameManager.SkillProduction(0);
-        Debug.Log($"SkillHit ÀÛµ¿");
+        Debug.Log($"SkillHit ì‘ë™");
     }
 
     public void SkillEnd()
     {
         gameManager.SkillEndPlay();
         StartCoroutine(DelayTurnEnd(0.5f));
-        Debug.Log($"SkillEnd ÀÛµ¿");
+        Debug.Log($"SkillEnd ì‘ë™");
     }
 
 
     public IEnumerator DelayTurnEnd(float delay)
     {
-        yield return new WaitForSeconds(delay); // ÁöÁ¤µÈ ½Ã°£¸¸Å­ ´ë±â
-        gameManager.TurnEnd(); // ´ë±â ÈÄ È£ÃâÇÒ ÇÔ¼ö
+        yield return new WaitForSeconds(delay); // ì§€ì •ëœ ì‹œê°„ë§Œí¼ ëŒ€ê¸°
+        gameManager.TurnEnd(); // ëŒ€ê¸° í›„ í˜¸ì¶œí•  í•¨ìˆ˜
     }
 }

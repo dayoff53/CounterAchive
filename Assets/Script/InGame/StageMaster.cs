@@ -12,88 +12,88 @@ public enum StageClearState
 }
 
 /// <summary>
-/// ½ºÅ×ÀÌÁö º° °ÔÀÓ È¯°æÀ» ¼³Á¤ÇÏ´Â ½ºÅ©¸³Æ®. Àû°ú ¾Æ±ºÀÇ ¹èÄ¡, ½ºÅ×ÀÌÁöÀÇ ÆĞ¹è ¹× ½Â¸® Á¶°Ç, gameManager¿¡ ½ºÅ×ÀÌÁö °ü·Ã µ¥ÀÌÅÍ º¸³»±â µî, 
-/// ½ºÅ×ÀÌÁö¸¦ ºÒ·¯¿Ã ¶§ °¡Àå ¿ì¼±ÀûÀ¸·Î ÀÛµ¿ÇÏ¿© ½ºÅ×ÀÌÁö È¯°æÀ» ±¸¼ºÇÏ´Â ½ºÅ©¸³Æ®ÀÌ´Ù.
+/// ìŠ¤í…Œì´ì§€ ë³„ ê²Œì„ í™˜ê²½ì„ ì„¤ì •í•˜ëŠ” ìŠ¤í¬ë¦½íŠ¸. ì ê³¼ ì•„êµ°ì˜ ë°°ì¹˜, ìŠ¤í…Œì´ì§€ì˜ íŒ¨ë°° ë° ìŠ¹ë¦¬ ì¡°ê±´, gameManagerì— ìŠ¤í…Œì´ì§€ ê´€ë ¨ ë°ì´í„° ë³´ë‚´ê¸° ë“±, 
+/// ìŠ¤í…Œì´ì§€ë¥¼ ë¶ˆëŸ¬ì˜¬ ë•Œ ê°€ì¥ ìš°ì„ ì ìœ¼ë¡œ ì‘ë™í•˜ì—¬ ìŠ¤í…Œì´ì§€ í™˜ê²½ì„ êµ¬ì„±í•˜ëŠ” ìŠ¤í¬ë¦½íŠ¸ì´ë‹¤.
 /// </summary>
 public class StageMaster : MonoBehaviour
 {
-    [Header("½ºÅ×ÀÌÁö º° °ÔÀÓ È¯°æÀ» ¼³Á¤ÇÏ´Â ½ºÅ©¸³Æ® ½ºÅ×ÀÌÁö¸¦ ºÒ·¯¿Ã¶§ °¡Àå ¿ì¼±ÀûÀ¸·Î ÀÛµ¿ÇÏ´Â ½ºÅ©¸³Æ®ÀÌ´Ù. (Àû À¯´Ö Á¾·ù µî)")]
+    [Header("ìŠ¤í…Œì´ì§€ ë³„ ê²Œì„ í™˜ê²½ì„ ì„¤ì •í•˜ëŠ” ìŠ¤í¬ë¦½íŠ¸ ìŠ¤í…Œì´ì§€ë¥¼ ë¶ˆëŸ¬ì˜¬ë•Œ ê°€ì¥ ìš°ì„ ì ìœ¼ë¡œ ì‘ë™í•˜ëŠ” ìŠ¤í¬ë¦½íŠ¸ì´ë‹¤. (ì  ìœ ë‹› ì¢…ë¥˜ ë“±)")]
     [Header("Stage Manager Reference")]
     [SerializeField]
     private StageManager stageManager;
 
     [Header("Stage Clear Condition")]
     public StageClearState stageClearCondition;
-    [Tooltip("KillTargetEnemy Á¶°ÇÀÏ °æ¿ì Æ¯Á¤ ÀûÀÇ ID")]
+    [Tooltip("KillTargetEnemy ì¡°ê±´ì¼ ê²½ìš° íŠ¹ì • ì ì˜ ID")]
     public int targetEnemyId;
-    [Tooltip("SurviveTurn Á¶°ÇÀÏ °æ¿ì »ıÁ¸ÇØ¾ß ÇÒ ÅÏ ¼ö")]
+    [Tooltip("SurviveTurn ì¡°ê±´ì¼ ê²½ìš° ìƒì¡´í•´ì•¼ í•  í„´ ìˆ˜")]
     public int surviveTurnCount;
 
     [Space(20)]
     [Header("Player Unit Settings")]
-    [Tooltip("ÇÃ·¹ÀÌ¾î°¡ »ç¿ë °¡´ÉÇÑ À¯´Ö ½½·ÔÀÇ Ä«¿îÆ®")]
+    [Tooltip("í”Œë ˆì´ì–´ê°€ ì‚¬ìš© ê°€ëŠ¥í•œ ìœ ë‹› ìŠ¬ë¡¯ì˜ ì¹´ìš´íŠ¸")]
     [SerializeField]
     private int playerUseUnitSlotCount;
-    [Tooltip("ÇÃ·¹ÀÌ¾î°¡ »ç¿ë °¡´ÉÇÑ À¯´Ö ½½·ÔÀÇ ¹üÀ§")]
+    [Tooltip("í”Œë ˆì´ì–´ê°€ ì‚¬ìš© ê°€ëŠ¥í•œ ìœ ë‹› ìŠ¬ë¡¯ì˜ ë²”ìœ„")]
     [SerializeField]
     private int playerUseUnitSlotRange;
-    [Tooltip("ÇØ´ç ½ºÅ×ÀÌÁö¿¡¼­ ÇÃ·¹ÀÌ¾î°¡ »ç¿ë °¡´ÉÇÏµµ·Ï ¹èÄ¡µÇ¾î ÀÖ´Â À¯´Ö ¸®½ºÆ®")]
+    [Tooltip("í•´ë‹¹ ìŠ¤í…Œì´ì§€ì—ì„œ í”Œë ˆì´ì–´ê°€ ì‚¬ìš© ê°€ëŠ¥í•˜ë„ë¡ ë°°ì¹˜ë˜ì–´ ìˆëŠ” ìœ ë‹› ë¦¬ìŠ¤íŠ¸")]
     [SerializeField]
     private List<UnitStatus> playerUnitList;
 
     [Space(20)]
     [Header("Enemy Unit Settings")]
-    [Tooltip("ÇØ´ç ½ºÅ×ÀÌÁö¿¡¼­ ÀûÀ¸·Î µîÀåÇÏ´Â À¯´Ö ¸®½ºÆ®")]
+    [Tooltip("í•´ë‹¹ ìŠ¤í…Œì´ì§€ì—ì„œ ì ìœ¼ë¡œ ë“±ì¥í•˜ëŠ” ìœ ë‹› ë¦¬ìŠ¤íŠ¸")]
     [SerializeField]
     private List<UnitStatus> enemyUnitList;
 
     [Space(20)]
     [Header("UI Elements")]
-    [Tooltip("°ÔÀÓ ÇÃ·¹ÀÌ ÀÌÀü À¯´ÖÀ» ¼±ÅÃÇÏ´Â UI")]
+    [Tooltip("ê²Œì„ í”Œë ˆì´ ì´ì „ ìœ ë‹›ì„ ì„ íƒí•˜ëŠ” UI")]
     [SerializeField]
     public GameObject unitSet_UI;
-    [Tooltip("³²¾ÆÀÖ´Â ¼±ÅÃ °¡´ÉÇÑ À¯´Ö ½½·Ô °¹¼ö¸¦ º¸¿©ÁÖ´Â ÅØ½ºÆ®")]
+    [Tooltip("ë‚¨ì•„ìˆëŠ” ì„ íƒ ê°€ëŠ¥í•œ ìœ ë‹› ìŠ¬ë¡¯ ê°¯ìˆ˜ë¥¼ ë³´ì—¬ì£¼ëŠ” í…ìŠ¤íŠ¸")]
     [SerializeField]
     public TMP_Text remainingSetUnitSlotText;
 
     [Space(5)]
-    [Tooltip("°ÔÀÓÀ» ÁÖ·Î ÇÃ·¹ÀÌÇÏ´Â UI")]
+    [Tooltip("ê²Œì„ì„ ì£¼ë¡œ í”Œë ˆì´í•˜ëŠ” UI")]
     [SerializeField]
     public GameObject play_UI;
-    [Tooltip("ÅÏÀ» Áö´Ñ ÇÃ·¹ÀÌ¾îÀÇ À¯´Ö Ä«µå UI")]
+    [Tooltip("í„´ì„ ì§€ë‹Œ í”Œë ˆì´ì–´ì˜ ìœ ë‹› ì¹´ë“œ UI")]
     [SerializeField]
     public UnitCard turnUnitCardUI;
-    [Tooltip("ÇöÀç Å¸°ÙÀÌ µÈ À¯´Ö Ä«µå UI")]
+    [Tooltip("í˜„ì¬ íƒ€ê²Ÿì´ ëœ ìœ ë‹› ì¹´ë“œ UI")]
     [SerializeField]
     public UnitCard targetUnitCardUI;
-    [Tooltip("Å¸°Ù À¯´ÖÄ«µå¸¦ °¡¸®Å°´Â È­»ìÇ¥")]
+    [Tooltip("íƒ€ê²Ÿ ìœ ë‹›ì¹´ë“œë¥¼ ê°€ë¦¬í‚¤ëŠ” í™”ì‚´í‘œ")]
     [SerializeField]
     public GameObject unitCardTargetArrow;
-    [Tooltip("½ºÅ³ ¸íÁß·ü ÅØ½ºÆ®")]
+    [Tooltip("ìŠ¤í‚¬ ëª…ì¤‘ë¥  í…ìŠ¤íŠ¸")]
     [SerializeField]
     public TMP_Text skillAccuracyText;
-    [Tooltip("ÅÏÀ» Áö´Ñ À¯´ÖÀ» Ç¥±âÇÏ´Â ¸¶Ä¿")]
+    [Tooltip("í„´ì„ ì§€ë‹Œ ìœ ë‹›ì„ í‘œê¸°í•˜ëŠ” ë§ˆì»¤")]
     [SerializeField]
     public GameObject turnUnitMarker;
-    [Tooltip("Å¸°Ù À¯´ÖÀ» Ç¥±âÇÏ´Â ¸¶Ä¿")]
+    [Tooltip("íƒ€ê²Ÿ ìœ ë‹›ì„ í‘œê¸°í•˜ëŠ” ë§ˆì»¤")]
     [SerializeField]
     public GameObject targetUnitMarker;
-    [Tooltip("½ºÅ×ÀÌÁö ¿ìÃø ÇÏ´ÜÀÇ ¸Ş´º UI")]
+    [Tooltip("ìŠ¤í…Œì´ì§€ ìš°ì¸¡ í•˜ë‹¨ì˜ ë©”ë‰´ UI")]
     [SerializeField]
     public StageMenuController stageMenuController;
     
     [Space(20)]
     [Header("Skill Settings")]
-    [Tooltip("½ºÅ³ µ¥ÀÌÅÍ¸¦ ÇÃ·¹ÀÌ¾î¿¡°Ô º¸¿©ÁÖ´Â UI ½½·Ô ¸®½ºÆ®")]
+    [Tooltip("ìŠ¤í‚¬ ë°ì´í„°ë¥¼ í”Œë ˆì´ì–´ì—ê²Œ ë³´ì—¬ì£¼ëŠ” UI ìŠ¬ë¡¯ ë¦¬ìŠ¤íŠ¸")]
     [SerializeField]
     private List<SkillSlotUIController> skillSlotList;
 
     [Space(20)]
     [Header("Unit Slot Settings")]
-    [Tooltip("ÀÎ °ÔÀÓ¿¡¼­ À¯´ÖÀÌ Á¸ÀçÇÏ´Â ½½·ÔÀÇ ±×·ì")]
+    [Tooltip("ì¸ ê²Œì„ì—ì„œ ìœ ë‹›ì´ ì¡´ì¬í•˜ëŠ” ìŠ¬ë¡¯ì˜ ê·¸ë£¹")]
     [SerializeField]
     private UnitSlotGroupController unitSlotGroupController;
-    [Tooltip("ÇÃ·¹ÀÌ¾î°¡ ¹èÄ¡ °¡´ÉÇÑ À¯´ÖÀÌ Á¸ÀçÇÏ´Â ½½·ÔÀÇ ±×·ì")]
+    [Tooltip("í”Œë ˆì´ì–´ê°€ ë°°ì¹˜ ê°€ëŠ¥í•œ ìœ ë‹›ì´ ì¡´ì¬í•˜ëŠ” ìŠ¬ë¡¯ì˜ ê·¸ë£¹")]
     [SerializeField]
     private UnitSelectSlotGroupController unitSelectSlotsGroupController;
 
@@ -138,7 +138,7 @@ public class StageMaster : MonoBehaviour
     }
 
     /// <summary>
-    /// ½ºÅ×ÀÌÁö¿¡ À§Ä¡ÇÑ À¯´ÖµéÀ» ¹èÄ¡ÇÕ´Ï´Ù.
+    /// ìŠ¤í…Œì´ì§€ì— ìœ„ì¹˜í•œ ìœ ë‹›ë“¤ì„ ë°°ì¹˜í•©ë‹ˆë‹¤.
     /// </summary>
     private void PlaceUnitSlot()
     {
