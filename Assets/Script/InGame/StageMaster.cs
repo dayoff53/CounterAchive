@@ -80,7 +80,7 @@ public class StageMaster : MonoBehaviour
     public GameObject targetUnitMarker;
     [Tooltip("스테이지 우측 하단의 메뉴 UI")]
     [SerializeField]
-    public StageMenuController stageMenuController;
+    public StageWindowController stageMenuController;
     
     [Space(20)]
     [Header("Skill Settings")]
@@ -98,6 +98,24 @@ public class StageMaster : MonoBehaviour
     private UnitSelectSlotGroupController unitSelectSlotsGroupController;
 
 
+    private void Start()
+    {
+        stageManager = StageManager.Instance;
+
+        InitUIObject();
+
+        unitSelectSlotsGroupController.InitUnitSelectSlot();
+
+        PlaceUnitSlot();
+
+        stageManager.skillSlotList = skillSlotList;
+        Debug.Log($"skillSlotList.Count {skillSlotList.Count}\n skillSlotList[0] : {skillSlotList[0]}");
+        Debug.Log($"gameManager.skillSlotList.Count {stageManager.skillSlotList.Count}\n gameManager.skillSlotList[0] : {stageManager.skillSlotList[0]}");
+
+         
+        stageManager.InitGame();
+    }
+
     private void InitUIObject()
     {
         stageManager.turnUnitCardUI = turnUnitCardUI;
@@ -109,17 +127,8 @@ public class StageMaster : MonoBehaviour
         stageManager.unitSet_UI = unitSet_UI;
         stageManager.remainingSetUnitSlotText = remainingSetUnitSlotText;
         stageManager.stageMenuController = stageMenuController;
-    }
 
-    private void Start()
-    {
-        stageManager = StageManager.Instance;
-
-        InitUIObject();
-
-        unitSelectSlotsGroupController.InitUnitSelectSlot();
-
-        PlaceUnitSlot();
+        
 
         stageManager.unitSlotGroupController = unitSlotGroupController;
         stageManager.stageClearCondition = stageClearCondition;
@@ -128,14 +137,8 @@ public class StageMaster : MonoBehaviour
 
         stageManager.playerUseUnitSlotCount = playerUseUnitSlotCount;
         stageManager.playerUseUnitSlotRange = playerUseUnitSlotRange;
-
-        stageManager.skillSlotList = skillSlotList;
-        Debug.Log($"skillSlotList.Count {skillSlotList.Count}\n skillSlotList[0] : {skillSlotList[0]}");
-        Debug.Log($"gameManager.skillSlotList.Count {stageManager.skillSlotList.Count}\n gameManager.skillSlotList[0] : {stageManager.skillSlotList[0]}");
-
-         
-        stageManager.InitGame();
     }
+
 
     /// <summary>
     /// 스테이지에 위치한 유닛들을 배치합니다.

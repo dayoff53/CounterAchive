@@ -7,8 +7,14 @@ using TMPro;
 public partial class StageManager
 {
     #region UIVariable
-    [Space(10)]
+    [Space(20)]
+    [Header("------------------- UI -------------------")]
     [Header("UI Object")]
+    /// <summary>
+    /// StageUI 우측 하단에 위치하는 각종 데이터들을 표기하는 공간의 컴포넌트
+    /// </summary>
+    public StageWindowController stageMenuController;
+
     public GameObject play_UI;
     public GameObject unitSet_UI;
     public UnitCard turnUnitCardUI;
@@ -27,7 +33,7 @@ public partial class StageManager
 
 
     /// <summary>
-    /// �� ������ �� ��Ȳ�� �����ִ� UnitCardUI�� �����ϴ� ��ũ��Ʈ
+    /// 각 유닛들의 현 상황을 보여주는 UnitCardUI를 관리하는 스크립트
     /// </summary>
     /// <param name="unitNumber"></param>
     public void SetCurrentUnitCardUI(bool isPlayer, int unitNumber)

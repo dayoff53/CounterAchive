@@ -5,7 +5,8 @@ using UnityEngine;
 public partial class StageManager
 {
     #region TurnVariable
-    [Space(10)]
+    [Space(20)]
+    [Header("------------------- Turn -------------------")]
     [Header("턴 데이터")]
     [Tooltip("유닛의 행동 포인트를 저장하는 Dictionary")]
     private SerializableDictionary<UnitBase, float> actionPoints = new SerializableDictionary<UnitBase, float>();
@@ -14,7 +15,26 @@ public partial class StageManager
     /// 현재 턴의 슬롯 번호
     /// </summary>
     public int currentTurnSlotNumber;
+    #endregion
 
+
+    #region CostVariable
+    [Space(20)]
+    [Header("------------------- Cost -------------------")]
+    [Header("Cost 변수")]
+    private float _cost;
+    public float cost 
+    {
+        get { return _cost; }
+        set 
+        {
+            if(_cost != value)
+            {
+                _cost = value;
+                UIManager.Instance.UpdateCostUI(_cost);
+            }
+        }
+    }
     #endregion
 
     /// <summary>
@@ -160,8 +180,8 @@ public partial class StageManager
         SlotGroundSpriteController groundSprite = unitSlotList[currentTurnSlotNumber].slotGround;
         groundSprite.SetSlotGroundState(SlotGroundState.Select);
         turnUnitMarker.SetActive(true);
-        turnUnitMarker.transform.parent = unitSlot.unit.hitPosition.transform;
-        turnUnitMarker.transform.position = unitSlot.unit.hitPosition.transform.position;
+        turnUnitMarker.transform.parent = unitSlot.unit.productionPositionList[0].transform;
+        turnUnitMarker.transform.position = unitSlot.unit.productionPositionList[0].transform.position;
 
         // 초기화
         actionPoints[currentTurnUnit] = 0;

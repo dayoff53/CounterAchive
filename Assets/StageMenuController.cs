@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class StageMenuController : MonoBehaviour
+public class StageWindowController : MonoBehaviour
 {
     private StageManager stageManager;
 

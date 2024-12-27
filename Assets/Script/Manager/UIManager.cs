@@ -21,6 +21,10 @@
         public List<Color> unitStateColors;
         public ColorState unitStateColorsObject;
 
+        [Header("Cost UI")]
+        public Image costGauge;
+        public TMP_Text costText;
+        public Image costBar;
 
         public void UpdateUnitCardUI(bool isPlayer, UnitBase unit)
         {
@@ -60,5 +64,16 @@
         {
             play_UI.SetActive(isPlayMode);
             unitSet_UI.SetActive(!isPlayMode);
+        }
+
+        public void UpdateCostUI(float cost)
+        {
+            costBar.fillAmount = cost / 10;
+            costGauge.fillAmount = cost - Mathf.Floor(cost);
+            if (cost > 10)
+            {
+                costGauge.fillAmount = 1;
+            }
+            costText.text = Mathf.FloorToInt(cost).ToString();
         }
     }

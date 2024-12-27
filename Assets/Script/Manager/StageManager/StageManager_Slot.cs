@@ -15,15 +15,15 @@ public partial class StageManager
                 GameObject unit = unitSlotList[i].gameObject;
                 if (unit != null)
                 {
-                    // ÃÊ±â À¯´Ö ½½·Ô À§Ä¡ ¼³Á¤
-                    originalPositions[i] = unit.transform.position;
+                    // ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
+                    slotOriginalPositions[i] = unit.transform.position;
                 }
             }
         }
     }
 
     /// <summary>
-    /// ÁöÁ¤µÈ À¯´ÖÀ» ´Ù¸¥ À¯´ÖÀÇ À§Ä¡·Î ÀÌµ¿½ÃÅµ´Ï´Ù.
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½Åµï¿½Ï´ï¿½.
     /// </summary>
     public void MoveUnits()
     {
@@ -33,18 +33,18 @@ public partial class StageManager
 
 
             Tween tween = DOTween.Sequence();
-            tween = (moveSlot.transform.DOMove(originalPositions[i], 0.25f).SetEase(Ease.InOutQuad));
+            tween = (moveSlot.transform.DOMove(slotOriginalPositions[i], 0.25f).SetEase(Ease.InOutQuad));
             tween.OnComplete(() =>
             {
-                moveSlot.transform.position = originalPositions[i];
+                moveSlot.transform.position = slotOriginalPositions[i];
             });
         }
     }
 
     /// <summary>
-    /// ÇöÀç ÅÏÀ» °¡Áø À¯´ÖÀ» ¿À¸¥ÂÊ ¶Ç´Â ¿ÞÂÊÀ¸·Î ÀÌµ¿½ÃÅµ´Ï´Ù.
+    /// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½Åµï¿½Ï´ï¿½.
     /// </summary>
-    /// <param name="rightMove">¿À¸¥ÂÊÀ¸·Î ÀÌµ¿ÇÒÁö ¿©ºÎÀÔ´Ï´Ù. false¸é ¿ÞÂÊÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù.</param>
+    /// <param name="rightMove">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½. falseï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½Õ´Ï´ï¿½.</param>
     public void DirectMoveUnit(bool rightMove)
     {
         if(currentPrograssState == ProgressState.UnitPlay || currentPrograssState == ProgressState.SkillTargetSearch)

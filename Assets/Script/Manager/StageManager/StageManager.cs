@@ -6,7 +6,7 @@ using TMPro;
 using System.Linq;
 
 /// <summary>
-/// ÅÏ Á¾·ù (´ë±â => À¯´Ö ÇÃ·¹ÀÌ => ½ºÅ³ ´ë»ó ¼±ÅÃ => ½ºÅ³ ÀÌÆåÆ® Àç»ı)
+/// í„´ ìˆœì„œ (ëŒ€ê¸° => ìœ ë‹› í”Œë ˆì´ => ìŠ¤í‚¬ íƒ€ê²Ÿ ì„ íƒ => ìŠ¤í‚¬ ì´í™íŠ¸ ì‹¤í–‰)
 /// </summary>
 public enum ProgressState
 {
@@ -22,15 +22,23 @@ public enum ProgressState
 
 public partial class StageManager : Singleton<StageManager>
 {
+    //[Header("------------------- Manager -------------------")]
     private DataManager dataManager;
     private PoolManager poolManager;
 
 
     #region StageVariable
+    [Header("------------------- Stage -------------------")]
+    public StageClearState stageClearCondition;
+
+    public int targetEnemyId; // KillTargetEnemy ì¡°ê±´ì¼ ê²½ìš° íŠ¹ì • ì ì˜ ID
+    public int surviveTurnCount; // SurviveTurn ì¡°ê±´ì¼ ê²½ìš° ìƒì¡´í•´ì•¼ í•  í„´ ìˆ˜
+    private int currentTurnCount; // í˜„ì¬ ì§„í–‰ëœ í„´ ìˆ˜
+    
     [SerializeField]
     private ProgressState _currentPrograssState = ProgressState.UnitSelect;
     /// <summary>
-    /// ÇöÀç °ÔÀÓ ÁøÇà»óÈ²
+    /// í˜„ì¬ ê²Œì„ ì§„í–‰ìƒí™©
     /// </summary>
     public ProgressState currentPrograssState
     {
@@ -41,13 +49,11 @@ public partial class StageManager : Singleton<StageManager>
             switch (value)
             {
                 case ProgressState.UnitSelect:
-                    play_UI.SetActive(false);
-                    unitSet_UI.SetActive(true);
+                    UIManager.Instance.SwitchUIMode(false);
                     break;
 
                 default:
-                    unitSet_UI.SetActive(false);
-                    play_UI.SetActive(true);
+                    UIManager.Instance.SwitchUIMode(true);
                     break;
             }
             Debug.Log($"{currentPrograssState} => {value}");
@@ -55,110 +61,41 @@ public partial class StageManager : Singleton<StageManager>
             _currentPrograssState = value;
         }
     }
-
-    public StageClearState stageClearCondition;
-    public int targetEnemyId; // KillTargetEnemy Á¶°ÇÀÏ °æ¿ì Æ¯Á¤ ÀûÀÇ ID
-    public int surviveTurnCount; // SurviveTurn Á¶°ÇÀÏ °æ¿ì »ıÁ¸ÇØ¾ß ÇÒ ÅÏ ¼ö
-    private int currentTurnCount; // ÇöÀç ÁøÇàµÈ ÅÏ ¼ö
     #endregion
 
     #region Unit&SlotVariable
-
-    [Header("UnitSlot Data")]
+    [Space(20)]
+    [Header("------------------- Unit & Slot -------------------")]
+    [Header("UnitSlot ë³€ìˆ˜")]
     [SerializeField]
-    [Tooltip("À¯´Ö ½½·Ô ±×·ì(unitSlots)À» ´ã´çÇÏ´Â ½ºÅ©¸³Æ®")]
+    [Tooltip("ìœ ë‹› ìŠ¬ë¡¯ ê·¸ë£¹(unitSlots)ì„ ê´€ë¦¬í•˜ëŠ” ìŠ¤í¬ë¦½íŠ¸")]
     public UnitSlotGroupController unitSlotGroupController;
 
-    [Tooltip("À¯´Ö ½½·Ô ¸®½ºÆ®")]
+    [Tooltip("ìœ ë‹› ìŠ¬ë¡¯ ë¦¬ìŠ¤íŠ¸")]
     public List<UnitSlotController> unitSlotList;
 
     [SerializeField]
-    [Tooltip("°¢ ½½·ÔÀÇ ¿ø·¡ À§Ä¡¸¦ ÀúÀåÇÒ µñ¼Å³Ê¸®")]
-    private SerializableDictionary<int, Vector3> originalPositions = new SerializableDictionary<int, Vector3>();
+    [Tooltip("ê° ìŠ¬ë¡¯ì˜ ì›ë˜ ìœ„ì¹˜ë¥¼ ì €ì¥í•  ë”•ì…”ë„ˆë¦¬")]
+    private SerializableDictionary<int, Vector3> slotOriginalPositions = new SerializableDictionary<int, Vector3>();
 
 
     [Header("UnitSelect Data")]
     [SerializeField]
-    [Tooltip("À¯´Ö ¹èÄ¡ ´Ü°è¿¡¼­ ¼±ÅÃµÈ À¯´Ö ½ºÅİ")]
+    [Tooltip("ìœ ë‹› ë°°ì¹˜ ë‹¨ê³„ì—ì„œ ì„ íƒëœ ìœ ë‹› ìƒíƒœ")]
     public UnitStatus currentSelectUnitState;
 
-    [Tooltip("ÇÃ·¹ÀÌ¾î°¡ »ç¿ë °¡´ÉÇÑ À¯´Ö ½½·ÔÀÇ Ä«¿îÆ®")]
+    [Tooltip("í”Œë ˆì´ì–´ê°€ ì‚¬ìš© ê°€ëŠ¥í•œ ìœ ë‹› ìŠ¬ë¡¯ì˜ ì¹´ìš´íŠ¸")]
     public int playerUseUnitSlotCount;
 
-    [Tooltip("ÇÃ·¹ÀÌ¾î°¡ »ç¿ë °¡´ÉÇÑ À¯´Ö ½½·ÔÀÇ ¹üÀ§")]
+    [Tooltip("í”Œë ˆì´ì–´ê°€ ì‚¬ìš© ê°€ëŠ¥í•œ ìœ ë‹› ìŠ¬ë¡¯ì˜ ë²”ìœ„")]
     public int playerUseUnitSlotRange;
 
     /// <summary>
-    /// À¯´ÖÀÇ ÀÌµ¿ Áß »óÅÂ¸¦ ÆÇ´ÜÇÏ´Â °ª
-    /// </summary>
-    private bool isUnitMoving = false;
-    /// <summary>
-    /// À¯´ÖÀÇ Á×´Â Áß »óÅÂ¸¦ ÆÇ´ÜÇÏ´Â °ª
+    /// ìœ ë‹›ì´ ì£½ëŠ” ì¤‘ ìƒíƒœë¥¼ íŒë‹¨í•˜ëŠ” ê°’
     /// </summary>
     public bool isUnitDying = false;
     #endregion
-
-    #region SkillSlotVariable
-    [Space(10)]
-    [Header("SkillSlot Data")]
-    [SerializeField]
-    [Tooltip("½ºÅ³ ½½·Ô ¸®½ºÆ®")]
-    /// <summary>
-    /// ½ºÅ³ µ¥ÀÌÅÍ¸¦ ÇÃ·¹ÀÌ¾î¿¡°Ô º¸¿©ÁÖ´Â UI ½½·Ô ¸®½ºÆ®
-    /// </summary>
-    public List<SkillSlotUIController> skillSlotList;
-
-    private int _skillTargetNum;
-
-    public int skillTargetNum
-    {
-        get
-        {
-            return _skillTargetNum;
-        }
-        set
-        {
-            _skillTargetNum = value;
-
-            if (targetUnitCardUI != null && skillTargetNum >= 0)
-            {
-                targetUnitCardUI.unitStatus.SetStatus(unitSlotList[skillTargetNum].unit);
-            }
-        }
-    }
-
-    #endregion
-
-    #region CostVariable
-    [Space(10)]
-    [Header("Cost Data")]
-    private float _cost;
-    public float cost 
-    {
-        get { return _cost; }
-        set 
-        {
-            if(_cost != value)
-            {
-                _cost = value;
-                costBar.fillAmount = _cost / 10;
-                costGauge.fillAmount = _cost - Mathf.Floor(_cost);
-                if (_cost > 10)
-                {
-                    costGauge.fillAmount = 1;
-                }
-                costText.text = Mathf.FloorToInt(_cost).ToString();
-            }
-        }
-    }
-
-    [SerializeField]
-    private Image costGauge;
-    [SerializeField]
-    private TMP_Text costText;
-    [SerializeField]
-    private Image costBar;
-    #endregion
+    
 
 
 
@@ -169,7 +106,7 @@ public partial class StageManager : Singleton<StageManager>
     }
 
     /// <summary>
-    /// °ÔÀÓ ÃÊ±â ¼³Á¤À» ÁøÇàÇÏ´Â ´Ü°èÀÔ´Ï´Ù.
+    /// ê²Œì„ ì´ˆê¸° ì„¤ì •ì„ ì§„í–‰í•˜ëŠ” ë‹¨ê³„ì…ë‹ˆë‹¤. StageMasterì—ì„œ ë³€ìˆ˜ í• ë‹¹ í›„ í˜¸ì¶œí•©ë‹ˆë‹¤.
     /// </summary>
     public void InitGame()
     {
@@ -181,7 +118,7 @@ public partial class StageManager : Singleton<StageManager>
     }
 
     /// <summary>
-    /// ÇÃ·¹ÀÌ¾î°¡ À¯´ÖÀ» ¹èÄ¡ÇÏ´Â ´Ü°èÀÔ´Ï´Ù.
+    /// í”Œë ˆì´ì–´ê°€ ìœ ë‹›ì„ ë°°ì¹˜í•˜ëŠ” ë‹¨ê³„ì…ë‹ˆë‹¤.
     /// </summary>
     public void UnitSetGame()
     {
@@ -202,7 +139,7 @@ public partial class StageManager : Singleton<StageManager>
             }
             
 
-            remainingSetUnitSlotText.text = $"RemainingUnitSlot : {playerUseUnitSlotCount}";
+            UIManager.Instance.UpdateRemainingSlots(playerUseUnitSlotCount);
         } else
         {
 
@@ -221,7 +158,7 @@ public partial class StageManager : Singleton<StageManager>
     }
 
     /// <summary>
-    /// ¸ŞÀÎ °ÔÀÓÀ» ½Ç½ÃÇÏ´Â ´Ü°èÀÔ´Ï´Ù.
+    /// ê²Œì„ ì‹œì‘ì„ ì‹¤ì‹œí•˜ëŠ” ë‹¨ê³„ì…ë‹ˆë‹¤.
     /// </summary>
     public void StartGame()
     {
@@ -230,7 +167,7 @@ public partial class StageManager : Singleton<StageManager>
     }
 
     /// <summary>
-    /// °¢ unitSlotÀÇ actionPoints¸¦ ÃÊ±âÈ­ÇÕ´Ï´Ù.
+    /// ê° unitSlotì˜ actionPointsë¥¼ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
     /// </summary>
     private void ActionPointsInit()
     {
@@ -242,7 +179,7 @@ public partial class StageManager : Singleton<StageManager>
                 UnitBase unit = unitSlot.unit;
                 if (!actionPoints.ContainsKey(unit))
                 {
-                    actionPoints.Add(unit, unit.currentAp); // Å°°¡ ¾øÀ¸¸é Ãß°¡
+                    actionPoints.Add(unit, unit.currentAp); // í‚¤ê°€ ì—†ìœ¼ë©´ ì¶”ê°€
                 }
             }
         }
@@ -254,7 +191,7 @@ public partial class StageManager : Singleton<StageManager>
         switch (stageClearCondition)
         {
             case StageClearState.KillAllEnemy:
-                if (unitSlotList.All(slot => slot.isNull || slot.unitTeam != 2)) // ÀûÀÌ Àü¸êÇß´ÂÁö È®ÀÎ
+                if (unitSlotList.All(slot => slot.isNull || slot.unitTeam != 2)) // ì ì„ ì²˜ì¹˜í–ˆëŠ”ì§€ í™•ì¸
                 {
                     StageClear();
                 }
@@ -281,7 +218,7 @@ public partial class StageManager : Singleton<StageManager>
     private void StageClear()
     {
         Debug.Log("Stage Cleared!");
-        // Å¬¸®¾î ¿¬Ãâ ¹× ´ÙÀ½ ´Ü°è Ã³¸® ·ÎÁ÷ Ãß°¡
+        // í´ë¦¬ì–´ ì¡°ê±´ ë‹¬ì„± ì‹œ ë‹¤ìŒ ë‹¨ê³„ ì²˜ë¦¬ ë¡œì§ ì¶”ê°€
     }
 
 }

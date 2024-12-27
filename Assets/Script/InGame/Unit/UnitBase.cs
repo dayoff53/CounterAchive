@@ -6,50 +6,73 @@ using TMPro;
 
 public class UnitBase : MonoBehaviour
 {
+    [Header("매니저 참조")]
+    [Tooltip("스테이지 매니저 인스턴스")]
     StageManager stageManager;
+    [Tooltip("풀 매니저 인스턴스")]
     PoolManager poolManager;
+    [Tooltip("데이터 매니저 인스턴스")]
     DataManager dataManager;
 
-    [Header("스프라이트 렌더러")]
-    [SerializeField]
-    public SpriteRenderer spriteRenderer;
-
-    [SerializeField]
-    private Animator unitAnimator;
-
-    [SerializeField]
-    private Image hpPointBar;
-    [SerializeField]
-    private TextMeshProUGUI hpPointText;
-
-    [SerializeField]
-    private Image actionPointBar;
-    [SerializeField]
-    public GameObject hitPosition;
-    [SerializeField]
-    public CorpseDissolve corpseDissolve;
+    [Space(10)]
+    [Header("시각적 요소 컴포넌트")]
+    [Tooltip("유닛의 스프라이트 렌더러")]
+    [SerializeField] public SpriteRenderer spriteRenderer;
+    [Tooltip("유닛의 애니메이터")]
+    [SerializeField] private Animator unitAnimator;
 
     [Space(10)]
-    [Header("Status")]
+    [Header("UI")]
+    [Tooltip("HP 바 이미지")]
+    [SerializeField] private Image hpPointBar;
+    [Tooltip("HP 텍스트")]
+    [SerializeField] private TextMeshProUGUI hpPointText;
+    [Tooltip("AP 바 이미지")]
+    [SerializeField] private Image actionPointBar;
+
+    [Space(10)]
+    [Header("게임플레이 연출")]
+    [Tooltip("히트 이펙트 위치 (히트 이펙트 위치, 유닛의 눈 위치)")]
+    /// <summary>
+    /// 히트 이펙트 위치 (유닛의 중심 위치, 유닛의 눈 위치)
+    /// </summary>
+    [SerializeField] public List<GameObject> productionPositionList;
+    [Tooltip("시체 디졸브 효과")]
+    [SerializeField] public CorpseDissolve corpseDissolve;
+
+    [Space(20)]
+    [Header("기본 정보")]
+    [Tooltip("유닛 데이터")]
     public UnitData unitData;
+    [Tooltip("유닛 고유 번호")]
     public int unitNumber;
+    [Tooltip("유닛 이름")]
     public string unitName;
+    [Tooltip("유닛 얼굴 아이콘")]
     public Sprite unitFaceIcon;
+    [Tooltip("유닛 애니메이션 컨트롤러")]
     public RuntimeAnimatorController unitAnim;
 
-    [Space(10)]
-    [Header("Status")]
+    [Space(20)]
+    [Header("스탯")]
+    [Tooltip("최대 체력")]
     public float maxHp;
+    [Tooltip("현재 체력")]
     private float _currentHp;
+    [Tooltip("최대 행동력")]
     public float maxAp = 100;
+    [Tooltip("현재 행동력")]
     public float _currentAp = 0;
+    [Tooltip("공격력")]
     public float atk;
+    [Tooltip("방어력")]
     public float def;
+    [Tooltip("명중률")]
     public float acc = 1;
+    [Tooltip("회피율")]
     public float eva = 1;
+    [Tooltip("속도")]
     public float speed;
-    public List<UnitTag> unitTagList;
-    public List<SkillData> skillDataList;
     public float currentHp
     {
         get { return _currentHp; }
@@ -62,6 +85,7 @@ public class UnitBase : MonoBehaviour
         }
     }
     public float currentAp
+
     {
         get { return _currentAp; }
         set
@@ -71,6 +95,13 @@ public class UnitBase : MonoBehaviour
                 actionPointBar.fillAmount = currentAp / maxAp;
         }
     }
+    
+    [Space(10)]
+    [Header("특성 및 스킬")]
+    [Tooltip("유닛 태그 목록")]
+    public List<UnitTag> unitTagList;
+    [Tooltip("스킬 데이터 목록")]
+    public List<SkillData> skillDataList;
 
     private void Start()
     {
@@ -245,7 +276,7 @@ public class UnitBase : MonoBehaviour
 
     public void HitProduction(GameObject hitProductonObject, float skillHitRadius)
     {
-        Vector3 hitPos = hitPosition.gameObject.transform.position;
+        Vector3 hitPos = productionPositionList[0].gameObject.transform.position;
         hitProductonObject.transform.position = hitPos;
 
         if (skillHitRadius > 0)

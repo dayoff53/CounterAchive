@@ -5,31 +5,79 @@ using UnityEngine;
 
 public partial class StageManager
 {
+    #region SkillVariable
+    [Space(20)]
+    [Header("------------------- Skill -------------------")]
+    [Header("ìŠ¤í‚¬ ê¸°ë³¸ ë³€ìˆ˜")]
+    /// <summary>
+    /// í˜„ì¬ ì„ íƒëœ ìŠ¤í‚¬ì˜ íƒ€ê²Ÿ ìŠ¬ë¡¯ ë¦¬ìŠ¤íŠ¸
+    /// </summary>
     public List<UnitSlotController> currentSkillTargetSlots;
+    
+    /// <summary>
+    /// í˜„ì¬ ì„ íƒëœ ìŠ¤í‚¬ ë°ì´í„°
+    /// </summary>
     private SkillData _currentSkillData;
     public SkillData currentSkillData
     {
-        get
-        {
-            return _currentSkillData;
-        }
+        get { return _currentSkillData; }
         set
         {
             _currentSkillData = value;
-
             stageMenuController.StageMenuInit();
         }
     }
+
+    /// <summary>
+    /// ìŠ¤í‚¬ì˜ ì„±ê³µì—¬ë¶€ë¥¼ íŒì •í•˜ëŠ” ìˆ˜ì¹˜ (0~1)
+    /// </summary>
     private float skillAcc = 0;
+
+    /// <summary>
+    /// ìŠ¤í‚¬ì˜ íŒì • ì„±ê³µ ì—¬ë¶€ (Accë¥¼ ê¸°ì¤€ìœ¼ë¡œ í•¨)
+    /// </summary>
     private bool isSkillSuccess = false;
-    private SkillRangeUIController skillRangeUIController;
-    public StageMenuController stageMenuController;
+
+    /// <summary>
+    /// ìŠ¤í‚¬ì˜ ì—°ì¶œ ë°œìƒ íšŸìˆ˜
+    /// </summary>
+    private int skillHitProductionCount = 0;
+    #endregion
+
+    #region SkillSlotVariable
+    [Space(10)]
+    [Header("ìŠ¤í‚¬ ìŠ¬ë¡¯ ë³€ìˆ˜")]
+    [SerializeField]
+    [Tooltip("ìŠ¤í‚¬ ìŠ¬ë¡¯ ë¦¬ìŠ¤íŠ¸")]
+    /// <summary>
+    /// ìŠ¤í‚¬ ë°ì´í„°ë¥¼ í”Œë ˆì´ì–´ì— ë³´ì—¬ì£¼ëŠ” UI ìŠ¬ë¡¯ ë¦¬ìŠ¤íŠ¸
+    /// </summary>
+    public List<SkillSlotUIController> skillSlotList;
+
+    /// <summary>
+    /// í˜„ì¬ ì„ íƒëœ ìŠ¤í‚¬ íƒ€ê²Ÿì˜ ìŠ¬ë¡¯ ë²ˆí˜¸
+    /// </summary>
+    private int _skillTargetNum;
+    public int skillTargetNum
+    {
+        get { return _skillTargetNum; }
+        set
+        {
+            _skillTargetNum = value;
+
+            if (UIManager.Instance.targetUnitCardUI != null && skillTargetNum >= 0)
+            {
+                UIManager.Instance.UpdateUnitCardUI(false, unitSlotList[skillTargetNum].unit);
+            }
+        }
+    }
+    #endregion
 
 
     /// <summary>
-    /// ½ºÅ³ ½½·ÔÀ» ÃÊ±âÈ­ÇÏ°í ¼³Á¤µÈ ½ºÅ³ µ¥ÀÌÅÍ¸¦ ½½·Ô¿¡ ÇÒ´çÇÕ´Ï´Ù.
+    /// ìŠ¤í‚¬ ìŠ¬ë¡¯ì„ ì´ˆê¸°í™”í•˜ê³  ì„ íƒëœ ìŠ¤í‚¬ ë°ì´í„°ë¥¼ ìŠ¬ë¡¯ì— í• ë‹¹í•©ë‹ˆë‹¤.
     /// </summary>
-    /// <param name="setSkillDataList">ÃÊ±âÈ­ÇÒ ½ºÅ³ µ¥ÀÌÅÍ ¸®½ºÆ®ÀÔ´Ï´Ù.</param>
+    /// <param name="setSkillDataList">ì´ˆê¸°í™”í•  ìŠ¤í‚¬ ë°ì´í„° ë¦¬ìŠ¤íŠ¸ì…ë‹ˆë‹¤.</param>
     public void SkillSlotInit(List<SkillData> setSkillDataList)
     {
         skillTargetNum = -1;
@@ -46,9 +94,9 @@ public partial class StageManager
     }
 
     /// <summary>
-    /// ½ºÅ³ À¯ÇüÀ» ¼±ÅÃÇÏ°í ÇØ´ç ½ºÅ³ÀÇ ¹üÀ§¸¦ ¼³Á¤ÇÕ´Ï´Ù.
+    /// ìŠ¤í‚¬ íƒ€ì…ì„ ì„ íƒí•˜ê³  í•´ë‹¹ ìŠ¤í‚¬ì˜ ë²”ìœ„ë¥¼ í‘œì‹œí•©ë‹ˆë‹¤.
     /// </summary>
-    /// <param name="skillData">¼±ÅÃµÈ ½ºÅ³ µ¥ÀÌÅÍÀÔ´Ï´Ù.</param>
+    /// <param name="skillData">ì„ íƒëœ ìŠ¤í‚¬ ë°ì´í„°ì…ë‹ˆë‹¤.</param>
     public void SkillTypeSelect(SkillData skillData)
     {
         if (skillData != null && (currentPrograssState == ProgressState.UnitPlay || currentPrograssState == ProgressState.SkillTargetSearch))
@@ -60,9 +108,9 @@ public partial class StageManager
     }
 
     /// <summary>
-    /// ½ºÅ³ÀÇ Å¸°Ù ½½·ÔÀ» ¼±ÅÃÇÏ°í ÇÊ¿äÇÑ Á¶°ÇÀ» È®ÀÎÇÕ´Ï´Ù.
+    /// ìŠ¤í‚¬ì˜ íƒ€ê²Ÿ ìŠ¬ë¡¯ì„ ì„ íƒí•˜ê³  í•„ìš”í•œ ì •ë³´ë¥¼ í™•ì¸í•©ë‹ˆë‹¤.
     /// </summary>
-    /// <param name="selectTargetSlot">¼±ÅÃµÈ Å¸°Ù ½½·Ô ÄÁÆ®·Ñ·¯ÀÔ´Ï´Ù.</param>
+    /// <param name="selectTargetSlot">ì„ íƒëœ íƒ€ê²Ÿ ìŠ¬ë¡¯ ì»¨íŠ¸ë¡¤ëŸ¬ì…ë‹ˆë‹¤.</param>
     public void SkillTargetSelect(UnitSlotController selectTargetSlot)
     {
         if (cost >= currentSkillData.skillCost)
@@ -83,9 +131,11 @@ public partial class StageManager
             skillAcc = ((unitSlotList[currentTurnSlotNumber].unit.acc * (currentSkillData.skillAcc * 0.01f)) / unitSlotList[skillTargetNum].unit.eva);
             skillAccuracyText.text = $"{skillAcc * 100}%";
 
+            skillHitProductionCount = currentSkillData.skillHitCount;
+
             targetUnitMarker.SetActive(true);
-            targetUnitMarker.transform.parent = selectTargetSlot.unit.hitPosition.transform;
-            targetUnitMarker.transform.position = selectTargetSlot.unit.hitPosition.transform.position;
+            targetUnitMarker.transform.parent = selectTargetSlot.unit.productionPositionList[0].transform;
+            targetUnitMarker.transform.position = selectTargetSlot.unit.productionPositionList[0].transform.position;
 
 
             Debug.Log($"stageManager.skillTargetNum = {skillTargetNum}");
@@ -93,13 +143,13 @@ public partial class StageManager
         else
         {
             SetCurrentUnitCardUI(false, 0);
-            Debug.Log("ºñ¿ëÀÌ ºÎÁ·ÇÕ´Ï´Ù.");
+            Debug.Log("ì½”ìŠ¤íŠ¸ê°€ ë¶€ì¡±í•©ë‹ˆë‹¤.");
         }
     }
 
     /// <summary>
-    /// ½ºÅ³À» ½ÃÀÛÇÏ°í ¼º°ø ¿©ºÎ¸¦ ÆÇ´ÜÇÕ´Ï´Ù. 
-    /// (ÇöÀç ÁøÇà »óÅÂ°¡ SkillPlay·Î ÀüÈ¯µÇ°í, À¯´Ö ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ ½ÃÀÛµË´Ï´Ù.)
+    /// ìŠ¤í‚¬ì„ ì‹œì‘í•˜ê³  ëª…ì¤‘ ì—¬ë¶€ë¥¼ íŒë‹¨í•©ë‹ˆë‹¤. 
+    /// (í˜„ì¬ ì§„í–‰ ìƒíƒœê°€ SkillPlayë¡œ ì „í™˜ë˜ê³ , ìœ ë‹› ì• ë‹ˆë©”ì´ì…˜ì´ ì‹œì‘ë©ë‹ˆë‹¤.)
     /// </summary>
     public void SkillStart()
     {
@@ -110,13 +160,13 @@ public partial class StageManager
             if (randomValue < skillAcc)
             {
                 isSkillSuccess = true;
-                Debug.Log($"{currentSkillData.skillName} ½ºÅ³ÀÌ ¼º°øÀûÀ¸·Î ¹ßµ¿µÇ¾ú½À´Ï´Ù.");
+                Debug.Log($"{currentSkillData.skillName} ìŠ¤í‚¬ì´ ì„±ê³µì ìœ¼ë¡œ ë°œë™ë˜ì—ˆìŠµë‹ˆë‹¤.");
             } else
             {
-                Debug.Log($"{currentSkillData.skillName} ½ºÅ³ÀÌ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+                Debug.Log($"{currentSkillData.skillName} ìŠ¤í‚¬ì´ ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
             }
 
-            // ½ºÅ³ È¿°ú¸¦ Àû¿ëÇÕ´Ï´Ù (SkillEndPlay È£Ãâ)
+            // ìŠ¤í‚¬ íš¨ê³¼ë¥¼ ì ìš©í•©ë‹ˆë‹¤ (SkillEndPlay í˜¸ì¶œ)
             currentSkillTargetSlots = new List<UnitSlotController>();
             foreach (int skillAreaNum in currentSkillData.skillArea)
             {
@@ -135,7 +185,32 @@ public partial class StageManager
     }
 
     /// <summary>
-    /// ½ºÅ³ÀÌ Á¾·áµÇ¾úÀ» ¶§ ½ºÅ³ È¿°ú¸¦ Àû¿ëÇÕ´Ï´Ù.
+    /// ìŠ¤í‚¬ì˜ ì—°ì¶œ íš¨ê³¼ë¥¼ ì ìš©í•©ë‹ˆë‹¤.
+    /// </summary>
+    public virtual void SkillProduction(int hitProductionNum)
+    {
+        foreach (UnitSlotController targetUnit in currentSkillTargetSlots)
+        {
+            Debug.Log($"{targetUnit}ì˜ SkillProduction í˜¸ì¶œ");
+            if(!currentSkillData.isSkillHitMultiple)
+            {
+                GameObject hitProductonObject = poolManager.Pop(currentSkillData.skillHitProductionObjects[hitProductionNum]);
+                targetUnit.unit.HitProduction(hitProductonObject, currentSkillData.skillHitRadius);
+                targetUnit.unit.SetAnim(2);
+            } else if (currentSkillData.isSkillHitMultiple && skillHitProductionCount > 0)
+            {
+                GameObject hitProductonObject = poolManager.Pop(currentSkillData.skillHitProductionObjects[hitProductionNum]);
+                targetUnit.unit.HitProduction(hitProductonObject, currentSkillData.skillHitRadius);
+                targetUnit.unit.SetAnim(2);
+                skillHitProductionCount--;
+            }
+        }
+    }
+
+
+
+    /// <summary>
+    /// ìŠ¤í‚¬ì´ ë°œë™ ì¢…ë£Œ ì´í›„, ìŠ¤í‚¬ íš¨ê³¼ë¥¼ ì ìš©í•©ë‹ˆë‹¤.
     /// </summary>
     public void SkillEndPlay()
     {
@@ -162,56 +237,11 @@ public partial class StageManager
         }
     }
 
-    /// <summary>
-    /// ½ºÅ³ÀÇ Å¸°İ È¿°ú¸¦ »ı¼ºÇÕ´Ï´Ù.
-    /// </summary>
-    public virtual void SkillProduction(int hitProductionNum)
-    {
-        foreach (UnitSlotController targetUnit in currentSkillTargetSlots)
-        {
-            Debug.Log($"{targetUnit}ÀÇ SkillProduction È£Ãâ");
-            GameObject hitProductonObject = poolManager.Pop(currentSkillData.skillHitProductionObjects[hitProductionNum]);
-            targetUnit.unit.HitProduction(hitProductonObject, currentSkillData.skillHitRadius);
-            targetUnit.unit.SetAnim(2);
-        }
-    }
-
 
     /// <summary>
-    /// ½ºÅ³ÀÇ È÷Æ® È¿°ú¸¦ »ı¼ºÇÕ´Ï´Ù.
+    /// ìŠ¤í‚¬ì˜ ë²”ìœ„ì— ë”°ë¼ ê·¸ë¼ìš´ë“œ ìƒíƒœë¥¼ ì„¤ì •í•©ë‹ˆë‹¤.
     /// </summary>
-    public virtual void HitProduction(int hitProductionNum)
-    {
-        foreach (UnitSlotController targetUnit in currentSkillTargetSlots)
-        {
-            if (!targetUnit.isNull)
-            {
-                targetUnit.unit.SetAnim(2);
-            }
-        }
-        GameObject hitProductonObject = poolManager.Pop(currentSkillData.skillHitProductionObjects[hitProductionNum]);
-
-        Vector3 hitPos = unitSlotList[skillTargetNum].unit.hitPosition.gameObject.transform.position;
-
-        if (currentSkillData.skillHitRadius != 0)
-        {
-            float angle = Random.Range(0, 360);
-
-            float randomRadius = Random.Range(0f, currentSkillData.skillHitRadius);
-
-            float x = hitPos.x + randomRadius * Mathf.Cos(angle * Mathf.Deg2Rad);
-            float y = hitPos.y + randomRadius * Mathf.Sin(angle * Mathf.Deg2Rad);
-
-            hitProductonObject.transform.position = new Vector3(x, y, hitPos.z);
-        }
-    }
-
-
-
-    /// <summary>
-    /// ½ºÅ³ÀÇ ¹üÀ§¿¡ µû¶ó ±×¸®µå »óÅÂ¸¦ ¼³Á¤ÇÕ´Ï´Ù.
-    /// </summary>
-    /// <param name="skillRange">½ºÅ³ÀÇ ¹üÀ§ ¹è¿­ÀÔ´Ï´Ù.</param>
+    /// <param name="skillRange">ìŠ¤í‚¬ì˜ ë²”ìœ„ ë°°ì—´ì…ë‹ˆë‹¤.</param>
     public void SetRangeGround(int[] skillRange)
     {
         SlotGroundSpriteController groundSprite;

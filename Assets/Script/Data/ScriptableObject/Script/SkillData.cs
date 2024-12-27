@@ -64,7 +64,7 @@ public class SkillData : ScriptableObject
     [Tooltip("히트가 여러 번 발생하는지 여부와 관련된 설정")]
     public bool isSkillHitMultiple;
     [Tooltip("isSkillHitMultiple가 true일 때 히트가 발생하는 횟수")]
-    public int skillHitCount;
+    public int skillHitCount = 1;
     [Tooltip("히트 반경")]
     public float skillHitRadius = 0;
 
