@@ -194,8 +194,6 @@ public partial class StageManager
     public void TurnEnd()
     {
         // 유닛 사망 여부 확인
-        if (!isUnitDying)
-        {
             // 모든 유닛의 애니메이션 및 슬롯 상태 초기화
             foreach (UnitSlotController unitSlot in unitSlotList)
             {
@@ -205,18 +203,12 @@ public partial class StageManager
                 groundSprite.SetSlotGroundState(SlotGroundState.Default);
             }
 
+
             turnUnitMarker.SetActive(false);
             targetUnitMarker.SetActive(false);
-
             currentTurnCount++;
             UpdateStageClearCondition();
-
-            currentPrograssState = ProgressState.Stay;
-        }
-        else
-        {
-            Debug.Log("유닛이 사망하여 턴을 종료할 수 없습니다.");
-        }
+            
     }
 
 }

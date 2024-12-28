@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class CorpseDissolve : MonoBehaviour
+public class CorpseProduction : MonoBehaviour
 {
     private StageManager stageManager;
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -56,7 +56,10 @@ public class CorpseDissolve : MonoBehaviour
             //Unity does not allow meshRenderer.materials[0]...
             spriteRenderer.materials = mats;
 
-            stageManager.isUnitDying = false;
+            if(mats[0].GetFloat("_Cutoff") >= 1.0f)
+            {
+                stageManager.isUnitDying = false;
+            }
 
 
             if (time >= 2f && stageManager.isUnitDying == false)

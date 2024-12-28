@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class UnitBase : MonoBehaviour
 {
     [Header("매니저 참조")]
     [Tooltip("스테이지 매니저 인스턴스")]
     StageManager stageManager;
-    [Tooltip("풀 매니저 인스턴스")]
-    PoolManager poolManager;
+    [Tooltip("카메라 매니저 인스턴스")]
+    CameraManager cameraManager;
     [Tooltip("데이터 매니저 인스턴스")]
     DataManager dataManager;
 
@@ -38,7 +39,7 @@ public class UnitBase : MonoBehaviour
     /// </summary>
     [SerializeField] public List<GameObject> productionPositionList;
     [Tooltip("시체 디졸브 효과")]
-    [SerializeField] public CorpseDissolve corpseDissolve;
+    [SerializeField] public CorpseProduction corpseDissolve;
 
     [Space(20)]
     [Header("기본 정보")]
@@ -105,9 +106,9 @@ public class UnitBase : MonoBehaviour
 
     private void Start()
     {
-        poolManager = PoolManager.Instance;
-        dataManager = DataManager.Instance;
         stageManager = StageManager.Instance;
+        cameraManager = CameraManager.Instance;
+        dataManager = DataManager.Instance;
 
         StatusInit();
     }
@@ -260,12 +261,15 @@ public class UnitBase : MonoBehaviour
         currentHp -= damage;
 
         if (currentHp <= 0 && unitData.name != "Null")
+        {
             Death();
+        }
     }
 
     public void Death()
     {
-        stageManager.isUnitDying = false;
+        stageManager.isUnitDying = true;
+        stageManager.lastEnemyDeathObject = corpseDissolve.gameObject;
 
         corpseDissolve.DissolveStart(spriteRenderer);
         spriteRenderer.sprite = null;

@@ -160,6 +160,17 @@ public partial class StageManager
             if (randomValue < skillAcc)
             {
                 isSkillSuccess = true;
+                foreach (SkillEffect effect in currentSkillData.skillEffectList)
+                {
+                    if (effect.skillEffectState == SkillEffectState.Damage)
+                    {
+                        // 유닛의 사망이 확정되었을 경우 카메라 줌 인
+                        if (unitSlotList[skillTargetNum].unit.currentHp <= 0)
+                        {
+                            CameraManager.Instance.ZoomToTarget(unitSlotList[skillTargetNum].unit.transform, 10f, 0.5f);
+                        }
+                    }
+                }
                 Debug.Log($"{currentSkillData.skillName} 스킬이 성공적으로 발동되었습니다.");
             } else
             {

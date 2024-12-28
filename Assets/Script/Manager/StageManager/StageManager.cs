@@ -6,7 +6,7 @@ using TMPro;
 using System.Linq;
 
 /// <summary>
-/// 턴 순서 (대기 => 유닛 플레이 => 스킬 타겟 선택 => 스킬 이펙트 실행)
+/// 턴 순서 (대기 => 유닛 플레이 턴 => 스킬 타겟 선택 => 스킬 이펙트 실행 (게임 실행 전 유닛 선택 턴, 선택 후 유닛 베치 턴))
 /// </summary>
 public enum ProgressState
 {
@@ -16,8 +16,7 @@ public enum ProgressState
     SkillTargetSearch,
     SkillPlay,
 
-    UnitSelect,
-    UnitSet
+    UnitSelect
 }
 
 public partial class StageManager : Singleton<StageManager>
@@ -25,13 +24,14 @@ public partial class StageManager : Singleton<StageManager>
     //[Header("------------------- Manager -------------------")]
     private DataManager dataManager;
     private PoolManager poolManager;
-
+    private CameraManager cameraManager;
 
     #region StageVariable
     [Header("------------------- Stage -------------------")]
     public StageClearState stageClearCondition;
 
     public int targetEnemyId; // KillTargetEnemy 조건일 경우 특정 적의 ID
+    public GameObject lastEnemyDeathObject; // 최근 사망한 마지막 적
     public int surviveTurnCount; // SurviveTurn 조건일 경우 생존해야 할 턴 수
     private int currentTurnCount; // 현재 진행된 턴 수
     
@@ -103,6 +103,7 @@ public partial class StageManager : Singleton<StageManager>
     {
         dataManager = DataManager.Instance;
         poolManager = PoolManager.Instance;
+        cameraManager = CameraManager.Instance;
     }
 
     /// <summary>
@@ -113,7 +114,6 @@ public partial class StageManager : Singleton<StageManager>
         unitSlotGroupController.UnitSlotsInit();
         unitStateColors = unitStateColorsObject.colorStates;
         SlotPosInit();
-
         UnitSetGame();
     }
 
@@ -124,6 +124,7 @@ public partial class StageManager : Singleton<StageManager>
     {
         if (playerUseUnitSlotCount > 0)
         {
+            // 플레이어가 사용 가능한 유닛 슬롯이 있을 경우 유닛 배치 단계로 진행
             currentPrograssState = ProgressState.UnitSelect;
 
             for(int i = 0; (i < unitSlotList.Count); i++)
@@ -142,6 +143,7 @@ public partial class StageManager : Singleton<StageManager>
             UIManager.Instance.UpdateRemainingSlots(playerUseUnitSlotCount);
         } else
         {
+            // 플레이어가 사용 가능한 유닛 슬롯이 없을 경우 비어있는 유닛 슬롯의 Team을 0으로 설정하고 게임 시작
 
             for (int i = 0; (i < unitSlotList.Count); i++)
             {
@@ -185,15 +187,28 @@ public partial class StageManager : Singleton<StageManager>
         }
     }
 
-
+    /// <summary>
+    /// 스테이지 클리어 조건을 업데이트하는 함수입니다.
+    /// </summary>
+                bool noEnemiesLeft = true;
     private void UpdateStageClearCondition()
     {
         switch (stageClearCondition)
         {
             case StageClearState.KillAllEnemy:
-                if (unitSlotList.All(slot => slot.isNull || slot.unitTeam != 2)) // 적을 처치했는지 확인
+                noEnemiesLeft = true;
+                foreach(var slot in unitSlotList) {
+                    if(slot.unitTeam == 2) {
+                        noEnemiesLeft = false;
+                        break;
+                    }
+                }
+                if(noEnemiesLeft) // 적이 하나도 없다면 클리어 조건 달성
                 {
-                    StageClear();
+                    Debug.Log("noEnemiesLeft" + noEnemiesLeft);
+                    cameraManager.ZoomToTarget(lastEnemyDeathObject.transform, 3.5f, 0.5f);
+                    Time.timeScale = 0.5f;
+                    Invoke(nameof(KillAllEnemyClear), 2.1f);
                 }
                 break;
 
@@ -210,15 +225,26 @@ public partial class StageManager : Singleton<StageManager>
                     StageClear();
                 }
                 break;
-
             default:
                 break;
         }
+        
+            currentPrograssState = ProgressState.Stay;
     }
+
+    /// <summary>
+    /// 스테이지 클리어 조건을 달성했을 때 호출되는 함수입니다.
+    /// </summary>
     private void StageClear()
     {
         Debug.Log("Stage Cleared!");
         // 클리어 조건 달성 시 다음 단계 처리 로직 추가
     }
 
+    private void KillAllEnemyClear()
+    {
+        Time.timeScale = 1.0f;
+        cameraManager.ResetCamera(0.5f);
+        StageClear();
+    }
 }
