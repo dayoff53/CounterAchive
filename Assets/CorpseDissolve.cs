@@ -62,7 +62,7 @@ public class CorpseProduction : MonoBehaviour
             }
 
 
-            if (time >= 2f && stageManager.isUnitDying == false)
+            if (time >= 1f && stageManager.isUnitDying == false)
             {
                 yield break;
             }

@@ -15,15 +15,15 @@ public class UnitBase : MonoBehaviour
     [Tooltip("데이터 매니저 인스턴스")]
     DataManager dataManager;
 
-    [Space(10)]
-    [Header("시각적 요소 컴포넌트")]
+    [Space(20)]
+    [Header("------------------- 시각적 요소 -------------------")]
     [Tooltip("유닛의 스프라이트 렌더러")]
     [SerializeField] public SpriteRenderer spriteRenderer;
     [Tooltip("유닛의 애니메이터")]
     [SerializeField] private Animator unitAnimator;
 
-    [Space(10)]
-    [Header("UI")]
+    [Space(20)]
+    [Header("------------------- UI -------------------")]
     [Tooltip("HP 바 이미지")]
     [SerializeField] private Image hpPointBar;
     [Tooltip("HP 텍스트")]
@@ -32,8 +32,16 @@ public class UnitBase : MonoBehaviour
     [SerializeField] private Image actionPointBar;
 
     [Space(10)]
+    [Header("스킬 타겟 관련 UI")]
+    [Tooltip("스킬 타겟 아이콘 리스트 (현재 턴 유닛, 타겟 유닛)")]
+    [SerializeField] private List<Image> skillTargetingImageList;
+    [Tooltip("스킬 타겟 텍스트")]
+    [SerializeField] private TextMeshProUGUI skillTargetingText;
+
+    [Space(20)]
+    [Header("------------------- SFX -------------------")]
     [Header("게임플레이 연출")]
-    [Tooltip("히트 이펙트 위치 (히트 이펙트 위치, 유닛의 눈 위치)")]
+    [Tooltip("히트 연출 위치 (히트 연출 위치, 유닛의 눈 위치)")]
     /// <summary>
     /// 히트 이펙트 위치 (유닛의 중심 위치, 유닛의 눈 위치)
     /// </summary>
@@ -41,8 +49,8 @@ public class UnitBase : MonoBehaviour
     [Tooltip("시체 디졸브 효과")]
     [SerializeField] public CorpseProduction corpseDissolve;
 
-    [Space(20)]
-    [Header("기본 정보")]
+    [Space(20)] 
+    [Header("------------------- UnitData -------------------")]
     [Tooltip("유닛 데이터")]
     public UnitData unitData;
     [Tooltip("유닛 고유 번호")]
@@ -55,7 +63,7 @@ public class UnitBase : MonoBehaviour
     public RuntimeAnimatorController unitAnim;
 
     [Space(20)]
-    [Header("스탯")]
+    [Header("------------------- UnitStatus -------------------")]
     [Tooltip("최대 체력")]
     public float maxHp;
     [Tooltip("현재 체력")]
@@ -104,6 +112,8 @@ public class UnitBase : MonoBehaviour
     [Tooltip("스킬 데이터 목록")]
     public List<SkillData> skillDataList;
 
+    private const float MAX_ACTION_POINT = 100f;
+
     private void Start()
     {
         stageManager = StageManager.Instance;
@@ -115,57 +125,43 @@ public class UnitBase : MonoBehaviour
 
     public void StatusInit()
     {
-        if (unitData.unitNumber == 0)
-        {
-            unitNumber = unitData.unitNumber;
-            unitName = unitData.name;
-            unitAnimator.runtimeAnimatorController = null;
-            spriteRenderer.sprite = null;
-            unitFaceIcon = null;
-            maxHp = unitData.hp;
-            currentHp = unitData.hp;
-            atk = unitData.atk;
-            def = unitData.def;
-            maxAp = unitData.ap;
-            currentAp = 0;
-            speed = unitData.speed;
-            skillDataList = unitData.skillDataList;
+        unitNumber = unitData.unitNumber;
+        unitName = unitData.name;
+        unitAnimator.runtimeAnimatorController = unitData.unitNumber == 0 ? null : unitData.unitAnimController;
+        spriteRenderer.sprite = unitData.unitNumber == 0 ? null : unitData.unitSprite;
+        unitFaceIcon = unitData.unitNumber == 0 ? null : unitData.unitFaceIcon;
+        maxHp = unitData.hp;
+        currentHp = unitData.hp;
+        atk = unitData.atk;
+        def = unitData.def;
+        maxAp = unitData.ap;
+        currentAp = 0;
+        speed = unitData.speed;
+        skillDataList = unitData.skillDataList;
 
-            hpPointBar.gameObject.transform.parent.gameObject.SetActive(false);
-            hpPointText.text = "";
-            actionPointBar.gameObject.SetActive(false);
-        }
-        else
+        bool isUnitNumberZero = unitData.unitNumber == 0;
+        hpPointBar.gameObject.transform.parent.gameObject.SetActive(!isUnitNumberZero);
+        actionPointBar.gameObject.SetActive(!isUnitNumberZero);
+        hpPointText.text = isUnitNumberZero ? "" : hpPointText.text;
+
+        if (!isUnitNumberZero)
         {
-            unitNumber = unitData.unitNumber;
-            hpPointBar.gameObject.transform.parent.gameObject.SetActive(true);
-            actionPointBar.gameObject.SetActive(true);
-            unitName = unitData.name;
-            spriteRenderer.sprite = unitData.unitSprite;
-            unitFaceIcon = unitData.unitFaceIcon;
-            unitAnimator.runtimeAnimatorController = unitData.unitAnimController;
-            maxHp = unitData.hp;
-            currentHp = unitData.hp;
-            atk = unitData.atk;
-            def = unitData.def;
-            maxAp = unitData.ap;
-            currentAp = 0;
-            speed = unitData.speed;
-            skillDataList = unitData.skillDataList;
             corpseDissolve.CorpseInit();
-
             SetAnim(0);
             SetActionPointBar(0.0f);
         }
+
+        SetSkillTargeting(false, "");
+        SetTurn(false, "");
     }
 
     /// <summary>
-    /// UnitState 변경에 필요한 UnitBase의 Status를 초기화합니다.
+    /// UnitStatus 변경에 필요한 UnitBase의 Status를 초기화합니다.
     /// </summary>
     /// <param name="setStatus">초기화할 UnitStatus 객체</param>
     public void SetStatus(UnitStatus setStatus)
     {
-        if(setStatus.defaultUnitData != null)
+        if (setStatus.defaultUnitData != null)
         {
             unitData = setStatus.defaultUnitData;
             unitNumber = unitData.unitNumber;
@@ -176,14 +172,9 @@ public class UnitBase : MonoBehaviour
             unitNumber = unitData.unitNumber;
         }
 
-        if (!string.IsNullOrEmpty(setStatus.unitName) && setStatus.unitName.StartsWith("*"))
-        {
-            unitName = unitName + setStatus.unitName.Substring(1);
-        }
-        else
-        {
-            unitName = setStatus.unitName;
-        }
+        unitName = !string.IsNullOrEmpty(setStatus.unitName) && setStatus.unitName.StartsWith("*")
+            ? unitName + setStatus.unitName.Substring(1)
+            : setStatus.unitName;
 
         unitNumber = setStatus.unitNumber;
         spriteRenderer.sprite = dataManager.unitDataList.Find(n => n.unitNumber == unitNumber).unitSprite;
@@ -192,34 +183,8 @@ public class UnitBase : MonoBehaviour
         switch (unitName)
         {
             case "Null":
-                unitAnim = setStatus.defaultUnitData.unitAnimController;
-                unitAnimator.runtimeAnimatorController = unitAnim;
-                maxHp = setStatus.maxHp;
-                currentHp = setStatus.maxHp;
-                atk = setStatus.atk;
-                maxAp = setStatus.ap;
-                currentAp = 0;
-                speed = setStatus.speed;
-                skillDataList = new List<SkillData>();
-                foreach (int skillNum in setStatus.skillNumberList)
-                {
-                    skillDataList.Add(dataManager.skillList[skillNum]);
-                }
-                break;
             case "Default":
-                unitAnim = setStatus.defaultUnitData.unitAnimController;
-                unitAnimator.runtimeAnimatorController = unitAnim;
-                maxHp = setStatus.defaultUnitData.hp;
-                currentHp = setStatus.defaultUnitData.hp;
-                atk = setStatus.defaultUnitData.atk;
-                maxAp = setStatus.defaultUnitData.ap;
-                currentAp = 0;
-                speed = setStatus.defaultUnitData.speed;
-                skillDataList = new List<SkillData>();
-                foreach (int skillNum in setStatus.skillNumberList)
-                {
-                    skillDataList.Add(dataManager.skillList[skillNum]);
-                }
+                InitializeUnitStatus(setStatus, unitName == "Default");
                 break;
             default:
                 break;
@@ -233,7 +198,7 @@ public class UnitBase : MonoBehaviour
 
     public void SetActionPointBar(float setActionPoint)
     {
-        actionPointBar.fillAmount = setActionPoint / 100f;
+        actionPointBar.fillAmount = setActionPoint / MAX_ACTION_POINT;
     }
 
     public void SetDirection(bool isLeft)
@@ -241,12 +206,54 @@ public class UnitBase : MonoBehaviour
         spriteRenderer.flipX = isLeft;
     }
 
+    public void SetTurn(bool isTargeting, string targetingText)
+    {
+        if (isTargeting)
+        {
+            skillTargetingImageList[0].gameObject.SetActive(true);
+            skillTargetingText.text = "";
+        }
+        else
+        {
+            skillTargetingImageList[0].gameObject.SetActive(false);
+            skillTargetingText.text = "";
+        }
+    }
+
+    public void SetSkillTargeting(bool isTargeting, string targetingText)
+    {
+        if (isTargeting)
+        {
+            skillTargetingImageList[1].gameObject.SetActive(true);
+            skillTargetingText.text = targetingText;
+        }
+        else
+        {
+            skillTargetingImageList[1].gameObject.SetActive(false);
+            skillTargetingText.text = "";
+        }
+    }
+
     public void Damage(float damage)
+    {
+        if (unitData.name != "Null")
+        {
+            currentHp -= ComputeDamage(damage);
+
+        if (currentHp <= 0)
+            {
+                Death();
+            }
+        }
+    }
+
+    public float ComputeDamage(float damage)
     {
         if (damage / 2 > def)
         {
             damage = damage - def;
-        } else
+        }
+        else
         {
             damage = (damage / 2) - ((def - (damage / 2)) / 2);
         }
@@ -257,13 +264,7 @@ public class UnitBase : MonoBehaviour
         {
             damage = 1;
         }
-
-        currentHp -= damage;
-
-        if (currentHp <= 0 && unitData.name != "Null")
-        {
-            Death();
-        }
+        return (int)damage;
     }
 
     public void Death()
@@ -293,6 +294,23 @@ public class UnitBase : MonoBehaviour
             float y = hitPos.y + randomRadius * Mathf.Sin(angle * Mathf.Deg2Rad);
 
             hitProductonObject.transform.position = new Vector3(x, y, hitPos.z);
+        }
+    }
+
+    private void InitializeUnitStatus(UnitStatus setStatus, bool isDefault)
+    {
+        unitAnim = setStatus.defaultUnitData.unitAnimController;
+        unitAnimator.runtimeAnimatorController = unitAnim;
+        maxHp = isDefault ? setStatus.defaultUnitData.hp : setStatus.maxHp;
+        currentHp = maxHp;
+        atk = isDefault ? setStatus.defaultUnitData.atk : setStatus.atk;
+        maxAp = isDefault ? setStatus.defaultUnitData.ap : setStatus.ap;
+        currentAp = 0;
+        speed = isDefault ? setStatus.defaultUnitData.speed : setStatus.speed;
+        skillDataList = new List<SkillData>();
+        foreach (int skillNum in setStatus.skillNumberList)
+        {
+            skillDataList.Add(dataManager.skillList[skillNum]);
         }
     }
 }

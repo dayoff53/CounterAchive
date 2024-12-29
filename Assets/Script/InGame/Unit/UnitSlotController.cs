@@ -12,8 +12,22 @@ public class UnitSlotController : MonoBehaviour
     [Header("슬롯이 속한 필드의 UnitFieldController")]
     UnitSlotGroupController unitFieldController;
 
-    [Header("유닛 팀")]
-    public int unitTeam = 0;
+        // Start of Selection
+        [Header("유닛 팀")]
+        [SerializeField]
+        private int _unitTeam = 0;
+        public int unitTeam
+        {
+            get => _unitTeam;
+            set
+            {
+                if (_unitTeam != value)
+                {
+                    _unitTeam = value;
+                    Debug.Log($"unitTeam이 {_unitTeam}(으)로 변경되었습니다.");
+                }
+            }
+        }
 
     /// <summary>
     /// 유닛의 부모 오브젝트
@@ -59,9 +73,13 @@ public class UnitSlotController : MonoBehaviour
         }
     }
 
-    public void SetUnit(UnitStatus setUnitState)
+    /// <summary>
+    /// 현재 슬롯에 있는 유닛의 상태를 설정
+    /// </summary>
+    /// <param name="setUnitStatus">설정할 유닛 상태</param>
+    public void SetUnit(UnitStatus setUnitStatus)
     {
-        unit.SetStatus(setUnitState);
+        unit.SetStatus(setUnitStatus);
         
         UnitStatusInit();
     }
@@ -69,11 +87,12 @@ public class UnitSlotController : MonoBehaviour
     /// <summary>
     /// 현재 슬롯에 있는 유닛의 상태와 팀 번호를 설정
     /// </summary>
-    /// <param name="setUnitState">설정할 유닛 상태</param>
+    /// <param name="setUnitStatus">설정할 유닛 상태</param>
     /// <param name="teamNum">팀 번호</param>
-    public void SetUnit(UnitStatus setUnitState, int teamNum)
+    public void SetUnit(UnitStatus setUnitStatus, int teamNum)
     {
-        SetUnit(setUnitState);
+        unitTeam = teamNum;
+        SetUnit(setUnitStatus);
     }
 
     /// <summary>

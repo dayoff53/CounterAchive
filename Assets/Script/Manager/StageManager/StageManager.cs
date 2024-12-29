@@ -188,7 +188,7 @@ public partial class StageManager : Singleton<StageManager>
     }
 
     /// <summary>
-    /// 스테이지 클리어 조건을 업데이트하는 함수입니다.
+    /// 스테이지 클리어 조건을 업데이트하는 함수입니다. (턴을 넘기는 기능도 겸합니다.)
     /// </summary>
                 bool noEnemiesLeft = true;
     private void UpdateStageClearCondition()
@@ -200,7 +200,6 @@ public partial class StageManager : Singleton<StageManager>
                 foreach(var slot in unitSlotList) {
                     if(slot.unitTeam == 2) {
                         noEnemiesLeft = false;
-                        break;
                     }
                 }
                 if(noEnemiesLeft) // 적이 하나도 없다면 클리어 조건 달성
@@ -228,7 +227,7 @@ public partial class StageManager : Singleton<StageManager>
             default:
                 break;
         }
-        
+        UnitSlotListInit();
             currentPrograssState = ProgressState.Stay;
     }
 

@@ -133,10 +133,8 @@ public partial class StageManager
 
             skillHitProductionCount = currentSkillData.skillHitCount;
 
-            targetUnitMarker.SetActive(true);
-            targetUnitMarker.transform.parent = selectTargetSlot.unit.productionPositionList[0].transform;
-            targetUnitMarker.transform.position = selectTargetSlot.unit.productionPositionList[0].transform.position;
 
+            selectTargetSlot.unit.SetSkillTargeting(true, selectTargetSlot.unit.ComputeDamage(currentSkillData.skillEffectList[0].valueList[0]).ToString());
 
             Debug.Log($"stageManager.skillTargetNum = {skillTargetNum}");
         }
@@ -160,17 +158,6 @@ public partial class StageManager
             if (randomValue < skillAcc)
             {
                 isSkillSuccess = true;
-                foreach (SkillEffect effect in currentSkillData.skillEffectList)
-                {
-                    if (effect.skillEffectState == SkillEffectState.Damage)
-                    {
-                        // 유닛의 사망이 확정되었을 경우 카메라 줌 인
-                        if (unitSlotList[skillTargetNum].unit.currentHp <= 0)
-                        {
-                            CameraManager.Instance.ZoomToTarget(unitSlotList[skillTargetNum].unit.transform, 10f, 0.5f);
-                        }
-                    }
-                }
                 Debug.Log($"{currentSkillData.skillName} 스킬이 성공적으로 발동되었습니다.");
             } else
             {
@@ -191,7 +178,7 @@ public partial class StageManager
             currentPrograssState = ProgressState.SkillPlay;
             unitSlotList[currentTurnSlotNumber].unit.SetAnim(1);
 
-            targetUnitMarker.SetActive(false);
+            unitSlotList[currentTurnSlotNumber].unit.SetSkillTargeting(false, "");
         }
     }
 

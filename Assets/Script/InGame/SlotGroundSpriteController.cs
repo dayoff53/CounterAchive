@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 /// <summary>
-/// UnitSlot ¹Ù´Ú¿¡ ±ò¸®´Â SlotGround (1.defalut, 2.select, 3.target)
+/// UnitSlot ï¿½Ù´Ú¿ï¿½ ï¿½ò¸®´ï¿½ SlotGround (1.defalut, 2.select, 3.target)
 /// </summary>
 public enum SlotGroundState
 {
@@ -14,7 +14,7 @@ public enum SlotGroundState
 }
 
 /// <summary>
-/// °¢ À¯´ÖÀÇ Å¬¸¯ ÀÔ·Â°ªÀ» ´ã´çÇÏ´Â Ground ±â´ÉÀ» ´ã´çÇÏ´Â Å¬·¡½º
+/// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½Ô·Â°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ Ground ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
 /// </summary>
 public class SlotGroundSpriteController : MonoBehaviour
 {
@@ -81,6 +81,7 @@ public class SlotGroundSpriteController : MonoBehaviour
                 switch(slotGroundState)
                 {
                     case SlotGroundState.Target:
+                        stageManager.UnitSlotListInit();
                         stageManager.SkillTargetSelect(unitSlot);
                         break;
                 }
