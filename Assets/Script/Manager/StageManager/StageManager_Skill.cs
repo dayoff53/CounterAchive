@@ -115,6 +115,7 @@ public partial class StageManager
     {
         if (cost >= currentSkillData.skillCost)
         {
+            // 이미 선택된 타겟이라면 스킬을 시작합니다.
             if (skillTargetNum == unitSlotList.IndexOf(selectTargetSlot))
             {
                 SkillStart();
@@ -123,18 +124,31 @@ public partial class StageManager
             skillTargetNum = unitSlotList.IndexOf(selectTargetSlot);
             SetCurrentUnitCardUI(false, skillTargetNum);
 
+            //유닛이 어느 방향을 볼것인지 설정합니다.
             if (currentTurnSlotNumber <= skillTargetNum)
                 unitSlotList[currentTurnSlotNumber].unit.SetDirection(false);
             else
                 unitSlotList[currentTurnSlotNumber].unit.SetDirection(true);
 
+            // 스킬의 명중률을 계산합니다.
             skillAcc = ((unitSlotList[currentTurnSlotNumber].unit.acc * (currentSkillData.skillAcc * 0.01f)) / unitSlotList[skillTargetNum].unit.eva);
             skillAccuracyText.text = $"{skillAcc * 100}%";
 
+            // 스킬의 연출 발생 횟수를 설정합니다.
             skillHitProductionCount = currentSkillData.skillHitCount;
 
+            currentSkillTargetSlots = new List<UnitSlotController>();
 
-            selectTargetSlot.unit.SetSkillTargeting(true, selectTargetSlot.unit.ComputeDamage(currentSkillData.skillEffectList[0].valueList[0]).ToString());
+            // 스킬의 타겟 슬롯을 설정합니다.
+            foreach (int skillAreaNum in currentSkillData.skillArea)
+            {
+                if (skillTargetNum + skillAreaNum >= 0 && skillTargetNum + skillAreaNum < unitSlotList.Count)
+                {
+                    currentSkillTargetSlots.Add(unitSlotList[skillTargetNum + skillAreaNum]);
+                    unitSlotList[skillTargetNum + skillAreaNum].unit.SetSkillTargeting(true, unitSlotList[skillTargetNum + skillAreaNum].unit.ComputeDamage(currentSkillData.ExpectedDamage(unitSlotList[currentTurnSlotNumber].unit, unitSlotList[skillTargetNum + skillAreaNum].unit)).ToString());
+                }
+            }
+
 
             Debug.Log($"stageManager.skillTargetNum = {skillTargetNum}");
         }
@@ -146,13 +160,14 @@ public partial class StageManager
     }
 
     /// <summary>
-    /// 스킬을 시작하고 명중 여부를 판단합니다. 
+    /// 명중 여부를 판단한 후, 스킬의 효과를 적용합니다.
     /// (현재 진행 상태가 SkillPlay로 전환되고, 유닛 애니메이션이 시작됩니다.)
     /// </summary>
     public void SkillStart()
     {
         if (currentSkillData)
         {
+            cost -= currentSkillData.skillCost;
             isSkillSuccess = false;
             float randomValue = Random.value;
             if (randomValue < skillAcc)
@@ -164,21 +179,11 @@ public partial class StageManager
                 Debug.Log($"{currentSkillData.skillName} 스킬이 실패하였습니다.");
             }
 
-            // 스킬 효과를 적용합니다 (SkillEndPlay 호출)
-            currentSkillTargetSlots = new List<UnitSlotController>();
-            foreach (int skillAreaNum in currentSkillData.skillArea)
-            {
-                if (unitSlotList.IndexOf(unitSlotList[skillTargetNum + skillAreaNum]) != -1)
-                {
-                    currentSkillTargetSlots.Add(unitSlotList[skillTargetNum + skillAreaNum]);
-                }
-            }
-
-            cost -= currentSkillData.skillCost;
-            currentPrograssState = ProgressState.SkillPlay;
+            // 사용자 유닛의 애니메이션을 설정하고, 현재 턴을 가진 유닛의 마커를 제거합니다.
             unitSlotList[currentTurnSlotNumber].unit.SetAnim(1);
-
             unitSlotList[currentTurnSlotNumber].unit.SetSkillTargeting(false, "");
+
+            currentPrograssState = ProgressState.SkillPlay;
         }
     }
 
@@ -214,24 +219,7 @@ public partial class StageManager
     {
         if (isSkillSuccess)
         {
-            foreach (SkillEffect skilleffect in currentSkillData.skillEffectList)
-            {
-                switch (skilleffect.skillEffectState)
-                {
-                    case SkillEffectState.Damage:
-                        foreach (UnitSlotController targetUnit in currentSkillTargetSlots)
-                            targetUnit.unit.Damage(skilleffect.valueList[0] * unitSlotList[currentTurnSlotNumber].unit.atk);
-                        break;
-
-                    case SkillEffectState.StatusDown:
-                        foreach (UnitSlotController targetUnit in currentSkillTargetSlots)
-                            targetUnit.unit.currentHp -= skilleffect.valueList[0];
-                        break;
-
-                    default:
-                        break;
-                }
-            }
+            currentSkillData.SkillEffectStart(unitSlotList[currentTurnSlotNumber].unit, unitSlotList[skillTargetNum].unit);
         }
     }
 

@@ -5,11 +5,11 @@ using UnityEngine.Events;
 
 [System.Serializable]
 [Tooltip("스킬의 타입을 나타내는 상태")]
-public enum SkillTypeState
+public enum SkillTargetState
 {
-    Attack,
-    Debuff,
-    Buff
+    Enemy,
+    Friend,
+    All
 }
 
 [System.Serializable]
@@ -19,17 +19,6 @@ public enum SkillEffectState
     Damage,
     Poison,
     StatusDown
-}
-
-[System.Serializable]
-[Tooltip("스킬 효과를 정의하는 클래스")]
-public class SkillEffect
-{
-    [Tooltip("스킬 효과의 상태")]
-    public SkillEffectState skillEffectState;
-
-    [Tooltip("스킬 효과의 값 리스트")]
-    public List<float> valueList;
 }
 
 [System.Serializable]
@@ -54,9 +43,9 @@ public class SkillData : ScriptableObject
 
     [Space(10)]
     [Header("스킬 타입 및 효과")]
-    [Tooltip("스킬 타입 (공격, 디버프, 버프 등)")]
-    public SkillTypeState skillTypeState;
-    [Tooltip("스킬 효과 리스트")]
+    [Tooltip("스킬 타입 (적군, 아군, 전체 중 하나를 선택합니다.)")]
+    public SkillTargetState skillTargetState;
+    [Tooltip("스킬 효과 리스트 (순서대로 작동합니다.)")]
     public List<SkillEffect> skillEffectList;
     
     [Space(20)]
@@ -72,4 +61,24 @@ public class SkillData : ScriptableObject
     [Header("시각적 요소")]
     public Sprite skillIcon;
     public List<GameObject> skillHitProductionObjects;
+
+    public void SkillEffectStart(UnitBase useUnit, UnitBase targetUnit)
+    {
+        foreach (SkillEffect skillEffect in skillEffectList)
+        {
+            skillEffect.SkillEffectInit(this);
+            skillEffect.SkillEffectStart(useUnit, targetUnit);
+        }
+    }
+
+    public float ExpectedDamage(UnitBase useUnit, UnitBase targetUnit)
+    {
+        float expectedDamage = 0;
+        foreach (SkillEffect skillEffect in skillEffectList)
+        {
+            skillEffect.SkillEffectInit(this);
+            expectedDamage += skillEffect.ExpectedDamage(useUnit, targetUnit);
+        }
+        return expectedDamage;
+    }
 }
