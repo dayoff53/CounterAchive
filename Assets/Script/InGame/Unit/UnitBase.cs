@@ -112,20 +112,29 @@ public class UnitBase : MonoBehaviour
     [Tooltip("스킬 데이터 목록")]
     public List<SkillData> skillDataList;
 
+
+
     private void Start()
     {
         stageManager = StageManager.Instance;
         cameraManager = CameraManager.Instance;
         dataManager = DataManager.Instance;
 
-        StatusInit();
+        UnitDataInit(unitData);
     }
 
-/// <summary>
-/// 유닛의 스테이터스 변경값을 적용합니다. (만약 유닛이 Null이라면 기본 스테이터스로 초기화합니다.)
-/// </summary>
-    public void StatusInit()
+    /// <summary>
+    /// UnitData를 기반으로 UnitBase의 데이터를 초기화합니다.
+    /// </summary>
+    /// <param name="setUnitData">초기화할 UnitData 객체</param>
+    public void UnitDataInit(UnitData setUnitData)
     {
+        if (setUnitData == null)
+            unitData = dataManager.unitDataList.Find(n => n.unitNumber == 0);
+        else
+            unitData = setUnitData;
+        
+
         if (unitData.unitNumber == 0)
         {
             unitNumber = unitData.unitNumber;
@@ -166,79 +175,74 @@ public class UnitBase : MonoBehaviour
             corpseDissolve.CorpseInit();
 
             SetAnim(0);
-            SetActionPointBar(0.0f);
+            actionPointBar.fillAmount = 0f / 100f;
         }
         
         SetSkillTargeting(false, "");
-        SetTurn(false, "");
+        SetTurn(false);
     }
-
     /// <summary>
-    /// UnitState 변경에 필요한 UnitBase의 Status를 초기화합니다.
+    /// UnitStatus를 기반으로 UnitBase의 데이터를 초기화합니다.
     /// </summary>
     /// <param name="setStatus">초기화할 UnitStatus 객체</param>
     public void SetStatus(UnitStatus setStatus)
     {
-        if(setStatus.defaultUnitData != null)
+        if (setStatus.unitData == null)
         {
-            unitData = setStatus.defaultUnitData;
-            unitNumber = unitData.unitNumber;
+            UnitDataInit(dataManager.unitDataList.Find(n => n.unitNumber == 0));
         }
         else
         {
-            unitData = dataManager.unitDataList.Find(un => un.unitNumber == setStatus.unitNumber);
-            unitNumber = unitData.unitNumber;
+            UnitDataInit(setStatus.unitData);
         }
-
-        if (!string.IsNullOrEmpty(setStatus.unitName) && setStatus.unitName.StartsWith("*"))
-        {
-            unitName = unitName + setStatus.unitName.Substring(1);
-        }
-        else
-        {
-            unitName = setStatus.unitName;
-        }
-
         unitNumber = setStatus.unitNumber;
         spriteRenderer.sprite = dataManager.unitDataList.Find(n => n.unitNumber == unitNumber).unitSprite;
         unitFaceIcon = dataManager.unitDataList.Find(n => n.unitNumber == unitNumber).unitFaceIcon;
 
-        switch (unitName)
+        if (!setStatus.isOriginal)
         {
-            case "Null":
-                unitAnim = setStatus.defaultUnitData.unitAnimController;
-                unitAnimator.runtimeAnimatorController = unitAnim;
-                maxHp = setStatus.maxHp;
-                currentHp = setStatus.maxHp;
-                atk = setStatus.atk;
-                maxAp = setStatus.ap;
-                currentAp = 0;
-                speed = setStatus.speed;
-                skillDataList = new List<SkillData>();
-                foreach (int skillNum in setStatus.skillNumberList)
-                {
-                    skillDataList.Add(dataManager.skillList[skillNum]);
-                }
-                break;
-            case "Default":
-                unitAnim = setStatus.defaultUnitData.unitAnimController;
-                unitAnimator.runtimeAnimatorController = unitAnim;
-                maxHp = setStatus.defaultUnitData.hp;
-                currentHp = setStatus.defaultUnitData.hp;
-                atk = setStatus.defaultUnitData.atk;
-                maxAp = setStatus.defaultUnitData.ap;
-                currentAp = 0;
-                speed = setStatus.defaultUnitData.speed;
-                skillDataList = new List<SkillData>();
-                foreach (int skillNum in setStatus.skillNumberList)
-                {
-                    skillDataList.Add(dataManager.skillList[skillNum]);
-                }
-                break;
-            default:
-                break;
+            unitAnim = setStatus.unitData.unitAnimController;
+            unitAnimator.runtimeAnimatorController = unitAnim;
+            maxHp = setStatus.maxHp;
+            currentHp = setStatus.currentHp;
+            atk = setStatus.atk;
+                def = setStatus.def;
+            acc = setStatus.acc;
+            eva = setStatus.eva;
+            speed = setStatus.speed;
+            maxAp = setStatus.ap;
+            currentAp = 0;
+            skillDataList = new List<SkillData>();
+            foreach (int skillNum in setStatus.skillNumberList)
+            {
+                skillDataList.Add(dataManager.skillList[skillNum]);
+            }
         }
     }
+    
+
+/// <summary>
+/// UnitBase의 데이터를 갱신합니다.
+/// </summary>
+    public void UnitBaseUpdate()
+    {
+        if (unitData.unitNumber == 0)
+        {
+            UnitDataInit(unitData);
+        }
+        else
+        {
+            hpPointBar.gameObject.transform.parent.gameObject.SetActive(true);
+            actionPointBar.gameObject.SetActive(true);
+
+            SetAnim(0);
+            actionPointBar.fillAmount = 0f / 100f;
+            SetSkillTargeting(false, "");
+            SetTurn(false);
+        }
+    }
+
+
 /// <summary>
 /// 유닛의 애니메이션을 설정합니다. (0 = 기본, 1 = 공격, 2 = 피격)
 /// </summary>
@@ -247,44 +251,24 @@ public class UnitBase : MonoBehaviour
     {
         unitAnimator.SetInteger("State", animNum);
     }
-
-    public void SetActionPointBar(float setActionPoint)
-    {
-        actionPointBar.fillAmount = setActionPoint / 100f;
-    }
-
     public void SetDirection(bool isLeft)
     {
         spriteRenderer.flipX = isLeft;
     }
 
-    public void SetTurn(bool isTargeting, string targetingText)
+    public void SetTurn(bool isUseTurn)
     {
-        if (isTargeting)
+        if (isUseTurn)
         {
             skillTargetingImageList[0].gameObject.SetActive(true);
-            skillTargetingText.text = "";
         }
         else
         {
             skillTargetingImageList[0].gameObject.SetActive(false);
-            skillTargetingText.text = "";
         }
     }
 
-    public void SetSkillTargeting(bool isTargeting, string targetingText)
-    {
-        if (isTargeting)
-        {
-            skillTargetingImageList[1].gameObject.SetActive(true);
-            skillTargetingText.text = targetingText;
-        }
-        else
-        {
-            skillTargetingImageList[1].gameObject.SetActive(false);
-            skillTargetingText.text = "";
-        }
-    }
+
 
     public void Damage(float damage)
     {
@@ -298,7 +282,6 @@ public class UnitBase : MonoBehaviour
             }
         }
     }
-
     public float ComputeDamage(float damage)
     {
         if (damage / 2 > def)
@@ -346,6 +329,19 @@ public class UnitBase : MonoBehaviour
             float y = hitPos.y + randomRadius * Mathf.Sin(angle * Mathf.Deg2Rad);
 
             hitProductonObject.transform.position = new Vector3(x, y, hitPos.z);
+        }
+    }
+    public void SetSkillTargeting(bool isTargeting, string targetingText)
+    {
+        if (isTargeting)
+        {
+            skillTargetingImageList[1].gameObject.SetActive(true);
+            skillTargetingText.text = targetingText;
+        }
+        else
+        {
+            skillTargetingImageList[1].gameObject.SetActive(false);
+            skillTargetingText.text = "";
         }
     }
 }

@@ -227,7 +227,7 @@ public partial class StageManager : Singleton<StageManager>
             default:
                 break;
         }
-        UnitSlotListInit();
+        AllUnitBaseUpdate();
             currentPrograssState = ProgressState.Stay;
     }
 

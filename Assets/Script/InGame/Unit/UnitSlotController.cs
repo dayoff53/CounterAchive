@@ -56,7 +56,7 @@ public class UnitSlotController : MonoBehaviour
     public void UnitStatusInit()
     {
         TurnEndInit();
-        unit.StatusInit();
+        unit.UnitBaseUpdate();
     }
 
     public void TurnEndInit()
@@ -65,7 +65,7 @@ public class UnitSlotController : MonoBehaviour
         {
             isNull = true;
             unitTeam = 0;
-            unit.StatusInit();
+            unit.UnitBaseUpdate();
         }
         else
         {

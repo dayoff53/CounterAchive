@@ -649,33 +649,7 @@ MonoBehaviour:
   saveDataFilePath: 
   currentSaveData:
     playerUnitStates: []
-  playerUnitStateList:
-  - defaultUnitData: {fileID: 11400000, guid: 166be0c737ba5d24aa06bafac39e36e9, type: 2}
-    unitNumber: 0
-    unitName: Null
-    maxHp: 10
-    currentHp: 10
-    ap: 0
-    atk: 0
-    def: 0
-    acc: 1
-    eva: 1
-    speed: 1
-    unitTagList: 
-    skillNumberList: 
-  - defaultUnitData: {fileID: 11400000, guid: 462dae7ef769d324191a41d0373ebd46, type: 2}
-    unitNumber: 0
-    unitName: Null
-    maxHp: 10
-    currentHp: 10
-    ap: 0
-    atk: 0
-    def: 0
-    acc: 1
-    eva: 1
-    speed: 1
-    unitTagList: 
-    skillNumberList: 
+  playerUnitStateList: []
   unitDataList: []
   skillList:
   - {fileID: 11400000, guid: 205e66c651f1d3644996aa3f8112a335, type: 2}
@@ -2354,7 +2328,7 @@ MonoBehaviour:
     keys: 
     values: []
   currentSelectUnitState:
-    defaultUnitData: {fileID: 0}
+    unitData: {fileID: 0}
     unitNumber: 0
     unitName: Null
     maxHp: 10
@@ -8184,7 +8158,7 @@ MonoBehaviour:
   playerUseUnitSlotRange: 4
   playerUnitList: []
   enemyUnitList:
-  - defaultUnitData: {fileID: 11400000, guid: 421508ca4c6996548810e9a3dd5ff153, type: 2}
+  - unitData: {fileID: 11400000, guid: 166be0c737ba5d24aa06bafac39e36e9, type: 2}
     unitNumber: 0
     unitName: Default
     maxHp: 10
@@ -8197,9 +8171,9 @@ MonoBehaviour:
     speed: 1
     unitTagList: 
     skillNumberList: 
-  - defaultUnitData: {fileID: 11400000, guid: 166be0c737ba5d24aa06bafac39e36e9, type: 2}
+  - unitData: {fileID: 11400000, guid: 421508ca4c6996548810e9a3dd5ff153, type: 2}
     unitNumber: 0
-    unitName: Null
+    unitName: Default
     maxHp: 10
     currentHp: 10
     ap: 10

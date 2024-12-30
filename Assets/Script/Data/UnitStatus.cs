@@ -4,15 +4,16 @@ using UnityEngine;
 
 
 /// <summary>
-/// À¯´ÖÀÇ Çö »óÅÂ¿¡ °üÇÑ µ¥ÀÌÅÍ (Json°ú UnitCard¿¡ ÀúÀåµÉ µ¥ÀÌÅÍ, À¯´Ö »ý¼º½Ã »ç¿ëÇÏ°Ô µÉ µ¥ÀÌÅÍ)
+/// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (Jsonï¿½ï¿½ UnitCardï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 /// </summary>
 [System.Serializable]
 public class UnitStatus
 {
     [Header("Unit States")]
-    public UnitData defaultUnitData;
+    public bool isOriginal = true;
+    public UnitData unitData;
     public int unitNumber = 0;
-    public string unitName = "Null";
+    public string unitName = "";
     public float maxHp = 10;
     public float currentHp = 10;
     public float ap = 10;
@@ -22,13 +23,13 @@ public class UnitStatus
     public float eva = 1;
     public float speed = 1;
     public List<UnitTag> unitTagList;
-    public List<int> skillNumberList; // skillDataList ´ë½Å ½ºÅ³ÀÇ ½Äº°ÀÚ(Number)¸¦ »ç¿ëÇÏ¿© ÀúÀå
+    public List<int> skillNumberList; // skillDataList ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½Äºï¿½ï¿½ï¿½(Number)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     public UnitStatus()
     {
-        if (defaultUnitData != null) // null Ã¼Å© Ãß°¡
+        if (unitData != null) // null Ã¼Å© ï¿½ß°ï¿½
         {
-            SetStatus(defaultUnitData);
+            SetStatus(unitData);
         }
     }
 
@@ -39,13 +40,14 @@ public class UnitStatus
     }
 
     /// <summary>
-    /// UnitDataÀÇ µ¥ÀÌÅÍ¸¦ Àû¿ë
+    /// UnitDataï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½
     /// </summary>
-    /// <param name="unitData">±âÁØÀÌ µÉ UnitData</param>
+    /// <param name="unitData">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ UnitData</param>
     public void SetStatus(UnitData unitData)
     {
         if (unitData == null) return;
 
+        this.unitData = unitData;
         unitNumber = unitData.unitNumber;
         unitName = unitData.unitName;
         maxHp = unitData.hp;
@@ -58,7 +60,7 @@ public class UnitStatus
         speed = unitData.speed;
         unitTagList = unitData.unitTagList;
 
-        // skillDataList¿¡ ÀÖ´Â °¢ SkillDataÀÇ ID¸¸ ÀúÀå
+        // skillDataListï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ SkillDataï¿½ï¿½ IDï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         skillNumberList = new List<int>();
         foreach (SkillData skill in unitData.skillDataList)
         {
@@ -67,9 +69,9 @@ public class UnitStatus
     }
 
     /// <summary>
-    /// UnitBaseÀÇ µ¥ÀÌÅÍ¸¦ Àû¿ë
+    /// UnitBaseï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½
     /// </summary>
-    /// <param name="unitBase">±âÁØÀÌ µÉ UnitData</param>
+    /// <param name="unitBase">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ UnitData</param>
     public void SetStatus(UnitBase unitBase)
     {
         if (unitBase == null) return;
@@ -86,7 +88,7 @@ public class UnitStatus
         speed = unitBase.speed;
         unitTagList = unitBase.unitTagList;
 
-        // skillDataList¿¡ ÀÖ´Â °¢ SkillDataÀÇ ID¸¸ ÀúÀå
+        // skillDataListï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ SkillDataï¿½ï¿½ IDï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         skillNumberList = new List<int>();
         foreach (SkillData skill in unitBase.skillDataList)
         {
@@ -95,9 +97,9 @@ public class UnitStatus
     }
 
     /// <summary>
-    /// Ãß°¡ ½ºÅÝ¸¦ Àû¿ë (±âº» ½ºÅÝ¿¡ ´õÇØÁÖ´Â ¹æ½Ä)
+    /// ï¿½ß°ï¿½ ï¿½ï¿½ï¿½Ý¸ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½âº» ï¿½ï¿½ï¿½Ý¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½)
     /// </summary>
-    /// <param name="unitData">±âÁØÀÌ µÉ UnitData</param>
+    /// <param name="unitData">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ UnitData</param>
     public void ApplyPlusStatus(UnitData unitData)
     {
         if (unitData == null) return;
@@ -105,7 +107,7 @@ public class UnitStatus
         unitNumber = unitData.unitNumber;
         unitName = unitData.unitName;
 
-        // ±âÁ¸ °ª¿¡ unitDataÀÇ °ªÀ» ´õÇØÁÜ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ unitDataï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         maxHp += unitData.hp;
         currentHp = maxHp;
         ap += unitData.ap;
@@ -115,7 +117,7 @@ public class UnitStatus
         acc += unitData.acc;
         eva += unitData.eva;
 
-        // skillDataList¿¡ ÀÖ´Â °¢ SkillDataÀÇ Number(ID°ª)¸¸ Ãß°¡ (Áßº¹µÇÁö ¾Êµµ·Ï °ü¸®)
+        // skillDataListï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ SkillDataï¿½ï¿½ Number(IDï¿½ï¿½)ï¿½ï¿½ ï¿½ß°ï¿½ (ï¿½ßºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
         if (skillNumberList == null)
         {
             skillNumberList = new List<int>();

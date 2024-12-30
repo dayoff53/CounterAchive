@@ -121,14 +121,10 @@ public class StageMaster : MonoBehaviour
         stageManager.turnUnitCardUI = turnUnitCardUI;
         stageManager.targetUnitCardUI = targetUnitCardUI;
         stageManager.skillAccuracyText = skillAccuracyText;
-        stageManager.turnUnitMarker = turnUnitMarker;
-        stageManager.targetUnitMarker = targetUnitMarker;
         stageManager.play_UI = play_UI;
         stageManager.unitSet_UI = unitSet_UI;
         stageManager.remainingSetUnitSlotText = remainingSetUnitSlotText;
         stageManager.stageMenuController = stageMenuController;
-
-        
 
         stageManager.unitSlotGroupController = unitSlotGroupController;
         stageManager.stageClearCondition = stageClearCondition;
@@ -156,7 +152,7 @@ public class StageMaster : MonoBehaviour
         {
             if(enemyUnitList[i].unitName != "Null")
             {
-                enemyUnitList[i].SetStatus(enemyUnitList[i].defaultUnitData);
+                enemyUnitList[i].SetStatus(enemyUnitList[i].unitData);
             }
             unitSlotGroupController.unitSlots[endNum - i].SetUnit(enemyUnitList[i], 2);
             unitSlotGroupController.unitSlots[endNum - i].unit.SetDirection(true);

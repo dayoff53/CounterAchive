@@ -22,14 +22,14 @@
              }
          }
      }
-     public void UnitSlotListInit()
+     public void AllUnitBaseUpdate()
      {
          foreach (UnitSlotController unitSlot in unitSlotList)
          {
-             unitSlot.unit.StatusInit();
+             unitSlot.unit.UnitBaseUpdate();
          }
          
-         unitSlotList[currentTurnSlotNumber].unit.SetTurn(true, "");
+         unitSlotList[currentTurnSlotNumber].unit.SetTurn(true);
      }
  
      /// <summary>
@@ -90,7 +90,7 @@
              }
              */
 
-            UnitSlotListInit();
+            AllUnitBaseUpdate();
              MoveUnits();
  
              for (int i = 0; i < unitSlotList.Count; i++)

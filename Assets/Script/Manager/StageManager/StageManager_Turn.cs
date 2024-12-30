@@ -179,7 +179,7 @@ public partial class StageManager
         // 슬롯 상태 업데이트
         SlotGroundSpriteController groundSprite = unitSlotList[currentTurnSlotNumber].slotGround;
         groundSprite.SetSlotGroundState(SlotGroundState.Select);
-        currentTurnUnit.SetTurn(true, "");
+        currentTurnUnit.SetTurn(true);
 
 
         // 초기화
@@ -202,7 +202,7 @@ public partial class StageManager
                 groundSprite.SetSlotGroundState(SlotGroundState.Default);
             }
 
-        unitSlotList[currentTurnSlotNumber].unit.SetTurn(false, "");
+        unitSlotList[currentTurnSlotNumber].unit.SetTurn(false);
         currentTurnCount++;
         UpdateStageClearCondition();
     }

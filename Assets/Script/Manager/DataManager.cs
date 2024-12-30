@@ -6,7 +6,7 @@ using UnityEditor;
 using System.IO;
 
 /// <summary>
-/// ¼¼ÀÌºê µ¥ÀÌÅÍ Å¬·¡½º
+/// ì„¸ì´ë¸Œ ë°ì´í„° í´ë˜ìŠ¤
 /// </summary>
 [System.Serializable]
 public class SaveData
@@ -16,34 +16,38 @@ public class SaveData
 public class DataManager : Singleton<DataManager>
 {
     /// <summary>
-    /// SaveData°¡ ÀúÀåµÈ È¤Àº ÀúÀåµÉ À§Ä¡
+    /// SaveDataê°€ ì €ì¥ë  í˜¹ì€ ë¶ˆëŸ¬ì˜¬ ìœ„ì¹˜
     /// </summary>
     [SerializeField]
     string saveDataFilePath;
     public SaveData currentSaveData;
 
     /// <summary>
-    /// ÇÃ·¹ÀÌ¾î°¡ »ç¿ëÇÒ À¯´ÖÀÇ State List
+    /// í”Œë ˆì´ì–´ê°€ ë³´ìœ í•œ ìœ ë‹›ì˜ State List
     /// </summary>
     public List<UnitStatus> playerUnitStateList;
 
     /// <summary>
-    /// UnitData¸¦ ÀúÀåÇØ µĞ ÀúÀå¼Ò, ÀÌ¹ÌÁö³ª ¾Ö´Ï¸ŞÀÌ¼Ç µîÀÇ ¸®¼Ò½º¸¦ ÁÖ·Î ºÒ·¯ »ç¿ëÇÑ´Ù.
+    /// UnitDataë¥¼ ë³´ê´€í•  ë•Œ ìŠ¤í”„ë¼ì´íŠ¸, ì´ë¯¸ì§€ì™€ ì• ë‹ˆë©”ì´ì…˜ ë“±ì˜ ë¦¬ì†ŒìŠ¤ë¥¼ ì£¼ë¡œ ë¶ˆëŸ¬ì™€ ë³´ê´€í•œë‹¤.
     /// </summary>
     public List<UnitData> unitDataList;
 
     /// <summary>
-    /// SkillData¸¦ ÀúÀåÇØµĞ List
+    /// SkillDataë¥¼ ë³´ê´€í•˜ëŠ” List
     /// </summary>
     public List<SkillData> skillList;
 
 
-    /// <summary>
-    /// °ÔÀÓ ½ÇÇà½Ã ¼¼ÀÌºê µ¥ÀÌÅÍÀÇ ¿©ºÎ¸¦ ÆÇ´Ü ÈÄ ¸¸¾à ¼¼ÀÌºê µ¥ÀÌÅÍ°¡ Á¸ÀçÇÑ´Ù¸é µ¥ÀÌÅÍ¸¦ °¡Á®¿É´Ï´Ù.
-    /// </summary>
     private void Start()
     {
         DataInit();
+
+        if (currentSaveData == null)
+        {
+            //currentSaveData = new SaveData();
+            Debug.Log("ê²Œì„ í…ŒìŠ¤íŠ¸ì¤‘ì´ê¸° ë•Œë¬¸ì— ì„¸ì´ë¸Œ ë°ì´í„°ë¥¼ ë¶ˆëŸ¬ì˜µë‹ˆë‹¤.");
+            LoadGame();
+        }
     }
 
     private void DataInit()
@@ -53,14 +57,10 @@ public class DataManager : Singleton<DataManager>
 
         skillList = new List<SkillData>(Resources.LoadAll<SkillData>("ScriptableObject/SkillData"));
         saveDataFilePath = Path.Combine(Application.persistentDataPath, "saveData.json");
-
-
-
-        LoadGame();
     }
 
     /// <summary>
-    /// Çö °ÔÀÓ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÕ´Ï´Ù.
+    /// í˜„ ê²Œì„ ë°ì´í„°ë¥¼ ì €ì¥í•©ë‹ˆë‹¤.
     /// </summary>
     /// <returns></returns>
     public void SaveGame()
@@ -75,7 +75,7 @@ public class DataManager : Singleton<DataManager>
     }
 
     /// <summary>
-    /// ÀúÀå µ¥ÀÌÅÍ¸¦ ºÒ·¯¿Í Ãâ·ÂÇÕ´Ï´Ù.
+    /// ê²Œì„ ë°ì´í„°ë¥¼ ë¶ˆëŸ¬ì™€ ë°˜í™˜í•©ë‹ˆë‹¤.
     /// </summary>
     /// <returns></returns>
     public SaveData LoadData()
@@ -114,9 +114,9 @@ public class DataManager : Singleton<DataManager>
 
             foreach (UnitStatus unitState in currentSaveData.playerUnitStates)
             {
-                if(unitState.defaultUnitData == null)
+                if(unitState.unitData == null)
                 {
-                    unitState.defaultUnitData = unitDataList.Find(un => un.unitNumber == unitState.unitNumber);
+                    unitState.unitData = unitDataList.Find(un => un.unitNumber == unitState.unitNumber);
                 }
                 playerUnitStateList.Add(unitState);
             }
@@ -126,7 +126,7 @@ public class DataManager : Singleton<DataManager>
     }
 
     /// <summary>
-    /// Resources Æú´õ¿¡¼­ Æ¯Á¤ ¸®¼Ò½º¸¦ Ã£¾Æ¿À´Â ½ºÅ©¸³Æ®
+    /// Resources í´ë”ì—ì„œ íŠ¹ì • ë¦¬ì†ŒìŠ¤ë¥¼ ì°¾ì•„ì˜¤ëŠ” ìŠ¤í¬ë¦½íŠ¸
     /// </summary>
     /// <param name="resource"></param>
     /// <returns></returns>
@@ -142,8 +142,8 @@ public class DataManager : Singleton<DataManager>
         int resourcesIndex = path.IndexOf("Resources/");
         if (resourcesIndex >= 0)
         {
-            path = path.Substring(resourcesIndex + "Resources/".Length); // 'Resources/' ÁÖ¼Ò Á¦°Å
-            path = path.Replace(System.IO.Path.GetExtension(path), ""); // È®ÀåÀÚ Á¦°Å
+            path = path.Substring(resourcesIndex + "Resources/".Length); // 'Resources/' ì£¼ì†Œ ì œê±°
+            path = path.Replace(System.IO.Path.GetExtension(path), ""); // í™•ì¥ì ì œê±°
         }
 
         return path;

@@ -81,7 +81,7 @@ public class SlotGroundSpriteController : MonoBehaviour
                 switch(slotGroundState)
                 {
                     case SlotGroundState.Target:
-                        stageManager.UnitSlotListInit();
+                        stageManager.AllUnitBaseUpdate();
                         stageManager.SkillTargetSelect(unitSlot);
                         break;
                 }
