@@ -126,9 +126,9 @@ public partial class StageManager
 
             //유닛이 어느 방향을 볼것인지 설정합니다.
             if (currentTurnSlotNumber <= skillTargetNum)
-                unitSlotList[currentTurnSlotNumber].unit.SetDirection(false);
+                unitSlotList[currentTurnSlotNumber].unit.isFlipX = false;
             else
-                unitSlotList[currentTurnSlotNumber].unit.SetDirection(true);
+                unitSlotList[currentTurnSlotNumber].unit.isFlipX = true;
 
             // 스킬의 명중률을 계산합니다.
             skillAcc = ((unitSlotList[currentTurnSlotNumber].unit.acc * (currentSkillData.skillAcc * 0.01f)) / unitSlotList[skillTargetNum].unit.eva);
@@ -139,13 +139,20 @@ public partial class StageManager
 
             currentSkillTargetSlots = new List<UnitSlotController>();
 
-            // 스킬의 타겟 슬롯을 설정합니다.
+            // 스킬의 타겟 슬롯들을 설정합니다.
             foreach (int skillAreaNum in currentSkillData.skillArea)
             {
                 if (skillTargetNum + skillAreaNum >= 0 && skillTargetNum + skillAreaNum < unitSlotList.Count)
                 {
-                    currentSkillTargetSlots.Add(unitSlotList[skillTargetNum + skillAreaNum]);
-                    unitSlotList[skillTargetNum + skillAreaNum].unit.SetSkillTargeting(true, unitSlotList[skillTargetNum + skillAreaNum].unit.ComputeDamage(currentSkillData.ExpectedDamage(unitSlotList[currentTurnSlotNumber].unit, unitSlotList[skillTargetNum + skillAreaNum].unit)).ToString());
+                    if(!unitSlotList[currentTurnSlotNumber].unit.isFlipX)
+                    {
+                        currentSkillTargetSlots.Add(unitSlotList[skillTargetNum + skillAreaNum]);
+                        unitSlotList[skillTargetNum + skillAreaNum].unit.SetSkillTargeting(true, unitSlotList[skillTargetNum + skillAreaNum].unit.ComputeDamage(currentSkillData.ExpectedDamage(unitSlotList[currentTurnSlotNumber].unit, unitSlotList[skillTargetNum + skillAreaNum].unit)).ToString());
+                    } else
+                    {
+                        currentSkillTargetSlots.Add(unitSlotList[skillTargetNum - skillAreaNum]);
+                        unitSlotList[skillTargetNum - skillAreaNum].unit.SetSkillTargeting(true, unitSlotList[skillTargetNum - skillAreaNum].unit.ComputeDamage(currentSkillData.ExpectedDamage(unitSlotList[currentTurnSlotNumber].unit, unitSlotList[skillTargetNum - skillAreaNum].unit)).ToString());
+                    }
                 }
             }
 
@@ -187,6 +194,8 @@ public partial class StageManager
         }
     }
 
+
+
     /// <summary>
     /// 스킬의 연출 효과를 적용합니다.
     /// </summary>
@@ -195,22 +204,39 @@ public partial class StageManager
         foreach (UnitSlotController targetUnit in currentSkillTargetSlots)
         {
             Debug.Log($"{targetUnit}의 SkillProduction 호출");
-            if(!currentSkillData.isSkillHitCount)
+            targetUnit.unit.SetAnim(2);
+            GameObject hitProductonObject;
+ 
+            if(currentSkillData.isSkillHitMultiple)
             {
-                GameObject hitProductonObject = poolManager.Pop(currentSkillData.skillHitProductionObjects[hitProductionNum]);
-                targetUnit.unit.HitProduction(hitProductonObject, currentSkillData.skillHitRadius);
-                targetUnit.unit.SetAnim(2);
-            } else if (currentSkillData.isSkillHitCount && skillHitProductionCount > 0)
+                for(int i = 0; i < currentSkillData.skillHitMultipleCount; i++)
+                {
+                    if(currentSkillData.isSkillHitCount && skillHitProductionCount > 0)
+                    {
+                        hitProductonObject = poolManager.Pop(currentSkillData.skillHitProductionObjects[hitProductionNum]);
+                        targetUnit.unit.HitProduction(hitProductonObject, currentSkillData.skillHitRadius);
+                        skillHitProductionCount--;
+                    } else if (!currentSkillData.isSkillHitCount)
+                    {
+                        hitProductonObject = poolManager.Pop(currentSkillData.skillHitProductionObjects[hitProductionNum]);
+                        targetUnit.unit.HitProduction(hitProductonObject, currentSkillData.skillHitRadius);
+                    }
+                }
+            } else
             {
-                GameObject hitProductonObject = poolManager.Pop(currentSkillData.skillHitProductionObjects[hitProductionNum]);
-                targetUnit.unit.HitProduction(hitProductonObject, currentSkillData.skillHitRadius);
-                targetUnit.unit.SetAnim(2);
-                skillHitProductionCount--;
+                if(currentSkillData.isSkillHitCount && skillHitProductionCount > 0)
+                {
+                    hitProductonObject = poolManager.Pop(currentSkillData.skillHitProductionObjects[hitProductionNum]);
+                    targetUnit.unit.HitProduction(hitProductonObject, currentSkillData.skillHitRadius);
+                    skillHitProductionCount--;
+                } else if (!currentSkillData.isSkillHitCount)
+                {
+                    hitProductonObject = poolManager.Pop(currentSkillData.skillHitProductionObjects[hitProductionNum]);
+                    targetUnit.unit.HitProduction(hitProductonObject, currentSkillData.skillHitRadius);
+                }
             }
         }
     }
-
-
 
     /// <summary>
     /// 스킬이 발동 종료 이후, 스킬 효과를 적용합니다.
@@ -219,7 +245,10 @@ public partial class StageManager
     {
         if (isSkillSuccess)
         {
-            currentSkillData.SkillEffectStart(unitSlotList[currentTurnSlotNumber].unit, unitSlotList[skillTargetNum].unit);
+            foreach (UnitSlotController targetUnit in currentSkillTargetSlots)
+            {
+                currentSkillData.SkillEffectStart(unitSlotList[currentTurnSlotNumber].unit, targetUnit.unit);
+            }
         }
     }
 
@@ -241,7 +270,6 @@ public partial class StageManager
 
         for (int i = 0; i < skillRange.Length; i++)
         {
-
             if (currentTurnSlotNumber + skillRange[i] < unitSlotList.Count)
             {
                 groundSprite = unitSlotList[currentTurnSlotNumber + skillRange[i]].slotGround;

@@ -155,7 +155,7 @@ public class StageMaster : MonoBehaviour
                 enemyUnitList[i].SetStatus(enemyUnitList[i].unitData);
             }
             unitSlotGroupController.unitSlots[endNum - i].SetUnit(enemyUnitList[i], 2);
-            unitSlotGroupController.unitSlots[endNum - i].unit.SetDirection(true);
+            unitSlotGroupController.unitSlots[endNum - i].unit.isFlipX = true;
         }
     }
 }

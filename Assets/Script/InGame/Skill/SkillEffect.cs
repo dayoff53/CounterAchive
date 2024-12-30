@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "NewSkillEffect", menuName = "Skills/Null")]
 
@@ -6,6 +7,7 @@ public class SkillEffect : ScriptableObject
 {
     protected SkillData skillData;
     protected StageManager stageManager;
+    protected List<float> skillValueList;
 
     public void SkillEffectInit(SkillData skillData)
     {
@@ -13,10 +15,12 @@ public class SkillEffect : ScriptableObject
         {
             stageManager = StageManager.Instance;
             this.skillData = stageManager.currentSkillData; 
+            SetSkillValue(this.skillData.skillValueList);
         }
         else
         {
             this.skillData = skillData;
+            SetSkillValue(this.skillData.skillValueList);
         }
     }
 
@@ -44,4 +48,10 @@ public class SkillEffect : ScriptableObject
         Debug.Log($"{skillData.skillName}의 예상 데미지는 {0}입니다.");
         return 0;
     }
+
+    virtual public void SetSkillValue(List<float> SetSkillValueList)
+    {
+        skillValueList = SetSkillValueList;
+    }
+
 }   

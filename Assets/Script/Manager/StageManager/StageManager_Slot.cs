@@ -22,6 +22,7 @@
              }
          }
      }
+
      public void AllUnitBaseUpdate()
      {
          foreach (UnitSlotController unitSlot in unitSlotList)
@@ -90,8 +91,10 @@
              }
              */
 
+            currentSkillData = null;
+            currentSkillTargetSlots.Clear();
             AllUnitBaseUpdate();
-             MoveUnits();
+            MoveUnits();
  
              for (int i = 0; i < unitSlotList.Count; i++)
              {

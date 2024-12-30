@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class CorpseProduction : MonoBehaviour
+public class UnitProduction : MonoBehaviour
 {
     private StageManager stageManager;
     private Rigidbody2D rigidBody;

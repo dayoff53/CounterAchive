@@ -47,7 +47,7 @@ public class UnitBase : MonoBehaviour
     /// </summary>
     [SerializeField] public List<GameObject> productionPositionList;
     [Tooltip("시체 디졸브 효과")]
-    [SerializeField] public CorpseProduction corpseDissolve;
+    [SerializeField] public UnitProduction corpseDissolve;
 
     [Space(20)] 
     [Header("------------------- UnitData -------------------")]
@@ -94,7 +94,6 @@ public class UnitBase : MonoBehaviour
         }
     }
     public float currentAp
-
     {
         get { return _currentAp; }
         set
@@ -104,7 +103,13 @@ public class UnitBase : MonoBehaviour
                 actionPointBar.fillAmount = currentAp / maxAp;
         }
     }
-    
+    public bool isFlipX
+    {
+        get { return spriteRenderer.flipX; }
+        set { spriteRenderer.flipX = value; }
+    }
+
+
     [Space(10)]
     [Header("특성 및 스킬")]
     [Tooltip("유닛 태그 목록")]
@@ -251,10 +256,6 @@ public class UnitBase : MonoBehaviour
     {
         unitAnimator.SetInteger("State", animNum);
     }
-    public void SetDirection(bool isLeft)
-    {
-        spriteRenderer.flipX = isLeft;
-    }
 
     public void SetTurn(bool isUseTurn)
     {
@@ -309,10 +310,16 @@ public class UnitBase : MonoBehaviour
         stageManager.lastEnemyDeathObject = corpseDissolve.gameObject;
 
         corpseDissolve.DissolveStart(spriteRenderer);
+
+        float randomDirectionY = Random.Range(0, 0.8f);
         if (spriteRenderer.flipX)
-            corpseDissolve.PushUnit(pushForce, new Vector2(1, 0));
+        {
+            corpseDissolve.PushUnit(pushForce, new Vector2(1 - randomDirectionY, randomDirectionY));
+        }
         else
-            corpseDissolve.PushUnit(pushForce, new Vector2(-1, 0));
+        {
+            corpseDissolve.PushUnit(pushForce, new Vector2(-1 + randomDirectionY, randomDirectionY));
+        }
         spriteRenderer.sprite = null;
 
         // UnitData를 Null로 변경하여 유닛을 비활성화합니다.

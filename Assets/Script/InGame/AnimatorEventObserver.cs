@@ -13,7 +13,14 @@ public class AnimationEventObserver : MonoBehaviour
 
     public void SkillHit()
     {
-        gameManager.SkillProduction(0);
+        if(gameManager.currentSkillData.isRandomHitProduction)
+        {
+            gameManager.SkillProduction(Random.Range(0, gameManager.currentSkillData.skillHitProductionObjects.Count));
+        }
+        else
+        {
+            gameManager.SkillProduction(0);
+        }
         Debug.Log($"SkillHit 작동");
     }
 
