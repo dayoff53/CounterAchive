@@ -6,6 +6,7 @@ using UnityEngine;
 public class CorpseProduction : MonoBehaviour
 {
     private StageManager stageManager;
+    private Rigidbody2D rigidBody;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
     [SerializeField] private Material dissolveMaterial;
@@ -15,6 +16,7 @@ public class CorpseProduction : MonoBehaviour
     private void Start()
     {
         stageManager = StageManager.Instance;
+        rigidBody = this.GetComponent<Rigidbody2D>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         CorpseInit();
         //StartCoroutine(dissolveStart());
@@ -51,7 +53,7 @@ public class CorpseProduction : MonoBehaviour
             Material[] mats = spriteRenderer.materials;
 
             time += Time.deltaTime;
-            mats[0].SetFloat("_Cutoff", Mathf.Sin(time * speed));
+            mats[0].SetFloat("_Cutoff", Mathf.Clamp01(time * speed));
 
             //Unity does not allow meshRenderer.materials[0]...
             spriteRenderer.materials = mats;
@@ -61,11 +63,16 @@ public class CorpseProduction : MonoBehaviour
                 stageManager.isUnitDying = false;
             }
 
-
             if (time >= 1f && stageManager.isUnitDying == false)
             {
+                spriteRenderer.sprite = null;
                 yield break;
             }
         }
+    }
+
+    public void PushUnit(float pushForce, Vector2 direction)
+    {
+        rigidBody.AddForce(direction * pushForce, ForceMode2D.Impulse);
     }
 }

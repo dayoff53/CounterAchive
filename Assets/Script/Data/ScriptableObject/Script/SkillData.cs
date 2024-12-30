@@ -50,8 +50,8 @@ public class SkillData : ScriptableObject
     
     [Space(20)]
     [Header("히트 설정")]
-    [Tooltip("히트가 여러 번 발생하는지 여부와 관련된 설정")]
-    public bool isSkillHitMultiple;
+    [Tooltip("히트 연출의 갯수 제한 여부")]
+    public bool isSkillHitCount;
     [Tooltip("isSkillHitMultiple가 true일 때 히트가 발생하는 횟수")]
     public int skillHitCount = 1;
     [Tooltip("히트 반경")]

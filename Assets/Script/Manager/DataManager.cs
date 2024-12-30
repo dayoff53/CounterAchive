@@ -42,12 +42,6 @@ public class DataManager : Singleton<DataManager>
     {
         DataInit();
 
-        if (currentSaveData == null)
-        {
-            //currentSaveData = new SaveData();
-            Debug.Log("게임 테스트중이기 때문에 세이브 데이터를 불러옵니다.");
-            LoadGame();
-        }
     }
 
     private void DataInit()
@@ -57,6 +51,12 @@ public class DataManager : Singleton<DataManager>
 
         skillList = new List<SkillData>(Resources.LoadAll<SkillData>("ScriptableObject/SkillData"));
         saveDataFilePath = Path.Combine(Application.persistentDataPath, "saveData.json");
+
+        
+            //currentSaveData = new SaveData();
+            Debug.Log("게임 테스트중이기 때문에 세이브 데이터를 불러옵니다.");
+            LoadGame();
+        
     }
 
     /// <summary>

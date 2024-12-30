@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class FirstPartySelectSlotController : MonoBehaviour
 {
     /// <summary>
-    /// ¼±ÅÃÇÑ ±×·ìÀÇ À¯´Ö µ¥ÀÌÅÍ
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     [SerializeField]
     public GroupUnitsData groupUnitsData;
@@ -23,7 +23,7 @@ public class FirstPartySelectSlotController : MonoBehaviour
     }
 
     /// <summary>
-    /// ±×·ì ¼±ÅÃ Ã¢ ¿¡¼­ ÇÃ·¹ÀÌ ÇÒ ±×·ì ¼±ÅÃ ½Ã È®ÀÎ ¿©ºÎ UI¸¦ Ãâ·Â½ÃÅµ´Ï´Ù.
+    /// ï¿½×·ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½×·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ UIï¿½ï¿½ ï¿½ï¿½Â½ï¿½Åµï¿½Ï´ï¿½.
     /// </summary>
     public void OnGroupSelectButton()
     {

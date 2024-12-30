@@ -278,10 +278,11 @@ public class UnitBase : MonoBehaviour
 
         if (currentHp <= 0)
             {
-                Death();
+                Death(damage);
             }
         }
     }
+
     public float ComputeDamage(float damage)
     {
         if (damage / 2 > def)
@@ -302,18 +303,21 @@ public class UnitBase : MonoBehaviour
         return (int)damage;
     }
 
-    public void Death()
+    public void Death(float pushForce)
     {
         stageManager.isUnitDying = true;
         stageManager.lastEnemyDeathObject = corpseDissolve.gameObject;
 
         corpseDissolve.DissolveStart(spriteRenderer);
+        if (spriteRenderer.flipX)
+            corpseDissolve.PushUnit(pushForce, new Vector2(1, 0));
+        else
+            corpseDissolve.PushUnit(pushForce, new Vector2(-1, 0));
         spriteRenderer.sprite = null;
 
         // UnitData를 Null로 변경하여 유닛을 비활성화합니다.
         unitData = dataManager.unitDataList.Find(un => un.unitNumber == 0); // Null 값을 갖는 UnitData로 설정
     }
-
     public void HitProduction(GameObject hitProductonObject, float skillHitRadius)
     {
         Vector3 hitPos = productionPositionList[0].gameObject.transform.position;
@@ -330,7 +334,31 @@ public class UnitBase : MonoBehaviour
 
             hitProductonObject.transform.position = new Vector3(x, y, hitPos.z);
         }
+
+        // 피격 시 흔들림 효과 추가
+        StartCoroutine(ShakeUnit());
     }
+    private IEnumerator ShakeUnit()
+    {
+        float shakeDuration = 0.2f;
+        float shakeAmount = 0.1f;
+        
+        float elapsed = 0f;
+        
+        while (elapsed < shakeDuration)
+        {
+            float x = unitData.unitPosition.x + Random.Range(-1f, 1f) * shakeAmount;
+            float y = unitData.unitPosition.y + Random.Range(-1f, 1f) * shakeAmount;
+            
+            transform.localPosition = new Vector3(x, y, unitData.unitPosition.z);
+            
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        
+        transform.localPosition = unitData.unitPosition;
+    }
+
     public void SetSkillTargeting(bool isTargeting, string targetingText)
     {
         if (isTargeting)

@@ -195,12 +195,12 @@ public partial class StageManager
         foreach (UnitSlotController targetUnit in currentSkillTargetSlots)
         {
             Debug.Log($"{targetUnit}의 SkillProduction 호출");
-            if(!currentSkillData.isSkillHitMultiple)
+            if(!currentSkillData.isSkillHitCount)
             {
                 GameObject hitProductonObject = poolManager.Pop(currentSkillData.skillHitProductionObjects[hitProductionNum]);
                 targetUnit.unit.HitProduction(hitProductonObject, currentSkillData.skillHitRadius);
                 targetUnit.unit.SetAnim(2);
-            } else if (currentSkillData.isSkillHitMultiple && skillHitProductionCount > 0)
+            } else if (currentSkillData.isSkillHitCount && skillHitProductionCount > 0)
             {
                 GameObject hitProductonObject = poolManager.Pop(currentSkillData.skillHitProductionObjects[hitProductionNum]);
                 targetUnit.unit.HitProduction(hitProductonObject, currentSkillData.skillHitRadius);

@@ -75,6 +75,7 @@ public class UnitData : ScriptableObject
     public Sprite unitFaceIcon;
     public Sprite unitSprite;
     public RuntimeAnimatorController unitAnimController;
+    public Vector3 unitPosition = new Vector3(0, 2.175f, 0);
     public Vector3 hitPosition;
 
     public float hp = 10;
