@@ -19,7 +19,7 @@
 
         [Header("Color Data")]
         public List<Color> unitStateColors;
-        public ColorState unitStateColorsObject;
+        public ProdutionState unitStateColorsObject;
 
         [Header("Cost UI")]
         public Image costGauge;

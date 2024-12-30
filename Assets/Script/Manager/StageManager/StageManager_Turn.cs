@@ -202,6 +202,7 @@ public partial class StageManager
                 groundSprite.SetSlotGroundState(SlotGroundState.Default);
             }
 
+        SetFadeInOutProduction(new Color(0, 0, 0, 0), 0f);
         unitSlotList[currentTurnSlotNumber].unit.SetTurn(false);
         currentTurnCount++;
         UpdateStageClearCondition();

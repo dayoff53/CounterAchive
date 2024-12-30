@@ -240,6 +240,7 @@ public class UnitBase : MonoBehaviour
             hpPointBar.gameObject.transform.parent.gameObject.SetActive(true);
             actionPointBar.gameObject.SetActive(true);
 
+            spriteRenderer.sortingOrder = (int)stageManager.unitStateColorsObject.orderLayerNumber[0];
             SetAnim(0);
             actionPointBar.fillAmount = 0f / 100f;
             SetSkillTargeting(false, "");
@@ -318,7 +319,7 @@ public class UnitBase : MonoBehaviour
         }
         else
         {
-            corpseDissolve.PushUnit(pushForce, new Vector2(-1 + randomDirectionY, randomDirectionY));
+            corpseDissolve.PushUnit(pushForce, new Vector2(-1, randomDirectionY));
         }
         spriteRenderer.sprite = null;
 

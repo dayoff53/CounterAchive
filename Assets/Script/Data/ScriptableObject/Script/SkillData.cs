@@ -72,6 +72,12 @@ public class SkillData : ScriptableObject
     [Tooltip("히트 연출의 동시 출력 갯수")]
     public int skillHitMultipleCount = 1;
 
+    [Space(10)]
+    [Header("BackGround 페이드 아웃 효과 여부")]
+    public bool isFadeInOutProdution = false;
+    public Color fadeInOutProdutionColor = new Color(0, 0, 0, 1);
+    public float fadeInOutProdutionTime = 0.25f;
+
     public void SkillEffectStart(UnitBase useUnit, UnitBase targetUnit)
     {
         if (skillValueList.Count == 0)

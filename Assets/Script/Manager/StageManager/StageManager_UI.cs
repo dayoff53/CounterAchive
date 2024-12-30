@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 
@@ -21,14 +22,13 @@ public partial class StageManager
     public UnitCard targetUnitCardUI;
     public TMP_Text skillAccuracyText;
     public TMP_Text remainingSetUnitSlotText;
-    public GameObject turnUnitMarker;
-    public GameObject targetUnitMarker;
+    public Image fadeProdutionPanel;
 
 
     [Space(10)]
     [Header("Color Data")]
     public List<Color> unitStateColors;
-    public ColorState unitStateColorsObject;
+    public ProdutionState unitStateColorsObject;
     #endregion
 
 
@@ -50,5 +50,37 @@ public partial class StageManager
             changeUnitStatus.SetStatus(dataManager.unitDataList.Find(u => u.unitNumber == unitSlotList[unitNumber].unit.unitNumber));
             targetUnitCardUI.unitStatus = changeUnitStatus;
         }
+    }
+
+/// <summary>
+/// 
+/// </summary>
+/// <param name="color"></param>
+/// <param name="fadeTime"></param>
+    public void SetFadeInOutProduction(Color color, float fadeTime)
+    {
+        StartCoroutine(FadeInOutProduction(color, fadeTime));
+    }
+    IEnumerator FadeInOutProduction(Color color, float fadeTime)
+    {
+        float elapsedTime = 0f;
+        Color startColor = fadeProdutionPanel.color;
+
+
+        if(fadeTime == 0)
+        {
+            fadeProdutionPanel.color = color;
+            yield break;
+        }
+
+        while (elapsedTime < fadeTime)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / fadeTime;
+            fadeProdutionPanel.color = Color.Lerp(startColor, color, t);
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+
+        fadeProdutionPanel.color = color;
     }
 }

@@ -201,11 +201,19 @@ public partial class StageManager
     /// </summary>
     public virtual void SkillProduction(int hitProductionNum)
     {
+        unitSlotList[currentTurnSlotNumber].unit.spriteRenderer.sortingOrder = (int)unitStateColorsObject.orderLayerNumber[1];
+
         foreach (UnitSlotController targetUnit in currentSkillTargetSlots)
         {
-            Debug.Log($"{targetUnit}의 SkillProduction 호출");
+            //Debug.Log($"{targetUnit}을 타겟으로 하는 SkillProduction 호출");
             targetUnit.unit.SetAnim(2);
             GameObject hitProductonObject;
+
+            if(currentSkillData.isFadeInOutProdution)
+            {
+                targetUnit.unit.spriteRenderer.sortingOrder = (int)unitStateColorsObject.orderLayerNumber[1];
+                SetFadeInOutProduction(currentSkillData.fadeInOutProdutionColor, currentSkillData.fadeInOutProdutionTime);
+            }
  
             if(currentSkillData.isSkillHitMultiple)
             {
