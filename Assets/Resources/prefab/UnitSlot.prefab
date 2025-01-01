@@ -819,6 +819,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1414657036934773973}
     - target: {fileID: 1445885291667714529, guid: 8e0b2955ee1b41d45865095fed3143f1, type: 3}
+      propertyPath: damageTextObject
+      value: 
+      objectReference: {fileID: 7262650492362085562, guid: fdd439b82af4577448ccd18738127239, type: 3}
+    - target: {fileID: 1445885291667714529, guid: 8e0b2955ee1b41d45865095fed3143f1, type: 3}
       propertyPath: skillTargetingText
       value: 
       objectReference: {fileID: 5714897464710571028}
@@ -834,6 +838,14 @@ PrefabInstance:
       propertyPath: 'skillTargetingImageList.Array.data[1]'
       value: 
       objectReference: {fileID: 1256948028978481517}
+    - target: {fileID: 4445867403141786884, guid: 8e0b2955ee1b41d45865095fed3143f1, type: 3}
+      propertyPath: m_Size.x
+      value: 10.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4445867403141786884, guid: 8e0b2955ee1b41d45865095fed3143f1, type: 3}
+      propertyPath: m_Size.y
+      value: 10.24
+      objectReference: {fileID: 0}
     - target: {fileID: 4445867403141786884, guid: 8e0b2955ee1b41d45865095fed3143f1, type: 3}
       propertyPath: m_Sprite
       value: 

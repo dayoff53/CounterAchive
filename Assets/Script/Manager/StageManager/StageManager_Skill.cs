@@ -24,7 +24,7 @@ public partial class StageManager
         set
         {
             _currentSkillData = value;
-            stageMenuController.StageMenuInit();
+            uiManager.stageMenuController.StageMenuInit();
         }
     }
 
@@ -132,7 +132,7 @@ public partial class StageManager
 
             // 스킬의 명중률을 계산합니다.
             skillAcc = ((unitSlotList[currentTurnSlotNumber].unit.acc * (currentSkillData.skillAcc * 0.01f)) / unitSlotList[skillTargetNum].unit.eva);
-            skillAccuracyText.text = $"{skillAcc * 100}%";
+            uiManager.skillAccuracyText.text = $"{skillAcc * 100}%";
 
             // 스킬의 연출 발생 횟수를 설정합니다.
             skillHitProductionCount = currentSkillData.skillHitCount;
@@ -146,12 +146,14 @@ public partial class StageManager
                 {
                     if(!unitSlotList[currentTurnSlotNumber].unit.isFlipX)
                     {
-                        currentSkillTargetSlots.Add(unitSlotList[skillTargetNum + skillAreaNum]);
-                        unitSlotList[skillTargetNum + skillAreaNum].unit.SetSkillTargeting(true, unitSlotList[skillTargetNum + skillAreaNum].unit.ComputeDamage(currentSkillData.ExpectedDamage(unitSlotList[currentTurnSlotNumber].unit, unitSlotList[skillTargetNum + skillAreaNum].unit)).ToString());
+                        UnitSlotController targetUnit = unitSlotList[skillTargetNum + skillAreaNum];
+                        currentSkillTargetSlots.Add(targetUnit);
+                        targetUnit.unit.SetSkillTargeting(true, targetUnit.unit.ComputeDamage(currentSkillData.ExpectedDamage(unitSlotList[currentTurnSlotNumber].unit, targetUnit.unit), 0).ToString());
                     } else
                     {
-                        currentSkillTargetSlots.Add(unitSlotList[skillTargetNum - skillAreaNum]);
-                        unitSlotList[skillTargetNum - skillAreaNum].unit.SetSkillTargeting(true, unitSlotList[skillTargetNum - skillAreaNum].unit.ComputeDamage(currentSkillData.ExpectedDamage(unitSlotList[currentTurnSlotNumber].unit, unitSlotList[skillTargetNum - skillAreaNum].unit)).ToString());
+                        UnitSlotController targetUnit = unitSlotList[skillTargetNum - skillAreaNum];
+                        currentSkillTargetSlots.Add(targetUnit);
+                        targetUnit.unit.SetSkillTargeting(true, targetUnit.unit.ComputeDamage(currentSkillData.ExpectedDamage(unitSlotList[currentTurnSlotNumber].unit, targetUnit.unit), 0).ToString());
                     }
                 }
             }

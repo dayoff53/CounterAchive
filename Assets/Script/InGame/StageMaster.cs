@@ -21,6 +21,7 @@ public class StageMaster : MonoBehaviour
     [Header("Stage Manager Reference")]
     [SerializeField]
     private StageManager stageManager;
+    private UIManager uiManager;
 
     [Header("Stage Clear Condition")]
     public StageClearState stageClearCondition;
@@ -101,7 +102,7 @@ public class StageMaster : MonoBehaviour
     private void Start()
     {
         stageManager = StageManager.Instance;
-
+        uiManager = UIManager.Instance;
         InitUIObject();
 
         unitSelectSlotsGroupController.InitUnitSelectSlot();
@@ -118,13 +119,13 @@ public class StageMaster : MonoBehaviour
 
     private void InitUIObject()
     {
-        stageManager.turnUnitCardUI = turnUnitCardUI;
-        stageManager.targetUnitCardUI = targetUnitCardUI;
-        stageManager.skillAccuracyText = skillAccuracyText;
-        stageManager.play_UI = play_UI;
-        stageManager.unitSet_UI = unitSet_UI;
-        stageManager.remainingSetUnitSlotText = remainingSetUnitSlotText;
-        stageManager.stageMenuController = stageMenuController;
+        uiManager.turnUnitCardUI = turnUnitCardUI;
+        uiManager.targetUnitCardUI = targetUnitCardUI;
+        uiManager.skillAccuracyText = skillAccuracyText;
+        uiManager.play_UI = play_UI;
+        uiManager.unitSet_UI = unitSet_UI;
+        uiManager.remainingSetUnitSlotText = remainingSetUnitSlotText;
+        uiManager.stageMenuController = stageMenuController;
 
         stageManager.unitSlotGroupController = unitSlotGroupController;
         stageManager.stageClearCondition = stageClearCondition;

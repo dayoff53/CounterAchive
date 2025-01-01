@@ -29,8 +29,6 @@
          {
              unitSlot.unit.UnitBaseUpdate();
          }
-         
-         unitSlotList[currentTurnSlotNumber].unit.SetTurn(true);
      }
  
      /// <summary>

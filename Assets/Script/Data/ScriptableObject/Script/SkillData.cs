@@ -36,6 +36,7 @@ public class SkillData : ScriptableObject
     [Header("------------------- 스킬 설정 -------------------")]
     [Header("스킬 속성")]
     public List<float> skillValueList;
+    public List<float> skillValuePierceList;
     public float skillCost = 1;
     public float skillAcc = 100;
     public int[] skillRange;
@@ -93,6 +94,12 @@ public class SkillData : ScriptableObject
         }
     }
 
+/// <summary>
+/// 스킬 효과들의 예상 데미지를 계산합니다.
+/// </summary>
+/// <param name="useUnit"></param>
+/// <param name="targetUnit"></param>
+/// <returns></returns>
     public float ExpectedDamage(UnitBase useUnit, UnitBase targetUnit)
     {
         float expectedDamage = 0;

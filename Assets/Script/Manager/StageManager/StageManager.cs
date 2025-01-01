@@ -25,6 +25,7 @@ public partial class StageManager : Singleton<StageManager>
     private DataManager dataManager;
     private PoolManager poolManager;
     private CameraManager cameraManager;
+    private UIManager uiManager;
 
     #region StageVariable
     [Header("------------------- Stage -------------------")]
@@ -49,11 +50,11 @@ public partial class StageManager : Singleton<StageManager>
             switch (value)
             {
                 case ProgressState.UnitSelect:
-                    UIManager.Instance.SwitchUIMode(false);
+                    uiManager.SwitchUIMode(false);
                     break;
 
                 default:
-                    UIManager.Instance.SwitchUIMode(true);
+                    uiManager.SwitchUIMode(true);
                     break;
             }
             Debug.Log($"{currentPrograssState} => {value}");
@@ -104,6 +105,7 @@ public partial class StageManager : Singleton<StageManager>
         dataManager = DataManager.Instance;
         poolManager = PoolManager.Instance;
         cameraManager = CameraManager.Instance;
+        uiManager = UIManager.Instance;
     }
 
     /// <summary>
@@ -111,6 +113,7 @@ public partial class StageManager : Singleton<StageManager>
     /// </summary>
     public void InitGame()
     {
+        poolManager.Clear();
         unitSlotGroupController.UnitSlotsInit();
         unitStateColors = unitStateColorsObject.colorStates;
         SlotPosInit();
@@ -207,7 +210,7 @@ public partial class StageManager : Singleton<StageManager>
                     Debug.Log("noEnemiesLeft" + noEnemiesLeft);
                     cameraManager.ZoomToTarget(lastEnemyDeathObject.transform, 3.5f, 0.5f);
                     Time.timeScale = 0.5f;
-                    Invoke(nameof(KillAllEnemyClear), 2.1f);
+                    Invoke(nameof(StageClear), 2.1f);
                 }
                 break;
 
@@ -236,14 +239,12 @@ public partial class StageManager : Singleton<StageManager>
     /// </summary>
     private void StageClear()
     {
-        Debug.Log("Stage Cleared!");
-        // 클리어 조건 달성 시 다음 단계 처리 로직 추가
-    }
-
-    private void KillAllEnemyClear()
-    {
         Time.timeScale = 1.0f;
         cameraManager.ResetCamera(0.5f);
-        StageClear();
+        Debug.Log("Stage Cleared!");
+        
+        Debug.Log("SetActive : true");
+        uiManager.win_UI.SetActive(true);
+        uiManager.winUIController.WinUIActive();
     }
 }

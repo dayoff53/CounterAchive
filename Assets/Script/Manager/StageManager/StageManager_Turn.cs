@@ -179,6 +179,7 @@ public partial class StageManager
         // 슬롯 상태 업데이트
         SlotGroundSpriteController groundSprite = unitSlotList[currentTurnSlotNumber].slotGround;
         groundSprite.SetSlotGroundState(SlotGroundState.Select);
+        AllUnitBaseUpdate();    
         currentTurnUnit.SetTurn(true);
 
 
@@ -192,7 +193,8 @@ public partial class StageManager
     /// </summary>
     public void TurnEnd()
     {
-        // 유닛 사망 여부 확인
+        poolManager.Clear();
+        
             // 모든 유닛의 애니메이션 및 슬롯 상태 초기화
             foreach (UnitSlotController unitSlot in unitSlotList)
             {
@@ -202,7 +204,7 @@ public partial class StageManager
                 groundSprite.SetSlotGroundState(SlotGroundState.Default);
             }
 
-        SetFadeInOutProduction(new Color(0, 0, 0, 0), 0f);
+        SetFadeInOutProduction(new Color(0, 0, 0, 0), 0.25f);
         unitSlotList[currentTurnSlotNumber].unit.SetTurn(false);
         currentTurnCount++;
         UpdateStageClearCondition();

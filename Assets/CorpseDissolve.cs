@@ -26,6 +26,7 @@ public class UnitProduction : MonoBehaviour
     {
         spriteRenderer.sprite = null;
         spriteRenderer.material = dissolveMaterial;
+        spriteRenderer.sortingOrder = (int)stageManager.unitStateColorsObject.orderLayerNumber[0];
 
         Material[] mats = spriteRenderer.materials;
 
@@ -46,6 +47,7 @@ public class UnitProduction : MonoBehaviour
         spriteRenderer.sprite = corpseSpriteRenderer.sprite;
         spriteRenderer.flipX = corpseSpriteRenderer.flipX;
         spriteRenderer.material = dissolveMaterial;
+        spriteRenderer.sortingOrder = (int)stageManager.unitStateColorsObject.orderLayerNumber[1];
         while (true)
         {
             yield return new WaitForSeconds(Time.deltaTime);

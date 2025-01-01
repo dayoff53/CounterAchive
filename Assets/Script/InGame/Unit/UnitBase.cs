@@ -14,6 +14,8 @@ public class UnitBase : MonoBehaviour
     CameraManager cameraManager;
     [Tooltip("데이터 매니저 인스턴스")]
     DataManager dataManager;
+    [Tooltip("풀 매니저 인스턴스")]
+    PoolManager poolManager;
 
     [Space(20)]
     [Header("------------------- 시각적 요소 -------------------")]
@@ -42,12 +44,12 @@ public class UnitBase : MonoBehaviour
     [Header("------------------- SFX -------------------")]
     [Header("게임플레이 연출")]
     [Tooltip("히트 연출 위치 (히트 연출 위치, 유닛의 눈 위치)")]
-    /// <summary>
-    /// 히트 이펙트 위치 (유닛의 중심 위치, 유닛의 눈 위치)
-    /// </summary>
-    [SerializeField] public List<GameObject> productionPositionList;
+    public List<GameObject> productionPositionList;
+    [SerializeField]
+    private GameObject damageTextObject;
     [Tooltip("시체 디졸브 효과")]
-    [SerializeField] public UnitProduction corpseDissolve;
+    public UnitProduction corpseDissolve;
+    
 
     [Space(20)] 
     [Header("------------------- UnitData -------------------")]
@@ -124,6 +126,7 @@ public class UnitBase : MonoBehaviour
         stageManager = StageManager.Instance;
         cameraManager = CameraManager.Instance;
         dataManager = DataManager.Instance;
+        poolManager = PoolManager.Instance;
 
         UnitDataInit(unitData);
     }
@@ -146,6 +149,7 @@ public class UnitBase : MonoBehaviour
             unitName = unitData.name;
             unitAnimator.runtimeAnimatorController = null;
             spriteRenderer.sprite = null;
+            spriteRenderer.color = new Color(1, 1, 1, 0);
             unitFaceIcon = null;
             maxHp = unitData.hp;
             currentHp = unitData.hp;
@@ -167,6 +171,7 @@ public class UnitBase : MonoBehaviour
             actionPointBar.gameObject.SetActive(true);
             unitName = unitData.name;
             spriteRenderer.sprite = unitData.unitSprite;
+            spriteRenderer.color = new Color(1, 1, 1, 1);
             unitFaceIcon = unitData.unitFaceIcon;
             unitAnimator.runtimeAnimatorController = unitData.unitAnimController;
             maxHp = unitData.hp;
@@ -180,7 +185,6 @@ public class UnitBase : MonoBehaviour
             corpseDissolve.CorpseInit();
 
             SetAnim(0);
-            actionPointBar.fillAmount = 0f / 100f;
         }
         
         SetSkillTargeting(false, "");
@@ -242,9 +246,8 @@ public class UnitBase : MonoBehaviour
 
             spriteRenderer.sortingOrder = (int)stageManager.unitStateColorsObject.orderLayerNumber[0];
             SetAnim(0);
-            actionPointBar.fillAmount = 0f / 100f;
             SetSkillTargeting(false, "");
-            SetTurn(false);
+            
         }
     }
 
@@ -271,39 +274,92 @@ public class UnitBase : MonoBehaviour
     }
 
 
+    public float ComputeDamage(float damage, float defPierce)
+    {
+        float computedDamage = damage;
+        if (damage / 2 > def)
+        {
+            computedDamage = damage - def;
+        }
+        else
+        {
+            computedDamage = (damage / 2) - ((def - (damage / 2)) / 2);
+        }
 
-    public void Damage(float damage)
+        computedDamage = (int)computedDamage;
+
+        if (computedDamage <= 1)
+        {
+            computedDamage = 1;
+        }
+
+        //방어 관통 수치 계산
+        computedDamage += (damage - computedDamage) * defPierce;
+        computedDamage = Mathf.Max(damage);
+
+        Debug.Log($"ComputeDamage : {damage}"); 
+        return (int)computedDamage;
+    }
+
+
+    public void Damage(float damage, float defPierce)
     {
         if (unitData.name != "Null")
         {
-            currentHp -= ComputeDamage(damage);
+            float computedDamage = ComputeDamage(damage, defPierce);
 
-        if (currentHp <= 0)
+            // 데미지 계산
+            currentHp -= computedDamage;
+
+            // 데미지 텍스트 생성 및 애니메이션
+            GameObject damageTextObj = poolManager.Pop(damageTextObject);
+            if (damageTextObj != null)
+            {
+                damageTextObj.transform.position = productionPositionList[0].transform.position + Vector3.up * 1.5f;
+                TextMeshProUGUI damageText = damageTextObj.GetComponent<TextMeshProUGUI>();
+                damageText.text = computedDamage.ToString();
+                damageText.color = new Color(1, 1, 1, 1);
+
+                // 데미지 텍스트 애니메이션 코루틴 시작
+                StartCoroutine(DamageTextAnimation(damageText));
+            }
+
+            if (currentHp <= 0)
             {
                 Death(damage);
             }
         }
     }
 
-    public float ComputeDamage(float damage)
+    public void Damage(float damage)
     {
-        if (damage / 2 > def)
-        {
-            damage = damage - def;
-        }
-        else
-        {
-            damage = (damage / 2) - ((def - (damage / 2)) / 2);
-        }
-
-        damage = (int)damage;
-
-        if (damage <= 1)
-        {
-            damage = 1;
-        }
-        return (int)damage;
+        Damage(damage, 0);
     }
+
+    private IEnumerator DamageTextAnimation(TextMeshProUGUI damageText)
+    {
+        float duration = 1.0f;
+        float elapsedTime = 0f;
+        Vector3 startPos = damageText.transform.position;
+        Color startColor = damageText.color;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = 1 - (elapsedTime / duration);
+            
+            // 위로 올라가는 움직임
+            damageText.transform.position = startPos + Vector3.up * (elapsedTime * 2f);
+            
+            // 투명도 조절
+            damageText.color = new Color(startColor.r, startColor.g, startColor.b, alpha);
+            
+            yield return null;
+        }
+
+        Destroy(damageText.gameObject);
+    }
+
 
     public void Death(float pushForce)
     {
@@ -312,16 +368,25 @@ public class UnitBase : MonoBehaviour
 
         corpseDissolve.DissolveStart(spriteRenderer);
 
-        float randomDirectionY = Random.Range(0, 0.8f);
-        if (spriteRenderer.flipX)
+        float randomDirectionY = Random.Range(0.35f, 0.85f);
+
+        if(pushForce > 5)
         {
-            corpseDissolve.PushUnit(pushForce, new Vector2(1 - randomDirectionY, randomDirectionY));
+            float excess = pushForce - 5;
+            float reduction = 1 - (excess * 0.15f); // 5를 초과하는 값마다 15%씩 효율 감소
+            pushForce = 5 + (excess * reduction);
         }
-        else
+        pushForce = Mathf.Min(pushForce, 10);
+
+        if (stageManager.unitSlotList[stageManager.currentTurnSlotNumber].unit.isFlipX)
         {
             corpseDissolve.PushUnit(pushForce, new Vector2(-1, randomDirectionY));
         }
-        spriteRenderer.sprite = null;
+        else
+        {
+            corpseDissolve.PushUnit(pushForce, new Vector2(1, randomDirectionY));
+        }
+        spriteRenderer.color = new Color(1, 1, 1, 0);
 
         // UnitData를 Null로 변경하여 유닛을 비활성화합니다.
         unitData = dataManager.unitDataList.Find(un => un.unitNumber == 0); // Null 값을 갖는 UnitData로 설정
