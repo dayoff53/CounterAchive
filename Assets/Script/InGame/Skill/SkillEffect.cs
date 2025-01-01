@@ -5,8 +5,11 @@ using System.Collections.Generic;
 
 public class SkillEffect : ScriptableObject
 {
+    [SerializeField]
     protected SkillData skillData;
+    [SerializeField]
     protected StageManager stageManager;
+    [SerializeField]
     protected List<float> skillValueList;
 
     public void SkillEffectInit(SkillData skillData)
