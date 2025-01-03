@@ -21,14 +21,14 @@ public class OptionController : MonoBehaviour
 
         if (optionObject != null)
         {
-            optionObject.SetActive(false); // °ÔÀÓ ½ÃÀÛ ½Ã ÀÏ½ÃÁ¤Áö ÆĞ³Î ºñÈ°¼ºÈ­
+            optionObject.SetActive(false); // ê²Œì„ ì‹œì‘ ì‹œ ì¼ì‹œì •ì§€ íŒ¨ë„ ë¹„í™œì„±í™”
         }
     }
 
-    // ¸Å ÇÁ·¹ÀÓ¸¶´Ù È£ÃâµÇ´Â ¾÷µ¥ÀÌÆ® ¸Ş¼­µå
+    // ë§¤ í”„ë ˆì„ë§ˆë‹¤ í˜¸ì¶œë˜ëŠ” ì—…ë°ì´íŠ¸ ë©”ì„œë“œ
     void Update()
     {
-        // ESC Å°¸¦ ´­·¯ °ÔÀÓÀ» ¸ØÃß°Å³ª Àç°³
+        // ESC í‚¤ë¥¼ ëˆ„ë¥¼ ë•Œë§ˆë‹¤ ê²Œì„ì„ ì •ì§€í•˜ê±°ë‚˜ ì¬ê°œ
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isGamePaused)
@@ -44,21 +44,21 @@ public class OptionController : MonoBehaviour
 
     public void PauseGame()
     {
-        Time.timeScale = 0f; // °ÔÀÓ ½Ã°£ Á¤Áö
+        Time.timeScale = 0f; // ê²Œì„ ì‹œê°„ ì •ì§€
         isGamePaused = true;
         if (optionObject != null)
         {
-            optionObject.SetActive(true); // ÀÏ½ÃÁ¤Áö UI È°¼ºÈ­
+            optionObject.SetActive(true); // ì¼ì‹œì •ì§€ UI í™œì„±í™”
         }
     }
 
     public void ResumeGame()
     {
-        Time.timeScale = 1f; // °ÔÀÓ ½Ã°£ Àç°³
+        Time.timeScale = 1f; // ê²Œì„ ì‹œê°„ ì¬ê°œ
         isGamePaused = false;
         if (optionObject != null)
         {
-            optionObject.SetActive(false); // ÀÏ½ÃÁ¤Áö UI ºñÈ°¼ºÈ­
+            optionObject.SetActive(false); // ì¼ì‹œì •ì§€ UI ë¹„í™œì„±í™”
         }
     }
 

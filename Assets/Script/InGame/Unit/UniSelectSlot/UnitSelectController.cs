@@ -16,7 +16,7 @@ public class UnitSelectController : MonoBehaviour
         Init();
     }
 
-    //UnitSelectSlotÀÌ Ã³À½ È£Ãâ µÇ¾úÀ» °æ¿ì Null°ªÀ¸·Î ÇÑ ¹ø, À¯ˆ• µ¥ÀÌÅÍ°¡ º¯°æµÇ¾úÀ»¶§ ÇÑ ¹ø È£Ãâ µÊ
+    //UnitSelectSlotì´ ì²˜ìŒ í˜¸ì¶œ ë˜ì—ˆì„ ê²½ìš° Nullìƒíƒœì¼ ë•Œ, ìœ ë‹› ë°ì´í„°ê°€ ì„¸íŒ…ë˜ì—ˆì„ë•Œ ë‹¤ì‹œ í˜¸ì¶œ ë¨
     public void Init()
     {
         gameManager = StageManager.Instance;

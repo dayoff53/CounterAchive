@@ -27,50 +27,50 @@ public class UnitCard : MonoBehaviour
     [System.Serializable]
     struct FrontPage
     {
-        [Header("Ä«µå ¾Õ¸é")]
-        [Tooltip("À¯´ÖÀÇ ¾ó±¼ ¾ÆÀÌÄÜ")]
+        [Header("Ä«ï¿½ï¿½ ï¿½Õ¸ï¿½")]
+        [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
         public Image unitCardIcon;
 
-        [Tooltip("À¯´ÖÀÇ ÀÌ¸§ ÅØ½ºÆ®")]
+        [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½Ø½ï¿½Æ®")]
         public TMP_Text unitCardName;
 
-        [Tooltip("À¯´ÖÀÇ Hp °ÔÀÌÁö")]
+        [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Hp ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
         public Image currentTurnHpGaugeBar;
 
-        [Tooltip("À¯´ÖÀÇ Hp ÅØ½ºÆ®")]
+        [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Hp ï¿½Ø½ï¿½Æ®")]
         public TMP_Text currentTurnHpText;
     }
 
     [System.Serializable]
     struct BackPage
     {
-        [Header("Ä«µå ¾Õ¸é")]
-        [Tooltip("À¯´ÖÀÇ ¾ó±¼ ¾ÆÀÌÄÜ")]
+        [Header("Ä«ï¿½ï¿½ ï¿½Õ¸ï¿½")]
+        [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
         public Image unitCardIcon;
 
-        [Tooltip("À¯´ÖÀÇ ÀÌ¸§ ÅØ½ºÆ®")]
+        [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½Ø½ï¿½Æ®")]
         public TMP_Text unitCardName;
 
-        [Tooltip("À¯´ÖÀÇ Hp °ÔÀÌÁö")]
+        [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Hp ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
         public Image hpGaugeBar;
 
-        [Tooltip("À¯´ÖÀÇ Hp ÅØ½ºÆ®")]
+        [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Hp ï¿½Ø½ï¿½Æ®")]
         public TMP_Text hpText;
-        [Tooltip("À¯´ÖÀÇ Atk ÅØ½ºÆ®")]
+        [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Atk ï¿½Ø½ï¿½Æ®")]
         public TMP_Text atkText;
-        [Tooltip("À¯´ÖÀÇ Def ÅØ½ºÆ®")]
+        [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Def ï¿½Ø½ï¿½Æ®")]
         public TMP_Text defText;
-        [Tooltip("À¯´ÖÀÇ Acc ÅØ½ºÆ®")]
+        [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Acc ï¿½Ø½ï¿½Æ®")]
         public TMP_Text accText;
-        [Tooltip("À¯´ÖÀÇ Eva ÅØ½ºÆ®")]
+        [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Eva ï¿½Ø½ï¿½Æ®")]
         public TMP_Text evaText;
-        [Tooltip("À¯´ÖÀÇ Speed ÅØ½ºÆ®")]
+        [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Speed ï¿½Ø½ï¿½Æ®")]
         public TMP_Text speedText;
 
-        [Tooltip("À¯´ÖÀÇ Tag ÅØ½ºÆ®")]
+        [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Tag ï¿½Ø½ï¿½Æ®")]
         public TMP_Text tagText;
-        public UnitNative unitNative;
-        public List<UnitTag> unitTagList;
+        public UnitTag_Native unitNative;
+        public List<UnitTag_Gender> unitTagList;
     }
 
     [SerializeField]
@@ -152,7 +152,7 @@ public class UnitCard : MonoBehaviour
 
 
         int count = 0;
-        foreach (UnitTag unitTag in backPage.unitTagList)
+        foreach (UnitTag_Gender unitTag in backPage.unitTagList)
         {
             count++;
             tagText += $"{unitTag}";

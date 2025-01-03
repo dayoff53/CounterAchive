@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 
 /// <summary>
-/// ╟тюс ╫цюш цй╠Б гц╥╧юлгр ╠в╥Лю╩ ╟М╦ё╟М ╫╨евюлаЖ Ёя╬Н╟║╢б юс╫ц ╫╨е╘╦Ёф╝
+/// Й╡▄Л·└ Л▀°Л·▒ Л╢┬Й╦╟ М■▄К═┬Л²╢Л√╢ Й╥╦Кё╧Л²└ Л└═М┐²М⌡└ Л┼╓М┘▄Л²╢Л╖─К║° К└≤Л√╢Й╟─К┼■ Л·└Л▀° Л┼╓М│╛К╕╫М┼╦
 /// </summary>
 public class GroupSelectCheckController : MonoBehaviour
 {

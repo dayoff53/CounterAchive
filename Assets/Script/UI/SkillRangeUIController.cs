@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// SkillSlot�� UI
+/// SkillSlot의 스킬 사거리를 
 /// </summary>
 public class SkillRangeUIController : MonoBehaviour
 {

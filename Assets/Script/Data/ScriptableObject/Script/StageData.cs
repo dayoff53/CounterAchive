@@ -10,7 +10,7 @@ public enum StageTag
 
 [CreateAssetMenu(fileName = "New StageData", menuName = "Datas/StageData")]
 
-public class StageData : ScriptableObject
+public class StageLoadData : SceneKeyData
 {
     [SerializeField]
     public SceneKeyData sceneKeyData;

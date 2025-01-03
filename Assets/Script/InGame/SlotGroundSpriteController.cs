@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Assertions;
 
 /// <summary>
-/// UnitSlot �ٴڿ� �򸮴� SlotGround (1.defalut, 2.select, 3.target)
+/// UnitSlot 바닥에 깔리는 SlotGround (1.defalut, 2.select, 3.target)
 /// </summary>
 public enum SlotGroundState
 {
@@ -14,7 +14,7 @@ public enum SlotGroundState
 }
 
 /// <summary>
-/// �� ������ Ŭ�� �Է°��� ����ϴ� Ground ����� ����ϴ� Ŭ����
+/// 각 슬롯의 클릭 입력값을 관리하는 Ground 스프라이트를 관리하는 클래스
 /// </summary>
 public class SlotGroundSpriteController : MonoBehaviour
 {

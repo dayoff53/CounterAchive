@@ -4,12 +4,12 @@ using UnityEngine;
 
 
 /// <summary>
-/// ´Ù¾çÇÑ ½ºÅ×ÀÌÁö¸¦ ºÒ·¯¿Ã ¼ö ÀÖ´Â ¸Ş´ÏÀú. Æ¯Á¤ Á¶°Ç¿¡ ÃæÁ·ÇÏ´Â ½ºÅ×ÀÌÁö¸¦ ÁöÁ¤ È¤Àº ·»´ıÀ¸·Î ºÒ·¯¿Ã ¼ö ÀÖ´Ù.
+/// ë‹¤ì–‘í•œ ìŠ¤í…Œì´ì§€ë¥¼ ë¶ˆëŸ¬ì˜¬ ìˆ˜ ìˆëŠ” ë§¤ë‹ˆì €. íŠ¹ì • ì¡°ê±´ì— ë¶€í•©í•˜ëŠ” ìŠ¤í…Œì´ì§€ë§Œ ëœë¤ í˜¹ì€ ìˆœì°¨ì ìœ¼ë¡œ ë¶ˆëŸ¬ì˜¬ ìˆ˜ ìˆë‹¤.
 /// </summary>
 public class StageLoadManager : Singleton<StageLoadManager>
 {
     [SerializeField]
-    private List<StageData> stageDatas;
+    private List<StageLoadData> stageDatas;
     [SerializeField]
     private SceneChangeManager sceneChangeManager;
 
@@ -19,26 +19,26 @@ public class StageLoadManager : Singleton<StageLoadManager>
     }
 
     /// <summary>
-    /// ·»´ıÇÑ °ªÀÇ Stage¸¦ ºÒ·¯¿É´Ï´Ù.
+    /// ëœë¤í•œ í•˜ë‚˜ì˜ Stageë¥¼ ë¶ˆëŸ¬ì˜µë‹ˆë‹¤.
     /// </summary>
     public void LoadRandomStage()
     {
         int randomIndex = Random.Range(0, stageDatas.Count);
 
-        StageData loadStageData = stageDatas[Random.Range(0, stageDatas.Count)];
+        StageLoadData loadStageData = stageDatas[Random.Range(0, stageDatas.Count)];
 
         sceneChangeManager.SceneLoad(loadStageData.sceneKeyData);
     }
 
     /// <summary>
-    /// ·»´ıÇÑ °ªÀÇ Stage¸¦ ºÒ·¯¿É´Ï´Ù.
+    /// ëœë¤í•œ í•˜ë‚˜ì˜ Stageë¥¼ ë¶ˆëŸ¬ì˜µë‹ˆë‹¤.
     /// </summary>
-    /// <param name="stageTag">Æ¯Á¤ TagÀÇ Stage¸¸À» ºÒ·¯¿Ã ¼ö ÀÖ½À´Ï´Ù.</param>
+    /// <param name="stageTag">íŠ¹ì • Tagì˜ Stageë§Œì„ ë¶ˆëŸ¬ì˜¬ ìˆ˜ ìˆìŠµë‹ˆë‹¤.</param>
     public void LoadRandomStage(StageTag stageTag)
     {
         int randomIndex = Random.Range(0, stageDatas.Count);
 
-        List<StageData> tagStageDatas = new List<StageData>();
+        List<StageLoadData> tagStageDatas = new List<StageLoadData>();
 
         for (int i = 0; i <= stageDatas.Count; i++)
         {
@@ -48,7 +48,7 @@ public class StageLoadManager : Singleton<StageLoadManager>
             }
         }
 
-        StageData loadStageData = tagStageDatas[Random.Range(0, tagStageDatas.Count)];
+        StageLoadData loadStageData = tagStageDatas[Random.Range(0, tagStageDatas.Count)];
 
         sceneChangeManager.SceneLoad(loadStageData.sceneKeyData);
     }

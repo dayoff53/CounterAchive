@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ������ �ױ�
+/// 유닛의 소속
 /// </summary>
 [System.Serializable]
-public enum UnitNative
+public enum UnitTag_Native
 {
     CounterSide,
     BlueAchive,
     Nikke
 }
 
+/// <summary>
+/// 유닛의 태그
+/// </summary>
 public enum UnitTag
 {
     #region Gender
@@ -35,7 +38,7 @@ public enum UnitTag
 
 
 /// <summary>
-/// ������ ��ǰ �� ���� (��Ƽ ������ ���� ���ݿ� ���̰� �߻��Ѵ�)
+/// 유닛의 상품 및 등급 (파티 구성시 등급 제한에 걸리게 발생한다)
 /// </summary>
 [System.Serializable]
 public enum UnitRole
@@ -46,7 +49,7 @@ public enum UnitRole
 }
 
 /// <summary>
-/// ���� ������ ������ State ��
+/// 공개 유닛의 스테이터스 State 값
 /// </summary>
 [System.Serializable]
 public enum PublicUnitStatusState
@@ -64,7 +67,7 @@ public enum PublicUnitStatusState
 
 
 /// <summary>
-/// ������ ���� ���ʰ��Ǵ� ���� ������. (���� ���� �÷��̸� ���� ������ ��ȭ�ϰų� ���׷��̵� �� ���� ������, ���� �⺻���� �����ʹ� �ش� �����͸� �������� �۾��Ѵ�.)
+/// 유닛의 기본 기초가되는 기본 데이터. (실제 게임 플레이를 통해 데이터가 변화하거나 업그레이드 된 유닛 데이터, 실제 기본적인 데이터는 해당 데이터를 기반으로 작업한다.)
 /// </summary>
 [CreateAssetMenu(fileName = "New UnitData", menuName = "Datas/UnitData")]
 public class UnitData : ScriptableObject
@@ -88,4 +91,3 @@ public class UnitData : ScriptableObject
     public List<UnitTag> unitTagList;
     public List<SkillData> skillDataList; 
 }
- 

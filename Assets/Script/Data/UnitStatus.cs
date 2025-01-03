@@ -22,7 +22,7 @@ public class UnitStatus
     public float acc = 1;
     public float eva = 1;
     public float speed = 1;
-    public List<UnitTag> unitTagList;
+    public List<UnitTag_Gender> unitTagList;
     public List<int> skillNumberList; // skillDataList ��� ��ų�� �ĺ���(Number)�� ����Ͽ� ����
 
     public UnitStatus()
