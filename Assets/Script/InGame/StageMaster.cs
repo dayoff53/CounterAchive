@@ -57,7 +57,7 @@ public class StageMaster : MonoBehaviour
     [SerializeField]
     public TMP_Text remainingSetUnitSlotText;
 
-    [Space(5)]
+    [Space(10)]
     [Tooltip("게임을 주로 플레이하는 UI")]
     [SerializeField]
     public GameObject play_UI;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 /// <summary>
-/// ������ �� ���¿� ���� ������ (Json�� UnitCard�� ����� ������, ���� ������ ����ϰ� �� ������)
+/// 유닛의 현 상태에 대한 데이터 (Json과 UnitCard에 저장될 데이터, 실제 게임에 사용하게 될 데이터)
 /// </summary>
 [System.Serializable]
 public class UnitStatus
@@ -22,12 +22,12 @@ public class UnitStatus
     public float acc = 1;
     public float eva = 1;
     public float speed = 1;
-    public List<UnitTag_Gender> unitTagList;
-    public List<int> skillNumberList; // skillDataList ��� ��ų�� �ĺ���(Number)�� ����Ͽ� ����
+    public List<UnitTag> unitTagList;
+    public List<int> skillNumberList; // skillDataList 대신 스킬의 식별자(Number)를 저장하여 사용
 
     public UnitStatus()
     {
-        if (unitData != null) // null üũ �߰�
+        if (unitData != null) // null 체크 추가
         {
             SetStatus(unitData);
         }
@@ -40,9 +40,9 @@ public class UnitStatus
     }
 
     /// <summary>
-    /// UnitData�� �����͸� ����
+    /// UnitData의 데이터를 적용
     /// </summary>
-    /// <param name="unitData">������ �� UnitData</param>
+    /// <param name="unitData">적용할 새 UnitData</param>
     public void SetStatus(UnitData unitData)
     {
         if (unitData == null) return;
@@ -60,7 +60,7 @@ public class UnitStatus
         speed = unitData.speed;
         unitTagList = unitData.unitTagList;
 
-        // skillDataList�� �ִ� �� SkillData�� ID�� ����
+        // skillDataList에 있는 각 SkillData의 ID를 저장
         skillNumberList = new List<int>();
         foreach (SkillData skill in unitData.skillDataList)
         {
@@ -69,9 +69,9 @@ public class UnitStatus
     }
 
     /// <summary>
-    /// UnitBase�� �����͸� ����
+    /// UnitBase의 데이터를 적용
     /// </summary>
-    /// <param name="unitBase">������ �� UnitData</param>
+    /// <param name="unitBase">적용할 새 UnitData</param>
     public void SetStatus(UnitBase unitBase)
     {
         if (unitBase == null) return;
@@ -88,7 +88,7 @@ public class UnitStatus
         speed = unitBase.speed;
         unitTagList = unitBase.unitTagList;
 
-        // skillDataList�� �ִ� �� SkillData�� ID�� ����
+        // skillDataList에 있는 각 SkillData의 ID를 저장
         skillNumberList = new List<int>();
         foreach (SkillData skill in unitBase.skillDataList)
         {
@@ -97,9 +97,9 @@ public class UnitStatus
     }
 
     /// <summary>
-    /// �߰� ���ݸ� ���� (�⺻ ���ݿ� �����ִ� ���)
+    /// 추가 스탯을 적용 (기본 스탯에 더해지는 값)
     /// </summary>
-    /// <param name="unitData">������ �� UnitData</param>
+    /// <param name="unitData">적용할 새 UnitData</param>
     public void ApplyPlusStatus(UnitData unitData)
     {
         if (unitData == null) return;
@@ -107,7 +107,7 @@ public class UnitStatus
         unitNumber = unitData.unitNumber;
         unitName = unitData.unitName;
 
-        // ���� ���� unitData�� ���� ������
+        // 현재 가진 unitData에 값을 더하기
         maxHp += unitData.hp;
         currentHp = maxHp;
         ap += unitData.ap;
@@ -117,7 +117,7 @@ public class UnitStatus
         acc += unitData.acc;
         eva += unitData.eva;
 
-        // skillDataList�� �ִ� �� SkillData�� Number(ID��)�� �߰� (�ߺ����� �ʵ��� ����)
+        // skillDataList에 있는 각 SkillData의 Number(ID값)를 추가 (중복되지 않도록 체크)
         if (skillNumberList == null)
         {
             skillNumberList = new List<int>();

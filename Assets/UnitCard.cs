@@ -70,7 +70,7 @@ public class UnitCard : MonoBehaviour
         [Tooltip("������ Tag �ؽ�Ʈ")]
         public TMP_Text tagText;
         public UnitTag_Native unitNative;
-        public List<UnitTag_Gender> unitTagList;
+        public List<UnitTag> unitTagList;
     }
 
     [SerializeField]
@@ -152,7 +152,7 @@ public class UnitCard : MonoBehaviour
 
 
         int count = 0;
-        foreach (UnitTag_Gender unitTag in backPage.unitTagList)
+        foreach (UnitTag unitTag in backPage.unitTagList)
         {
             count++;
             tagText += $"{unitTag}";

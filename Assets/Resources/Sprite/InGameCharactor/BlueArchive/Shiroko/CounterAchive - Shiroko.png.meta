@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CounterAchive - Siroko_0
+      name: CounterAchive - Shiroko_0
       rect:
         serializedVersion: 2
         x: 0
@@ -125,14 +125,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c7243e1895da8844a1f098017d13e78
-      internalID: 699372828
+      spriteID: aef4d44e33b34ea498529e70c2575afb
+      internalID: 217757096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterAchive - Siroko_1
+      name: CounterAchive - Shiroko_1
       rect:
         serializedVersion: 2
         x: 128
@@ -147,14 +147,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 929af579952d22d4abe64b7f94c8674c
-      internalID: -637078297
+      spriteID: f7a739efa615539449569874a5a3cd72
+      internalID: -1627596985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterAchive - Siroko_2
+      name: CounterAchive - Shiroko_2
       rect:
         serializedVersion: 2
         x: 256
@@ -169,14 +169,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8589cc04903d15c48a8d8ba756c5c930
-      internalID: -490925708
+      spriteID: 71232c0ffb4fe4c4496b3b7cdde03436
+      internalID: 1788626829
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterAchive - Siroko_3
+      name: CounterAchive - Shiroko_3
       rect:
         serializedVersion: 2
         x: 384
@@ -191,14 +191,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a26258e96fb9ac4cb8e42ba2c86e170
-      internalID: 1066733596
+      spriteID: addba111af972094f9bcaf67bf67f19b
+      internalID: -289460720
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterAchive - Siroko_4
+      name: CounterAchive - Shiroko_4
       rect:
         serializedVersion: 2
         x: 512
@@ -213,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad5b3234b119bd047b345e34a6cee55d
-      internalID: -1282349520
+      spriteID: 98f0b2c3fab555d4db5cbde0ef3ae85c
+      internalID: 1943133597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterAchive - Siroko_5
+      name: CounterAchive - Shiroko_5
       rect:
         serializedVersion: 2
         x: 640
@@ -235,14 +235,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cce958a793ce7eb4fbd374bdfad9dd80
-      internalID: -1641927639
+      spriteID: b22f98016496c7e4482029467d4558ec
+      internalID: 608663754
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterAchive - Siroko_6
+      name: CounterAchive - Shiroko_6
       rect:
         serializedVersion: 2
         x: 768
@@ -257,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8043ddcbf1aa5424e8d22fa2cff2f68b
-      internalID: -869749443
+      spriteID: 9619d87aab1d7fe43b69edbb638549a7
+      internalID: -552551578
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterAchive - Siroko_7
+      name: CounterAchive - Shiroko_7
       rect:
         serializedVersion: 2
         x: 896
@@ -279,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c2acba3488ad0342b67352651391408
-      internalID: -1577190450
+      spriteID: 71fa93612c9e17a43b6036f392db6da7
+      internalID: 1714665479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterAchive - Siroko_8
+      name: CounterAchive - Shiroko_8
       rect:
         serializedVersion: 2
         x: 0
@@ -301,14 +301,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46efb18963b73a04b8eeb97e0f7af11f
-      internalID: -825420787
+      spriteID: 235498eaf02e27d4fb8057fdf52d7932
+      internalID: 1851584953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterAchive - Siroko_9
+      name: CounterAchive - Shiroko_9
       rect:
         serializedVersion: 2
         x: 128
@@ -323,14 +323,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 747859a8e1129c94eb6962d0d122383f
-      internalID: -327554066
+      spriteID: 5f9d473ddf4950842b78ce24b3c04fee
+      internalID: -350312339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterAchive - Siroko_10
+      name: CounterAchive - Shiroko_10
       rect:
         serializedVersion: 2
         x: 256
@@ -345,14 +345,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91ffa5a791ad6a14e9d738bbfd5e0ab5
-      internalID: 1483998421
+      spriteID: 266011b20836fb64cb635bf3d908c3d5
+      internalID: 1454994859
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterAchive - Siroko_11
+      name: CounterAchive - Shiroko_11
       rect:
         serializedVersion: 2
         x: 384
@@ -367,14 +367,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea2630a855e13b8428afe14e43bcb56a
-      internalID: -916542763
+      spriteID: 9f2b7764898bf44439e300dd55d29c92
+      internalID: 1177209943
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterAchive - Siroko_12
+      name: CounterAchive - Shiroko_12
       rect:
         serializedVersion: 2
         x: 512
@@ -389,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 870f83decaa94ec4ca4d41491436c842
-      internalID: 1649683113
+      spriteID: b9aca36c9831be64d84a445933cdba3d
+      internalID: -1588629372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterAchive - Siroko_13
+      name: CounterAchive - Shiroko_13
       rect:
         serializedVersion: 2
         x: 640
@@ -411,14 +411,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59f99bceba22a26408c7e7eb50b00651
-      internalID: -1486356401
+      spriteID: 614552f1e82cc3c48b38c2b41a57acd3
+      internalID: -634248599
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterAchive - Siroko_14
+      name: CounterAchive - Shiroko_14
       rect:
         serializedVersion: 2
         x: 768
@@ -433,14 +433,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 273fb036bc8dc0446b7e1006978b1d6c
-      internalID: -579712506
+      spriteID: 80e88a1979c581243bc630a2c35cec02
+      internalID: 662226940
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterAchive - Siroko_15
+      name: CounterAchive - Shiroko_15
       rect:
         serializedVersion: 2
         x: 896
@@ -455,14 +455,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a480b93b0ad52a40b8abb42dc40fbc1
-      internalID: 2042898571
+      spriteID: 175fdd5c27c29834983d7906d09aa932
+      internalID: 909097359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterAchive - Siroko_16
+      name: CounterAchive - Shiroko_16
       rect:
         serializedVersion: 2
         x: 0
@@ -477,14 +477,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f83692b6cd9cdee45b51195393385824
-      internalID: 1589050967
+      spriteID: 507b3563c26ef364ea6793230d28cb4d
+      internalID: -1716887637
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterAchive - Siroko_17
+      name: CounterAchive - Shiroko_17
       rect:
         serializedVersion: 2
         x: 128
@@ -499,14 +499,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7d05325bbacbda46832e1a8bf87d6dc
-      internalID: 657287409
+      spriteID: c05003fa26d0b144c8a99678276ef284
+      internalID: 507482896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterAchive - Siroko_18
+      name: CounterAchive - Shiroko_18
       rect:
         serializedVersion: 2
         x: 256
@@ -521,14 +521,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a45844206681524fa04d0acd5405ed9
-      internalID: 1308761318
+      spriteID: 310836f6720e20b49887e439d7c67001
+      internalID: 1666374200
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterAchive - Siroko_19
+      name: CounterAchive - Shiroko_19
       rect:
         serializedVersion: 2
         x: 384
@@ -543,14 +543,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43896ceff4242ad49a75c5ddf3890322
-      internalID: 1285308465
+      spriteID: c76e4989999482c46827a992b1a7f0c3
+      internalID: -639475088
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterAchive - Siroko_20
+      name: CounterAchive - Shiroko_20
       rect:
         serializedVersion: 2
         x: 512
@@ -565,14 +565,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86dd57032204a1d4c91c901a0de77145
-      internalID: 820161078
+      spriteID: c37f4581f95d79f41929424b1d229e4d
+      internalID: -67299585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CounterAchive - Siroko_21
+      name: CounterAchive - Shiroko_21
       rect:
         serializedVersion: 2
         x: 640
@@ -587,8 +587,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2ab4e9938ac82940834e6b5044280d8
-      internalID: -1134081120
+      spriteID: 1dc531e61db8b3640b5548200140a0d5
+      internalID: -667858964
       vertices: []
       indices: 
       edges: []
@@ -607,28 +607,28 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CounterAchive - Siroko_0: 699372828
-      CounterAchive - Siroko_1: -637078297
-      CounterAchive - Siroko_10: 1483998421
-      CounterAchive - Siroko_11: -916542763
-      CounterAchive - Siroko_12: 1649683113
-      CounterAchive - Siroko_13: -1486356401
-      CounterAchive - Siroko_14: -579712506
-      CounterAchive - Siroko_15: 2042898571
-      CounterAchive - Siroko_16: 1589050967
-      CounterAchive - Siroko_17: 657287409
-      CounterAchive - Siroko_18: 1308761318
-      CounterAchive - Siroko_19: 1285308465
-      CounterAchive - Siroko_2: -490925708
-      CounterAchive - Siroko_20: 820161078
-      CounterAchive - Siroko_21: -1134081120
-      CounterAchive - Siroko_3: 1066733596
-      CounterAchive - Siroko_4: -1282349520
-      CounterAchive - Siroko_5: -1641927639
-      CounterAchive - Siroko_6: -869749443
-      CounterAchive - Siroko_7: -1577190450
-      CounterAchive - Siroko_8: -825420787
-      CounterAchive - Siroko_9: -327554066
+      CounterAchive - Shiroko_0: 217757096
+      CounterAchive - Shiroko_1: -1627596985
+      CounterAchive - Shiroko_10: 1454994859
+      CounterAchive - Shiroko_11: 1177209943
+      CounterAchive - Shiroko_12: -1588629372
+      CounterAchive - Shiroko_13: -634248599
+      CounterAchive - Shiroko_14: 662226940
+      CounterAchive - Shiroko_15: 909097359
+      CounterAchive - Shiroko_16: -1716887637
+      CounterAchive - Shiroko_17: 507482896
+      CounterAchive - Shiroko_18: 1666374200
+      CounterAchive - Shiroko_19: -639475088
+      CounterAchive - Shiroko_2: 1788626829
+      CounterAchive - Shiroko_20: -67299585
+      CounterAchive - Shiroko_21: -667858964
+      CounterAchive - Shiroko_3: -289460720
+      CounterAchive - Shiroko_4: 1943133597
+      CounterAchive - Shiroko_5: 608663754
+      CounterAchive - Shiroko_6: -552551578
+      CounterAchive - Shiroko_7: 1714665479
+      CounterAchive - Shiroko_8: 1851584953
+      CounterAchive - Shiroko_9: -350312339
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

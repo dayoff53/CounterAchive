@@ -115,7 +115,7 @@ public class UnitBase : MonoBehaviour
     [Space(10)]
     [Header("특성 및 스킬")]
     [Tooltip("유닛 태그 목록")]
-    public List<UnitTag_Gender> unitTagList;
+    public List<UnitTag> unitTagList;
     [Tooltip("스킬 데이터 목록")]
     public List<SkillData> skillDataList;
 
