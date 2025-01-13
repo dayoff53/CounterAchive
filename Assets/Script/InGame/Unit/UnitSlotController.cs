@@ -50,7 +50,7 @@ public class UnitSlotController : MonoBehaviour
     public bool isNull = false;
 
     [SerializeField]
-    public SlotGroundSpriteController slotGround;
+    public SlotGround slotGround;
 
 
     public void UnitStatusInit()

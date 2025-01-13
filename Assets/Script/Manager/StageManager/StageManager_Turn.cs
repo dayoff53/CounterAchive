@@ -38,7 +38,7 @@ public partial class StageManager
     #endregion
 
     /// <summary>
-    /// actionPoints의 현재 상태를 지속적으로 업데이트하는 코루틴
+    /// ActionPoints의 현재 상태를 지속적으로 업데이트하는 코루틴
     /// </summary>
     private IEnumerator ActionPointAccumulation()
     {
@@ -177,10 +177,10 @@ public partial class StageManager
         SkillSlotInit(unitSlotList[currentTurnSlotNumber].unit.skillDataList);
 
         // 슬롯 상태 업데이트
-        SlotGroundSpriteController groundSprite = unitSlotList[currentTurnSlotNumber].slotGround;
+        SlotGround groundSprite = unitSlotList[currentTurnSlotNumber].slotGround;
         groundSprite.SetSlotGroundState(SlotGroundState.Select);
         AllUnitBaseUpdate();    
-        currentTurnUnit.SetTurn(true);
+        currentTurnUnit.SetTurn(true); 
 
 
         // 초기화
@@ -200,7 +200,7 @@ public partial class StageManager
             {
                 unitSlot.unit.SetAnim(0);
                 unitSlot.TurnEndInit();
-                SlotGroundSpriteController groundSprite = unitSlot.slotGround;
+                SlotGround groundSprite = unitSlot.slotGround;
                 groundSprite.SetSlotGroundState(SlotGroundState.Default);
             }
 

@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 
-public class SkillSlotUIController : MonoBehaviour
+public class SkillSlot : MonoBehaviour
 {
     [Header("SkillData")]
     public SkillData skillData;

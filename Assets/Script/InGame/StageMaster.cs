@@ -87,7 +87,7 @@ public class StageMaster : MonoBehaviour
     [Header("Skill Settings")]
     [Tooltip("스킬 데이터를 플레이어에게 보여주는 UI 슬롯 리스트")]
     [SerializeField]
-    private List<SkillSlotUIController> skillSlotList;
+    private List<SkillSlot> skillSlotList;
 
     [Space(20)]
     [Header("Unit Slot Settings")]

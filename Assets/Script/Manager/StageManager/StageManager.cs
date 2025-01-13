@@ -193,13 +193,12 @@ public partial class StageManager : Singleton<StageManager>
     /// <summary>
     /// 스테이지 클리어 조건을 업데이트하는 함수입니다. (턴을 넘기는 기능도 겸합니다.)
     /// </summary>
-                bool noEnemiesLeft = true;
     private void UpdateStageClearCondition()
     {
         switch (stageClearCondition)
         {
             case StageClearState.KillAllEnemy:
-                noEnemiesLeft = true;
+                bool noEnemiesLeft = true;
                 foreach(var slot in unitSlotList) {
                     if(slot.unitTeam == 2) {
                         noEnemiesLeft = false;

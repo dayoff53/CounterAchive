@@ -16,7 +16,7 @@ public enum SlotGroundState
 /// <summary>
 /// 각 슬롯의 클릭 입력값을 관리하는 Ground 스프라이트를 관리하는 클래스
 /// </summary>
-public class SlotGroundSpriteController : MonoBehaviour
+public class SlotGround : MonoBehaviour
 {
     [SerializeField]
     private UnitSlotController unitSlot;

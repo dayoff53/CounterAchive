@@ -52,7 +52,7 @@ public partial class StageManager
     /// <summary>
     /// 스킬 데이터를 플레이어에 보여주는 UI 슬롯 리스트
     /// </summary>
-    public List<SkillSlotUIController> skillSlotList;
+    public List<SkillSlot> skillSlotList;
 
     /// <summary>
     /// 현재 선택된 스킬 타겟의 슬롯 번호
@@ -269,7 +269,7 @@ public partial class StageManager
     /// <param name="skillRange">스킬의 범위 배열입니다.</param>
     public void SetRangeGround(int[] skillRange)
     {
-        SlotGroundSpriteController groundSprite;
+        SlotGround groundSprite;
 
         for (int i = 0; i < unitSlotList.Count; i++)
         {
