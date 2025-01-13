@@ -1,56 +1,262 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Whale/4.29.282.14 Safari/537.36" version="26.0.3">
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.3 Chrome/130.0.6723.137 Electron/33.2.1 Safari/537.36" version="26.0.3">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="1372" dy="332" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="4643" dy="2656" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
-        <mxCell id="WIyWlLk6GJQsqaUBKTNV-4" value="Yes" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;edgeStyle=orthogonalEdgeStyle;" parent="WIyWlLk6GJQsqaUBKTNV-1" target="WIyWlLk6GJQsqaUBKTNV-10" edge="1">
-          <mxGeometry y="20" relative="1" as="geometry">
-            <mxPoint as="offset" />
-            <mxPoint x="220" y="200" as="sourcePoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="WIyWlLk6GJQsqaUBKTNV-8" value="No" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;edgeStyle=orthogonalEdgeStyle;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-10" target="WIyWlLk6GJQsqaUBKTNV-11" edge="1">
-          <mxGeometry x="0.3333" y="20" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="WIyWlLk6GJQsqaUBKTNV-9" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-10" target="WIyWlLk6GJQsqaUBKTNV-12" edge="1">
-          <mxGeometry y="10" relative="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="WIyWlLk6GJQsqaUBKTNV-10" value="Bulb&lt;br&gt;burned out?" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="170" y="290" width="100" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="WIyWlLk6GJQsqaUBKTNV-11" value="Repair Lamp" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="160" y="430" width="120" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="WIyWlLk6GJQsqaUBKTNV-12" value="Replace Bulb" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="320" y="310" width="120" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="siqNBhv3uCThobvandhK-1" value="StageData&lt;br&gt;(Stage 변경 시 필요)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="340" y="50" width="120" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="siqNBhv3uCThobvandhK-2" value="&lt;div style=&quot;font-weight: 400;&quot;&gt;StageData&lt;/div&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;(Stage 변경 시 필요)&lt;/span&gt;" style="swimlane;whiteSpace=wrap;html=1;startSize=30;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="560" y="120" width="200" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="WIyWlLk6GJQsqaUBKTNV-3" value="SceneLoadData&lt;br&gt;(Scene 변경시 필요)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="siqNBhv3uCThobvandhK-2" vertex="1">
-          <mxGeometry x="40" y="40" width="120" height="40" as="geometry" />
-        </mxCell>
         <mxCell id="siqNBhv3uCThobvandhK-3" value="&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;StageMaster&lt;/font&gt;&lt;br&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;지금 씬의 정보(오브젝트의 주소 포함)를 스테이지메니저에게 넘김&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="swimlane;whiteSpace=wrap;html=1;startSize=60;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="-330" y="60" width="200" height="130" as="geometry" />
+          <mxGeometry x="-350" y="60" width="200" height="230" as="geometry" />
         </mxCell>
-        <mxCell id="siqNBhv3uCThobvandhK-4" value="SceneLoadData&lt;br&gt;(Scene 변경시 필요)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="siqNBhv3uCThobvandhK-3" vertex="1">
-          <mxGeometry x="40" y="70" width="120" height="40" as="geometry" />
+        <mxCell id="23qSnCQJMWu_BqUf1ogO-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="siqNBhv3uCThobvandhK-3" source="siqNBhv3uCThobvandhK-4" target="23qSnCQJMWu_BqUf1ogO-0" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="siqNBhv3uCThobvandhK-4" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: #efb080;&quot;&gt;InitUIObject&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="siqNBhv3uCThobvandhK-3" vertex="1">
+          <mxGeometry x="40" y="85" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="23qSnCQJMWu_BqUf1ogO-0" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;font-size: 14px; line-height: 19px;&quot;&gt;&lt;span style=&quot;color: rgb(239, 176, 128);&quot;&gt;PlaceUnitSlot&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;span style=&quot;color: rgb(239, 176, 128);&quot;&gt;&lt;div style=&quot;color: rgb(214, 214, 221); line-height: 19px;&quot;&gt;&lt;span style=&quot;color: rgb(109, 109, 109); font-style: italic;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;스테이지에 위치한 유닛들을 배치합니다.&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="siqNBhv3uCThobvandhK-3" vertex="1">
+          <mxGeometry x="5" y="150" width="190" height="50" as="geometry" />
         </mxCell>
         <mxCell id="TU_84ryWfy324spJAYp3-0" value="&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;StageManager&lt;/font&gt;&lt;br&gt;&lt;span style=&quot;font-size: 10px; font-weight: 400;&quot;&gt;게임의 중심이 되는 규칙을 담당함&lt;/span&gt;&lt;/div&gt;" style="swimlane;whiteSpace=wrap;html=1;startSize=60;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="-120" y="60" width="200" height="130" as="geometry">
+          <mxGeometry x="-140" y="60" width="480" height="2060" as="geometry">
             <mxRectangle x="-110" y="60" width="190" height="60" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="TU_84ryWfy324spJAYp3-1" value="SceneLoadData&lt;br&gt;(Scene 변경시 필요)" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="TU_84ryWfy324spJAYp3-0" vertex="1">
-          <mxGeometry x="40" y="70" width="120" height="40" as="geometry" />
+        <mxCell id="23qSnCQJMWu_BqUf1ogO-3" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 14px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(239, 176, 128);&quot;&gt;ProgressState&lt;/span&gt;&lt;span style=&quot;color: rgb(214, 214, 221);&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: rgb(214, 214, 221);&quot;&gt;UnitSelect&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="TU_84ryWfy324spJAYp3-0" vertex="1">
+          <mxGeometry x="20" y="120" width="443.75" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="23qSnCQJMWu_BqUf1ogO-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="23qSnCQJMWu_BqUf1ogO-3" source="TU_84ryWfy324spJAYp3-1" target="23qSnCQJMWu_BqUf1ogO-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TU_84ryWfy324spJAYp3-1" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: #efb080;&quot;&gt;InitGame&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="23qSnCQJMWu_BqUf1ogO-3" vertex="1">
+          <mxGeometry x="53.75" y="35" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="23qSnCQJMWu_BqUf1ogO-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="23qSnCQJMWu_BqUf1ogO-3" source="23qSnCQJMWu_BqUf1ogO-4" target="23qSnCQJMWu_BqUf1ogO-21" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23qSnCQJMWu_BqUf1ogO-4" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;span style=&quot;color: rgb(239, 176, 128);&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;UnitSetGame&lt;br&gt;&lt;/span&gt;&lt;div style=&quot;color: rgb(214, 214, 221); line-height: 19px;&quot;&gt;&lt;span style=&quot;color: rgb(109, 109, 109); font-style: italic;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;플레이어가 유닛을 배치하는 단계입니다.&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="23qSnCQJMWu_BqUf1ogO-3" vertex="1">
+          <mxGeometry x="25.63" y="105" width="176.25" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="23qSnCQJMWu_BqUf1ogO-40" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="23qSnCQJMWu_BqUf1ogO-3" source="23qSnCQJMWu_BqUf1ogO-21" target="23qSnCQJMWu_BqUf1ogO-39" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23qSnCQJMWu_BqUf1ogO-21" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;span style=&quot;color: rgb(170, 155, 245);&quot;&gt;playerUseUnitSlotCount&lt;/span&gt; &amp;gt; &lt;span style=&quot;color: rgb(235, 200, 141);&quot;&gt;0&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="23qSnCQJMWu_BqUf1ogO-3" vertex="1">
+          <mxGeometry x="23.75" y="170" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="23qSnCQJMWu_BqUf1ogO-42" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="23qSnCQJMWu_BqUf1ogO-3" source="23qSnCQJMWu_BqUf1ogO-39" target="23qSnCQJMWu_BqUf1ogO-41" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23qSnCQJMWu_BqUf1ogO-39" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; line-height: 19px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: #efb080;&quot;&gt;StartGame&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="23qSnCQJMWu_BqUf1ogO-3" vertex="1">
+          <mxGeometry x="53.75" y="280" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="23qSnCQJMWu_BqUf1ogO-41" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; line-height: 19px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(239, 176, 128);&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;ActionPointsInit&lt;br/&gt;&lt;/span&gt;&lt;div style=&quot;color: rgb(214, 214, 221); line-height: 19px;&quot;&gt;&lt;span style=&quot;color: rgb(109, 109, 109); font-style: italic;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;각 unitSlot의 actionPoints를 초기화&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="23qSnCQJMWu_BqUf1ogO-3" vertex="1">
+          <mxGeometry x="243.75" y="275" width="183.75" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="AGn8lV9g4eukzkAGfefz-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="TU_84ryWfy324spJAYp3-0" source="23qSnCQJMWu_BqUf1ogO-39" target="AGn8lV9g4eukzkAGfefz-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AGn8lV9g4eukzkAGfefz-3" value="&lt;div style=&quot;color: #d6d6dd;background-color: #181818;font-family: Consolas, &#39;Courier New&#39;, monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;&quot;&gt;&lt;span style=&quot;color: #efb080;&quot;&gt;ProgressState&lt;/span&gt;.Stay&lt;/div&gt;" style="swimlane;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="TU_84ryWfy324spJAYp3-0" vertex="1">
+          <mxGeometry x="20" y="460" width="443.75" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="3lZQHLBLKonMDtLnzSJ9-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="AGn8lV9g4eukzkAGfefz-3" source="AGn8lV9g4eukzkAGfefz-1" target="AGn8lV9g4eukzkAGfefz-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AGn8lV9g4eukzkAGfefz-1" value="&lt;div style=&quot;background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; line-height: 19px; white-space: pre;&quot;&gt;&lt;span&gt;&lt;span style=&quot;color: light-dark(rgb(239, 176, 128), rgb(239, 176, 128)); font-size: 14px;&quot;&gt;ActionPointAccumulation&lt;br&gt;&lt;/span&gt;&lt;font style=&quot;font-size: 8px; color: rgb(102, 102, 102);&quot;&gt;&lt;i style=&quot;&quot;&gt;AP 업데이트 코루틴&lt;/i&gt;&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="AGn8lV9g4eukzkAGfefz-3" vertex="1">
+          <mxGeometry x="20.619999999999997" y="40" width="186.25" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="QjQCmvb35nKby7j_ow2g-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="AGn8lV9g4eukzkAGfefz-3" source="AGn8lV9g4eukzkAGfefz-4" target="QjQCmvb35nKby7j_ow2g-0" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AGn8lV9g4eukzkAGfefz-4" value="&lt;div style=&quot;color: rgb(214, 214, 221); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;span style=&quot;color: rgb(239, 176, 128);&quot;&gt;&lt;span style=&quot;background-color: light-dark(rgb(24, 24, 24), rgb(217, 217, 217)); font-size: 14px;&quot;&gt;ActionPointUpper&lt;/span&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;div style=&quot;color: rgb(214, 214, 221); line-height: 19px;&quot;&gt;&lt;span style=&quot;color: rgb(109, 109, 109); font-style: italic;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;&lt;span&gt;A&lt;/span&gt;&lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;font-size: 8px; color: light-dark(rgb(109, 109, 109), rgb(143, 143, 143)); font-style: italic;&quot;&gt;P&lt;/span&gt;&lt;span style=&quot;font-size: 8px; color: light-dark(rgb(109, 109, 109), rgb(143, 143, 143)); font-style: italic; background-color: transparent;&quot;&gt;를 누적하여 유닛의 행동 포인트를 증가시킵니다.&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="AGn8lV9g4eukzkAGfefz-3" vertex="1">
+          <mxGeometry x="273.75" y="40" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="QjQCmvb35nKby7j_ow2g-2" value="False" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="AGn8lV9g4eukzkAGfefz-3" source="QjQCmvb35nKby7j_ow2g-0" target="AGn8lV9g4eukzkAGfefz-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="QjQCmvb35nKby7j_ow2g-0" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: pre; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;unit.currentAp &amp;gt;= unit.maxAp&lt;/font&gt;&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;arcSize=0;" parent="AGn8lV9g4eukzkAGfefz-3" vertex="1">
+          <mxGeometry x="298.75" y="110" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="QjQCmvb35nKby7j_ow2g-4" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 14px; line-height: 19px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(239, 176, 128);&quot;&gt;ProgressState.&lt;/span&gt;UnitPlay&lt;/div&gt;" style="swimlane;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="TU_84ryWfy324spJAYp3-0" vertex="1">
+          <mxGeometry x="20" y="690" width="443.75" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="V_FI9ZPVZy5DFaufE5q4-0" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;span style=&quot;font-size: 14px; color: rgb(239, 176, 128);&quot;&gt;SkillSlotInit&lt;br&gt;&lt;/span&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;span style=&quot;color: rgb(109, 109, 109); font-style: italic;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;스킬 슬롯을 초기화하고 선택된 스킬 데이터를 슬롯에 할당합니다.&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;font color=&quot;rgba(0, 0, 0, 0)&quot;&gt;&lt;span style=&quot;color: rgb(239, 176, 128); font-size: 14px;&quot;&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="QjQCmvb35nKby7j_ow2g-4" vertex="1">
+          <mxGeometry x="90.63" y="140" width="262.5" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="AGn8lV9g4eukzkAGfefz-10" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; line-height: 19px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(239, 176, 128);&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;ExecuteTurn&lt;br/&gt;&lt;/span&gt;&lt;div style=&quot;color: rgb(214, 214, 221); line-height: 19px;&quot;&gt;&lt;span style=&quot;color: rgb(109, 109, 109); font-style: italic;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;선택된 유닛의 턴을 실행합니다.&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="QjQCmvb35nKby7j_ow2g-4" vertex="1">
+          <mxGeometry x="274.38" y="50" width="128.75" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="V_FI9ZPVZy5DFaufE5q4-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="QjQCmvb35nKby7j_ow2g-4" source="AGn8lV9g4eukzkAGfefz-10" target="V_FI9ZPVZy5DFaufE5q4-0" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="308.705882352941" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-4" value="&lt;div style=&quot;color: #d6d6dd;background-color: #181818;font-family: Consolas, &#39;Courier New&#39;, monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;&quot;&gt;&lt;span style=&quot;color: #efb080;&quot;&gt;ProgressState&lt;/span&gt;.SkillTargetSearch&lt;/div&gt;" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="TU_84ryWfy324spJAYp3-0" vertex="1">
+          <mxGeometry x="20" y="995" width="443.75" height="395" as="geometry" />
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-43" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="4Q_RHUzTen1VhnfpWCAp-4" source="4Q_RHUzTen1VhnfpWCAp-31" target="4Q_RHUzTen1VhnfpWCAp-41" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-31" value="&lt;div style=&quot;background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; line-height: 22px; white-space: pre;&quot;&gt;&lt;div style=&quot;color: light-dark(rgb(214, 214, 221), rgb(214, 214, 221)); line-height: 22px;&quot;&gt;&lt;span style=&quot;color: rgb(239, 176, 128);&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;SkillTargetSelect&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 22px;&quot;&gt;&lt;span&gt;&lt;div style=&quot;line-height: 22px;&quot;&gt;&lt;span style=&quot;font-style: italic;&quot;&gt;&lt;font style=&quot;font-size: 8px; color: rgb(102, 102, 102);&quot;&gt;스킬의 타겟 슬롯을 선택하고 필요한 정보를 확인합니다.&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=15;" parent="4Q_RHUzTen1VhnfpWCAp-4" vertex="1">
+          <mxGeometry x="107.19" y="177.5" width="229.37" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-46" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="4Q_RHUzTen1VhnfpWCAp-4" source="4Q_RHUzTen1VhnfpWCAp-41" target="4Q_RHUzTen1VhnfpWCAp-45" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-41" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; line-height: 22px; white-space: pre;&quot;&gt;&lt;div style=&quot;line-height: 22px;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;&lt;span style=&quot;color: rgb(170, 155, 245);&quot;&gt;skillTargetNum = &lt;/span&gt;&lt;span style=&quot;font-style: italic; background-color: light-dark(rgb(24, 24, 24), rgb(24, 24, 24)); color: light-dark(rgb(214, 214, 221), rgb(214, 214, 221));&quot;&gt;selectTargetSlot&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;arcSize=0;" parent="4Q_RHUzTen1VhnfpWCAp-4" vertex="1">
+          <mxGeometry x="97.38" y="255" width="249" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-45" value="&lt;div style=&quot;background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; line-height: 22px; white-space: pre; color: rgb(214, 214, 221);&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot; color=&quot;#efb080&quot;&gt;SkillStart&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="4Q_RHUzTen1VhnfpWCAp-4" vertex="1">
+          <mxGeometry x="169.37" y="335" width="105" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="V_FI9ZPVZy5DFaufE5q4-14" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;span style=&quot;font-size: 14px; color: rgb(239, 176, 128);&quot;&gt;SkillTypeSelect&lt;/span&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;span style=&quot;color: rgb(109, 109, 109); font-style: italic;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;스킬 타입을 선택하고 해당 스킬의 범위를 표시합니다.&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;font color=&quot;rgba(0, 0, 0, 0)&quot;&gt;&lt;span style=&quot;color: rgb(239, 176, 128); font-size: 14px;&quot;&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="4Q_RHUzTen1VhnfpWCAp-4" vertex="1">
+          <mxGeometry x="122" y="-85" width="212.5" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="4Q_RHUzTen1VhnfpWCAp-4" source="V_FI9ZPVZy5DFaufE5q4-14" target="4Q_RHUzTen1VhnfpWCAp-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-2" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;div style=&quot;font-size: 14px; line-height: 19px;&quot;&gt;&lt;span style=&quot;color: #efb080;&quot;&gt;SetRangeGround&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;span style=&quot;color: rgb(109, 109, 109); font-style: italic;&quot;&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;스킬 타입을 선택하고 해당 스킬의 범위를 표시합니다.&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;font color=&quot;rgba(0, 0, 0, 0)&quot;&gt;&lt;span style=&quot;color: rgb(239, 176, 128); font-size: 14px;&quot;&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="4Q_RHUzTen1VhnfpWCAp-4" vertex="1">
+          <mxGeometry x="115.63" y="55" width="212.5" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="3lZQHLBLKonMDtLnzSJ9-9" value="&lt;span style=&quot;font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; font-weight: 400; white-space: pre; background-color: rgb(24, 24, 24); color: rgb(239, 176, 128);&quot;&gt;ProgressState&lt;/span&gt;&lt;span style=&quot;color: rgb(214, 214, 221); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; font-weight: 400; white-space: pre; background-color: rgb(24, 24, 24);&quot;&gt;.SkillPlay&lt;/span&gt;" style="swimlane;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="TU_84ryWfy324spJAYp3-0" vertex="1">
+          <mxGeometry x="20" y="1410" width="443.75" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="3lZQHLBLKonMDtLnzSJ9-16" value="&lt;div style=&quot;background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; line-height: 22px; white-space: pre; color: rgb(214, 214, 221);&quot;&gt;&lt;div style=&quot;line-height: 22px;&quot;&gt;&lt;div style=&quot;line-height: 22px;&quot;&gt;&lt;div style=&quot;font-size: 14px; line-height: 19px;&quot;&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;span style=&quot;color: #efb080;&quot;&gt;TurnEnd&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="3lZQHLBLKonMDtLnzSJ9-9" vertex="1">
+          <mxGeometry x="171.25" y="70" width="105" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="AGn8lV9g4eukzkAGfefz-11" value="&lt;font style=&quot;font-size: 8px;&quot;&gt;True&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="TU_84ryWfy324spJAYp3-0" source="QjQCmvb35nKby7j_ow2g-0" target="AGn8lV9g4eukzkAGfefz-10" edge="1">
+          <mxGeometry x="-0.6849" y="1" relative="1" as="geometry">
+            <mxPoint x="330" y="650.0000000000002" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="345" y="670" />
+              <mxPoint x="345" y="670" />
+            </Array>
+            <mxPoint as="offset" />
+            <mxPoint x="340" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3lZQHLBLKonMDtLnzSJ9-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeWidth=3;dashed=1;" parent="TU_84ryWfy324spJAYp3-0" source="3lZQHLBLKonMDtLnzSJ9-16" target="23qSnCQJMWu_BqUf1ogO-21" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="244" y="1560" />
+              <mxPoint x="10" y="1560" />
+              <mxPoint x="10" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="23qSnCQJMWu_BqUf1ogO-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="23qSnCQJMWu_BqUf1ogO-0" target="TU_84ryWfy324spJAYp3-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23qSnCQJMWu_BqUf1ogO-6" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;SlotGround&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px; font-weight: normal;&quot;&gt;각 슬롯의 클릭 입력값을 관리하는 Ground&amp;nbsp;&lt;/font&gt;&lt;/div&gt;" style="swimlane;whiteSpace=wrap;html=1;startSize=60;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="350" y="60" width="310" height="2060" as="geometry">
+            <mxRectangle x="-110" y="60" width="190" height="60" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="23qSnCQJMWu_BqUf1ogO-11" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 14px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(239, 176, 128);&quot;&gt;ProgressState&lt;/span&gt;&lt;span style=&quot;color: rgb(214, 214, 221);&quot;&gt;.&lt;/span&gt;&lt;span style=&quot;color: rgb(214, 214, 221);&quot;&gt;UnitSelect&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="swimlane;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="23qSnCQJMWu_BqUf1ogO-6" vertex="1">
+          <mxGeometry x="55" y="190" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="23qSnCQJMWu_BqUf1ogO-31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="23qSnCQJMWu_BqUf1ogO-11" source="23qSnCQJMWu_BqUf1ogO-12" target="23qSnCQJMWu_BqUf1ogO-30" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23qSnCQJMWu_BqUf1ogO-12" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 14px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(239, 176, 128);&quot;&gt;OnMouseDown&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="23qSnCQJMWu_BqUf1ogO-11" vertex="1">
+          <mxGeometry x="40" y="120" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="23qSnCQJMWu_BqUf1ogO-30" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 14px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(170, 155, 245);&quot;&gt;playerUseUnitSlotCount--&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="23qSnCQJMWu_BqUf1ogO-11" vertex="1">
+          <mxGeometry x="10" y="35" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-6" value="&lt;div style=&quot;color: #d6d6dd;background-color: #181818;font-family: Consolas, &#39;Courier New&#39;, monospace;font-weight: normal;font-size: 14px;line-height: 19px;white-space: pre;&quot;&gt;&lt;span style=&quot;color: #efb080;&quot;&gt;ProgressState&lt;/span&gt;.SkillTargetSearch&lt;/div&gt;" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="23qSnCQJMWu_BqUf1ogO-6" vertex="1">
+          <mxGeometry x="5" y="1000" width="300" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-24" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" parent="4Q_RHUzTen1VhnfpWCAp-6" source="4Q_RHUzTen1VhnfpWCAp-10" target="4Q_RHUzTen1VhnfpWCAp-21" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-10" value="&lt;div style=&quot;background-color: rgb(24, 24, 24); line-height: 19px;&quot;&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;div style=&quot;color: light-dark(rgb(214, 214, 221), rgb(214, 214, 221)); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; white-space: pre; line-height: 22px;&quot;&gt;&lt;span style=&quot;color: rgb(239, 176, 128);&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;SetSlotGroundState&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 22px;&quot;&gt;&lt;font style=&quot;color: rgb(102, 102, 102); font-size: 8px;&quot; face=&quot;Consolas, Courier New, monospace&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&lt;i&gt;스킬 서치 범위에 맞추어 SlotGroundState를 변경&lt;/i&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;&lt;font style=&quot;color: rgb(179, 179, 179); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; white-space: pre;&quot;&gt;&lt;span style=&quot;color: rgb(239, 176, 128); font-size: 14px;&quot;&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="4Q_RHUzTen1VhnfpWCAp-6" vertex="1">
+          <mxGeometry x="28.75" y="50" width="242.5" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="4Q_RHUzTen1VhnfpWCAp-6" source="4Q_RHUzTen1VhnfpWCAp-21" target="4Q_RHUzTen1VhnfpWCAp-26" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="147" y="160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-21" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 16.8px; line-height: 22px; white-space: pre;&quot;&gt;&lt;span style=&quot;color: #efb080;&quot;&gt;OnMouseDown&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="4Q_RHUzTen1VhnfpWCAp-6" vertex="1">
+          <mxGeometry x="195" y="140" width="105" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-26" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; line-height: 22px; white-space: pre;&quot;&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;&lt;span style=&quot;color: rgb(239, 176, 128);&quot;&gt;SlotGroundState&lt;/span&gt;.Target = true&lt;/font&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;arcSize=0;fontStyle=1" parent="4Q_RHUzTen1VhnfpWCAp-6" vertex="1">
+          <mxGeometry x="22.25" y="175" width="249" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="23qSnCQJMWu_BqUf1ogO-24" value="False" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="23qSnCQJMWu_BqUf1ogO-21" target="23qSnCQJMWu_BqUf1ogO-12" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="110" y="390" />
+              <mxPoint x="110" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="23qSnCQJMWu_BqUf1ogO-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="23qSnCQJMWu_BqUf1ogO-30" target="23qSnCQJMWu_BqUf1ogO-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V_FI9ZPVZy5DFaufE5q4-2" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;SkillSlot&lt;/font&gt;&lt;div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px; font-weight: normal;&quot;&gt;각 스킬 슬롯의 기능을 담당하는 스크립트&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" style="swimlane;whiteSpace=wrap;html=1;startSize=60;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="670" y="60" width="213.75" height="2060" as="geometry">
+            <mxRectangle x="-110" y="60" width="190" height="60" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V_FI9ZPVZy5DFaufE5q4-9" value="&lt;span style=&quot;color: rgb(239, 176, 128); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; font-weight: normal; white-space: pre;&quot;&gt;ProgressState.&lt;/span&gt;&lt;span style=&quot;color: rgb(214, 214, 221); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 14px; font-weight: 400; white-space: pre; background-color: rgb(24, 24, 24);&quot;&gt;UnitPlay&lt;/span&gt;" style="swimlane;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;startSize=30;" parent="V_FI9ZPVZy5DFaufE5q4-2" vertex="1">
+          <mxGeometry x="6.88" y="780" width="200" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" parent="V_FI9ZPVZy5DFaufE5q4-9" source="V_FI9ZPVZy5DFaufE5q4-7" target="V_FI9ZPVZy5DFaufE5q4-13" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V_FI9ZPVZy5DFaufE5q4-7" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 14px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;span style=&quot;color: #efb080;&quot;&gt;SetSkillData&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="V_FI9ZPVZy5DFaufE5q4-9" vertex="1">
+          <mxGeometry x="40.00000000000001" y="55" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="V_FI9ZPVZy5DFaufE5q4-13" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; font-size: 14px; line-height: 19px; white-space: pre;&quot;&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;div style=&quot;line-height: 19px;&quot;&gt;&lt;span style=&quot;color: #efb080;&quot;&gt;OnButtonClick&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="V_FI9ZPVZy5DFaufE5q4-9" vertex="1">
+          <mxGeometry x="40" y="135" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="V_FI9ZPVZy5DFaufE5q4-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="V_FI9ZPVZy5DFaufE5q4-0" target="V_FI9ZPVZy5DFaufE5q4-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V_FI9ZPVZy5DFaufE5q4-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="V_FI9ZPVZy5DFaufE5q4-13" target="V_FI9ZPVZy5DFaufE5q4-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="4Q_RHUzTen1VhnfpWCAp-2" target="4Q_RHUzTen1VhnfpWCAp-10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-37" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="4Q_RHUzTen1VhnfpWCAp-26" target="4Q_RHUzTen1VhnfpWCAp-31" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-49" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;UnitBase&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;span style=&quot;font-size: 10px; font-weight: 400;&quot;&gt;각 유닛의 기본이 되는 스크립트&lt;/span&gt;&lt;/div&gt;" style="swimlane;whiteSpace=wrap;html=1;startSize=60;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="892" y="60" width="265" height="1750" as="geometry">
+            <mxRectangle x="-110" y="60" width="190" height="60" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-54" value="&lt;div style=&quot;color: rgb(214, 214, 221); background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-weight: normal; line-height: 22px; white-space: pre;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;color: rgb(239, 176, 128);&quot;&gt;ProgressState&lt;/span&gt;.SkillPlay&lt;/font&gt;&lt;/div&gt;" style="swimlane;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;startSize=23;" parent="4Q_RHUzTen1VhnfpWCAp-49" vertex="1">
+          <mxGeometry x="5" y="1310" width="260" height="410" as="geometry" />
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-47" value="&lt;div style=&quot;background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; line-height: 22px; white-space: pre; color: rgb(214, 214, 221);&quot;&gt;&lt;div style=&quot;line-height: 22px;&quot;&gt;&lt;span style=&quot;color: rgb(239, 176, 128); font-size: 14px;&quot;&gt;SetAnim&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="4Q_RHUzTen1VhnfpWCAp-54" vertex="1">
+          <mxGeometry x="62.5" y="70" width="105" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="4Q_RHUzTen1VhnfpWCAp-45" target="4Q_RHUzTen1VhnfpWCAp-47" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-62" value="&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;AnimationEventObserver&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 10px; font-weight: 400;&quot;&gt;각 유닛 Animation의 Event를 인식하는 스크립트&amp;nbsp;&lt;/span&gt;&lt;/div&gt;" style="swimlane;whiteSpace=wrap;html=1;startSize=60;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="1170" y="1250" width="240" height="550" as="geometry">
+            <mxRectangle x="-110" y="60" width="190" height="60" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3lZQHLBLKonMDtLnzSJ9-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="4Q_RHUzTen1VhnfpWCAp-62" source="4Q_RHUzTen1VhnfpWCAp-66" target="3lZQHLBLKonMDtLnzSJ9-0" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-66" value="&lt;div style=&quot;background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; line-height: 22px; white-space: pre; color: rgb(214, 214, 221);&quot;&gt;&lt;div style=&quot;line-height: 22px;&quot;&gt;&lt;div style=&quot;line-height: 22px;&quot;&gt;&lt;span style=&quot;color: rgb(239, 176, 128);&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;SkillEnd&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="4Q_RHUzTen1VhnfpWCAp-62" vertex="1">
+          <mxGeometry x="60" y="230" width="105" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="3lZQHLBLKonMDtLnzSJ9-0" value="&lt;div style=&quot;background-color: rgb(24, 24, 24); font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; line-height: 22px; white-space: pre; color: rgb(214, 214, 221);&quot;&gt;&lt;div style=&quot;line-height: 22px;&quot;&gt;&lt;div style=&quot;line-height: 22px;&quot;&gt;&lt;div style=&quot;font-size: 14px; line-height: 19px;&quot;&gt;&lt;span style=&quot;color: #efb080;&quot;&gt;DelayTurnEnd&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="4Q_RHUzTen1VhnfpWCAp-62" vertex="1">
+          <mxGeometry x="60" y="290" width="105" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="4Q_RHUzTen1VhnfpWCAp-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="4Q_RHUzTen1VhnfpWCAp-47" target="4Q_RHUzTen1VhnfpWCAp-66" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3lZQHLBLKonMDtLnzSJ9-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="3lZQHLBLKonMDtLnzSJ9-0" target="3lZQHLBLKonMDtLnzSJ9-16" edge="1">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
