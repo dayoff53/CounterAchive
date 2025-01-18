@@ -14,21 +14,17 @@ public class UnitSlotGroupController : MonoBehaviour
     // 각 슬롯의 원래 위치를 저장하는 딕셔너리
     private Dictionary<int, Vector3> originalPositions = new Dictionary<int, Vector3>();
 
-    StageManager gameManager;
+    [SerializeField]
+    private StageManager stageManager;
 
-
-
-    public void Start()
-    {
-        gameManager = StageManager.Instance;
-    }
 
     /// <summary>
-    /// GameManager에서 현재 유닛 슬롯을 초기화하고 슬롯 상태를 초기화하는 메서드
+    /// StageManager에서 현재 유닛 슬롯을 초기화하고 슬롯 상태를 초기화하는 메서드
     /// </summary>
-    public void UnitSlotsInit()
+    public void Init(StageManager stageManager)
     {
-        gameManager = StageManager.Instance;
+        this.stageManager = stageManager;
+
         for (int i = 0; i < unitSlots.Count; i++)
         {
             if (unitSlots[i] != null)
@@ -40,12 +36,13 @@ public class UnitSlotGroupController : MonoBehaviour
                     originalPositions[i] = unitObject.transform.position;
                 }
 
+                unitSlots[i].slotGround.Init(stageManager);
                 unitSlots[i].slotGround.SetSlotGroundState(SlotGroundState.Default);
             }
 
             unitSlots[i].UnitStatusInit();
         }
-        gameManager.unitSlotList = unitSlots;
+        stageManager.unitSlotList = unitSlots;
     }
 
     /// <summary>

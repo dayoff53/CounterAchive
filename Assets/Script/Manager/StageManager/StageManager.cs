@@ -19,7 +19,7 @@ public enum ProgressState
     UnitSelect
 }
 
-public partial class StageManager : Singleton<StageManager>
+public partial class StageManager : MonoBehaviour
 {
     //[Header("------------------- Manager -------------------")]
     private DataManager dataManager;
@@ -106,6 +106,8 @@ public partial class StageManager : Singleton<StageManager>
         poolManager = PoolManager.Instance;
         cameraManager = CameraManager.Instance;
         uiManager = UIManager.Instance;
+
+        dataManager.stageManager = this;
     }
 
     /// <summary>
@@ -114,8 +116,8 @@ public partial class StageManager : Singleton<StageManager>
     public void InitGame()
     {
         poolManager.Clear();
-        unitSlotGroupController.UnitSlotsInit();
-        unitStateColors = unitStateColorsObject.colorStates;
+        unitSlotGroupController.Init(this);
+        unitStateColors = dataManager.unitStateColorsObject.colorStates;
         SlotPosInit();
         UnitSetGame();
     }
@@ -177,6 +179,9 @@ public partial class StageManager : Singleton<StageManager>
     private void ActionPointsInit()
     {
         currentPrograssState = ProgressState.Stay;
+        uiManager.stageMenuController.Init(this);
+        uiManager.stageMenuController.StageMenuRefresher();
+        
         foreach (var unitSlot in unitSlotList)
         {
             if (unitSlot != null && unitSlot != null)

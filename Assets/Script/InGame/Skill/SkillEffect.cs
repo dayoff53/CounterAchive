@@ -12,11 +12,21 @@ public class SkillEffect : ScriptableObject
     [SerializeField]
     protected List<float> skillValueList;
 
-    public void SkillEffectInit(SkillData skillData)
+    void Awake()
     {
+        Init();
+    }
+
+    void Init()
+    {
+        stageManager = DataManager.Instance.stageManager;
+    }
+
+    public void SkillEffectRefresher(SkillData skillData)
+    {
+        Init();
         if(stageManager == null)    
         {
-            stageManager = StageManager.Instance;
             this.skillData = stageManager.currentSkillData; 
             SetSkillValue(this.skillData.skillValueList);
         }
@@ -37,7 +47,6 @@ public class SkillEffect : ScriptableObject
         if(skillData == null)
         {
             Debug.LogWarning($"스킬 데이터가 없습니다. 스킬 데이터를 초기화합니다.");
-            stageManager = StageManager.Instance;
             skillData = stageManager.currentSkillData;
         }
 

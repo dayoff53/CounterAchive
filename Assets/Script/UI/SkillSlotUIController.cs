@@ -25,8 +25,13 @@ public class SkillSlot : MonoBehaviour
 
     private void Start()
     {
-        stageManager = StageManager.Instance;
+        Init();
+    }
 
+    public void Init(StageManager stageManager)
+    {
+        this.stageManager = stageManager;
+        skillData = null;
         Init();
     }
 
@@ -42,7 +47,7 @@ public class SkillSlot : MonoBehaviour
             skillCostText.text = skillData.skillCost.ToString();
             skillButton.onClick.AddListener(OnButtonClick);
 
-            skillRangeUIController.SkillRangeInit(skillData.skillRange);
+            skillRangeUIController.Init(skillData.skillRange);
         }
         else
         {
@@ -52,7 +57,7 @@ public class SkillSlot : MonoBehaviour
             skillCostText.text = "";
             skillButton.onClick.AddListener(OnButtonClick);
             int[] skillRange = { };
-            skillRangeUIController.SkillRangeInit(skillRange);
+            skillRangeUIController.Init(skillRange);
         }
     }
 

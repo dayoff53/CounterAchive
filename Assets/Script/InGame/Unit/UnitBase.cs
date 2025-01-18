@@ -9,7 +9,8 @@ public class UnitBase : MonoBehaviour
 {
     [Header("매니저 참조")]
     [Tooltip("스테이지 매니저 인스턴스")]
-    StageManager stageManager;
+    [SerializeField] private StageManager stageManager;
+
     [Tooltip("카메라 매니저 인스턴스")]
     CameraManager cameraManager;
     [Tooltip("데이터 매니저 인스턴스")]
@@ -23,6 +24,7 @@ public class UnitBase : MonoBehaviour
     [SerializeField] public SpriteRenderer spriteRenderer;
     [Tooltip("유닛의 애니메이터")]
     [SerializeField] private Animator unitAnimator;
+    [SerializeField] private AnimationEventObserver animationEventObserver;
 
     [Space(20)]
     [Header("------------------- UI -------------------")]
@@ -123,10 +125,10 @@ public class UnitBase : MonoBehaviour
 
     private void Start()
     {
-        stageManager = StageManager.Instance;
         cameraManager = CameraManager.Instance;
         dataManager = DataManager.Instance;
         poolManager = PoolManager.Instance;
+        stageManager = dataManager.stageManager;
 
         UnitDataInit(unitData);
     }
@@ -137,6 +139,9 @@ public class UnitBase : MonoBehaviour
     /// <param name="setUnitData">초기화할 UnitData 객체</param>
     public void UnitDataInit(UnitData setUnitData)
     {
+        stageManager = dataManager.stageManager;
+
+        // 유닛 데이터가 없을 경우 데이터 매니저에서 기본 유닛(Null) 데이터를 가져옵니다.
         if (setUnitData == null)
             unitData = dataManager.unitDataList.Find(n => n.unitNumber == 0);
         else
@@ -182,7 +187,8 @@ public class UnitBase : MonoBehaviour
             currentAp = 0;
             speed = unitData.speed;
             skillDataList = unitData.skillDataList;
-            corpseDissolve.CorpseInit();
+            corpseDissolve.Init(stageManager);
+            animationEventObserver.Init(stageManager);
 
             SetAnim(0);
         }
@@ -190,6 +196,8 @@ public class UnitBase : MonoBehaviour
         SetSkillTargeting(false, "");
         SetTurn(false);
     }
+
+
     /// <summary>
     /// UnitStatus를 기반으로 UnitBase의 데이터를 초기화합니다.
     /// </summary>
@@ -244,7 +252,7 @@ public class UnitBase : MonoBehaviour
             hpPointBar.gameObject.transform.parent.gameObject.SetActive(true);
             actionPointBar.gameObject.SetActive(true);
 
-            spriteRenderer.sortingOrder = (int)stageManager.unitStateColorsObject.orderLayerNumber[0];
+            spriteRenderer.sortingOrder = (int)dataManager.unitStateColorsObject.orderLayerNumber[0];
             SetAnim(0);
             SetSkillTargeting(false, "");
             
@@ -300,6 +308,7 @@ public class UnitBase : MonoBehaviour
         Debug.Log($"ComputeDamage : {damage}"); 
         return (int)computedDamage;
     }
+
 
 
     public void Damage(float damage, float defPierce)
@@ -361,6 +370,10 @@ public class UnitBase : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// 유닛이 사망할 때 호출되는 함수입니다.
+    /// </summary>
+    /// <param name="pushForce">유닛을 밀어내는 힘</param>
     public void Death(float pushForce)
     {
         stageManager.isUnitDying = true;
@@ -411,6 +424,11 @@ public class UnitBase : MonoBehaviour
         // 피격 시 흔들림 효과 추가
         StartCoroutine(ShakeUnit());
     }
+
+    
+    /// <summary>
+    /// 유닛을 흔들림 효과를 적용합니다.
+    /// </summary>
     private IEnumerator ShakeUnit()
     {
         float shakeDuration = 0.2f;

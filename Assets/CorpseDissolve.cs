@@ -6,6 +6,7 @@ using UnityEngine;
 public class UnitProduction : MonoBehaviour
 {
     private StageManager stageManager;
+    private DataManager dataManager;
     private Rigidbody2D rigidBody;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
@@ -15,18 +16,21 @@ public class UnitProduction : MonoBehaviour
 
     private void Start()
     {
-        stageManager = StageManager.Instance;
+        dataManager = DataManager.Instance;
         rigidBody = this.GetComponent<Rigidbody2D>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
-        CorpseInit();
-        //StartCoroutine(dissolveStart());
+        Init(null);
     }
 
-    public void CorpseInit()
+    public void Init(StageManager stageManager)
     {
+        this.stageManager = stageManager;
+
         spriteRenderer.sprite = null;
         spriteRenderer.material = dissolveMaterial;
-        spriteRenderer.sortingOrder = (int)stageManager.unitStateColorsObject.orderLayerNumber[0];
+        spriteRenderer.sortingOrder = (int)dataManager.unitStateColorsObject.orderLayerNumber[0];
+        
+
 
         Material[] mats = spriteRenderer.materials;
 
@@ -47,7 +51,7 @@ public class UnitProduction : MonoBehaviour
         spriteRenderer.sprite = corpseSpriteRenderer.sprite;
         spriteRenderer.flipX = corpseSpriteRenderer.flipX;
         spriteRenderer.material = dissolveMaterial;
-        spriteRenderer.sortingOrder = (int)stageManager.unitStateColorsObject.orderLayerNumber[1];
+        spriteRenderer.sortingOrder = (int)dataManager.unitStateColorsObject.orderLayerNumber[1];
         while (true)
         {
             yield return new WaitForSeconds(Time.deltaTime);

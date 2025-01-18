@@ -4,29 +4,30 @@ using UnityEngine;
 
 public class AnimationEventObserver : MonoBehaviour
 {
-    StageManager gameManager;
+    [SerializeField]
+    private StageManager stageManager;
 
-    private void Start()
+    public void Init(StageManager stageManager)
     {
-        gameManager = StageManager.Instance;
+        this.stageManager = stageManager;
     }
 
     public void SkillHit()
     {
-        if(gameManager.currentSkillData.isRandomHitProduction)
+        if(stageManager.currentSkillData.isRandomHitProduction)
         {
-            gameManager.SkillProduction(Random.Range(0, gameManager.currentSkillData.skillHitProductionObjects.Count));
+            stageManager.SkillProduction(Random.Range(0, stageManager.currentSkillData.skillHitProductionObjects.Count));
         }
         else
         {
-            gameManager.SkillProduction(0);
+            stageManager.SkillProduction(0);
         }
         Debug.Log($"SkillHit 작동");
     }
 
     public void SkillEnd()
     {
-        gameManager.SkillEndPlay();
+        stageManager.SkillEndPlay();
         StartCoroutine(DelayTurnEnd(0.5f));
         Debug.Log($"SkillEnd 작동");
     }
@@ -35,6 +36,6 @@ public class AnimationEventObserver : MonoBehaviour
     public IEnumerator DelayTurnEnd(float delay)
     {
         yield return new WaitForSeconds(delay); // 지정된 시간만큼 대기
-        gameManager.TurnEnd(); // 대기 후 호출할 함수
+        stageManager.TurnEnd(); // 대기 후 호출할 함수
     }
 }

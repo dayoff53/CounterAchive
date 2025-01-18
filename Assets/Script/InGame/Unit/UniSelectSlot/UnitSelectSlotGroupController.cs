@@ -9,6 +9,9 @@ using UnityEngine;
 public class UnitSelectSlotGroupController : MonoBehaviour
 {
     [SerializeField]
+    private StageManager stageManager;
+
+    [SerializeField]
     private GameObject selectUnitSlot;
     [SerializeField]
     private GameObject contentObject;
@@ -23,8 +26,9 @@ public class UnitSelectSlotGroupController : MonoBehaviour
     /// <summary>
     /// 플레이어가 배치 가능한 유닛의 슬롯들을 초기화하는 스크립트
     /// </summary>
-    public void InitUnitSelectSlot()
+    public void Init(StageManager stageManager)
     {
+        this.stageManager = stageManager;
         dataManager = DataManager.Instance;
         selectUnitCardList = new List<UnitCard>();
         selectUnitSelectList = new List<UnitSelectController>();
@@ -40,7 +44,7 @@ public class UnitSelectSlotGroupController : MonoBehaviour
 
             selectUnitSelectList.Add(currentSelectUnitSlot.AddComponent<UnitSelectController>());
             selectUnitSelectList[i].unitStatus = dataManager.playerUnitStateList[i];
-            selectUnitSelectList[i].Init();
+            selectUnitSelectList[i].Init(stageManager);
 
             Debug.Log($"selectUnitSlotList.Count : {selectUnitCardList.Count}");
         }

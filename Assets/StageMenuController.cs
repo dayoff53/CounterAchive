@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class StageWindowController : MonoBehaviour
 {
+    [SerializeField]
     private StageManager stageManager;
 
     public Image skillIcon;
@@ -14,14 +15,14 @@ public class StageWindowController : MonoBehaviour
     public List<Image> rangeSlotList;
 
 
-    private void Start()
+    public void Init(StageManager stageManager)
     {
-        StageMenuInit();
+        this.stageManager = stageManager;
     }
-    public void StageMenuInit()
-    {
-        stageManager = StageManager.Instance;
 
+
+    public void StageMenuRefresher()
+    {
         if (stageManager.currentSkillData)
         {
             skillIcon.sprite = stageManager.currentSkillData.skillIcon;

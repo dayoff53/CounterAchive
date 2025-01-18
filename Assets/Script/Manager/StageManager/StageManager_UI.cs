@@ -12,7 +12,6 @@ public partial class StageManager
     [Space(10)]
     [Header("Color Data")]
     public List<Color> unitStateColors;
-    public ProdutionState unitStateColorsObject;
     #endregion
 
 
@@ -37,10 +36,10 @@ public partial class StageManager
     }
 
 /// <summary>
-/// 
+/// 페이드 인 아웃 효과
 /// </summary>
-/// <param name="color"></param>
-/// <param name="fadeTime"></param>
+/// <param name="color">페이드 색상</param>
+/// <param name="fadeTime">페이드 시간</param>
     public void SetFadeInOutProduction(Color color, float fadeTime)
     {
         StartCoroutine(FadeInOutProduction(color, fadeTime));

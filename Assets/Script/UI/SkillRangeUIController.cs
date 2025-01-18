@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// SkillSlot의 스킬 사거리를 
+/// SkillSlot의 스킬 사거리를 표시하는 UI 컨트롤러 (지속해서 사용할지는 미지수)
 /// </summary>
 public class SkillRangeUIController : MonoBehaviour
 {
@@ -18,12 +18,14 @@ public class SkillRangeUIController : MonoBehaviour
     private StageManager stageManager;
 
 
-    private void Start()
+    public void Init(int[] skillRange, StageManager stageManager)
     {
-        stageManager = StageManager.Instance;
+        this.stageManager = stageManager;
+
+        Init(skillRange);
     }
 
-    public void SkillRangeInit(int[] skillRange)
+    public void Init(int[] skillRange)
     {
         for (int i = 0; i < rangeImages.Count; i++)
         {
@@ -37,5 +39,4 @@ public class SkillRangeUIController : MonoBehaviour
             rangeImages[skillRange[i]].color = skillRangeColors[2];
         }
     }
-
 }

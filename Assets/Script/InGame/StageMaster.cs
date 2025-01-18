@@ -101,11 +101,10 @@ public class StageMaster : MonoBehaviour
 
     private void Start()
     {
-        stageManager = StageManager.Instance;
         uiManager = UIManager.Instance;
         InitUIObject();
 
-        unitSelectSlotsGroupController.InitUnitSelectSlot();
+        unitSelectSlotsGroupController.Init(stageManager);
 
         PlaceUnitSlot();
 

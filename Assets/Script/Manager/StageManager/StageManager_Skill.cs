@@ -24,7 +24,7 @@ public partial class StageManager
         set
         {
             _currentSkillData = value;
-            uiManager.stageMenuController.StageMenuInit();
+            uiManager.stageMenuController.StageMenuRefresher();
         }
     }
 
@@ -84,7 +84,7 @@ public partial class StageManager
 
         for (int i = 0; i < skillSlotList.Count; i++)
         {
-            skillSlotList[i].SetSkillData(null);
+            skillSlotList[i].Init(this);
         }
 
         for (int i = 0; i < setSkillDataList.Count; i++)
@@ -203,7 +203,7 @@ public partial class StageManager
     /// </summary>
     public virtual void SkillProduction(int hitProductionNum)
     {
-        unitSlotList[currentTurnSlotNumber].unit.spriteRenderer.sortingOrder = (int)unitStateColorsObject.orderLayerNumber[1];
+        unitSlotList[currentTurnSlotNumber].unit.spriteRenderer.sortingOrder = (int)dataManager.unitStateColorsObject.orderLayerNumber[1];
 
         foreach (UnitSlotController targetUnit in currentSkillTargetSlots)
         {
@@ -213,7 +213,7 @@ public partial class StageManager
 
             if(currentSkillData.isFadeInOutProdution)
             {
-                targetUnit.unit.spriteRenderer.sortingOrder = (int)unitStateColorsObject.orderLayerNumber[1];
+                targetUnit.unit.spriteRenderer.sortingOrder = (int)dataManager.unitStateColorsObject.orderLayerNumber[1];
                 SetFadeInOutProduction(currentSkillData.fadeInOutProdutionColor, currentSkillData.fadeInOutProdutionTime);
             }
  

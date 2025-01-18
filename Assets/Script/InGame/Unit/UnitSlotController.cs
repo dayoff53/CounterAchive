@@ -78,9 +78,8 @@ public class UnitSlotController : MonoBehaviour
     /// </summary>
     /// <param name="setUnitStatus">설정할 유닛 상태</param>
     public void SetUnit(UnitStatus setUnitStatus)
-    {
+    {  
         unit.SetStatus(setUnitStatus);
-        
         UnitStatusInit();
     }
 

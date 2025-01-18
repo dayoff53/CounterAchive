@@ -89,7 +89,7 @@ public class SkillData : ScriptableObject
         }
         foreach (SkillEffect skillEffect in skillEffectList)
         {
-            skillEffect.SkillEffectInit(this);
+            skillEffect.SkillEffectRefresher(this);
             skillEffect.SkillEffectStart(useUnit, targetUnit);
         }
     }
@@ -105,7 +105,7 @@ public class SkillData : ScriptableObject
         float expectedDamage = 0;
         foreach (SkillEffect skillEffect in skillEffectList)
         {
-            skillEffect.SkillEffectInit(this);
+            skillEffect.SkillEffectRefresher(this);
             expectedDamage += skillEffect.ExpectedDamage(useUnit, targetUnit);
         }
         return expectedDamage;

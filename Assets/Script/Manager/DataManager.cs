@@ -15,6 +15,9 @@ public class SaveData
 }
 public class DataManager : Singleton<DataManager>
 {
+    public StageManager stageManager;
+
+
     /// <summary>
     /// SaveData가 저장될 혹은 불러올 위치
     /// </summary>
@@ -36,6 +39,12 @@ public class DataManager : Singleton<DataManager>
     /// SkillData를 보관하는 List
     /// </summary>
     public List<SkillData> skillList;
+
+/// <summary>
+/// 유닛 상태에 따른 색과 레이어 순서를 보관하는 스크립트
+/// </summary>
+    public ProdutionState unitStateColorsObject;
+
 
 
     private void Start()
@@ -148,4 +157,5 @@ public class DataManager : Singleton<DataManager>
 
         return path;
     }
+    
 }

@@ -58,11 +58,11 @@ public class SlotGround : MonoBehaviour
 
     private StageManager stageManager;
 
-
-    private void Start()
+    public void Init(StageManager stageManager)
     {
-        stageManager = StageManager.Instance;
+        this.stageManager = stageManager;
     }
+
 
     public void SetSlotGroundState(SlotGroundState setSlotGroundState)
     {
