@@ -18,6 +18,12 @@ public enum ProgressState
 
     UnitSelect
 }
+public enum StageClearState
+{
+    KillAllEnemy,
+    KillTargetEnemy,
+    SurviveTurn
+}
 
 public partial class StageManager : MonoBehaviour
 {
@@ -62,6 +68,15 @@ public partial class StageManager : MonoBehaviour
             _currentPrograssState = value;
         }
     }
+    
+    [Tooltip("해당 스테이지에서 플레이어가 사용 가능하도록 사전에 배치되어 있는 유닛 리스트")]
+    [SerializeField]
+
+    private List<UnitStatus> playerUnitList;
+
+    [Tooltip("해당 스테이지에서 적으로 등장하는 유닛 리스트")]
+    [SerializeField]
+    private List<UnitStatus> enemyUnitList;
     #endregion
 
     #region Unit&SlotVariable
@@ -82,6 +97,10 @@ public partial class StageManager : MonoBehaviour
 
     [Header("UnitSelect Data")]
     [SerializeField]
+    [Tooltip("플레이어가 배치 가능한 유닛이 존재하는 슬롯을 총괄하는 스크립트")]
+    private UnitSelectSlotGroupController unitSelectSlotGroupController;
+
+    [SerializeField]
     [Tooltip("유닛 배치 단계에서 선택된 유닛 상태")]
     public UnitStatus currentSelectUnitState;
 
@@ -90,6 +109,9 @@ public partial class StageManager : MonoBehaviour
 
     [Tooltip("플레이어가 사용 가능한 유닛 슬롯의 범위")]
     public int playerUseUnitSlotRange;
+    [SerializeField]
+    
+
 
     /// <summary>
     /// 유닛이 죽는 중 상태를 판단하는 값
@@ -108,6 +130,8 @@ public partial class StageManager : MonoBehaviour
         uiManager = UIManager.Instance;
 
         dataManager.stageManager = this;
+
+        InitGame();
     }
 
     /// <summary>
@@ -117,9 +141,34 @@ public partial class StageManager : MonoBehaviour
     {
         poolManager.Clear();
         unitSlotGroupController.Init(this);
+        unitSelectSlotGroupController.Init(this);
         unitStateColors = dataManager.unitStateColorsObject.colorStates;
         SlotPosInit();
+        PlaceUnitSlot();
         UnitSetGame();
+    }
+
+    /// <summary>
+    /// 스테이지에 위치한 유닛들을 배치합니다.
+    /// </summary>
+    private void PlaceUnitSlot()
+    {
+        int startNum = 0;
+        for (int i = 0; i < playerUnitList.Count; i++)
+        {
+            unitSlotGroupController.unitSlots[startNum + i].SetUnit(playerUnitList[i], 1);
+        }
+
+        int endNum = unitSlotGroupController.unitSlots.Count - 1;
+        for (int i = 0; i < enemyUnitList.Count; i++)
+        {
+            if(enemyUnitList[i].unitName != "Null")
+            {
+                enemyUnitList[i].SetStatus(enemyUnitList[i].unitData);
+            }
+            unitSlotGroupController.unitSlots[endNum - i].SetUnit(enemyUnitList[i], 2);
+            unitSlotGroupController.unitSlots[endNum - i].unit.isFlipX = true;
+        }
     }
 
     /// <summary>

@@ -2720,11 +2720,42 @@ MonoBehaviour:
   lastEnemyDeathObject: {fileID: 0}
   surviveTurnCount: 0
   _currentPrograssState: 0
-  unitSlotGroupController: {fileID: 0}
+  playerUnitList: []
+  enemyUnitList:
+  - isOriginal: 1
+    unitData: {fileID: 11400000, guid: 421508ca4c6996548810e9a3dd5ff153, type: 2}
+    unitNumber: 0
+    unitName: 
+    maxHp: 10
+    currentHp: 10
+    ap: 10
+    atk: 1
+    def: 1
+    acc: 1
+    eva: 1
+    speed: 1
+    unitTagList: 
+    skillNumberList: 
+  - isOriginal: 1
+    unitData: {fileID: 11400000, guid: 166be0c737ba5d24aa06bafac39e36e9, type: 2}
+    unitNumber: 0
+    unitName: 
+    maxHp: 10
+    currentHp: 10
+    ap: 10
+    atk: 1
+    def: 1
+    acc: 1
+    eva: 1
+    speed: 1
+    unitTagList: 
+    skillNumberList: 
+  unitSlotGroupController: {fileID: 827181154}
   unitSlotList: []
   slotOriginalPositions:
     keys: 
     values: []
+  unitSelectSlotGroupController: {fileID: 75596168}
   currentSelectUnitState:
     isOriginal: 1
     unitData: {fileID: 0}
@@ -2741,10 +2772,14 @@ MonoBehaviour:
     unitTagList: 
     skillNumberList: 
   playerUseUnitSlotCount: 4
-  playerUseUnitSlotRange: 4
+  playerUseUnitSlotRange: 5
   isUnitDying: 0
   currentSkillTargetSlots: []
-  skillSlotList: []
+  skillSlotList:
+  - {fileID: 6817067420464118152}
+  - {fileID: 1961393111}
+  - {fileID: 209877385}
+  - {fileID: 1867956726}
   currentTurnSlotNumber: 0
   unitStateColors:
   - {r: 0.7529412, g: 0.7529412, b: 0.7529412, a: 1}
@@ -3510,6 +3545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fe65be875bb5674b8c8c0aa8f315ec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageManager: {fileID: 0}
   skillIcon: {fileID: 1552328096}
   flavorText: {fileID: 2086679314}
   areaSlotList:
@@ -8817,103 +8853,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1273439032}
   m_CullTransparentMesh: 1
---- !u!1 &1275894345
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1275894347}
-  - component: {fileID: 1275894346}
-  m_Layer: 0
-  m_Name: StageMaster
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1275894346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1275894345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb35a344c4c267745b7bf071ac9f346b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stageManager: {fileID: 358140932}
-  stageClearCondition: 0
-  targetEnemyId: 0
-  surviveTurnCount: 0
-  playerUseUnitSlotCount: 3
-  playerUseUnitSlotRange: 4
-  playerUnitList: []
-  enemyUnitList:
-  - isOriginal: 1
-    unitData: {fileID: 11400000, guid: 166be0c737ba5d24aa06bafac39e36e9, type: 2}
-    unitNumber: 0
-    unitName: Default
-    maxHp: 10
-    currentHp: 10
-    ap: 0
-    atk: 0
-    def: 0
-    acc: 1
-    eva: 1
-    speed: 1
-    unitTagList: 
-    skillNumberList: 
-  - isOriginal: 1
-    unitData: {fileID: 11400000, guid: 421508ca4c6996548810e9a3dd5ff153, type: 2}
-    unitNumber: 0
-    unitName: Default
-    maxHp: 10
-    currentHp: 10
-    ap: 10
-    atk: 1
-    def: 1
-    acc: 1
-    eva: 1
-    speed: 1
-    unitTagList: 
-    skillNumberList: 
-  unitSet_UI: {fileID: 909782868}
-  remainingSetUnitSlotText: {fileID: 541961534}
-  play_UI: {fileID: 1087417324}
-  turnUnitCardUI: {fileID: 2146055813}
-  targetUnitCardUI: {fileID: 1509911561}
-  unitCardTargetArrow: {fileID: 147266408}
-  skillAccuracyText: {fileID: 695647168}
-  turnUnitMarker: {fileID: 0}
-  targetUnitMarker: {fileID: 0}
-  stageMenuController: {fileID: 477709053}
-  skillSlotList:
-  - {fileID: 6817067420464118152}
-  - {fileID: 1961393111}
-  - {fileID: 209877385}
-  - {fileID: 1867956726}
-  unitSlotGroupController: {fileID: 827181154}
-  unitSelectSlotsGroupController: {fileID: 75596168}
---- !u!4 &1275894347
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1275894345}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1281580519
 GameObject:
   m_ObjectHideFlags: 0
@@ -13543,7 +13482,6 @@ SceneRoots:
   - {fileID: 1722654480}
   - {fileID: 835870935}
   - {fileID: 84110207}
-  - {fileID: 1275894347}
   - {fileID: 358140933}
   - {fileID: 1123777485}
   - {fileID: 1429712718}
