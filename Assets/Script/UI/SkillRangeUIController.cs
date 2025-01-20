@@ -15,10 +15,10 @@ public class SkillRangeUIController : MonoBehaviour
     private List<Color> skillRangeColors;
 
     [SerializeField]
-    private StageManager stageManager;
+    private StageMaster stageManager;
 
 
-    public void Init(int[] skillRange, StageManager stageManager)
+    public void Init(int[] skillRange, StageMaster stageManager)
     {
         this.stageManager = stageManager;
 

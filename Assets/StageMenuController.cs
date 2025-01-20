@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class StageWindowController : MonoBehaviour
 {
     [SerializeField]
-    private StageManager stageManager;
+    private StageMaster stageManager;
 
     public Image skillIcon;
     public TMP_Text flavorText;
@@ -15,7 +15,7 @@ public class StageWindowController : MonoBehaviour
     public List<Image> rangeSlotList;
 
 
-    public void Init(StageManager stageManager)
+    public void Init(StageMaster stageManager)
     {
         this.stageManager = stageManager;
     }

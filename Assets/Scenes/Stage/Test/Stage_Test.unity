@@ -2697,7 +2697,7 @@ GameObject:
   - component: {fileID: 358140933}
   - component: {fileID: 358140932}
   m_Layer: 0
-  m_Name: StageManager
+  m_Name: StageMaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2715,6 +2715,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be34efb7fbbdca40b7434bc75cd1f86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentSkillTargetSlots: []
+  skillSlotList:
+  - {fileID: 6817067420464118152}
+  - {fileID: 1961393111}
+  - {fileID: 209877385}
+  - {fileID: 1867956726}
+  currentTurnSlotNumber: 0
+  unitStateColors:
+  - {r: 0.7529412, g: 0.7529412, b: 0.7529412, a: 1}
+  - {r: 0.6745098, g: 1, b: 0.6745098, a: 1}
+  - {r: 1, g: 0.2509804, b: 0.2509804, a: 1}
+  - {r: 0.6745098, g: 0.6745098, b: 1, a: 1}
+  - {r: 1, g: 1, b: 0.6745098, a: 1}
+  - {r: 1, g: 0.6745098, b: 1, a: 1}
+  - {r: 0.6745098, g: 1, b: 1, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
   stageClearCondition: 0
   targetEnemyId: 0
   lastEnemyDeathObject: {fileID: 0}
@@ -2774,22 +2790,6 @@ MonoBehaviour:
   playerUseUnitSlotCount: 4
   playerUseUnitSlotRange: 5
   isUnitDying: 0
-  currentSkillTargetSlots: []
-  skillSlotList:
-  - {fileID: 6817067420464118152}
-  - {fileID: 1961393111}
-  - {fileID: 209877385}
-  - {fileID: 1867956726}
-  currentTurnSlotNumber: 0
-  unitStateColors:
-  - {r: 0.7529412, g: 0.7529412, b: 0.7529412, a: 1}
-  - {r: 0.6745098, g: 1, b: 0.6745098, a: 1}
-  - {r: 1, g: 0.2509804, b: 0.2509804, a: 1}
-  - {r: 0.6745098, g: 0.6745098, b: 1, a: 1}
-  - {r: 1, g: 1, b: 0.6745098, a: 1}
-  - {r: 1, g: 0.6745098, b: 1, a: 1}
-  - {r: 0.6745098, g: 1, b: 1, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &358140933
 Transform:
   m_ObjectHideFlags: 0

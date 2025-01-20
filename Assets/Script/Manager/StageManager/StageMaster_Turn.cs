@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class StageManager
+public partial class StageMaster
 {
     #region TurnVariable
     [Space(20)]
@@ -61,7 +61,7 @@ public partial class StageManager
     }
 
     /// <summary>
-    /// ActionPoint를 누적하여 유닛의 행동 포인트를 증가시킵니다.
+    /// ActionPoint를 누적하여 유닛의 행동 포인트를 증가시킵니다. ActionPoint가 maxAp 이상이 되면 턴을 넘기는 기능도 겸합니다.
     /// </summary>
     /// <param name="time">시간 델타 값</param>
     private void ActionPointUpper(float time)
@@ -95,7 +95,7 @@ public partial class StageManager
     }
 
     /// <summary>
-    /// 해당 유닛 슬롯의 비용을 증가시킵니다.
+    /// 해당 유닛 슬롯의 코스트를 증가시킵니다.
     /// </summary>
     /// <param name="unitSlot">비용을 증가시킬 유닛 슬롯</param>
     /// <param name="time">시간 델타 값</param>

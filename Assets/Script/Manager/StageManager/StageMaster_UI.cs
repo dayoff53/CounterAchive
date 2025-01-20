@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public partial class StageManager
+public partial class StageMaster
 {
     #region UIVariable
 
@@ -44,6 +44,7 @@ public partial class StageManager
     {
         StartCoroutine(FadeInOutProduction(color, fadeTime));
     }
+    
     IEnumerator FadeInOutProduction(Color color, float fadeTime)
     {
         float elapsedTime = 0f;

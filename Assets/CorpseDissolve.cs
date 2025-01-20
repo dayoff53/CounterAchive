@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class UnitProduction : MonoBehaviour
 {
-    private StageManager stageManager;
+    private StageMaster stageManager;
     private DataManager dataManager;
     private Rigidbody2D rigidBody;
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -22,7 +22,7 @@ public class UnitProduction : MonoBehaviour
         Init(null);
     }
 
-    public void Init(StageManager stageManager)
+    public void Init(StageMaster stageManager)
     {
         this.stageManager = stageManager;
 

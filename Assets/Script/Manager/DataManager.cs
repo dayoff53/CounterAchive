@@ -15,7 +15,7 @@ public class SaveData
 }
 public class DataManager : Singleton<DataManager>
 {
-    public StageManager stageManager;
+    public StageMaster stageManager;
 
 
     /// <summary>

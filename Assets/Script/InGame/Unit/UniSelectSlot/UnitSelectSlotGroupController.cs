@@ -9,7 +9,7 @@ using UnityEngine;
 public class UnitSelectSlotGroupController : MonoBehaviour
 {
     [SerializeField]
-    private StageManager stageManager;
+    private StageMaster stageManager;
 
     [SerializeField]
     private GameObject selectUnitSlot;
@@ -26,7 +26,7 @@ public class UnitSelectSlotGroupController : MonoBehaviour
     /// <summary>
     /// 플레이어가 배치 가능한 유닛의 슬롯들을 초기화하는 스크립트
     /// </summary>
-    public void Init(StageManager stageManager)
+    public void Init(StageMaster stageManager)
     {
         this.stageManager = stageManager;
         dataManager = DataManager.Instance;

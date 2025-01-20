@@ -5,8 +5,11 @@
  using System.Linq;
  using UnityEngine;
  
- public partial class StageManager
+ public partial class StageMaster
  {
+    /// <summary>
+    /// 각 슬롯의 기본 위치를 저장합니다.
+    /// </summary>
      private void SlotPosInit()
      {
          for (int i = 0; i < unitSlotList.Count; i++)

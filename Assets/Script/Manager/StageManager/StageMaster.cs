@@ -25,7 +25,7 @@ public enum StageClearState
     SurviveTurn
 }
 
-public partial class StageManager : MonoBehaviour
+public partial class StageMaster : MonoBehaviour
 {
     //[Header("------------------- Manager -------------------")]
     private DataManager dataManager;
@@ -135,7 +135,7 @@ public partial class StageManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 게임 초기 설정을 진행하는 단계입니다. StageMaster에서 변수 할당 후 호출합니다.
+    /// 게임 초기 설정을 진행하는 단계입니다.
     /// </summary>
     public void InitGame()
     {
@@ -143,7 +143,9 @@ public partial class StageManager : MonoBehaviour
         unitSlotGroupController.Init(this);
         unitSelectSlotGroupController.Init(this);
         unitStateColors = dataManager.unitStateColorsObject.colorStates;
+        
         SlotPosInit();
+        
         PlaceUnitSlot();
         UnitSetGame();
     }
@@ -172,7 +174,7 @@ public partial class StageManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 플레이어가 유닛을 배치하는 단계입니다.
+    /// 플레이어가 유닛을 배치하는 단계입니다. 배치가 종료되면 게임을 시작합니다.
     /// </summary>
     public void UnitSetGame()
     {

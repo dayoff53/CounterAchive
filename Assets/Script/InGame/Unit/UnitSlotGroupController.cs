@@ -15,13 +15,13 @@ public class UnitSlotGroupController : MonoBehaviour
     private Dictionary<int, Vector3> originalPositions = new Dictionary<int, Vector3>();
 
     [SerializeField]
-    private StageManager stageManager;
+    private StageMaster stageManager;
 
 
     /// <summary>
     /// StageManager에서 현재 유닛 슬롯을 초기화하고 슬롯 상태를 초기화하는 메서드
     /// </summary>
-    public void Init(StageManager stageManager)
+    public void Init(StageMaster stageManager)
     {
         this.stageManager = stageManager;
 

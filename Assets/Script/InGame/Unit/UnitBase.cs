@@ -9,7 +9,7 @@ public class UnitBase : MonoBehaviour
 {
     [Header("매니저 참조")]
     [Tooltip("스테이지 매니저 인스턴스")]
-    [SerializeField] private StageManager stageManager;
+    [SerializeField] private StageMaster stageManager;
 
     [Tooltip("카메라 매니저 인스턴스")]
     CameraManager cameraManager;
