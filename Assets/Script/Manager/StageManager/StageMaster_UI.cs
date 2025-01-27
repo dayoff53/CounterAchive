@@ -9,33 +9,56 @@ public partial class StageMaster
 {
     #region UIVariable
 
-    [Space(10)]
-    [Header("Color Data")]
-    public List<Color> unitStateColors;
+    [Space(20)]
+    [Header("------------------- UI -------------------")]
+    
+        [Space(10)]
+        [Header("UI Object")]
+        
+        /// <summary>
+        /// 플레이 중인 UI
+        /// </summary>
+        [SerializeField]
+        private PlayUIController playUIController;
+        [SerializeField]
+        private GameObject play_UI;
+
+        /// <summary>
+        /// 게임 초기 유닛 배치 중인 UI
+        /// </summary>
+        [SerializeField]
+        private UnitSetUIController unitSetUIController;
+        [SerializeField]
+        private GameObject unitSet_UI;
+
+        /// <summary>
+        /// 승리 중인 UI
+        /// </summary>
+        [SerializeField]
+        private WinUIController winUIController;
+        [SerializeField]
+        private GameObject win_UI;
+
+
+        /// <summary>
+        /// StageUI 우측 하단에 위치하는 각종 데이터들을 표기하는 공간의 컴포넌트
+        /// </summary>
+        public StageWindowController stageMenuController;
+
+        /// <summary>
+        /// 페이드 인엔아웃 기능을 제공하는 이미지
+        /// </summary>
+        public Image fadeProdutionPanel;
+
+        [Space(10)]
+        [Header("Color Data")]
+        public List<Color> unitStateColors;
+        public ProdutionState unitStateColorsObject;
+
+
+
     #endregion
 
-
-    /// <summary>
-    /// 각 유닛들의 현 상황을 보여주는 UnitCardUI를 관리하는 스크립트
-    /// </summary>
-    /// <param name="unitNumber"></param>
-    public void SetCurrentUnitCardUI(bool isPlayer, int unitNumber)
-    {
-        if (isPlayer)
-        {
-            UnitStatus changeUnitStatus = new UnitStatus();
-            changeUnitStatus.SetStatus(dataManager.unitDataList.Find(u => u.unitNumber == unitSlotList[unitNumber].unit.unitNumber));
-            uiManager.turnUnitCardUI.unitStatus = changeUnitStatus;
-        }
-        else
-        {
-            UnitStatus changeUnitStatus = new UnitStatus();
-            changeUnitStatus.SetStatus(dataManager.unitDataList.Find(u => u.unitNumber == unitSlotList[unitNumber].unit.unitNumber));
-            uiManager.targetUnitCardUI.unitStatus = changeUnitStatus;
-        }
-    }
-
-/// <summary>
 /// 페이드 인 아웃 효과
 /// </summary>
 /// <param name="color">페이드 색상</param>
@@ -48,12 +71,12 @@ public partial class StageMaster
     IEnumerator FadeInOutProduction(Color color, float fadeTime)
     {
         float elapsedTime = 0f;
-        Color startColor = uiManager.fadeProdutionPanel.color;
+        Color startColor = fadeProdutionPanel.color;
 
 
         if(fadeTime == 0)
         {
-            uiManager.fadeProdutionPanel.color = color;
+            fadeProdutionPanel.color = color;
             yield break;
         }
 
@@ -61,10 +84,22 @@ public partial class StageMaster
         {
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / fadeTime;
-            uiManager.fadeProdutionPanel.color = Color.Lerp(startColor, color, t);
+            fadeProdutionPanel.color = Color.Lerp(startColor, color, t);
             yield return new WaitForSeconds(Time.deltaTime);
         }
 
-        uiManager.fadeProdutionPanel.color = color;
+        fadeProdutionPanel.color = color;
     }
+
+        public void SwitchUIMode(bool isPlayMode)
+        {
+            play_UI.SetActive(isPlayMode);
+            unitSet_UI.SetActive(!isPlayMode);
+            
+            if(!isPlayMode)
+            {
+                win_UI.SetActive(false);
+            }
+        }
+
 }
