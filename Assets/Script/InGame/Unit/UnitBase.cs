@@ -9,7 +9,7 @@ public class UnitBase : MonoBehaviour
 {
     [Header("매니저 참조")]
     [Tooltip("스테이지 매니저 인스턴스")]
-    [SerializeField] private StageMaster stageManager;
+    [SerializeField] private StageMaster stageMaster;
 
     [Tooltip("카메라 매니저 인스턴스")]
     CameraManager cameraManager;
@@ -128,7 +128,7 @@ public class UnitBase : MonoBehaviour
         cameraManager = CameraManager.Instance;
         dataManager = DataManager.Instance;
         poolManager = PoolManager.Instance;
-        stageManager = dataManager.stageManager;
+        stageMaster = dataManager.stageManager;
 
         UnitDataInit(unitData);
     }
@@ -139,7 +139,7 @@ public class UnitBase : MonoBehaviour
     /// <param name="setUnitData">초기화할 UnitData 객체</param>
     public void UnitDataInit(UnitData setUnitData)
     {
-        stageManager = dataManager.stageManager;
+        stageMaster = dataManager.stageManager;
 
         // 유닛 데이터가 없을 경우 데이터 매니저에서 기본 유닛(Null) 데이터를 가져옵니다.
         if (setUnitData == null)
@@ -187,8 +187,8 @@ public class UnitBase : MonoBehaviour
             currentAp = 0;
             speed = unitData.speed;
             skillDataList = unitData.skillDataList;
-            corpseDissolve.Init(stageManager);
-            animationEventObserver.Init(stageManager);
+            corpseDissolve.Init(stageMaster);
+            animationEventObserver.Init(stageMaster);
 
             SetAnim(0);
         }
@@ -376,8 +376,8 @@ public class UnitBase : MonoBehaviour
     /// <param name="pushForce">유닛을 밀어내는 힘</param>
     public void Death(float pushForce)
     {
-        stageManager.isUnitDying = true;
-        stageManager.lastEnemyDeathObject = corpseDissolve.gameObject;
+        stageMaster.isUnitDying = true;
+        stageMaster.lastEnemyDeathObject = corpseDissolve.gameObject;
 
         corpseDissolve.DissolveStart(spriteRenderer);
 
@@ -391,7 +391,7 @@ public class UnitBase : MonoBehaviour
         }
         pushForce = Mathf.Min(pushForce, 10);
 
-        if (stageManager.unitSlotList[stageManager.currentTurnSlotNumber].unit.isFlipX)
+        if (stageMaster.unitSlotList[stageMaster.currentTurnSlotNumber].unit.isFlipX)
         {
             corpseDissolve.PushUnit(pushForce, new Vector2(-1, randomDirectionY));
         }
@@ -404,6 +404,7 @@ public class UnitBase : MonoBehaviour
         // UnitData를 Null로 변경하여 유닛을 비활성화합니다.
         unitData = dataManager.unitDataList.Find(un => un.unitNumber == 0); // Null 값을 갖는 UnitData로 설정
     }
+
     public void HitProduction(GameObject hitProductonObject, float skillHitRadius)
     {
         Vector3 hitPos = productionPositionList[0].gameObject.transform.position;

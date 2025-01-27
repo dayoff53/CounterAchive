@@ -28,7 +28,7 @@ public class AnimationEventObserver : MonoBehaviour
     public void SkillEnd()
     {
         stageManager.SkillEndPlay();
-        StartCoroutine(DelayTurnEnd(0.5f));
+        stageManager.TurnEnd();
         Debug.Log($"SkillEnd 작동");
     }
 

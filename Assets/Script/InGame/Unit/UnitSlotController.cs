@@ -53,13 +53,7 @@ public class UnitSlotController : MonoBehaviour
     public SlotGround slotGround;
 
 
-    public void UnitStatusInit()
-    {
-        TurnEndInit();
-        unit.UnitBaseUpdate();
-    }
-
-    public void TurnEndInit()
+    public void UnitStatusUpdate()
     {
         if (unit.unitData.name == "Null")
         {
@@ -69,51 +63,33 @@ public class UnitSlotController : MonoBehaviour
         }
         else
         {
+            unit.SetAnim(0);
             isNull = false;
         }
+
+        slotGround.SetSlotGroundState(SlotGroundState.Default);
+
+        unit.UnitBaseUpdate();
     }
 
     /// <summary>
-    /// 현재 슬롯에 있는 유닛의 상태를 설정
+    /// 현재 슬롯에 있는 유닛의 Status를 변경
     /// </summary>
     /// <param name="setUnitStatus">설정할 유닛 상태</param>
     public void SetUnit(UnitStatus setUnitStatus)
     {  
         unit.SetStatus(setUnitStatus);
-        UnitStatusInit();
+        UnitStatusUpdate();
     }
 
     /// <summary>
-    /// 현재 슬롯에 있는 유닛의 상태와 팀 번호를 설정
+    /// 현재 슬롯에 있는 유닛의 Status와 팀 번호를 변경
     /// </summary>
-    /// <param name="setUnitStatus">설정할 유닛 상태</param>
+    /// <param name="setUnitStatus">설정할 유닛 Status</param>
     /// <param name="teamNum">팀 번호</param>
     public void SetUnit(UnitStatus setUnitStatus, int teamNum)
     {
         unitTeam = teamNum;
         SetUnit(setUnitStatus);
-    }
-
-    /// <summary>
-    /// 지정된 유닛 오브젝트로 현재 슬롯의 유닛을 설정
-    /// </summary>
-    /// <param name="setUnit">설정할 유닛 게임 오브젝트</param>
-    /// <param name="teamNum">팀 번호</param>
-    public void SetUnit(GameObject setUnit, int teamNum)
-    {
-        if (setUnit.GetComponent<UnitBase>() != null)
-        {
-            if (unit != null)
-            {
-                Destroy(unit.gameObject);
-            }
-
-            GameObject newUnit = Instantiate(setUnit, gameObject.transform);
-            unit = newUnit.GetComponent<UnitBase>();
-        }
-        else
-        {
-            Debug.LogError("현재 오브젝트에 UnitBase 컴포넌트가 추가된 유닛을 설정해야 합니다.");
-        }
     }
 }

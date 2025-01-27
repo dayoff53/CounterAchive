@@ -24,7 +24,7 @@ public partial class StageMaster
         set
         {
             _currentSkillData = value;
-            uiManager.stageMenuController.StageMenuRefresher();
+            stageMenuController.StageMenuRefresher();
         }
     }
 
@@ -65,9 +65,9 @@ public partial class StageMaster
         {
             _skillTargetNum = value;
 
-            if (UIManager.Instance.targetUnitCardUI != null && skillTargetNum >= 0)
+            if (playUIController.targetUnitCardUI != null && skillTargetNum >= 0)
             {
-                UIManager.Instance.UpdateUnitCardUI(false, unitSlotList[skillTargetNum].unit);
+                playUIController.UpdateUnitCardUI(false, unitSlotList[skillTargetNum].unit);
             }
         }
     }
@@ -93,6 +93,7 @@ public partial class StageMaster
         }
     }
 
+
     /// <summary>
     /// 스킬 타입을 선택하고 해당 스킬의 범위를 표시합니다.
     /// </summary>
@@ -106,6 +107,7 @@ public partial class StageMaster
             currentSkillData = skillData;
         }
     }
+
 
     /// <summary>
     /// 스킬의 타겟 슬롯을 선택하고 필요한 정보를 확인합니다.
@@ -122,7 +124,7 @@ public partial class StageMaster
             }
 
             skillTargetNum = unitSlotList.IndexOf(selectTargetSlot);
-            SetCurrentUnitCardUI(false, skillTargetNum);
+            playUIController.SetCurrentUnitCardUI(false, skillTargetNum);
 
             //유닛이 어느 방향을 볼것인지 설정합니다.
             if (currentTurnSlotNumber <= skillTargetNum)
@@ -132,7 +134,7 @@ public partial class StageMaster
 
             // 스킬의 명중률을 계산합니다.
             skillAcc = ((unitSlotList[currentTurnSlotNumber].unit.acc * (currentSkillData.skillAcc * 0.01f)) / unitSlotList[skillTargetNum].unit.eva);
-            uiManager.skillAccuracyText.text = $"{skillAcc * 100}%";
+            playUIController.UpdateSkillAccuracy(skillAcc);
 
             // 스킬의 연출 발생 횟수를 설정합니다.
             skillHitProductionCount = currentSkillData.skillHitCount;
@@ -163,10 +165,11 @@ public partial class StageMaster
         }
         else
         {
-            SetCurrentUnitCardUI(false, 0);
+            playUIController.SetCurrentUnitCardUI(false, 0);
             Debug.Log("코스트가 부족합니다.");
         }
     }
+
 
     /// <summary>
     /// 명중 여부를 판단한 후, 스킬의 효과를 적용합니다.
@@ -211,12 +214,14 @@ public partial class StageMaster
             targetUnit.unit.SetAnim(2);
             GameObject hitProductonObject;
 
+            // 뒷배경 암전효과 적용
             if(currentSkillData.isFadeInOutProdution)
             {
                 targetUnit.unit.spriteRenderer.sortingOrder = (int)dataManager.unitStateColorsObject.orderLayerNumber[1];
                 SetFadeInOutProduction(currentSkillData.fadeInOutProdutionColor, currentSkillData.fadeInOutProdutionTime);
             }
  
+            // 스킬 피격 이팩트 출력
             if(currentSkillData.isSkillHitMultiple)
             {
                 for(int i = 0; i < currentSkillData.skillHitMultipleCount; i++)

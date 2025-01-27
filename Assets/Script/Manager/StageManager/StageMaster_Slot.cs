@@ -26,6 +26,9 @@
          }
      }
 
+/// <summary>
+/// 모든 유닛의 업데이트를 실행합니다.
+/// </summary>
      public void AllUnitBaseUpdate()
      {
          foreach (UnitSlotController unitSlot in unitSlotList)

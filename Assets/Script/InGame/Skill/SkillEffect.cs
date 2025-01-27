@@ -22,6 +22,10 @@ public class SkillEffect : ScriptableObject
         stageManager = DataManager.Instance.stageManager;
     }
 
+/// <summary>
+/// 스킬 데이터를 초기화합니다.
+/// </summary>
+/// <param name="skillData"></param>
     public void SkillEffectRefresher(SkillData skillData)
     {
         Init();

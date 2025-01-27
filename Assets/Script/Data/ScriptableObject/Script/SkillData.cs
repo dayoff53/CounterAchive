@@ -79,6 +79,11 @@ public class SkillData : ScriptableObject
     public Color fadeInOutProdutionColor = new Color(0, 0, 0, 1);
     public float fadeInOutProdutionTime = 0.25f;
 
+/// <summary>
+/// 스킬의 기능을 시작합니다.
+/// </summary>
+/// <param name="useUnit">사용자 유닛</param>
+/// <param name="targetUnit">타겟 유닛</param>
     public void SkillEffectStart(UnitBase useUnit, UnitBase targetUnit)
     {
         if (skillValueList.Count == 0)

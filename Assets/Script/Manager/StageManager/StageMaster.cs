@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
+using UnityEditor.EditorTools;
 
 /// <summary>
 /// 턴 순서 (대기 => 유닛 플레이 턴 => 스킬 타겟 선택 => 스킬 이펙트 실행 (게임 실행 전 유닛 선택 턴, 선택 후 유닛 베치 턴))
@@ -16,7 +19,8 @@ public enum ProgressState
     SkillTargetSearch,
     SkillPlay,
 
-    UnitSelect
+    UnitSelect,
+    GameEnd
 }
 public enum StageClearState
 {
@@ -31,10 +35,9 @@ public partial class StageMaster : MonoBehaviour
     private DataManager dataManager;
     private PoolManager poolManager;
     private CameraManager cameraManager;
-    private UIManager uiManager;
 
     #region StageVariable
-    [Header("------------------- Stage -------------------")]
+    [Title("Stage")]
     public StageClearState stageClearCondition;
 
     public int targetEnemyId; // KillTargetEnemy 조건일 경우 특정 적의 ID
@@ -42,10 +45,14 @@ public partial class StageMaster : MonoBehaviour
     public int surviveTurnCount; // SurviveTurn 조건일 경우 생존해야 할 턴 수
     private int currentTurnCount; // 현재 진행된 턴 수
     
+    [Space(5)]
+    [ReadOnly]
+    [DetailedInfoBox("현재 게임 진행상황", "현재 게임 진행상황 \n\n대기 => \n유닛 플레이 턴 => \n스킬 타겟 선택 => \n스킬 이펙트 실행 (게임 실행 전 유닛 선택 턴, 선택 후 유닛 베치 턴)")]
     [SerializeField]
     private ProgressState _currentPrograssState = ProgressState.UnitSelect;
+
     /// <summary>
-    /// 현재 게임 진행상황
+    /// 현재 게임 진행상황 (게임 UI도 여기서 변경됨)
     /// </summary>
     public ProgressState currentPrograssState
     {
@@ -56,11 +63,11 @@ public partial class StageMaster : MonoBehaviour
             switch (value)
             {
                 case ProgressState.UnitSelect:
-                    uiManager.SwitchUIMode(false);
+                    SwitchUIMode(false);
                     break;
 
                 default:
-                    uiManager.SwitchUIMode(true);
+                    SwitchUIMode(true);
                     break;
             }
             Debug.Log($"{currentPrograssState} => {value}");
@@ -69,9 +76,9 @@ public partial class StageMaster : MonoBehaviour
         }
     }
     
+    [Space(5)]
     [Tooltip("해당 스테이지에서 플레이어가 사용 가능하도록 사전에 배치되어 있는 유닛 리스트")]
     [SerializeField]
-
     private List<UnitStatus> playerUnitList;
 
     [Tooltip("해당 스테이지에서 적으로 등장하는 유닛 리스트")]
@@ -81,9 +88,9 @@ public partial class StageMaster : MonoBehaviour
 
     #region Unit&SlotVariable
     [Space(20)]
-    [Header("------------------- Unit & Slot -------------------")]
-    [Header("UnitSlot 변수")]
+    [Title("Unit & Slot")]
     [SerializeField]
+    [Header("UnitSlot 변수")]
     [Tooltip("유닛 슬롯 그룹(unitSlots)을 관리하는 스크립트")]
     public UnitSlotGroupController unitSlotGroupController;
 
@@ -109,13 +116,9 @@ public partial class StageMaster : MonoBehaviour
 
     [Tooltip("플레이어가 사용 가능한 유닛 슬롯의 범위")]
     public int playerUseUnitSlotRange;
-    [SerializeField]
     
-
-
-    /// <summary>
-    /// 유닛이 죽는 중 상태를 판단하는 값
-    /// </summary>
+    [SerializeField]
+    [Tooltip("유닛이 죽는 중 상태를 판단하는 값")]
     public bool isUnitDying = false;
     #endregion
     
@@ -127,8 +130,7 @@ public partial class StageMaster : MonoBehaviour
         dataManager = DataManager.Instance;
         poolManager = PoolManager.Instance;
         cameraManager = CameraManager.Instance;
-        uiManager = UIManager.Instance;
-
+        
         dataManager.stageManager = this;
 
         InitGame();
@@ -195,8 +197,7 @@ public partial class StageMaster : MonoBehaviour
                 }
             }
             
-
-            UIManager.Instance.UpdateRemainingSlots(playerUseUnitSlotCount);
+            unitSetUIController.UpdateRemainingSlots(playerUseUnitSlotCount);
         } else
         {
             // 플레이어가 사용 가능한 유닛 슬롯이 없을 경우 비어있는 유닛 슬롯의 Team을 0으로 설정하고 게임 시작
@@ -230,8 +231,8 @@ public partial class StageMaster : MonoBehaviour
     private void ActionPointsInit()
     {
         currentPrograssState = ProgressState.Stay;
-        uiManager.stageMenuController.Init(this);
-        uiManager.stageMenuController.StageMenuRefresher();
+        stageMenuController.Init(this);
+        stageMenuController.StageMenuRefresher();
         
         foreach (var unitSlot in unitSlotList)
         {
@@ -247,13 +248,16 @@ public partial class StageMaster : MonoBehaviour
     }
 
     /// <summary>
-    /// 스테이지 클리어 조건을 업데이트하는 함수입니다. (턴을 넘기는 기능도 겸합니다.)
+    /// 스테이지 클리어 조건을 업데이트하는 함수입니다. (턴을 넘기는 기능도 합니다.)
     /// </summary>
-    private void UpdateStageClearCondition()
+    public bool UpdateStageClearCondition()
     {
-        switch (stageClearCondition)
+        if(currentPrograssState != ProgressState.GameEnd)
         {
-            case StageClearState.KillAllEnemy:
+            currentPrograssState = ProgressState.GameEnd;
+            switch (stageClearCondition)
+            {
+                case StageClearState.KillAllEnemy:
                 bool noEnemiesLeft = true;
                 foreach(var slot in unitSlotList) {
                     if(slot.unitTeam == 2) {
@@ -265,7 +269,9 @@ public partial class StageMaster : MonoBehaviour
                     Debug.Log("noEnemiesLeft" + noEnemiesLeft);
                     cameraManager.ZoomToTarget(lastEnemyDeathObject.transform, 3.5f, 0.5f);
                     Time.timeScale = 0.5f;
+
                     Invoke(nameof(StageClear), 2.1f);
+                    return false;
                 }
                 break;
 
@@ -273,6 +279,7 @@ public partial class StageMaster : MonoBehaviour
                 if (unitSlotList.Any(slot => slot.unit.unitNumber == targetEnemyId && slot.isNull))
                 {
                     StageClear();
+                    return false;
                 }
                 break;
 
@@ -280,13 +287,16 @@ public partial class StageMaster : MonoBehaviour
                 if (currentTurnCount >= surviveTurnCount)
                 {
                     StageClear();
+                    return false;
                 }
                 break;
             default:
-                break;
+                    break;
+            }
         }
-        AllUnitBaseUpdate();
+            AllUnitBaseUpdate();
             currentPrograssState = ProgressState.Stay;
+            return true;
     }
 
     /// <summary>
@@ -299,7 +309,7 @@ public partial class StageMaster : MonoBehaviour
         Debug.Log("Stage Cleared!");
         
         Debug.Log("SetActive : true");
-        uiManager.win_UI.SetActive(true);
-        uiManager.winUIController.WinUIActive();
+        win_UI.SetActive(true);
+        winUIController.WinUIActive();
     }
 }

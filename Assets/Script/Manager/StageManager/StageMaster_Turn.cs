@@ -31,7 +31,7 @@ public partial class StageMaster
             if(_cost != value)
             {
                 _cost = value;
-                UIManager.Instance.UpdateCostUI(_cost);
+                playUIController.UpdateCostUI(_cost);
             }
         }
     }
@@ -120,7 +120,7 @@ public partial class StageMaster
     }
 
     /// <summary>
-    /// 턴을 건너뛰는 메서드
+    /// 턴을 건너뛰는 메서드 (Button에 할당되어있음으로 삭제하면 안됨)
     /// </summary>
     public void TurnSkip()
     {
@@ -168,12 +168,14 @@ public partial class StageMaster
     /// <param name="unitSlot">턴을 실행할 유닛 슬롯</param>
     private void ExecuteTurn(UnitSlotController unitSlot)
     {
+        Debug.Log($"ExecuteTurn {unitSlot.name}");
+
         currentPrograssState = ProgressState.UnitPlay;
 
         // 초기화
         currentTurnSlotNumber = unitSlotList.IndexOf(unitSlot);
         UnitBase currentTurnUnit = unitSlot.unit;
-        SetCurrentUnitCardUI(true, currentTurnSlotNumber);
+        playUIController.SetCurrentUnitCardUI(true, currentTurnSlotNumber);
         SkillSlotInit(unitSlotList[currentTurnSlotNumber].unit.skillDataList);
 
         // 슬롯 상태 업데이트
@@ -198,15 +200,13 @@ public partial class StageMaster
             // 모든 유닛의 애니메이션 및 슬롯 상태 초기화
             foreach (UnitSlotController unitSlot in unitSlotList)
             {
-                unitSlot.unit.SetAnim(0);
-                unitSlot.TurnEndInit();
-                SlotGround groundSprite = unitSlot.slotGround;
-                groundSprite.SetSlotGroundState(SlotGroundState.Default);
+                unitSlot.UnitStatusUpdate();
             }
 
         SetFadeInOutProduction(new Color(0, 0, 0, 0), 0.25f);
         unitSlotList[currentTurnSlotNumber].unit.SetTurn(false);
         currentTurnCount++;
+        currentPrograssState = ProgressState.Stay;
         UpdateStageClearCondition();
     }
 }
