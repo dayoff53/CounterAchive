@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class FirstPartySelectSlotController : MonoBehaviour
 {
     /// <summary>
-    /// 선택된 그룹의 유닛 데이터
+    /// ������ �׷��� ���� ������
     /// </summary>
     [SerializeField]
     public GroupUnitsData groupUnitsData;
@@ -23,7 +23,7 @@ public class FirstPartySelectSlotController : MonoBehaviour
     }
 
     /// <summary>
-    /// 그룹 선택 창 선택 클릭시 그룹 선택 후 확인 여부 UI를 출력시킵니다.
+    /// �׷� ���� â ���� �÷��� �� �׷� ���� �� Ȯ�� ���� UI�� ��½�ŵ�ϴ�.
     /// </summary>
     public void OnGroupSelectButton()
     {

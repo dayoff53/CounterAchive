@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
-using Sirenix.OdinInspector;
 
 /// <summary>
 /// UnitSlot 바닥에 깔리는 SlotGround (1.defalut, 2.select, 3.target)
@@ -19,7 +18,6 @@ public enum SlotGroundState
 /// </summary>
 public class SlotGround : MonoBehaviour
 {
-    [ReadOnly]
     [SerializeField]
     private UnitSlotController unitSlot;
 
