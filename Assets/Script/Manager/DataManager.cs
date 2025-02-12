@@ -26,7 +26,7 @@ public class SaveData
     public int currentStageNumber;
 
 /// <summary>
-/// 게임에서 플레이했던
+/// 게임에서 플레이했던 과거 스테이지의 리스트
 /// </summary>
     public List<SceneKeyData> playedSceneKeyDataList;
 }
@@ -92,6 +92,8 @@ public class DataManager : Singleton<DataManager>
 
         skillList = new List<SkillData>(Resources.LoadAll<SkillData>("ScriptableObject/SkillData"));
         saveDataFilePath = Path.Combine(Application.persistentDataPath, "saveData.json");
+
+        sceneKeyDataList = new List<SceneKeyData>(Resources.LoadAll<SceneKeyData>("ScriptableObject/SceneKeyData"));
 
         if(Application.isEditor)
         {

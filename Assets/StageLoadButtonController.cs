@@ -150,8 +150,8 @@ public class StageLoadButtonController : MonoBehaviour
 
         if(stageType != StageType.Random)
         {
-            loadStageDataList = TypeRandomStageDatasFilter(loadStageDataList, stageType);
-            loadStageDataList = LevelRandomStageDatasFilter(loadStageDataList, stageLevel);
+            loadStageDataList = TypeStageDatasFilter(loadStageDataList, stageType);
+            loadStageDataList = LevelStageDatasFilter(loadStageDataList, stageLevel);
         }
         else
         {
@@ -167,7 +167,7 @@ public class StageLoadButtonController : MonoBehaviour
         if (loadStageDataList.Count == 0)
         {
             Debug.Log("스테이지 데이터가 없습니다.");
-            loadStageDataList = TypeRandomStageDatasFilter(dataManager.sceneKeyDataList, StageType.Enemy);
+            loadStageDataList = TypeStageDatasFilter(dataManager.sceneKeyDataList, StageType.Enemy);
         }
 
         foreach (var item in loadStageDataList)
@@ -183,7 +183,7 @@ public class StageLoadButtonController : MonoBehaviour
     }
     
 
-    private List<SceneKeyData> TypeRandomStageDatasFilter(List<SceneKeyData> stageDatas, StageType stageType)
+    private List<SceneKeyData> TypeStageDatasFilter(List<SceneKeyData> stageDatas, StageType stageType)
     {
         List<SceneKeyData> tagStageDatas = new List<SceneKeyData>();
 
@@ -211,7 +211,7 @@ public class StageLoadButtonController : MonoBehaviour
         return tagStageDatas;
     }
 
-    private List<SceneKeyData> LevelRandomStageDatasFilter(List<SceneKeyData> tagStageDatas, int stageLevel)
+    private List<SceneKeyData> LevelStageDatasFilter(List<SceneKeyData> tagStageDatas, int stageLevel)
     {
         List<SceneKeyData> levelStageDatas = new List<SceneKeyData>();    
 

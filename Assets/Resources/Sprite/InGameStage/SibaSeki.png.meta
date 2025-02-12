@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SibaSeki_0: -6060857795105652607
+      SibaSeki_1: 7816112500005993855
+      SibaSeki_2: -2315714499253898442
+      SibaSeki_3: -139301094876197668
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
