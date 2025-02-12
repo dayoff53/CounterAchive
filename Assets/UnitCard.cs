@@ -27,47 +27,47 @@ public class UnitCard : MonoBehaviour
     [System.Serializable]
     struct FrontPage
     {
-        [Header("ī�� �ո�")]
-        [Tooltip("������ �� ������")]
+        [Header("카드 전면")]
+        [Tooltip("유닛의 얼굴 아이콘")]
         public Image unitCardIcon;
 
-        [Tooltip("������ �̸� �ؽ�Ʈ")]
+        [Tooltip("유닛의 이름 텍스트")]
         public TMP_Text unitCardName;
 
-        [Tooltip("������ Hp ������")]
+        [Tooltip("유닛의 Hp 게이지")]
         public Image currentTurnHpGaugeBar;
 
-        [Tooltip("������ Hp �ؽ�Ʈ")]
+        [Tooltip("유닛의 Hp 텍스트")]
         public TMP_Text currentTurnHpText;
     }
 
     [System.Serializable]
     struct BackPage
     {
-        [Header("ī�� �ո�")]
-        [Tooltip("������ �� ������")]
+        [Header("카드 전면")]
+        [Tooltip("유닛의 얼굴 아이콘")]
         public Image unitCardIcon;
 
-        [Tooltip("������ �̸� �ؽ�Ʈ")]
+        [Tooltip("유닛의 이름 텍스트")]
         public TMP_Text unitCardName;
 
-        [Tooltip("������ Hp ������")]
+        [Tooltip("유닛의 Hp 게이지")]
         public Image hpGaugeBar;
 
-        [Tooltip("������ Hp �ؽ�Ʈ")]
+        [Tooltip("유닛의 Hp 텍스트")]
         public TMP_Text hpText;
-        [Tooltip("������ Atk �ؽ�Ʈ")]
+        [Tooltip("유닛의 Atk 텍스트")]
         public TMP_Text atkText;
-        [Tooltip("������ Def �ؽ�Ʈ")]
+        [Tooltip("유닛의 Def 텍스트")]
         public TMP_Text defText;
-        [Tooltip("������ Acc �ؽ�Ʈ")]
+        [Tooltip("유닛의 Acc 텍스트")]
         public TMP_Text accText;
-        [Tooltip("������ Eva �ؽ�Ʈ")]
+        [Tooltip("유닛의 Eva 텍스트")]
         public TMP_Text evaText;
-        [Tooltip("������ Speed �ؽ�Ʈ")]
+        [Tooltip("유닛의 Speed 텍스트")]
         public TMP_Text speedText;
 
-        [Tooltip("������ Tag �ؽ�Ʈ")]
+        [Tooltip("유닛의 Tag 텍스트")]
         public TMP_Text tagText;
         public UnitTag_Native unitNative;
         public List<UnitTag> unitTagList;

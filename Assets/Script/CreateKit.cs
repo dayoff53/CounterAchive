@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class CreateKit : Singleton<CreateKit>
 {
-    // ¿ø ³»ºÎÀÇ ·£´ı À§Ä¡¸¦ ±¸ÇÏ´Â ÇÔ¼ö
+    // ì› ì•ˆì—ì„œ ëœë¤ ìœ„ì¹˜ë¥¼ êµ¬í•˜ëŠ” í•¨ìˆ˜
     Vector3 GetRandomPositionInCircle(Vector3 center, float radius)
     {
-        // ¿øÀÇ ¹İÁö¸§ ³»¿¡¼­ ·£´ıÇÑ °¢µµ ¼±ÅÃ
+        // ëœë¤ ìœ„ì¹˜ì˜ ê°ë„ë¥¼ êµ¬í•˜ê¸° ìœ„í•œ ë³€ìˆ˜
         float angle = Random.Range(0f, 360f);
 
-        // ¿øÀÇ ¹İÁö¸§ ³»¿¡¼­ ·£´ıÇÑ °Å¸® ¼±ÅÃ (0°ú radius »çÀÌ)
+        // ëœë¤ ìœ„ì¹˜ì˜ ì¤‘ì‹¬ê³¼ ê±°ë¦¬ë¥¼ êµ¬í•¨ (0ê³¼ radius ì‚¬ì´)
         float randomRadius = Random.Range(0f, radius);
 
-        // °¢µµ¿¡ µû¶ó x, z ÁÂÇ¥¸¦ °è»ê (y °ªÀº center.y¸¦ ±×´ë·Î »ç¿ë)
+        // êµ¬í•´ì§„ ê°’ì„ x, z ì¢Œí‘œë¡œ ë³€í™˜ (y ê°’ì€ center.yë¡œ ê·¸ëŒ€ë¡œ ìœ ì§€)
         float x = center.x + randomRadius * Mathf.Cos(angle * Mathf.Deg2Rad);
         float z = center.z + randomRadius * Mathf.Sin(angle * Mathf.Deg2Rad);
 
-        // »õ·Î¿î ·£´ı À§Ä¡ ¹İÈ¯
+        // ìƒˆë¡œìš´ ëœë¤ ìœ„ì¹˜ ë°˜í™˜
         return new Vector3(x, center.y, z);
     }
 }
