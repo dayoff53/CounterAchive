@@ -1,7 +1,9 @@
-    // Start of Selection
     using System.Collections;
     using UnityEngine;
 
+    /// <summary>
+    /// 카메라 관리를 위한 매니저 클래스
+    /// </summary>
     public class CameraManager : Singleton<CameraManager>
     {
         [SerializeField]
@@ -20,6 +22,9 @@
         private float minZoom = 1f; // 기본 orthographicSize
         private float maxZoom = 7.2f;
 
+        /// <summary>
+        /// 초기화 함수. 카메라의 기본 설정값을 지정합니다.
+        /// </summary>
         void Start()
         {
             mainCamera = Camera.main;
@@ -35,6 +40,10 @@
             maxZoom = defaultZoom;
         }
 
+        /// <summary>
+        /// 카메라의 위치를 설정하는 함수입니다.
+        /// </summary>
+        /// <param name="position">이동할 목표 위치</param>
         public void SetCameraPosition(Vector3 position)
         {
             cameraWidth = Camera.main.orthographicSize * Camera.main.aspect;
@@ -47,6 +56,12 @@
             mainCamera.transform.position = clampedPosition;
         }
 
+        /// <summary>
+        /// 특정 대상을 향해 카메라를 줌인/아웃하는 함수입니다.
+        /// </summary>
+        /// <param name="target">줌의 대상이 되는 Transform</param>
+        /// <param name="targetZoom">목표 줌 크기</param>
+        /// <param name="duration">줌 동작 시간</param>
         public void ZoomToTarget(Transform target, float targetZoom, float duration)
         {
             StopAllCoroutines();
@@ -54,6 +69,10 @@
             StartCoroutine(ZoomCoroutine(target.position, clampedZoom, duration));
         }
 
+        /// <summary>
+        /// 카메라를 초기 상태로 되돌리는 함수입니다.
+        /// </summary>
+        /// <param name="duration">리셋 동작 시간</param>
         public void ResetCamera(float duration)
         {
             StopAllCoroutines();
@@ -61,6 +80,12 @@
         }
 
         private Vector3 targetPosition;
+        /// <summary>
+        /// 카메라 줌 동작을 처리하는 코루틴입니다.
+        /// </summary>
+        /// <param name="targetPosition">목표 위치</param>
+        /// <param name="targetZoom">목표 줌 크기</param>
+        /// <param name="duration">동작 시간</param>
         private IEnumerator ZoomCoroutine(Vector3 targetPosition, float targetZoom, float duration)
         {
             this.targetPosition = targetPosition;
