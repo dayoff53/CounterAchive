@@ -1,0 +1,754 @@
+fileFormatVersion: 2
+guid: 928873a279c367046bafb97b313fa9c1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 720488941434888292
+    second: BlueAchive-Ui(LibraryTable)_0
+  - first:
+      213: -1789291238523154539
+    second: BlueAchive-Ui(LibraryTable)_1
+  - first:
+      213: -2837177815481282123
+    second: BlueAchive-Ui(LibraryTable)_2
+  - first:
+      213: 5138641322911597734
+    second: BlueAchive-Ui(LibraryTable)_3
+  - first:
+      213: 8497201698323701297
+    second: BlueAchive-Ui(LibraryTable)_4
+  - first:
+      213: 4271515517143432230
+    second: BlueAchive-Ui(LibraryTable)_5
+  - first:
+      213: -8790032467696582743
+    second: BlueAchive-Ui(LibraryTable)_6
+  - first:
+      213: -1462356464388621970
+    second: BlueAchive-Ui(LibraryTable)_7
+  - first:
+      213: 8218592127698504944
+    second: BlueAchive-Ui(LibraryTable)_8
+  - first:
+      213: -4613361194813175655
+    second: BlueAchive-Ui(LibraryTable)_9
+  - first:
+      213: 2188583142412030150
+    second: BlueAchive-Ui(LibraryTable)_10
+  - first:
+      213: -3188981325631934762
+    second: BlueAchive-Ui(LibraryTable)_11
+  - first:
+      213: -1168786353843566591
+    second: BlueAchive-Ui(LibraryTable)_12
+  - first:
+      213: 3352444279844042623
+    second: BlueAchive-Ui(LibraryTable)_13
+  - first:
+      213: 5548970355591702063
+    second: BlueAchive-Ui(LibraryTable)_14
+  - first:
+      213: 6990132160503461559
+    second: BlueAchive-Ui(LibraryTable)_15
+  - first:
+      213: -5444495530474208747
+    second: BlueAchive-Ui(LibraryTable)_16
+  - first:
+      213: -6597255475606484628
+    second: BlueAchive-Ui(LibraryTable)_17
+  - first:
+      213: -7308495302670637183
+    second: BlueAchive-Ui(LibraryTable)_18
+  - first:
+      213: 5931119715834337502
+    second: BlueAchive-Ui(LibraryTable)_19
+  - first:
+      213: 4045150518184165006
+    second: BlueAchive-Ui(LibraryTable)_20
+  - first:
+      213: -2023401606397639590
+    second: BlueAchive-Ui(LibraryTable)_21
+  - first:
+      213: 8415160330583157854
+    second: BlueAchive-Ui(LibraryTable)_22
+  - first:
+      213: 5023105306627915419
+    second: BlueAchive-Ui(LibraryTable)_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 12.5
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 460e2daffd0bff900800000000000000
+      internalID: 720488941434888292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_1
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59fcb1049192b27e0800000000000000
+      internalID: -1789291238523154539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_2
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b19e9f0fc150a8d0800000000000000
+      internalID: -2837177815481282123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_3
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a40a48be0f105740800000000000000
+      internalID: 5138641322911597734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_4
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13e1e6dacef1ce570800000000000000
+      internalID: 8497201698323701297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_5
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62c37eb3bb8774b30800000000000000
+      internalID: 4271515517143432230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_6
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9af7bceca08830680800000000000000
+      internalID: -8790032467696582743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_7
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e69be152b8aa4bbe0800000000000000
+      internalID: -1462356464388621970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_8
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fc8a450ffd4e0270800000000000000
+      internalID: 8218592127698504944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_9
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 998c69a9f6c0affb0800000000000000
+      internalID: -4613361194813175655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_10
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c090ecb5c86f5e10800000000000000
+      internalID: 2188583142412030150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_11
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6deaa5a51667eb3d0800000000000000
+      internalID: -3188981325631934762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_12
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10884d0f003a7cfe0800000000000000
+      internalID: -1168786353843566591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_13
+      rect:
+        serializedVersion: 2
+        x: 1210
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f77f46d7f46468e20800000000000000
+      internalID: 3352444279844042623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_14
+      rect:
+        serializedVersion: 2
+        x: 1303
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2667328327e10d40800000000000000
+      internalID: 5548970355591702063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_15
+      rect:
+        serializedVersion: 2
+        x: 1396
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b6b7d72a20f10160800000000000000
+      internalID: 6990132160503461559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_16
+      rect:
+        serializedVersion: 2
+        x: 1489
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51202e449244174b0800000000000000
+      internalID: -5444495530474208747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_17
+      rect:
+        serializedVersion: 2
+        x: 1582
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6989f34917d174a0800000000000000
+      internalID: -6597255475606484628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_18
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 187a4b98e32039a90800000000000000
+      internalID: -7308495302670637183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_19
+      rect:
+        serializedVersion: 2
+        x: 1768
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed81f9605f19f4250800000000000000
+      internalID: 5931119715834337502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_20
+      rect:
+        serializedVersion: 2
+        x: 1861
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8eba53d6f2432830800000000000000
+      internalID: 4045150518184165006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_21
+      rect:
+        serializedVersion: 2
+        x: 1954
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a54c6bc95fe6be3e0800000000000000
+      internalID: -2023401606397639590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_22
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5c2e583cb7a8c470800000000000000
+      internalID: 8415160330583157854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueAchive-Ui(LibraryTable)_23
+      rect:
+        serializedVersion: 2
+        x: 2140
+        y: 1
+        width: 91
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9ebfeea9a7a5b540800000000000000
+      internalID: 5023105306627915419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BlueAchive-Ui(LibraryTable)_0: 720488941434888292
+      BlueAchive-Ui(LibraryTable)_1: -1789291238523154539
+      BlueAchive-Ui(LibraryTable)_10: 2188583142412030150
+      BlueAchive-Ui(LibraryTable)_11: -3188981325631934762
+      BlueAchive-Ui(LibraryTable)_12: -1168786353843566591
+      BlueAchive-Ui(LibraryTable)_13: 3352444279844042623
+      BlueAchive-Ui(LibraryTable)_14: 5548970355591702063
+      BlueAchive-Ui(LibraryTable)_15: 6990132160503461559
+      BlueAchive-Ui(LibraryTable)_16: -5444495530474208747
+      BlueAchive-Ui(LibraryTable)_17: -6597255475606484628
+      BlueAchive-Ui(LibraryTable)_18: -7308495302670637183
+      BlueAchive-Ui(LibraryTable)_19: 5931119715834337502
+      BlueAchive-Ui(LibraryTable)_2: -2837177815481282123
+      BlueAchive-Ui(LibraryTable)_20: 4045150518184165006
+      BlueAchive-Ui(LibraryTable)_21: -2023401606397639590
+      BlueAchive-Ui(LibraryTable)_22: 8415160330583157854
+      BlueAchive-Ui(LibraryTable)_23: 5023105306627915419
+      BlueAchive-Ui(LibraryTable)_3: 5138641322911597734
+      BlueAchive-Ui(LibraryTable)_4: 8497201698323701297
+      BlueAchive-Ui(LibraryTable)_5: 4271515517143432230
+      BlueAchive-Ui(LibraryTable)_6: -8790032467696582743
+      BlueAchive-Ui(LibraryTable)_7: -1462356464388621970
+      BlueAchive-Ui(LibraryTable)_8: 8218592127698504944
+      BlueAchive-Ui(LibraryTable)_9: -4613361194813175655
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
