@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,42 +12,62 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isGrounded;
-    private float moveInput;
+    private Vector2 moveInput;
 
-    float height = 0;
-    float width = 0;
+    // Input Action Asset에서 생성된 클래스 참조
+    private PlayerInput playerInputs;
 
+    void Awake()
+    {
+        // Input Actions 초기화
+        playerInputs = new PlayerInput();
+
+
+        // 이벤트 바인딩
+        playerInputs.Player.Move.performed += OnMove;
+        playerInputs.Player.Move.canceled += OnMove;
+        playerInputs.Player.Jump.performed += OnJump;
+        playerInputs.Player.Interact.performed += OnInteract;
+
+    }
+
+    void OnEnable()
+    {
+        playerInputs.Enable();
+    }
+
+    void OnDisable()
+    {
+        playerInputs.Disable();
+    }
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();        
-        
-        height = Camera.main.orthographicSize;
-        width = height * Screen.width / Screen.height;
-    }
-
-    void Update()
-    {
-        // 좌우 이동 입력 처리
-        moveInput = Input.GetAxisRaw("Horizontal");
-        
-        // 점프 입력 처리 (W키 또는 위쪽 방향키)
-        if((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded)
-        {
-            Jump();
-        }
-
-        // 상호작용 입력 처리 (S키 또는 아래쪽 방향키)
-        if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            Interact();
-        }
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
     {
         // 이동 처리
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
+    }
+
+    private void OnMove(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
+    }
+
+    private void OnJump(InputAction.CallbackContext context)
+    {
+        if (isGrounded)
+        {
+            Jump();
+        }
+    }
+
+    private void OnInteract(InputAction.CallbackContext context)
+    {
+        Interact();
     }
 
     private void Jump()

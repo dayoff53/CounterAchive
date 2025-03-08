@@ -1,7 +1,10 @@
 using System.Collections.Generic;
 using Unity.Android.Gradle.Manifest;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
+
+[InfoBox("DataManager에 있는 currentSaveData의 lastStageNumber 값을 기준으로 스테이지 시퀀스를 생성합니다.")]
 public class StageSelectController : MonoBehaviour
 {
     private DataManager dataManager;
@@ -17,6 +20,7 @@ public class StageSelectController : MonoBehaviour
     private GameObject stageButtonList;
 
     [SerializeField]
+    [DetailedInfoBox("스테이지 시퀀스", "스테이지 시퀀스")]
     private List<GameObject> stageSequence;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -33,6 +37,7 @@ public class StageSelectController : MonoBehaviour
             stageSequence.Add(Instantiate(stageButtonList, backgroundObject.transform));
         }
         stageSequence.Add(lastStageButton);
+
 
         for (int i = 0; i < stageSequence.Count; i++)
         {
