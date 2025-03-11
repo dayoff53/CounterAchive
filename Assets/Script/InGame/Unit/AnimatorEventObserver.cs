@@ -5,9 +5,9 @@ using UnityEngine;
 public class AnimationEventObserver : MonoBehaviour
 {
     [SerializeField]
-    private StageMaster stageManager;
+    private BattleStageMaster stageManager;
 
-    public void Init(StageMaster stageManager)
+    public void Init(BattleStageMaster stageManager)
     {
         this.stageManager = stageManager;
     }

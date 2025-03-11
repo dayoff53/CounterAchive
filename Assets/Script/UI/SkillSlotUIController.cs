@@ -19,7 +19,7 @@ public class SkillSlot : MonoBehaviour
     private SkillRangeUIController skillRangeUIController;
     [SerializeField]
     private Button skillButton;
-    private StageMaster stageManager;
+    private BattleStageMaster stageManager;
 
 
 
@@ -28,7 +28,7 @@ public class SkillSlot : MonoBehaviour
         Init();
     }
 
-    public void Init(StageMaster stageManager)
+    public void Init(BattleStageMaster stageManager)
     {
         this.stageManager = stageManager;
         skillData = null;

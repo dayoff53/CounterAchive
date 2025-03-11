@@ -58,9 +58,9 @@ public class SlotGround : MonoBehaviour
     [SerializeField]
     private List<Sprite> groundSpriteList;
 
-    private StageMaster stageManager;
+    private BattleStageMaster stageManager;
 
-    public void Init(StageMaster stageManager)
+    public void Init(BattleStageMaster stageManager)
     {
         this.stageManager = stageManager;
     }

@@ -13,11 +13,11 @@ public class UnitSelectController : MonoBehaviour
     public UnitStatus unitStatus;
 
     [SerializeField]
-    private StageMaster stageManager;
+    private BattleStageMaster stageManager;
 
 
     //UnitSelectSlot이 처음 호출 되었을 경우 Null상태일 때, 유닛 데이터가 세팅되었을때 다시 호출 됨
-    public void Init(StageMaster stageManager)
+    public void Init(BattleStageMaster stageManager)
     {
         this.stageManager = stageManager;
         GetComponent<Button>().onClick.AddListener(OnButtonClick);

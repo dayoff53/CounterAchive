@@ -1,4 +1,4 @@
- using System.Collections;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -79,7 +79,8 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
         Debug.Log($"1    !asyncOperation.isDoneb : {!asyncOperation.isDone}");
 
         float timer = 0f; 
-		float duration = 1f; // SmoothStep 적용 시간, 이 값을 조정하여 부드러운 이동이 얼마나 빠르게 이루어질지 결정
+		float duration = 1f;
+		float progressTarget = 0f;
 
         yield return loadingWaitForSeconds;
 
@@ -89,33 +90,38 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
             Debug.Log($"3   !asyncOperation.isDoneb : {!asyncOperation.isDone}"); 
 			yield return null;
 
+			timer += Time.unscaledDeltaTime;
+			
 			if (loadingBarImage.fillAmount < 0.89f)
 			{
-				timer += Time.unscaledDeltaTime / duration;
-				// SmoothStep을 이용하여 로딩 진행도를 시각적으로 부드럽게 표현
-				loadingBarImage.fillAmount = Mathf.SmoothStep(loadingBarImage.fillAmount, asyncOperation.progress, timer / loadingBarSpeed);
+				progressTarget = asyncOperation.progress;
+				loadingBarImage.fillAmount = Mathf.SmoothStep(loadingBarImage.fillAmount, progressTarget, timer / loadingBarSpeed);
 			}
 			else
 			{
-				timer += Time.unscaledDeltaTime;
-				loadingBarImage.fillAmount = Mathf.Lerp(0.9f, 1f, timer / loadingBarSpeed);
+				// 0.9에서 1.0까지 부드럽게 증가
+				float normalizedTime = (timer - duration) / loadingBarSpeed;
+				loadingBarImage.fillAmount = Mathf.Lerp(0.9f, 1f, normalizedTime);
 
-
-				//Scene의 로딩이 끝날경우 Scene활성화(번경)
 				if (loadingBarImage.fillAmount >= 1f)
 				{
 					yield return FadeManager.Instance.FadeCoroutineStart(false, 1, Color.black);
-					FadeManager.Instance.FadeStart(false, 0, Color.black);
-
-					deactiveObject.SetActive(false);
+					
+					// 씬 전환 전에 로딩 UI 상태 유지
 					asyncOperation.allowSceneActivation = true;
-
-
+					
+					// 씬 전환 완료 대기
 					while (SceneManager.GetActiveScene().name != loadSceneName)
 					{
-						FadeManager.Instance.FadeStart(true, 0.25f, Color.black);
-						yield break;
+						yield return null;
 					}
+
+						// 씬 전환 후 UI 비활성화
+						//deactiveObject.SetActive(false);
+					
+					
+						FadeManager.Instance.FadeStart(true, 0.25f, Color.black);
+					yield break;
 				}
 			}
 

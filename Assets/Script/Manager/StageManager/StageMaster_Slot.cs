@@ -5,7 +5,7 @@
  using System.Linq;
  using UnityEngine;
  
- public partial class StageMaster
+ public partial class BattleStageMaster
  {
     /// <summary>
     /// 각 슬롯의 기본 위치를 저장합니다.

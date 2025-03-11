@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class StageMaster
+public partial class BattleStageMaster
 {
     #region TurnVariable
     [Space(20)]

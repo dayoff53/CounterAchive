@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public partial class StageMaster
+public partial class BattleStageMaster
 {
     #region SkillVariable
     [Space(20)]

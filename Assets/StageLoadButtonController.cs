@@ -8,7 +8,7 @@ using Sirenix.Serialization;
 using UnityEditor.SceneManagement;
 
 
-
+[DetailedInfoBox("Stage를 로드할 때 사용되는 버튼의 컨트롤러", "Stage를 로드할 때 사용되는 버튼의 컨트롤러로 \n스테이지의 타입과 레벨 조건에 맞는 랜덤한 하나의 Stage를 불러옵니다.")]
 public class StageLoadButtonController : MonoBehaviour
 {
     private DataManager dataManager;
@@ -142,7 +142,7 @@ public class StageLoadButtonController : MonoBehaviour
 
     
     /// <summary>
-    /// 랜덤한 하나의 Stage를 불러옵니다.
+    /// 스테이지의 타입과 레벨 조건에 맞는 랜덤한 하나의 Stage를 불러옵니다.
     /// </summary>
     public void LoadRandomStage()
     {

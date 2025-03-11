@@ -16,6 +16,7 @@ public class KeyBoardIcon : MonoBehaviour
     void Start()
     {
         keyTextObject.transform.localPosition = position1;
+        gameObject.SetActive(false);
     }
 
     void Update()

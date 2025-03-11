@@ -6,7 +6,7 @@ public class PlayUIController : MonoBehaviour
 {
     [Header("StageMaster")]
     [SerializeField]
-    private StageMaster stageMaster;
+    private BattleStageMaster stageMaster;
     private DataManager dataManager;
 
 
@@ -40,7 +40,12 @@ public class PlayUIController : MonoBehaviour
         dataManager = DataManager.Instance;
     }
 
-    void Init(StageMaster stageMaster)
+    void Reset()
+    {
+        stageMaster = FindObjectOfType<BattleStageMaster>();
+    }
+
+    void Init(BattleStageMaster stageMaster)
     {
         this.stageMaster = stageMaster;
     }

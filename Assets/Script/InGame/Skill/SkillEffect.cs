@@ -8,7 +8,7 @@ public class SkillEffect : ScriptableObject
     [SerializeField]
     protected SkillData skillData;
     [SerializeField]
-    protected StageMaster stageManager;
+    protected BattleStageMaster stageManager;
     [SerializeField]
     protected List<float> skillValueList;
 

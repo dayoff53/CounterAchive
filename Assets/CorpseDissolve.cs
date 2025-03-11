@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class UnitProduction : MonoBehaviour
 {
-    private StageMaster stageManager;
+    private BattleStageMaster stageManager;
     private DataManager dataManager;
     private Rigidbody2D rigidBody;
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -22,10 +22,8 @@ public class UnitProduction : MonoBehaviour
         Init(null);
     }
 
-    public void Init(StageMaster stageManager)
+    public void Init(BattleStageMaster stageManager)
     {
-        this.stageManager = stageManager;
-
         spriteRenderer.sprite = null;
         spriteRenderer.material = dissolveMaterial;
         spriteRenderer.sortingOrder = (int)dataManager.unitStateColorsObject.orderLayerNumber[0];

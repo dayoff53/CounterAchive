@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public partial class StageMaster
+public partial class BattleStageMaster
 {
     #region UIVariable
 

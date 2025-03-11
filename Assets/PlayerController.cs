@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 
-public class PlayerController : MonoBehaviour
+[InfoBox("탐험 스테이지에서 플레이어를 제어하는 컨트롤러", "탐험 스테이지에서 플레이어를 제어하는 컨트롤러로 \nExploreStageMaster의 currentInteract에 할당되어 사용됩니다.")]
+public class ExplorePlayerController : MonoBehaviour
 {
     [SerializeField] 
     private float moveSpeed = 5f;
@@ -10,15 +12,32 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float jumpForce = 12f;
 
-    private Rigidbody2D rb;
+    [SerializeField]
+    private Rigidbody2D rd;
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;
     private bool isGrounded;
     private Vector2 moveInput;
 
-    // Input Action Asset에서 생성된 클래스 참조
+
+    [SerializeField]
+    [InfoBox("Input Action Asset에서 생성된 클래스 참조")]
     private PlayerInput playerInputs;
+
+    [SerializeField]
+    private ExploreStageMaster exploreStageMaster;
+
+    void Reset()
+    {
+        exploreStageMaster = GameObject.Find("ExploreStageMaster").GetComponent<ExploreStageMaster>();
+        
+        rd = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     void Awake()
     {
+        
         // Input Actions 초기화
         playerInputs = new PlayerInput();
 
@@ -43,18 +62,37 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rd = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
     {
         // 이동 처리
-        rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocity.y);
+        rd.linearVelocity = new Vector2(moveInput.x * moveSpeed, rd.linearVelocity.y);
+        
+        if(moveInput.x == 0 && isGrounded)
+        {
+            rd.linearVelocity = new Vector2(0, rd.linearVelocity.y);
+            rd.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
+        }
+        else
+        {
+            rd.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
     }
 
     private void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+
+        if(moveInput.x > 0)
+        {
+            spriteRenderer.flipX = false;   
+        }
+        else if(moveInput.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
     }
 
     private void OnJump(InputAction.CallbackContext context)
@@ -67,18 +105,22 @@ public class PlayerController : MonoBehaviour
 
     private void OnInteract(InputAction.CallbackContext context)
     {
-        Interact();
+        if(exploreStageMaster.currentInteract != null)
+        {
+            Interact();
+        }
     }
 
     private void Jump()
     {
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        rd.linearVelocity = new Vector2(rd.linearVelocity.x, jumpForce);
         isGrounded = false;
     }
 
     private void Interact()
     {
-        // 상호작용 로직 구현
+        // 상호작용 로직
+        exploreStageMaster.currentInteract.InteractEvent.Invoke();
     }
 
     void OnCollisionStay2D(Collision2D collision)

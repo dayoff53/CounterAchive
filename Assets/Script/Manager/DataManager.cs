@@ -32,7 +32,7 @@ public class SaveData
 }
 public class DataManager : Singleton<DataManager>
 {
-    public StageMaster stageManager;
+    public BattleStageMaster stageManager;
 
 
     /// <summary>
