@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BlueAchive-Ui(OutLibrary)_0: 6049179297575684898
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

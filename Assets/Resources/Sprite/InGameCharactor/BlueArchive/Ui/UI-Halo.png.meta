@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      UI-Halo_0: 688954504389145754
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

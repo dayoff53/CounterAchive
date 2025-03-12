@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class UnitProduction : MonoBehaviour
 {
+    [SerializeField]
     private BattleStageMaster stageManager;
     private DataManager dataManager;
     private Rigidbody2D rigidBody;
@@ -13,6 +14,13 @@ public class UnitProduction : MonoBehaviour
     [SerializeField] private Material dissolveMaterial;
     public float speed = 0.5f;
     private float time = 0.0f;
+
+    private void Reset()
+    {
+        stageManager = GameObject.Find("BattleStageMaster").GetComponent<BattleStageMaster>();
+        spriteRenderer = this.GetComponent<SpriteRenderer>();
+        dissolveMaterial = Resources.Load<Material>("Materials/Dissolve");
+    }
 
     private void Start()
     {
