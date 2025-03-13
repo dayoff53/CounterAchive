@@ -6,7 +6,7 @@ using UnityEngine;
 public class UnitProduction : MonoBehaviour
 {
     [SerializeField]
-    private BattleStageMaster stageManager;
+    private BattleStageMaster battleStageManager;
     private DataManager dataManager;
     private Rigidbody2D rigidBody;
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -17,7 +17,7 @@ public class UnitProduction : MonoBehaviour
 
     private void Reset()
     {
-        stageManager = GameObject.Find("BattleStageMaster").GetComponent<BattleStageMaster>();
+        battleStageManager = FindObjectOfType<BattleStageMaster>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         dissolveMaterial = Resources.Load<Material>("Materials/Dissolve");
     }
@@ -25,6 +25,13 @@ public class UnitProduction : MonoBehaviour
     private void Start()
     {
         dataManager = DataManager.Instance;
+        if(dataManager == null)
+        {
+            Debug.LogError("DataManager가 없습니다.");
+        } else {
+            Debug.Log("DataManager가 있습니다.");
+        }
+    
         rigidBody = this.GetComponent<Rigidbody2D>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         Init(null);
@@ -32,9 +39,16 @@ public class UnitProduction : MonoBehaviour
 
     public void Init(BattleStageMaster stageManager)
     {
+        if(dataManager == null)
+        {
+            Debug.LogError("DataManager가 없습니다.");
+        } else {
+            Debug.Log("DataManager가 있습니다.");
+        }
+    
         spriteRenderer.sprite = null;
         spriteRenderer.material = dissolveMaterial;
-        spriteRenderer.sortingOrder = (int)dataManager.unitStateColorsObject.orderLayerNumber[0];
+        spriteRenderer.sortingOrder = (int)dataManager.unitColorStateObject.orderLayerNumber[0];
         
 
 
@@ -57,7 +71,7 @@ public class UnitProduction : MonoBehaviour
         spriteRenderer.sprite = corpseSpriteRenderer.sprite;
         spriteRenderer.flipX = corpseSpriteRenderer.flipX;
         spriteRenderer.material = dissolveMaterial;
-        spriteRenderer.sortingOrder = (int)dataManager.unitStateColorsObject.orderLayerNumber[1];
+        spriteRenderer.sortingOrder = (int)dataManager.unitColorStateObject.orderLayerNumber[1];
         while (true)
         {
             yield return new WaitForSeconds(Time.deltaTime);
@@ -72,10 +86,10 @@ public class UnitProduction : MonoBehaviour
 
             if(mats[0].GetFloat("_Cutoff") >= 1.0f)
             {
-                stageManager.isUnitDying = false;
+                battleStageManager.isUnitDying = false;
             }
 
-            if (time >= 1f && stageManager.isUnitDying == false)
+            if (time >= 1f && battleStageManager.isUnitDying == false)
             {
                 spriteRenderer.sprite = null;
                 yield break;

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6952052913788435851}
   - component: {fileID: 3302762868540932488}
   - component: {fileID: 3552819634119228773}
-  - component: {fileID: 8248356987731626910}
+  - component: {fileID: 5207574934797139785}
   m_Layer: 0
   m_Name: RainGroundEffect (Particle)
   m_TagString: Untagged
@@ -4841,7 +4841,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &8248356987731626910
+--- !u!114 &5207574934797139785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4855,7 +4855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 0}
   fadeCanvasGroup: {fileID: 0}
-  fadeParticleSystem: {fileID: 3302762868540932488}
+  fadeParticleSystem: {fileID: 0}
   isFadeIn: 0
   inspectorFadeTime: 1
-  inspectorFadeColor: {r: 0, g: 0, b: 0, a: 1}
+  inspectorFadeColor: {r: 0, g: 0, b: 0, a: 0.5019608}

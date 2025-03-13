@@ -9,7 +9,7 @@ public class UnitBase : MonoBehaviour
 {
     [Header("매니저 참조")]
     [Tooltip("스테이지 매니저 인스턴스")]
-    [SerializeField] private BattleStageMaster stageMaster;
+    [SerializeField] private BattleStageMaster battleStageMaster;
 
     [Tooltip("카메라 매니저 인스턴스")]
     CameraManager cameraManager;
@@ -122,24 +122,45 @@ public class UnitBase : MonoBehaviour
     public List<SkillData> skillDataList;
 
 
-
     private void Start()
     {
+        Init();
+    }
+
+    public void Init()
+    {
+        // 필수 컴포넌트 확인
+        if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
+        if (unitAnimator == null) unitAnimator = GetComponent<Animator>();
+        
+        // 매니저 인스턴스 확인
         cameraManager = CameraManager.Instance;
         dataManager = DataManager.Instance;
         poolManager = PoolManager.Instance;
-        stageMaster = dataManager.stageManager;
-
-        UnitDataInit(unitData);
+        
+        if (dataManager == null)
+        {
+            Debug.LogError("DataManager를 찾을 수 없습니다.");
+            return;
+        }
+        
+        if (battleStageMaster == null)
+        {
+            Debug.LogError("StageManager를 찾을 수 없습니다.");
+            return;
+        }
     }
-
+ 
     /// <summary>
     /// UnitData를 기반으로 UnitBase의 데이터를 초기화합니다.
     /// </summary>
     /// <param name="setUnitData">초기화할 UnitData 객체</param>
     public void UnitDataInit(UnitData setUnitData)
     {
-        stageMaster = dataManager.stageManager;
+        if(battleStageMaster == null)
+        {
+            battleStageMaster = dataManager.battleStageMaster;
+        }
 
         // 유닛 데이터가 없을 경우 데이터 매니저에서 기본 유닛(Null) 데이터를 가져옵니다.
         if (setUnitData == null)
@@ -187,8 +208,8 @@ public class UnitBase : MonoBehaviour
             currentAp = 0;
             speed = unitData.speed;
             skillDataList = unitData.skillDataList;
-            corpseDissolve.Init(stageMaster);
-            animationEventObserver.Init(stageMaster);
+            corpseDissolve.Init(battleStageMaster);
+            animationEventObserver.Init(battleStageMaster);
 
             SetAnim(0);
         }
@@ -252,7 +273,7 @@ public class UnitBase : MonoBehaviour
             hpPointBar.gameObject.transform.parent.gameObject.SetActive(true);
             actionPointBar.gameObject.SetActive(true);
 
-            spriteRenderer.sortingOrder = (int)dataManager.unitStateColorsObject.orderLayerNumber[0];
+            spriteRenderer.sortingOrder = (int)dataManager.unitColorStateObject.orderLayerNumber[0];
             SetAnim(0);
             SetSkillTargeting(false, "");
             
@@ -376,8 +397,8 @@ public class UnitBase : MonoBehaviour
     /// <param name="pushForce">유닛을 밀어내는 힘</param>
     public void Death(float pushForce)
     {
-        stageMaster.isUnitDying = true;
-        stageMaster.lastEnemyDeathObject = corpseDissolve.gameObject;
+        battleStageMaster.isUnitDying = true;
+        battleStageMaster.lastEnemyDeathObject = corpseDissolve.gameObject;
 
         corpseDissolve.DissolveStart(spriteRenderer);
 
@@ -391,7 +412,7 @@ public class UnitBase : MonoBehaviour
         }
         pushForce = Mathf.Min(pushForce, 10);
 
-        if (stageMaster.unitSlotList[stageMaster.currentTurnSlotNumber].unit.isFlipX)
+        if (battleStageMaster.unitSlotList[battleStageMaster.currentTurnSlotNumber].unit.isFlipX)
         {
             corpseDissolve.PushUnit(pushForce, new Vector2(-1, randomDirectionY));
         }

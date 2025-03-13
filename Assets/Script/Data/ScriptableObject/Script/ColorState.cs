@@ -7,7 +7,7 @@ using UnityEngine.Events;
 [System.Serializable]
 
 
-public class ProdutionState : ScriptableObject
+public class ColorState : ScriptableObject
 {
     [Header("색상 상태(디폴트, 1팀(플레이어), 2팀(적), 3팀(AI 아군), 4팀(제2의 적), 5팀, 6팀, Null)")]
     public List<Color> colorStates;

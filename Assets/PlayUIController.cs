@@ -6,7 +6,7 @@ public class PlayUIController : MonoBehaviour
 {
     [Header("StageMaster")]
     [SerializeField]
-    private BattleStageMaster stageMaster;
+    private BattleStageMaster battleStageMaster;
     private DataManager dataManager;
 
 
@@ -38,16 +38,17 @@ public class PlayUIController : MonoBehaviour
     void Start()
     {
         dataManager = DataManager.Instance;
+        battleStageMaster = dataManager.battleStageMaster;
     }
 
     void Reset()
     {
-        stageMaster = FindObjectOfType<BattleStageMaster>();
+        battleStageMaster = FindObjectOfType<BattleStageMaster>();
     }
 
     void Init(BattleStageMaster stageMaster)
     {
-        this.stageMaster = stageMaster;
+        this.battleStageMaster = stageMaster;
     }
 
     /// <summary>
@@ -59,14 +60,14 @@ public class PlayUIController : MonoBehaviour
         if (isPlayer)
         {
             UnitStatus changeUnitStatus = new UnitStatus();
-            Debug.Log($"SetCurrentUnitCardUI {stageMaster.unitSlotList[unitNumber].unit.unitNumber}");
-            changeUnitStatus.SetStatus(dataManager.unitDataList.Find(u => u.unitNumber == stageMaster.unitSlotList[unitNumber].unit.unitNumber));
+            Debug.Log($"SetCurrentUnitCardUI {battleStageMaster.unitSlotList[unitNumber].unit.unitNumber}");
+            changeUnitStatus.SetStatus(dataManager.unitDataList.Find(u => u.unitNumber == battleStageMaster.unitSlotList[unitNumber].unit.unitNumber));
             turnUnitCardUI.unitStatus = changeUnitStatus;
         }
         else
         {
             UnitStatus changeUnitStatus = new UnitStatus();
-            changeUnitStatus.SetStatus(dataManager.unitDataList.Find(u => u.unitNumber == stageMaster.unitSlotList[unitNumber].unit.unitNumber));
+            changeUnitStatus.SetStatus(dataManager.unitDataList.Find(u => u.unitNumber == battleStageMaster.unitSlotList[unitNumber].unit.unitNumber));
             targetUnitCardUI.unitStatus = changeUnitStatus;
         }
     }

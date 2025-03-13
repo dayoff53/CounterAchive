@@ -53,7 +53,7 @@ public partial class BattleStageMaster
         [Space(10)]
         [Header("Color Data")]
         public List<Color> unitStateColors;
-        public ProdutionState unitStateColorsObject;
+        public ColorState unitStateColorsObject;
 
 
 

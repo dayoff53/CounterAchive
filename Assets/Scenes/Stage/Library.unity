@@ -218,9 +218,25 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 3302762868540932488, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3302762868540932488, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3302762868540932488, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3552819634119228773, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
       propertyPath: m_SortingOrder
       value: -101
+      objectReference: {fileID: 0}
+    - target: {fileID: 5207574934797139785, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: inspectorFadeColor.a
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 5844505457698575984, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
       propertyPath: m_Name
@@ -270,7 +286,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8248356987731626910, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+    - {fileID: 5207574934797139785, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -312,7 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fe198cd8c28414d96819c57f68847d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageManager: {fileID: 0}
+  battleStageMaster: {fileID: 0}
   saveDataFilePath: 
   currentSaveData:
     playerUnitStates: []
@@ -325,7 +343,7 @@ MonoBehaviour:
   unitDataList: []
   skillList: []
   sceneKeyDataList: []
-  unitStateColorsObject: {fileID: 0}
+  unitColorStateObject: {fileID: 0}
 --- !u!4 &92213911
 Transform:
   m_ObjectHideFlags: 0
@@ -349,7 +367,7 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1346327312}
     m_Modifications:
-    - target: {fileID: 148961541581828013, guid: faa42e8893b49584a808144abfed48b6, type: 3}
+    - target: {fileID: 64103757013345166, guid: faa42e8893b49584a808144abfed48b6, type: 3}
       propertyPath: inspectorFadeColor.a
       value: 0.2509804
       objectReference: {fileID: 0}
@@ -393,21 +411,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 7020926380056744886, guid: faa42e8893b49584a808144abfed48b6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 103
+      objectReference: {fileID: 0}
     - target: {fileID: 7151126327809724402, guid: faa42e8893b49584a808144abfed48b6, type: 3}
       propertyPath: m_Name
       value: RainScreenEffect (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8065404297729029417, guid: faa42e8893b49584a808144abfed48b6, type: 3}
-      propertyPath: simulationSpeed
-      value: 1
+      propertyPath: lengthInSec
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8065404297729029417, guid: faa42e8893b49584a808144abfed48b6, type: 3}
+      propertyPath: UVModule.startFrame.scalar
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8065404297729029417, guid: faa42e8893b49584a808144abfed48b6, type: 3}
       propertyPath: UVModule.sprites.Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8065404297729029417, guid: faa42e8893b49584a808144abfed48b6, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
+      propertyPath: UVModule.frameOverTime.scalar
+      value: 0.9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8065404297729029417, guid: faa42e8893b49584a808144abfed48b6, type: 3}
+      propertyPath: UVModule.startFrame.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8065404297729029417, guid: faa42e8893b49584a808144abfed48b6, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8065404297729029417, guid: faa42e8893b49584a808144abfed48b6, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8065404297729029417, guid: faa42e8893b49584a808144abfed48b6, type: 3}
+      propertyPath: UVModule.frameOverTime.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8065404297729029417, guid: faa42e8893b49584a808144abfed48b6, type: 3}
       propertyPath: InitialModule.startColor.maxColor.a
@@ -995,9 +1037,25 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 3302762868540932488, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3302762868540932488, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3302762868540932488, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3552819634119228773, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
       propertyPath: m_SortingOrder
       value: -101
+      objectReference: {fileID: 0}
+    - target: {fileID: 5207574934797139785, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: inspectorFadeColor.a
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 5844505457698575984, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
       propertyPath: m_Name
@@ -1047,7 +1105,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8248356987731626910, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+    - {fileID: 5207574934797139785, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1160,9 +1220,9 @@ MonoBehaviour:
   outEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 720523101}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 2073215876}
+        m_TargetAssemblyTypeName: FadeController, Assembly-CSharp
+        m_MethodName: ExecuteFade
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1170,11 +1230,11 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1598442721}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 1598442724}
+        m_TargetAssemblyTypeName: FadeController, Assembly-CSharp
+        m_MethodName: ExecuteFade
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1182,7 +1242,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 8398955105766350662}
         m_TargetAssemblyTypeName: FadeController, Assembly-CSharp
@@ -1196,7 +1256,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2078362857}
+      - m_Target: {fileID: 6952052914725941618}
         m_TargetAssemblyTypeName: FadeController, Assembly-CSharp
         m_MethodName: ExecuteFade
         m_Mode: 6
@@ -1211,9 +1271,9 @@ MonoBehaviour:
   inEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 720523101}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 2073215876}
+        m_TargetAssemblyTypeName: FadeController, Assembly-CSharp
+        m_MethodName: ExecuteFade
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1221,11 +1281,11 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1598442721}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+      - m_Target: {fileID: 1598442724}
+        m_TargetAssemblyTypeName: FadeController, Assembly-CSharp
+        m_MethodName: ExecuteFade
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1233,7 +1293,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 8398955105766350662}
         m_TargetAssemblyTypeName: FadeController, Assembly-CSharp
@@ -1247,7 +1307,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 2078362857}
+      - m_Target: {fileID: 6952052914725941618}
         m_TargetAssemblyTypeName: FadeController, Assembly-CSharp
         m_MethodName: ExecuteFade
         m_Mode: 6
@@ -1331,7 +1391,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 101
+  m_SortingOrder: 102
   m_Sprite: {fileID: 21300000, guid: e0f610b4a85af8c4cab9b8143bb67262, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1421,7 +1481,7 @@ MonoBehaviour:
   fadeParticleSystem: {fileID: 572286396}
   isFadeIn: 0
   inspectorFadeTime: 1
-  inspectorFadeColor: {r: 0, g: 0, b: 0, a: 1}
+  inspectorFadeColor: {r: 0, g: 0, b: 0, a: 0.5019608}
 --- !u!1001 &600426618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1440,7 +1500,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3552819634119228773, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
       propertyPath: m_SortingOrder
-      value: 102
+      value: 103
+      objectReference: {fileID: 0}
+    - target: {fileID: 5207574934797139785, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: inspectorFadeColor.a
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 5844505457698575984, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
       propertyPath: m_Name
@@ -1490,7 +1554,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8248356987731626910, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+    - {fileID: 5207574934797139785, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -2422,7 +2488,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -102
   m_Sprite: {fileID: -5601430692761683686, guid: 35d9990ccb4d42b42abfd029b868c290, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2884,7 +2950,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -101
+  m_SortingOrder: -102
   m_Sprite: {fileID: 21300000, guid: 23b68b595a6fcf544a22cadd6f12f1b1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2971,7 +3037,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -102
+  m_SortingOrder: -103
   m_Sprite: {fileID: 21300000, guid: 3c74722241f4ef74bb82d40408a7295d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3458,7 +3524,7 @@ MonoBehaviour:
   fadeParticleSystem: {fileID: 1202484892}
   isFadeIn: 0
   inspectorFadeTime: 1
-  inspectorFadeColor: {r: 0, g: 0, b: 0, a: 1}
+  inspectorFadeColor: {r: 0, g: 0, b: 0, a: 0.5019608}
 --- !u!1 &1274361853
 GameObject:
   m_ObjectHideFlags: 0
@@ -3560,9 +3626,25 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 3302762868540932488, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3302762868540932488, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3302762868540932488, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3552819634119228773, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
       propertyPath: m_SortingOrder
       value: -101
+      objectReference: {fileID: 0}
+    - target: {fileID: 5207574934797139785, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: inspectorFadeColor.a
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 5844505457698575984, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
       propertyPath: m_Name
@@ -3612,7 +3694,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8248356987731626910, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+    - {fileID: 5207574934797139785, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3647,7 +3731,7 @@ MonoBehaviour:
   fadeParticleSystem: {fileID: 1367927511}
   isFadeIn: 0
   inspectorFadeTime: 1
-  inspectorFadeColor: {r: 0, g: 0, b: 0, a: 1}
+  inspectorFadeColor: {r: 0, g: 0, b: 0, a: 0.5019608}
 --- !u!1 &1402324265
 GameObject:
   m_ObjectHideFlags: 0
@@ -3856,7 +3940,7 @@ MonoBehaviour:
   fadeParticleSystem: {fileID: 1598442723}
   isFadeIn: 0
   inspectorFadeTime: 1
-  inspectorFadeColor: {r: 0, g: 0, b: 0, a: 1}
+  inspectorFadeColor: {r: 0, g: 0, b: 0, a: 0.5019608}
 --- !u!1 &1634469231
 GameObject:
   m_ObjectHideFlags: 0
@@ -4325,6 +4409,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6952052913788435851, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
   m_PrefabInstance: {fileID: 485680429966007028}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1779881468 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3302762868540932488, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+  m_PrefabInstance: {fileID: 485680429966007028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1881244223
 GameObject:
   m_ObjectHideFlags: 0
@@ -4668,9 +4757,25 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 3302762868540932488, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3302762868540932488, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3302762868540932488, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3552819634119228773, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
       propertyPath: m_SortingOrder
       value: -101
+      objectReference: {fileID: 0}
+    - target: {fileID: 5207574934797139785, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: inspectorFadeColor.a
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 5844505457698575984, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
       propertyPath: m_Name
@@ -4720,7 +4825,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8248356987731626910, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+    - {fileID: 5207574934797139785, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -4755,18 +4862,7 @@ MonoBehaviour:
   fadeParticleSystem: {fileID: 2073215875}
   isFadeIn: 0
   inspectorFadeTime: 1
-  inspectorFadeColor: {r: 0, g: 0, b: 0, a: 1}
---- !u!114 &2078362857 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 64103757013345166, guid: faa42e8893b49584a808144abfed48b6, type: 3}
-  m_PrefabInstance: {fileID: 96129596}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b72e77952aca33444bc79f58fb09d782, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  inspectorFadeColor: {r: 0, g: 0, b: 0, a: 0.5019608}
 --- !u!1 &2120659776
 GameObject:
   m_ObjectHideFlags: 0
@@ -4932,6 +5028,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 451512960}
     m_Modifications:
+    - target: {fileID: 3302762868540932488, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3302762868540932488, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3302762868540932488, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5207574934797139785, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: fadeParticleSystem
+      value: 
+      objectReference: {fileID: 1779881468}
+    - target: {fileID: 5207574934797139785, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
+      propertyPath: inspectorFadeColor.a
+      value: 0.5019608
+      objectReference: {fileID: 0}
     - target: {fileID: 5844505457698575984, guid: 6e69feebf0c147346b74d6d8771d9e4a, type: 3}
       propertyPath: m_Name
       value: RainGroundEffect
@@ -5086,21 +5202,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 7020926380056744886, guid: faa42e8893b49584a808144abfed48b6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 103
+      objectReference: {fileID: 0}
     - target: {fileID: 7151126327809724402, guid: faa42e8893b49584a808144abfed48b6, type: 3}
       propertyPath: m_Name
       value: RainScreenEffect
       objectReference: {fileID: 0}
     - target: {fileID: 8065404297729029417, guid: faa42e8893b49584a808144abfed48b6, type: 3}
-      propertyPath: simulationSpeed
-      value: 1
+      propertyPath: UVModule.startFrame.scalar
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8065404297729029417, guid: faa42e8893b49584a808144abfed48b6, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
+      propertyPath: UVModule.frameOverTime.scalar
+      value: 0.9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8065404297729029417, guid: faa42e8893b49584a808144abfed48b6, type: 3}
+      propertyPath: UVModule.startFrame.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8065404297729029417, guid: faa42e8893b49584a808144abfed48b6, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8065404297729029417, guid: faa42e8893b49584a808144abfed48b6, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8065404297729029417, guid: faa42e8893b49584a808144abfed48b6, type: 3}
-      propertyPath: InitialModule.gravityModifier.minScalar
-      value: 0.9
+      propertyPath: UVModule.frameOverTime.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5112,6 +5244,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3460242220469448811, guid: faa42e8893b49584a808144abfed48b6, type: 3}
   m_PrefabInstance: {fileID: 96129596}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6952052914725941618 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 64103757013345166, guid: faa42e8893b49584a808144abfed48b6, type: 3}
+  m_PrefabInstance: {fileID: 96129596}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b72e77952aca33444bc79f58fb09d782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6952052914938660386 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3460242220469448811, guid: faa42e8893b49584a808144abfed48b6, type: 3}

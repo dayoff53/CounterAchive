@@ -7,7 +7,16 @@
     public class CameraManager : Singleton<CameraManager>
     {
         [SerializeField]
-        private Camera mainCamera;
+        private Camera _mainCamera;
+        public Camera mainCamera
+        {
+            get { return _mainCamera; }
+            set 
+            { 
+                _mainCamera = value;
+                Debug.Log($"mainCamera가 변경되었습니다: {_mainCamera}");
+            }
+        }
 
         private float defaultZoom;
         private Vector3 defaultPosition;
@@ -25,9 +34,15 @@
         /// <summary>
         /// 초기화 함수. 카메라의 기본 설정값을 지정합니다.
         /// </summary>
-        void Start()
+        private void Start()
         {
+            Init();
+        }
+
+    public void Init()
+    {
             mainCamera = Camera.main;
+            Debug.Log($"mainCamera: {mainCamera}");
             defaultZoom = mainCamera.orthographicSize;
             defaultPosition = mainCamera.transform.position;
 
@@ -38,13 +53,13 @@
 
             // 줌 제한을 기본 줌으로 설정
             maxZoom = defaultZoom;
-        }
+    }
 
-        /// <summary>
-        /// 카메라의 위치를 설정하는 함수입니다.
-        /// </summary>
-        /// <param name="position">이동할 목표 위치</param>
-        public void SetCameraPosition(Vector3 position)
+    /// <summary>
+    /// 카메라의 위치를 설정하는 함수입니다.
+    /// </summary>
+    /// <param name="position">이동할 목표 위치</param>
+    public void SetCameraPosition(Vector3 position)
         {
             cameraWidth = Camera.main.orthographicSize * Camera.main.aspect;
             cameraHeight = Camera.main.orthographicSize;

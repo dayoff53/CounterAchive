@@ -131,8 +131,7 @@ public partial class BattleStageMaster : MonoBehaviour
         dataManager = DataManager.Instance;
         poolManager = PoolManager.Instance;
         cameraManager = CameraManager.Instance;
-        
-        dataManager.stageManager = this;
+        dataManager.battleStageMaster = this;
 
         InitGame();
     }
@@ -143,12 +142,12 @@ public partial class BattleStageMaster : MonoBehaviour
     public void InitGame()
     {
         poolManager.Clear();
+        cameraManager.Init();
         unitSlotGroupController.Init(this);
         unitSelectSlotGroupController.Init(this);
-        unitStateColors = dataManager.unitStateColorsObject.colorStates;
+        unitStateColors = dataManager.unitColorStateObject.colorStates;
         
         SlotPosInit();
-        
         PlaceUnitSlot();
         UnitSetGame();
     }

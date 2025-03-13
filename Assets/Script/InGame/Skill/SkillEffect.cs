@@ -19,7 +19,7 @@ public class SkillEffect : ScriptableObject
 
     void Init()
     {
-        stageManager = DataManager.Instance.stageManager;
+        stageManager = DataManager.Instance.battleStageMaster;
     }
 
 /// <summary>

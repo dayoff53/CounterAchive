@@ -206,7 +206,7 @@ public partial class BattleStageMaster
     /// </summary>
     public virtual void SkillProduction(int hitProductionNum)
     {
-        unitSlotList[currentTurnSlotNumber].unit.spriteRenderer.sortingOrder = (int)dataManager.unitStateColorsObject.orderLayerNumber[1];
+        unitSlotList[currentTurnSlotNumber].unit.spriteRenderer.sortingOrder = (int)dataManager.unitColorStateObject.orderLayerNumber[1];
 
         foreach (UnitSlotController targetUnit in currentSkillTargetSlots)
         {
@@ -217,7 +217,7 @@ public partial class BattleStageMaster
             // 뒷배경 암전효과 적용
             if(currentSkillData.isFadeInOutProdution)
             {
-                targetUnit.unit.spriteRenderer.sortingOrder = (int)dataManager.unitStateColorsObject.orderLayerNumber[1];
+                targetUnit.unit.spriteRenderer.sortingOrder = (int)dataManager.unitColorStateObject.orderLayerNumber[1];
                 SetFadeInOutProduction(currentSkillData.fadeInOutProdutionColor, currentSkillData.fadeInOutProdutionTime);
             }
  

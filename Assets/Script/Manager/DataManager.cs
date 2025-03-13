@@ -32,7 +32,7 @@ public class SaveData
 }
 public class DataManager : Singleton<DataManager>
 {
-    public BattleStageMaster stageManager;
+    public BattleStageMaster battleStageMaster;
 
 
     /// <summary>
@@ -76,7 +76,7 @@ public class DataManager : Singleton<DataManager>
 /// <summary>
 /// 유닛 상태에 따른 색과 레이어 순서를 보관하는 스크립트
 /// </summary>
-    public ProdutionState unitStateColorsObject;
+    public ColorState unitColorStateObject;
 
 
 
@@ -94,17 +94,21 @@ public class DataManager : Singleton<DataManager>
         saveDataFilePath = Path.Combine(Application.persistentDataPath, "saveData.json");
 
         sceneKeyDataList = new List<SceneKeyData>(Resources.LoadAll<SceneKeyData>("ScriptableObject/SceneKeyData"));
+        unitColorStateObject = Resources.Load<ColorState>("ScriptableObject/ColorState");
 
         if(Application.isEditor)
         {
             //currentSaveData = new SaveData();
-            Debug.Log("게임 테스트중이기 때문에 세이브 데이터를 불러최초 게임 진행 시 세이브 데이터를 불러옵니다.");
+            Debug.Log("게임 테스트중이기 때문에 세이브 데이터를 불러최초 게임 진행 시 세이브 데이터를 불러옵니다.`");
             LoadGame();
         }
         else
         {
             Debug.Log("게임 테스트중이 아니기 때문에 세이브 데이터를 불러오지 않습니다.");
         }
+
+        
+
     }
 
     /// <summary>
