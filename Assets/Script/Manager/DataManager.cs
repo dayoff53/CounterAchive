@@ -15,21 +15,25 @@ public class SaveData
 {
     public List<UnitStatus> playerUnitStates;
 
+    [DetailedInfoBox("스테이지의 마지막 넘버", "스테이지의 총 개수를 구할 경우 사용됨")]
 /// <summary>
-/// 스테이지의 마지막 넘버
+/// 스테이지의 마지막 넘버로 스테이지의 총 개수를 구할 수 있음
 /// </summary>
     public int lastStageNumber;
 
+    [DetailedInfoBox("스테이지의 현재 넘버", "해당 넘버 다음 스테이지를 가져올 떄 사용함")]
 /// <summary>
-/// 스테이지의 현재 넘버
+/// 스테이지의 현재 넘버로 해당 넘버 다음 스테이지를 가져올 떄 사용함
 /// </summary>
     public int currentStageNumber;
 
-/// <summary>
-/// 게임에서 플레이했던 과거 스테이지의 리스트
-/// </summary>
-    public List<SceneKeyData> playedSceneKeyDataList;
+    [DetailedInfoBox("현재 세이브 데이터에서 플레이하게 될 스테이지 리스트", "4개의 Stage를 지닌 리스트를  지닌 리스트 \n\n(플레이어는 4개의 선택지중 하나의 Stage를 선택해 게임을 진행하게 되며 해당 선택을 Queue길이에 따라 여러번 선택하게 된다.)")]
+    /// <summary>
+    /// 현재 세이브 데이터에서 플레이하게 될 스테이지 리스트
+    /// </summary>
+    public List<List<SceneKeyData>> stageQueueList;
 }
+
 public class DataManager : Singleton<DataManager>
 {
     public BattleStageMaster battleStageMaster;
@@ -106,9 +110,6 @@ public class DataManager : Singleton<DataManager>
         {
             Debug.Log("게임 테스트중이 아니기 때문에 세이브 데이터를 불러오지 않습니다.");
         }
-
-        
-
     }
 
     /// <summary>

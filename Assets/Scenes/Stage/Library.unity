@@ -336,7 +336,6 @@ MonoBehaviour:
     playerUnitStates: []
     lastStageNumber: 5
     currentStageNumber: 0
-    playedSceneKeyDataList: []
   playerUnitStateList: []
   lastStageNumber: 0
   currentStageNumber: 0
@@ -961,6 +960,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8194497397797424841, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
+      propertyPath: stageBundle
+      value: 
+      objectReference: {fileID: 4041785288332653217, guid: 644366411822a66458fd50da1e1b2705, type: 3}
     - target: {fileID: 8194497397797424841, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
       propertyPath: stageSequence.Array.size
       value: 0
@@ -3554,6 +3557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0eb96e92c2e5c4b84332b859329b41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataManager: {fileID: 0}
   explorePlayerController: {fileID: 609353363}
   currentInteract: {fileID: 0}
 --- !u!4 &1274361855

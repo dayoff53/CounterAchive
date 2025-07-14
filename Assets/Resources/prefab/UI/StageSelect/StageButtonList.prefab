@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cabdb87e601a3d948813fe9d9156ed3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StageButtonPrefab:
+  StageBundles:
   - {fileID: 3746247019955908354}
   - {fileID: 435756557352228896}
   - {fileID: 2892355122706100255}

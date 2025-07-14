@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4892a2e458acd34ea509578fb52fa1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
+  _mainCamera: {fileID: 0}
 --- !u!4 &1429712718
 Transform:
   m_ObjectHideFlags: 0

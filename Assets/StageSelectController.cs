@@ -16,32 +16,43 @@ public class StageSelectController : MonoBehaviour
     private GameObject firstStageButton;
     [SerializeField]
     private GameObject lastStageButton;
-    [SerializeField]
-    private GameObject stageButtonList;
+
 
     [SerializeField]
-    [DetailedInfoBox("스테이지 시퀀스", "스테이지 시퀀스")]
-    private List<GameObject> stageSequence;
+    [DetailedInfoBox("스테이지 번들 오브젝트 프리팹", "4개의 Stage선택지 묶음 오브젝트 프리팹")]
+    private GameObject stageBundle;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField]
+    [ReadOnly]
+    [DetailedInfoBox("스테이지 번들 리스트", "4개의 Stage선택지 묶음 오브젝트들의 리스트")]
+    private List<GameObject> stageBundleList;
+
+
     void Start()
     {
         dataManager = DataManager.Instance;
+        Init();
+    }
 
+    public void Init()
+    {
         int selectStageLength = dataManager.currentSaveData.lastStageNumber;
 
-        stageSequence.Add(firstStageButton);
+        stageBundleList.Add(firstStageButton);
         //시작 버튼과 마지막 버튼을 제외한 스테이지 버튼 생성
         for (int i = 0; i < selectStageLength - 2; i++)
         {
-            stageSequence.Add(Instantiate(stageButtonList, backgroundObject.transform));
+            GameObject setStageBundle = Instantiate(stageBundle, backgroundObject.transform);
+            StageLoadBundleListController stageLoadBundleListController = setStageBundle.GetComponent<StageLoadBundleListController>();
+            stageLoadBundleListController.Init();
+            stageBundleList.Add(setStageBundle);
         }
-        stageSequence.Add(lastStageButton);
+        stageBundleList.Add(lastStageButton);
 
 
-        for (int i = 0; i < stageSequence.Count; i++)
+        for (int i = 0; i < stageBundleList.Count; i++)
         {
-            stageSequence[i].transform.SetSiblingIndex(i);
+            stageBundleList[i].transform.SetSiblingIndex(i);
         }
 
         selectStageLength -= 2;

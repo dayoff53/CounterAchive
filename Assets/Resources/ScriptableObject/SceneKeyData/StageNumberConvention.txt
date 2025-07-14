@@ -1,0 +1,14 @@
+
+100의 자리 숫자: 현재 스테이지가 속한 레벨(Level) 을 의미합니다.
+나머지 숫자 (두 자리 이하): 해당 레벨 내에서의 스테이지 번호(Stage Number) 를 나타냅니다.
+
+예시:
+Helmet_312 => 레벨 3의 스테이지 12번
+
+
+
+Hundreds digit: Represents the level to which the stage belongs.
+Remaining digits (two or fewer): Indicate the stage number within that level.
+
+Example:
+Helmet_312 → Level 3, Stage 12

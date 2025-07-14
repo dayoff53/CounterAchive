@@ -38,7 +38,6 @@ public class PlayUIController : MonoBehaviour
     void Start()
     {
         dataManager = DataManager.Instance;
-        battleStageMaster = dataManager.battleStageMaster;
     }
 
     void Reset()
