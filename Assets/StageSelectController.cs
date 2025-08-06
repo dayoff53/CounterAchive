@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Unity.Android.Gradle.Manifest;
+//using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
@@ -36,30 +36,48 @@ public class StageSelectController : MonoBehaviour
 
     public void Init()
     {
-        int selectStageLength = dataManager.currentSaveData.lastStageNumber;
+        int selectStageLength = dataManager.currentSaveData.lastStageNumber - 2; // -2는 시작과 마지막 버튼을 제외시키기 위함
 
         stageBundleList.Add(firstStageButton);
         //시작 버튼과 마지막 버튼을 제외한 스테이지 버튼 생성
-        for (int i = 0; i < selectStageLength - 2; i++)
+        for (int i = 0; i < selectStageLength; i++)
         {
             GameObject setStageBundle = Instantiate(stageBundle, backgroundObject.transform);
             StageLoadBundleListController stageLoadBundleListController = setStageBundle.GetComponent<StageLoadBundleListController>();
             stageLoadBundleListController.Init();
+            stageLoadBundleListController.SetActiveStageLoadButton(false);
             stageBundleList.Add(setStageBundle);
         }
+
+        // 마지막 버튼을 배경 오브젝트에 추가
+        lastStageButton = Instantiate(lastStageButton, backgroundObject.transform);
+        StageLoadBundleListController lastStageLoadBundleListController = lastStageButton.GetComponent<StageLoadBundleListController>();
+        lastStageLoadBundleListController.Init();
         stageBundleList.Add(lastStageButton);
 
-
-        for (int i = 0; i < stageBundleList.Count; i++)
+        if (dataManager.currentSaveData.lastStageNumber <= dataManager.currentSaveData.currentStageNumber)
         {
-            stageBundleList[i].transform.SetSiblingIndex(i);
+            lastStageLoadBundleListController.SetActiveStageLoadButton(false);
+        }
+        else
+        {
+            lastStageLoadBundleListController.SetActiveStageLoadButton(true);
         }
 
-        selectStageLength -= 2;
-
         if (selectStageLength < 0)
+        {
             selectStageLength = 0;
+        }
 
         backgroundObject.GetComponent<RectTransform>().sizeDelta = new Vector2((selectStageLength * 640) + 2560, 1440);
+        
+        
+        // 스테이지 진행도 적용
+        for (int i = 0; i < stageBundleList.Count; i++)
+        {
+            Debug.Log($"{stageBundleList[i].name} index = stageBundleList[{i}]");
+            stageBundleList[i].transform.SetSiblingIndex(i);
+            stageBundleList[i].GetComponent<StageLoadBundleListController>().SetActiveStageLoadButton(true); // StageType은 2부터 시작
+        }
     }
 }
