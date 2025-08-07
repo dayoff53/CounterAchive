@@ -971,7 +971,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9171597466588493563, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2135841215}
+    - targetCorrespondingSourceObject: {fileID: 8583883406936030419, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 979727891}
   m_SourcePrefab: {fileID: 100100000, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
 --- !u!1 &397395073 stripped
 GameObject:
@@ -2417,6 +2423,36 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4526129395380189702, guid: 7cad0bdd2d95fe74e8133259b72a7e0f, type: 3}
   m_PrefabInstance: {fileID: 3441136}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &979727884 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8583883406936030419, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
+  m_PrefabInstance: {fileID: 397395072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &979727885 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6523107863953416734, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
+  m_PrefabInstance: {fileID: 397395072}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979727884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf22ad6de748a64b9fc2769bc6de309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &979727891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979727884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cabdb87e601a3d948813fe9d9156ed3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageLoadBundleListController
+  StageBundles:
+  - {fileID: 979727885}
 --- !u!1 &1055900841
 GameObject:
   m_ObjectHideFlags: 0
@@ -4959,6 +4995,36 @@ AreaEffector2D:
   m_ForceTarget: 0
   m_LinearDamping: 0
   m_AngularDamping: 0
+--- !u!1 &2135841208 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9171597466588493563, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
+  m_PrefabInstance: {fileID: 397395072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2135841210 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5975897637137393718, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
+  m_PrefabInstance: {fileID: 397395072}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135841208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf22ad6de748a64b9fc2769bc6de309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2135841215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135841208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cabdb87e601a3d948813fe9d9156ed3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageLoadBundleListController
+  StageBundles:
+  - {fileID: 2135841210}
 --- !u!1 &2137586977
 GameObject:
   m_ObjectHideFlags: 0

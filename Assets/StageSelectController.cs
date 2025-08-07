@@ -27,6 +27,8 @@ public class StageSelectController : MonoBehaviour
     [DetailedInfoBox("스테이지 번들 리스트", "4개의 Stage선택지 묶음 오브젝트들의 리스트")]
     private List<GameObject> stageBundleList;
 
+    [SerializeField]
+    private int selectStageLength = 0; // 현재 선택된 스테이지의 길이
 
     void Start()
     {
@@ -36,10 +38,11 @@ public class StageSelectController : MonoBehaviour
 
     public void Init()
     {
-        int selectStageLength = dataManager.currentSaveData.lastStageNumber - 2; // -2는 시작과 마지막 버튼을 제외시키기 위함
+        selectStageLength = dataManager.currentSaveData.lastStageNumber - 2; // -2는 시작과 마지막 버튼을 제외시키기 위함
 
-        stageBundleList.Add(firstStageButton);
         //시작 버튼과 마지막 버튼을 제외한 스테이지 버튼 생성
+        stageBundleList.Add(firstStageButton);
+        firstStageButton.GetComponent<StageLoadBundleListController>().Init();
         for (int i = 0; i < selectStageLength; i++)
         {
             GameObject setStageBundle = Instantiate(stageBundle, backgroundObject.transform);
@@ -50,11 +53,12 @@ public class StageSelectController : MonoBehaviour
         }
 
         // 마지막 버튼을 배경 오브젝트에 추가
-        lastStageButton = Instantiate(lastStageButton, backgroundObject.transform);
+        //lastStageButton = Instantiate(lastStageButton, backgroundObject.transform);
+        stageBundleList.Add(lastStageButton);
         StageLoadBundleListController lastStageLoadBundleListController = lastStageButton.GetComponent<StageLoadBundleListController>();
         lastStageLoadBundleListController.Init();
-        stageBundleList.Add(lastStageButton);
 
+/*
         if (dataManager.currentSaveData.lastStageNumber <= dataManager.currentSaveData.currentStageNumber)
         {
             lastStageLoadBundleListController.SetActiveStageLoadButton(false);
@@ -63,6 +67,7 @@ public class StageSelectController : MonoBehaviour
         {
             lastStageLoadBundleListController.SetActiveStageLoadButton(true);
         }
+        */
 
         if (selectStageLength < 0)
         {
@@ -73,7 +78,7 @@ public class StageSelectController : MonoBehaviour
         
         
         // 스테이지 진행도 적용
-        for (int i = 0; i < stageBundleList.Count; i++)
+        for (int i = 0; i <= stageBundleList.Count; i++)
         {
             Debug.Log($"{stageBundleList[i].name} index = stageBundleList[{i}]");
             stageBundleList[i].transform.SetSiblingIndex(i);
