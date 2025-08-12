@@ -338,7 +338,7 @@ MonoBehaviour:
     currentStageNumber: 0
   playerUnitStateList: []
   lastStageNumber: 0
-  currentStageNumber: 0
+  currentStageNumber: 1
   unitDataList: []
   skillList: []
   sceneKeyDataList: []

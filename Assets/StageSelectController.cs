@@ -48,7 +48,6 @@ public class StageSelectController : MonoBehaviour
             GameObject setStageBundle = Instantiate(stageBundle, backgroundObject.transform);
             StageLoadBundleListController stageLoadBundleListController = setStageBundle.GetComponent<StageLoadBundleListController>();
             stageLoadBundleListController.Init();
-            stageLoadBundleListController.SetActiveStageLoadButton(false);
             stageBundleList.Add(setStageBundle);
         }
 
@@ -58,16 +57,16 @@ public class StageSelectController : MonoBehaviour
         StageLoadBundleListController lastStageLoadBundleListController = lastStageButton.GetComponent<StageLoadBundleListController>();
         lastStageLoadBundleListController.Init();
 
-/*
-        if (dataManager.currentSaveData.lastStageNumber <= dataManager.currentSaveData.currentStageNumber)
-        {
-            lastStageLoadBundleListController.SetActiveStageLoadButton(false);
-        }
-        else
-        {
-            lastStageLoadBundleListController.SetActiveStageLoadButton(true);
-        }
-        */
+        /*
+                if (dataManager.currentSaveData.lastStageNumber <= dataManager.currentSaveData.currentStageNumber)
+                {
+                    lastStageLoadBundleListController.SetActiveStageLoadButton(false);
+                }
+                else
+                {
+                    lastStageLoadBundleListController.SetActiveStageLoadButton(true);
+                }
+                */
 
         if (selectStageLength < 0)
         {
@@ -75,14 +74,18 @@ public class StageSelectController : MonoBehaviour
         }
 
         backgroundObject.GetComponent<RectTransform>().sizeDelta = new Vector2((selectStageLength * 640) + 2560, 1440);
-        
-        
+
+
         // 스테이지 진행도 적용
-        for (int i = 0; i <= stageBundleList.Count; i++)
+        for (int i = 0; i < stageBundleList.Count; i++)
         {
-            Debug.Log($"{stageBundleList[i].name} index = stageBundleList[{i}]");
+            Debug.Log($"stageBundleList[{i}] = {stageBundleList[i].gameObject.name}");
             stageBundleList[i].transform.SetSiblingIndex(i);
-            stageBundleList[i].GetComponent<StageLoadBundleListController>().SetActiveStageLoadButton(true); // StageType은 2부터 시작
+            stageBundleList[i].GetComponent<StageLoadBundleListController>().SetActiveStageLoadButton(false); // StageType은 2부터 시작
+        }
+        for (int i = 0; i <= dataManager.currentSaveData.currentStageNumber; i++)
+        {
+            stageBundleList[i].GetComponent<StageLoadBundleListController>().SetActiveStageLoadButton(true);
         }
     }
 }

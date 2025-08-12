@@ -46,6 +46,7 @@ public class StageLoadBundleListController : MonoBehaviour
         {
             // 또는 버튼만 클릭 가능/불가능하게 하려면:
             Button button = StageBundles[i].GetComponent<Button>();
+            button.image.color = isActive ? Color.white : Color.gray;
             if (button != null) button.interactable = isActive;
         }
     }
