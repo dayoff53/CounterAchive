@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreateKit : Singleton<CreateKit>
+public class RandomCircleGenerator : Singleton<RandomCircleGenerator>
 {
     // 원 안에서 랜덤 위치를 구하는 함수
     Vector3 GetRandomPositionInCircle(Vector3 center, float radius)
