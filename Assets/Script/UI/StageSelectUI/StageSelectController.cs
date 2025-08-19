@@ -38,24 +38,23 @@ public class StageSelectController : MonoBehaviour
 
     public void Init()
     {
-        selectStageLength = dataManager.currentSaveData.lastStageNumber - 2; // -2는 시작과 마지막 버튼을 제외시키기 위함
+        selectStageLength = dataManager.currentSaveData.lastStageNumber - -1; // -1는 마지막 버튼을 제외시키기 위함
 
         //시작 버튼과 마지막 버튼을 제외한 스테이지 버튼 생성
         stageBundleList.Add(firstStageButton);
-        firstStageButton.GetComponent<StageLoadBundleListController>().Init();
-        for (int i = 0; i < selectStageLength; i++)
+        firstStageButton.GetComponent<StageLoadBundleController>().Shuffle();
+        for (int i = 1; i < selectStageLength; i++)
         {
             GameObject setStageBundle = Instantiate(stageBundle, backgroundObject.transform);
-            StageLoadBundleListController stageLoadBundleListController = setStageBundle.GetComponent<StageLoadBundleListController>();
-            stageLoadBundleListController.Init();
+            StageLoadBundleController stageLoadBundleListController = setStageBundle.GetComponent<StageLoadBundleController>();
+            stageLoadBundleListController.Shuffle();
             stageBundleList.Add(setStageBundle);
         }
 
         // 마지막 버튼을 배경 오브젝트에 추가
-        //lastStageButton = Instantiate(lastStageButton, backgroundObject.transform);
         stageBundleList.Add(lastStageButton);
-        StageLoadBundleListController lastStageLoadBundleListController = lastStageButton.GetComponent<StageLoadBundleListController>();
-        lastStageLoadBundleListController.Init();
+        StageLoadBundleController lastStageLoadBundleListController = lastStageButton.GetComponent<StageLoadBundleController>();
+        lastStageLoadBundleListController.Shuffle();
 
         /*
                 if (dataManager.currentSaveData.lastStageNumber <= dataManager.currentSaveData.currentStageNumber)
@@ -81,11 +80,11 @@ public class StageSelectController : MonoBehaviour
         {
             Debug.Log($"stageBundleList[{i}] = {stageBundleList[i].gameObject.name}");
             stageBundleList[i].transform.SetSiblingIndex(i);
-            stageBundleList[i].GetComponent<StageLoadBundleListController>().SetActiveStageLoadButton(false); // StageType은 2부터 시작
+            stageBundleList[i].GetComponent<StageLoadBundleController>().SetActiveStageLoadButton(false); // StageType은 2부터 시작
         }
         for (int i = 0; i <= dataManager.currentSaveData.currentStageNumber; i++)
         {
-            stageBundleList[i].GetComponent<StageLoadBundleListController>().SetActiveStageLoadButton(true);
+            stageBundleList[i].GetComponent<StageLoadBundleController>().SetActiveStageLoadButton(true);
         }
     }
 }

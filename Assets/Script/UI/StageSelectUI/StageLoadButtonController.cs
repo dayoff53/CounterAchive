@@ -8,7 +8,7 @@ using Sirenix.Serialization;
 using UnityEditor.SceneManagement;
 
 
-[DetailedInfoBox("Stage를 로드할 때 사용되는 버튼의 컨트롤러", "Stage를 로드할 때 사용되는 버튼의 컨트롤러로 \n스테이지의 타입과 레벨 조건에 맞는 랜덤한 하나의 Stage를 불러옵니다.")]
+[DetailedInfoBox("Stage를 로드할 때 사용되는 버튼의 컨트롤러", "Stage를 로드할 때 사용되는 버튼의 컨트롤러입니다. \n스테이지의 타입에 알맞은 이미지와 이름을 부여하는 기능이 있습니다. \n스테이지의 타입과 레벨 조건에 맞는 랜덤한 하나의 Stage를 불러오는 기능이 있어야 합니다.(구현중)")]
 public class StageLoadButtonController : MonoBehaviour
 {
     private DataManager dataManager;
@@ -44,6 +44,8 @@ public class StageLoadButtonController : MonoBehaviour
             stageImage[1].color = stageColors[0];
             stageImage[2].color = stageColors[3];
             stageImage[3].color = stageColors[0];
+
+            Debug.Log($"Stage Type: {_stageType}, Stage Level: {stageLevel}");
 
             gameObject.name = $"{_stageType}_Button";
             switch (value)
