@@ -10,7 +10,6 @@ public class StageLoadBundleListController : MonoBehaviour
 {
     public List<StageLoadButtonController> StageBundles;
 
-    public bool isSingularityBundleList = false;
 
     void Start()
     {
@@ -19,13 +18,10 @@ public class StageLoadBundleListController : MonoBehaviour
 
     public void Init()
     {
-        if(!isSingularityBundleList)
-        {
         for (var i = 0; i < StageBundles.Count; i++)
         {
             StageBundles[i].stageType = (StageType)Random.Range(2, System.Enum.GetValues(typeof(StageType)).Length - 2);
             StageBundles[i].Init();
-        }
         }
     }
 
@@ -46,7 +42,6 @@ public class StageLoadBundleListController : MonoBehaviour
         {
             // 또는 버튼만 클릭 가능/불가능하게 하려면:
             Button button = StageBundles[i].GetComponent<Button>();
-            button.image.color = isActive ? Color.white : Color.gray;
             if (button != null) button.interactable = isActive;
         }
     }

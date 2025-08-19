@@ -45,6 +45,7 @@ public class StageLoadButtonController : MonoBehaviour
             stageImage[2].color = stageColors[3];
             stageImage[3].color = stageColors[0];
 
+            gameObject.name = $"{_stageType}_Button";
             switch (value)
             {
                 case StageType.Sensei:

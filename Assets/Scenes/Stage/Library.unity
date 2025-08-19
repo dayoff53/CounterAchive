@@ -2448,12 +2448,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 979727884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cabdb87e601a3d948813fe9d9156ed3f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7398bfcfb11389b4293f30fdcaa23e5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageLoadBundleListController
   StageBundles:
   - {fileID: 979727885}
-  isSingularityBundleList: 1
 --- !u!1 &1055900841
 GameObject:
   m_ObjectHideFlags: 0
@@ -5021,12 +5020,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2135841208}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cabdb87e601a3d948813fe9d9156ed3f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7398bfcfb11389b4293f30fdcaa23e5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageLoadBundleListController
   StageBundles:
   - {fileID: 2135841210}
-  isSingularityBundleList: 1
 --- !u!1 &2137586977
 GameObject:
   m_ObjectHideFlags: 0
