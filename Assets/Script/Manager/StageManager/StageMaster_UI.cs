@@ -43,7 +43,7 @@ public partial class BattleStageMaster
         /// <summary>
         /// StageUI 우측 하단에 위치하는 각종 데이터들을 표기하는 공간의 컴포넌트
         /// </summary>
-        public StageWindowController stageMenuController;
+        public SkillInfoUIController stageMenuController;
 
         /// <summary>
         /// 페이드 인엔아웃 기능을 제공하는 이미지
