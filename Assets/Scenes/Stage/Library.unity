@@ -965,6 +965,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4041785288332653217, guid: 644366411822a66458fd50da1e1b2705, type: 3}
     - target: {fileID: 8194497397797424841, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
+      propertyPath: stageBundlePrefab
+      value: 
+      objectReference: {fileID: 4041785288332653217, guid: 644366411822a66458fd50da1e1b2705, type: 3}
+    - target: {fileID: 8194497397797424841, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
+      propertyPath: stageButtonPrefab
+      value: 
+      objectReference: {fileID: 7930426838414534179, guid: d49268f3c94dd094c95a78bfc01ab5fc, type: 3}
+    - target: {fileID: 8194497397797424841, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
       propertyPath: stageSequence.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -1613,7 +1621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d75332ce10919e429749c5448e6d59b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 10
   jumpForce: 5
   rd: {fileID: 609353365}
   spriteRenderer: {fileID: 609353367}

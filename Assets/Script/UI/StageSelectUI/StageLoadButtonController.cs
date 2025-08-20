@@ -18,7 +18,6 @@ public class StageLoadButtonController : MonoBehaviour
     private List<Image> stageImage;
     [SerializeField]
     private List<Color> stageColors;
-
     [SerializeField]
     private List<Sprite> stageSprite;
     
