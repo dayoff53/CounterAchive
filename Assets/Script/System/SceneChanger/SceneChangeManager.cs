@@ -97,12 +97,20 @@ public class SceneChangeManager : Singleton<SceneChangeManager>
         if (loadingBarImage.fillAmount < 0.89f)
         {
             float progressTarget = asyncOperation.progress;
-            loadingBarImage.fillAmount = Mathf.SmoothStep(loadingBarImage.fillAmount, progressTarget, timer / loadingBarSpeed);
+            float newFillAmount = Mathf.SmoothStep(loadingBarImage.fillAmount, progressTarget, timer / loadingBarSpeed);
+            
+            // 역행 방지: 현재 값보다 작아지지 않도록 보장
+            loadingBarImage.fillAmount = Mathf.Max(loadingBarImage.fillAmount, newFillAmount);
         }
         else
         {
-            float normalizedTime = (timer - duration) / loadingBarSpeed;
-            loadingBarImage.fillAmount = Mathf.Lerp(0.9f, 1f, normalizedTime);
+            // 현재 fillAmount에서 시작하여 1.0f까지 부드럽게 증가
+            float startValue = Mathf.Max(0.9f, loadingBarImage.fillAmount);
+            float normalizedTime = Mathf.Clamp01((timer - duration) / loadingBarSpeed);
+            float newFillAmount = Mathf.Lerp(startValue, 1f, normalizedTime);
+            
+            // 역행 방지
+            loadingBarImage.fillAmount = Mathf.Max(loadingBarImage.fillAmount, newFillAmount);
         }
 
         Debug.Log($"로딩 진행도: {(int)(loadingBarImage.fillAmount * 100)}%");
