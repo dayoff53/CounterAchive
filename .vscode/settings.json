@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "CounterAchive.sln"
+    "dotnet.defaultSolution": "CounterAchive.slnx"
 }
