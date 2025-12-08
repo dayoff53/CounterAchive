@@ -860,13 +860,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1018820292886061709, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1163193915500155403, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
       propertyPath: m_Name
       value: SceneChanger_UI
       objectReference: {fileID: 0}
-    - target: {fileID: 1687713977978220321, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
-      propertyPath: m_Name
-      value: NextButtonLine
+    - target: {fileID: 1163193915500155403, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2178629932900761418, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
       propertyPath: m_Pivot.x
@@ -956,10 +960,32 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8194497397797424841, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
+      propertyPath: stageBundle
+      value: 
+      objectReference: {fileID: 4041785288332653217, guid: 644366411822a66458fd50da1e1b2705, type: 3}
+    - target: {fileID: 8194497397797424841, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
+      propertyPath: stageBundlePrefab
+      value: 
+      objectReference: {fileID: 4041785288332653217, guid: 644366411822a66458fd50da1e1b2705, type: 3}
+    - target: {fileID: 8194497397797424841, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
+      propertyPath: stageButtonPrefab
+      value: 
+      objectReference: {fileID: 7930426838414534179, guid: d49268f3c94dd094c95a78bfc01ab5fc, type: 3}
+    - target: {fileID: 8194497397797424841, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
+      propertyPath: stageSequence.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9171597466588493563, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2135841215}
+    - targetCorrespondingSourceObject: {fileID: 8583883406936030419, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 979727891}
   m_SourcePrefab: {fileID: 100100000, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
 --- !u!1 &397395073 stripped
 GameObject:
@@ -2405,6 +2431,24 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4526129395380189702, guid: 7cad0bdd2d95fe74e8133259b72a7e0f, type: 3}
   m_PrefabInstance: {fileID: 3441136}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &979727884 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8583883406936030419, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
+  m_PrefabInstance: {fileID: 397395072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &979727891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979727884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7398bfcfb11389b4293f30fdcaa23e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageLoadBundleListController
+  stageLoadButtons: []
 --- !u!1 &1055900841
 GameObject:
   m_ObjectHideFlags: 0
@@ -4947,6 +4991,24 @@ AreaEffector2D:
   m_ForceTarget: 0
   m_LinearDamping: 0
   m_AngularDamping: 0
+--- !u!1 &2135841208 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9171597466588493563, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
+  m_PrefabInstance: {fileID: 397395072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2135841215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135841208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7398bfcfb11389b4293f30fdcaa23e5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageLoadBundleListController
+  stageLoadButtons: []
 --- !u!1 &2137586977
 GameObject:
   m_ObjectHideFlags: 0

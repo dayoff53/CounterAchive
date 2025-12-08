@@ -20,8 +20,9 @@ public class StageLoadButtonController : MonoBehaviour
     private List<Color> stageColors;
     [SerializeField]
     private List<Sprite> stageSprite;
-    
     public int stageLevel;
+
+    public List<GameObject> nextButtonConnectLines;
 
     [SerializeField]
     [ReadOnly]
