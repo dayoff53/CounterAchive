@@ -53,12 +53,12 @@ public class DataManager : Singleton<DataManager>
     public List<UnitStatus> playerUnitStateList;
     
 /// <summary>
-/// 스테이지의 마지막 넘버
+/// 스테이지의 마지막 넘버 (스테이지의 마지막 넘버를 기준으로 스테이지의 총 개수를 구할 수 있음)
 /// </summary>
     public int lastStageNumber;
 
 /// <summary>
-/// 스테이지의 현재 넘버
+/// 스테이지의 현재 넘버 (몇번째 스테이지를 플레이하고 있는지)
 /// </summary>
     public int currentStageNumber;
 

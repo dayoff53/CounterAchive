@@ -92,6 +92,7 @@ public class StageSelectController : MonoBehaviour
                     buttonLevel = stageLoadButtonController.stageLevel,
 
                 };
+                stageLoadButtonController.stageButtonState = stageButtonState;
                 stageLoadBundleListController.stageLoadButtons.Add(stageLoadButtonController);
                 stageLoadButtonList.Add(stageButtonState);
             }
@@ -122,12 +123,18 @@ public class StageSelectController : MonoBehaviour
         {
             stageBundleList[i].GetComponent<StageLoadButtonListController>().SetActiveStageLoadButton(true);
         }
+        NextButtonConnecter();
     }
     
+    /// <summary>
+    /// 다음 스테이지 버튼과 현재 스테이지 버튼을 연결합니다.
+    /// </summary>
     void NextButtonConnecter()
     {
         for (int i = 0; i < stageLoadButtonList.Count; i++)
         {
+            Debug.Log($"Connecting next buttons for button {i}.");
+
             // 기존 값 초기화
             stageLoadButtonList[i].nextStageNumbers.Clear();
 
@@ -135,13 +142,18 @@ public class StageSelectController : MonoBehaviour
             if (i + 1 >= stageBundleList.Count) continue;
 
             // 다음 번들에서 사용 가능한 버튼 수 확인 (available = 사용 가능한 버튼 수)
-            var nextBundleController = stageBundleList[i + 1].GetComponent<StageLoadButtonListController>();
+            StageLoadButtonListController nextBundleController = stageBundleList[dataManager.currentStageNumber + 1].GetComponent<StageLoadButtonListController>();
             int available = nextBundleController?.stageLoadButtons?.Count ?? 0;
-            if (available == 0) continue;
+            if (available == 0) 
+            {
+                Debug.LogWarning($"No available buttons in the next bundle for button {i}. Skipping connection.");
+                continue;
+            }
 
             // 뽑을 개수(1 ~ 3)를 사용 가능 개수로 제한
             int randomValue = Random.Range(1, 4);
             int take = Mathf.Min(randomValue, available);
+            if (take <= 0) Debug.LogWarning($"Take value is non-positive for button {i}. Skipping connection.");
 
             // 후보 리스트 생성 후 Fisher-Yates로 섞음 (candidates = 후보 리스트)
             List<int> candidates = new List<int>(available);
@@ -149,43 +161,63 @@ public class StageSelectController : MonoBehaviour
             for (int k = candidates.Count - 1; k > 0; k--)
             {
                 int random = Random.Range(0, k + 1);
-                int tmp = candidates[k];
+                int tmp = candidates [k];
                 candidates[k] = candidates[random];
                 candidates[random] = tmp;
             }
 
+
+            List<GameObject> LineObjects = stageLoadButtonList[i].buttonObject.GetComponent<StageLoadButtonController>().nextButtonConnectLines;
+
+
+            
             // 중복 없이 앞에서부터 take개 선택
             for (int j = 0; j < take; j++)
             {
                 stageLoadButtonList[i].nextStageNumbers.Add(candidates[j]);
+                
+                Debug.Log($"Connecting line from button {i} to button {candidates[j]} in next bundle. \nLineObjects.Count = {LineObjects.Count}, LineObjects[{j}] = {LineObjects[j].name}");
+                DrawConnectionLine(LineObjects[j],
+                    stageLoadButtonList[i].buttonObject.GetComponent<RectTransform>(),
+                    nextBundleController.stageLoadButtons[candidates[j]].GetComponent<RectTransform>());
             }
         }
     }
 
+/// <summary>
+/// 두 RectTransform 간에 선을 그립니다. (각 스테이지 버튼별로 연결되어있는 버튼끼리 선을 그어 표기함)
+/// </summary>
+/// <param name="lineObject">선이 될 오브젝트</param>
+/// <param name="from">시작 위치</param>
+/// <param name="to">끝 위치</param>
     void DrawConnectionLine(GameObject lineObject, RectTransform from, RectTransform to)
     {
-        if (from == null || to == null)
+        if (lineObject == null || from == null || to == null)
         {
             Debug.LogWarning("Invalid RectTransform provided for line drawing.");
             return;
+        }
+        else
+        {
+            Debug.Log($"Drawing line from {from.gameObject.name} to {to.gameObject.name}");
         }
 
 
         // 월드 좌표를 로컬 좌표로 변환
         RectTransform lineRect = lineObject.GetComponent<RectTransform>();
-        RectTransform parentRect = lineObject.GetComponent<RectTransform>().parent as RectTransform;
+        RectTransform parentRect = lineObject.GetComponent<RectTransform>().parent.GetComponent<RectTransform>();
         Vector2 localStartPos;
         Vector2 localEndPos;
 
         // RectTransformUtility.ScreenPointToLocalPointInRectangle는 스크린 좌표(모니터 픽셀 기준) RectTransform의 로컬 좌표로 변환해주는 함수이다.
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            parentRect,
+            lineRect,
             RectTransformUtility.WorldToScreenPoint(null, from.position),
             null,
             out localStartPos);
 
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            parentRect,
+            lineRect,
             RectTransformUtility.WorldToScreenPoint(null, to.position),
             null,
             out localEndPos);

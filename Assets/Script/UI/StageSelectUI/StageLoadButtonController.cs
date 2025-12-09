@@ -24,6 +24,10 @@ public class StageLoadButtonController : MonoBehaviour
 
     public List<GameObject> nextButtonConnectLines;
 
+    [ReadOnly]
+    [DetailedInfoBox("스테이지 버튼 상태", "스테이지 버튼 상태 \n해당 스테이지 버튼의 상태를 담고 있는 변수로, 버튼 오브젝트, 인덱스, 레벨, 다음 스테이지 넘버 리스트를 포함합니다. \nStageSelectController에서 할당됩니다.")]
+    public StageButtonState stageButtonState;
+
     [SerializeField]
     [ReadOnly]
     private StageType _stageType;
@@ -47,7 +51,7 @@ public class StageLoadButtonController : MonoBehaviour
 
             Debug.Log($"Stage Type: {_stageType}, Stage Level: {stageLevel}");
 
-            gameObject.name = $"{_stageType}_Button";
+            gameObject.name = $"{_stageType}_Button_{stageButtonState.buttonIndex[0]}_{stageButtonState.buttonIndex[1]}";
             switch (value)
             {
                 case StageType.Sensei:
