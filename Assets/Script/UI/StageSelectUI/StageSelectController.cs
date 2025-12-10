@@ -92,6 +92,7 @@ public class StageSelectController : MonoBehaviour
                     buttonLevel = stageLoadButtonController.stageLevel,
 
                 };
+                stageButton.name = $"{stageLoadButtonController.stageType}_Button_{i}_{j}";
                 stageLoadButtonController.stageButtonState = stageButtonState;
                 stageLoadBundleListController.stageLoadButtons.Add(stageLoadButtonController);
                 stageLoadButtonList.Add(stageButtonState);
@@ -174,7 +175,8 @@ public class StageSelectController : MonoBehaviour
 
             List<GameObject> LineObjects = stageLoadButtonList[i].buttonObject.GetComponent<StageLoadButtonController>().nextButtonConnectLines;
 
-
+            
+    Canvas.ForceUpdateCanvases();
             
             // 중복 없이 앞에서부터 take개 선택
             for (int j = 0; j < take; j++)
@@ -198,50 +200,50 @@ public class StageSelectController : MonoBehaviour
     void DrawConnectionLine(GameObject lineObject, RectTransform from, RectTransform to)
     {
         if (lineObject == null || from == null || to == null)
-        {
-            Debug.LogWarning("Invalid RectTransform provided for line drawing.");
-            return;
-        }
-        else
-        {
-            Debug.Log($"Drawing line from {from.gameObject.name} to {to.gameObject.name}");
-        }
+    {
+        Debug.LogWarning("Invalid RectTransform provided for line drawing.");
+        return;
+    }
 
+    RectTransform lineRect = lineObject.GetComponent<RectTransform>();
+    RectTransform parentRect = lineRect.parent as RectTransform; // ★ 라인의 실제 부모 기준
 
-        // 월드 좌표를 로컬 좌표로 변환
-        RectTransform lineRect = lineObject.GetComponent<RectTransform>();
-        RectTransform parentRect = lineObject.GetComponent<RectTransform>().parent.GetComponent<RectTransform>();
-        Vector2 localStartPos;
-        Vector2 localEndPos;
+    if (parentRect == null)
+    {
+        Debug.LogWarning("Line object must have a RectTransform parent.");
+        return;
+    }
 
-        // RectTransformUtility.ScreenPointToLocalPointInRectangle는 스크린 좌표(모니터 픽셀 기준) RectTransform의 로컬 좌표로 변환해주는 함수이다.
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            lineRect,
-            RectTransformUtility.WorldToScreenPoint(null, from.position),
-            null,
-            out localStartPos);
+    // 1. 버튼 중심의 월드 좌표 구하기
+    Vector3 worldStart = from.TransformPoint(from.rect.center);
+    Vector3 worldEnd   = to.TransformPoint(to.rect.center);
 
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            lineRect,
-            RectTransformUtility.WorldToScreenPoint(null, to.position),
-            null,
-            out localEndPos);
+    // 2. 라인 부모 기준 로컬 좌표로 변환
+    Vector2 localStartPos = parentRect.InverseTransformPoint(worldStart);
+    Vector2 localEndPos   = parentRect.InverseTransformPoint(worldEnd);
 
+    // 3. 중앙 위치
+    Vector2 centerPos = (localStartPos + localEndPos) * 0.5f;
 
-        // 선의 위치를 각 목표의 중앙으로 설정
-        Vector2 centerPos = (localStartPos + localEndPos) * 0.5f;
-        lineRect.localPosition = centerPos;
+    Debug.Log($"[DrawConnectionLine] from localStartPos={localStartPos}, to localEndPos={localEndPos}, centerPos={centerPos}");
 
-        Vector2 dir = localEndPos - localStartPos;
-        float distance = dir.magnitude;
+    // LayoutGroup을 안 건드리려면 localPosition보다는 anchoredPosition 사용이 좀 더 직관적
+    lineRect.anchoredPosition = centerPos;
 
-        // 라인의 길이와 두께 설정 (가로로 긴 막대 + 회전)
-        float lineThickness = 1f; // 원하는 두께로 설정
-        lineRect.sizeDelta = new Vector2(distance, lineThickness);
-        
-        // 라인의 회전 설정 
-        // 각도 계산 (라디안 -> 도)
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        lineRect.localRotation = Quaternion.Euler(0, 0, angle);
+    // 4. 방향/거리
+    Vector2 dir = localEndPos - localStartPos;
+    float distance = dir.magnitude;
+
+    float lineThickness = 4f; // 테스트용으로 좀 두껍게
+    lineRect.sizeDelta = new Vector2(distance, lineThickness);
+
+    // 5. 회전
+    float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+    lineRect.localRotation = Quaternion.Euler(0, 0, angle);
+
+    Debug.Log($"{from.name} anchored={from.anchoredPosition}, world={from.position}");
+    Debug.Log($"{to.name} anchored={to.anchoredPosition}, world={to.position}");
+    Debug.Log($"[DrawConnectionLine] {from.name} -> {to.name}, center={centerPos}, len={distance}, angle={angle}");
+
     }
 }
