@@ -153,8 +153,10 @@ public class StageLoadButtonController : MonoBehaviour
     /// </summary>
     public void LoadRandomStage()
     {
+        // 불러올 스테이지들의 데이터 리스트를 가져옵니다.
         List<SceneKeyData> loadStageDataList = dataManager.sceneKeyDataList;
 
+        //만약 현재 스테이지 버튼의 타입이 Random이 아닐 경우, 해당 타입과 레벨에 맞는 스테이지 데이터로 필터링합니다.
         if(stageType != StageType.Random)
         {
             loadStageDataList = TypeStageDatasFilter(loadStageDataList, stageType);
@@ -162,6 +164,7 @@ public class StageLoadButtonController : MonoBehaviour
         }
         else
         {
+            // StageType예외 처리, 필수 타입(Sensei, Arona, LastBoss, Boss)을 제외한 스테이지 데이터로 필터링합니다.
             loadStageDataList = dataManager.sceneKeyDataList.Where(data => 
                 data.stageType != StageType.Sensei || 
                 data.stageType != StageType.Arona || 
@@ -189,13 +192,19 @@ public class StageLoadButtonController : MonoBehaviour
         sceneChangeManager.SceneLoad(loadStageData);
     }
     
-
+/// <summary>
+/// 스테이지 타입에 맞는 스테이지 데이터 필터링
+/// </summary>
+/// <param name="stageDatas"></param>
+/// <param name="stageType"></param>
+/// <returns></returns>
     private List<SceneKeyData> TypeStageDatasFilter(List<SceneKeyData> stageDatas, StageType stageType)
     {
         List<SceneKeyData> tagStageDatas = new List<SceneKeyData>();
 
         if(stageDatas != null)
         {
+            //Enemy 타입일 경우, 모든 Enemy타입(헬멧단, 로보, 카이저, 스케반) 리스트들을 종합시키기
             if(stageType == StageType.Enemy)
             {
                 tagStageDatas = stageDatas.Where(data => 
@@ -212,12 +221,19 @@ public class StageLoadButtonController : MonoBehaviour
         }
         else
         {
+            //필터링 된 데이터가 없을 경우, 전체 데이터에서 해당 타입으로 필터링
             tagStageDatas = dataManager.sceneKeyDataList.Where(data => data.stageType == stageType).ToList();
         }
 
         return tagStageDatas;
     }
 
+/// <summary>
+/// 스테이지 레벨에 맞는 스테이지 데이터 필터링
+/// </summary>
+/// <param name="tagStageDatas"></param>
+/// <param name="stageLevel"></param>
+/// <returns></returns>
     private List<SceneKeyData> LevelStageDatasFilter(List<SceneKeyData> tagStageDatas, int stageLevel)
     {
         List<SceneKeyData> levelStageDatas = new List<SceneKeyData>();    

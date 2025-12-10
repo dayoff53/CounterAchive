@@ -135,19 +135,24 @@ public class StageSelectController : MonoBehaviour
         {
             Debug.Log($"Connecting next buttons for button {i}.");
 
+            int nextBundleIndex = stageLoadButtonList[i].buttonIndex[0] + 1;
+
             // 기존 값 초기화
             stageLoadButtonList[i].nextStageNumbers.Clear();
 
             // 다음 번들이 없으면 건너뜀
-            if (i + 1 >= stageBundleList.Count) continue;
+            if (nextBundleIndex >= stageBundleList.Count) continue;
 
             // 다음 번들에서 사용 가능한 버튼 수 확인 (available = 사용 가능한 버튼 수)
-            StageLoadButtonListController nextBundleController = stageBundleList[dataManager.currentStageNumber + 1].GetComponent<StageLoadButtonListController>();
+            StageLoadButtonListController nextBundleController = stageBundleList[nextBundleIndex].GetComponent<StageLoadButtonListController>();
             int available = nextBundleController?.stageLoadButtons?.Count ?? 0;
             if (available == 0) 
             {
                 Debug.LogWarning($"No available buttons in the next bundle for button {i}. Skipping connection.");
                 continue;
+            }else
+            {
+                Debug.Log($"Next bundle for button {i} has {available} available buttons.");
             }
 
             // 뽑을 개수(1 ~ 3)를 사용 가능 개수로 제한
