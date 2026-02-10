@@ -1910,7 +1910,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -499.44135}
+  m_AnchoredPosition: {x: 0, y: -837.05255}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1441369725566879292
@@ -4275,7 +4275,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4327131960279069522}
   m_HandleRect: {fileID: 5390969949918558798}
   m_Direction: 2
-  m_Value: 3.7901752
+  m_Value: 5.676271
   m_Size: 0.40333334
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -10078,7 +10078,7 @@ GameObject:
   - component: {fileID: 730405602089158177}
   - component: {fileID: 6039139207640805013}
   m_Layer: 0
-  m_Name: BattleInGame
+  m_Name: DDBattleInGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12428,6 +12428,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2178629932900761418, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213435249894016214, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213435249894016214, guid: f16ae447e99e6594a9a8da9f1b5fdab2, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -4,6 +4,9 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 
 [System.Serializable]
+    /// <summary>
+    /// 스테이지 버튼의 위치와 상태를 저장하는 클래스
+    /// </summary>
 public class StageButtonState
 {
     [InfoBox("버튼 오브젝트")]
@@ -51,6 +54,10 @@ public class StageSelectController : MonoBehaviour
 
     [SerializeField]
     private int selectStageLength = 0; // 현재 선택된 스테이지의 길이
+
+    [SerializeField]
+    [InfoBox("각 버튼을 연결하는 선의 굵기")]
+    private float connectLineThickness = 5f;
 
     void Start()
     {
@@ -234,8 +241,7 @@ public class StageSelectController : MonoBehaviour
     Vector2 dir = localEndPos - localStartPos;
     float distance = dir.magnitude;
 
-    float lineThickness = 4f; // 테스트용으로 좀 두껍게
-    lineRect.sizeDelta = new Vector2(distance, lineThickness);
+    lineRect.sizeDelta = new Vector2(distance, connectLineThickness);
 
     // 5. 회전
     float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
