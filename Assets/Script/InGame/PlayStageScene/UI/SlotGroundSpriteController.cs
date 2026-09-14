@@ -23,10 +23,10 @@ public class SlotGround : MonoBehaviour
     [SerializeField]
     private UnitSlotController unitSlot;
 
-    private SlotGroundState _slotGroundState;
-    [SerializeField]
     [Tooltip("1.defalut, 2.select, 3.target ")]
-    private SlotGroundState slotGroundState
+    [SerializeField]
+    private SlotGroundState _slotGroundState;
+    public SlotGroundState slotGroundState
     {
         get
         {
