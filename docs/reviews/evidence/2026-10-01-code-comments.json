@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-01",
+  "scope": "Korean source comments only",
+  "verification": "Roslyn code-token comparison in both UNITY_EDITOR and player branches; syntax and XML documentation checks",
+  "unityRerun": false,
+  "files": [
+    {
+      "path": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "documentedDeclarations": 38,
+      "documentedParameters": 19,
+      "codeTokensUnchanged": true,
+      "syntaxAndXmlValid": true,
+      "sha256": "5740E1E8C238B498D4CE9A5FDE1A1AE9608573AFC52716B1E9EFE3CDA67E8B0B"
+    },
+    {
+      "path": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "documentedDeclarations": 63,
+      "documentedParameters": 19,
+      "codeTokensUnchanged": true,
+      "syntaxAndXmlValid": true,
+      "sha256": "0599FCFAA8213CF4EF2FA173E1F429D17EA1F80E8DD0A4DF4A4B29C6B585ED48"
+    },
+    {
+      "path": "Assets/MaseiKivotos/Editor/StageBattleScene.cs",
+      "documentedDeclarations": 3,
+      "documentedParameters": 0,
+      "codeTokensUnchanged": true,
+      "syntaxAndXmlValid": true,
+      "sha256": "3D717818BEB5F0532A47DF6076AF445331EE3952D7AFE0A9F3A5FD02E05906F0"
+    },
+    {
+      "path": "Assets/MaseiKivotos/Editor/TurnSandboxScene.cs",
+      "documentedDeclarations": 4,
+      "documentedParameters": 0,
+      "codeTokensUnchanged": true,
+      "syntaxAndXmlValid": true,
+      "sha256": "FAE2A2F8788EFDF255F156FF5B85AE0C3E72B634AEB1C030DDBB42A6A882BDCC"
+    },
+    {
+      "path": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "documentedDeclarations": 21,
+      "documentedParameters": 14,
+      "codeTokensUnchanged": true,
+      "syntaxAndXmlValid": true,
+      "sha256": "62A5CC3F52F1F25A934F3FF5B8DC97DD24FD615A590963B3A0B8B4F79A5B4A54"
+    },
+    {
+      "path": "Assets/MaseiKivotos/Tests/PlayMode/StageBattleTests.cs",
+      "documentedDeclarations": 4,
+      "documentedParameters": 3,
+      "codeTokensUnchanged": true,
+      "syntaxAndXmlValid": true,
+      "sha256": "C32FE65FF520693B9300DE5D216A07B0778871D97B87B5FAEB70CF6F0F39E271"
+    },
+    {
+      "path": "Assets/MaseiKivotos/Tests/PlayMode/TurnSandboxTests.cs",
+      "documentedDeclarations": 4,
+      "documentedParameters": 3,
+      "codeTokensUnchanged": true,
+      "syntaxAndXmlValid": true,
+      "sha256": "C5FD64F433D3945F98236B56A722F852C8093699FBE4BB7C3CF49988CA7FAEEF"
+    },
+    {
+      "path": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "documentedDeclarations": 32,
+      "documentedParameters": 37,
+      "codeTokensUnchanged": true,
+      "syntaxAndXmlValid": true,
+      "sha256": "DD72B7DD1E5E65E56D40D3074D96F2B736AE6C9A08C16856E4E12DFC0316F840"
+    },
+    {
+      "path": "Assets/MaseiKivotos/Unity/TurnBattleView.cs",
+      "documentedDeclarations": 10,
+      "documentedParameters": 2,
+      "codeTokensUnchanged": true,
+      "syntaxAndXmlValid": true,
+      "sha256": "B34C4B37589CE3FD7F552757332DF973B330A7A9964544EBFBBF0429254DCDAB"
+    },
+    {
+      "path": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "documentedDeclarations": 20,
+      "documentedParameters": 5,
+      "codeTokensUnchanged": true,
+      "syntaxAndXmlValid": true,
+      "sha256": "F6487D479E2149D03995517C82896D74720A132595B6E11AF679E5F3BDA1771E"
+    },
+    {
+      "path": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "documentedDeclarations": 23,
+      "documentedParameters": 33,
+      "codeTokensUnchanged": true,
+      "syntaxAndXmlValid": true,
+      "sha256": "D68BFD95ECA64D57EC858421AB0CE8FFCFCA1C9BBC1519F21C0C1F821D3AA3D6"
+    }
+  ]
+}

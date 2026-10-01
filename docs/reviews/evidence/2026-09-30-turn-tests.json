@@ -1,0 +1,78 @@
+{
+  "date": "2026-09-30",
+  "unity": "6000.5.10f1",
+  "runs": [
+    {
+      "file": "Logs/makibo-EditMode-20260930-222031-993.xml",
+      "sha256": "4760A17C0517E2E49A62A7F8EB1CC6584D919BBCB8B31DA06D1BBC3282F341A7",
+      "result": "Passed",
+      "total": 12,
+      "passed": 12,
+      "failed": 0,
+      "cases": [
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.CompletedEffectBatchEndsBattleEvenWithReservesAndStopsNextTurn(False,PlayerVictory)",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.CompletedEffectBatchEndsBattleEvenWithReservesAndStopsNextTurn(True,PlayerDefeat)",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.CostUsesFieldCountAndCapsAtTenWithoutCarryOverActions",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.FirstTurnSkipsOnlyCostGainAndRunsAllFivePhases",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.InvalidRetreatBatchIsAtomic",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.OneChanceEachDespiteDifferentSpeedsAndTurnIncrementsOnlyAfterLastUnit",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.PlanningCanBeEditedButCannotBeChangedAfterConfirmation",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.RejectsInvalidStatsRosterZonesAndDuplicateIds",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.RetreatedUnitLosesPendingChanceAndDoesNotGenerateCost",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.RetreatOfCurrentActorDoesNotRunItsEndTurnReservation",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.StartsWithFirstTwoInZonesAndReserveExcluded",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.TiesUseFreshFisherYatesDrawsEveryTurnIncludingZeroSpeed",
+          "result": "Passed"
+        }
+      ]
+    },
+    {
+      "file": "Logs/makibo-PlayMode-20260930-222949-925.xml",
+      "sha256": "CE30F3ADF7DE499C0483B0E39F4C952E578378E052198C40A7C87A22B69ACCDC",
+      "result": "Passed",
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "cases": [
+        {
+          "name": "MaseiKivotos.Tests.TurnSandboxTests.SceneButtonsAdvanceRealTurnAndResetCancelsPendingWork",
+          "result": "Passed"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,313 @@
+{
+  "unity": "6000.5.10f1",
+  "date": "2026-10-01",
+  "environment": "Isolated project copy at Logs/StageValidation; source editor left open",
+  "tests": [
+    {
+      "file": "Logs/stage-editmode.xml",
+      "result": "Passed",
+      "total": 12,
+      "passed": 12,
+      "failed": 0,
+      "started": "2026-10-01 04:15:11Z",
+      "tests": [
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.CompletedEffectBatchEndsBattleEvenWithReservesAndStopsNextTurn(False,PlayerVictory)",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.CompletedEffectBatchEndsBattleEvenWithReservesAndStopsNextTurn(True,PlayerDefeat)",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.CostUsesFieldCountAndCapsAtTenWithoutCarryOverActions",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.FirstTurnSkipsOnlyCostGainAndRunsAllFivePhases",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.InvalidRetreatBatchIsAtomic",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.OneChanceEachDespiteDifferentSpeedsAndTurnIncrementsOnlyAfterLastUnit",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.PlanningCanBeEditedButCannotBeChangedAfterConfirmation",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.RejectsInvalidStatsRosterZonesAndDuplicateIds",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.RetreatedUnitLosesPendingChanceAndDoesNotGenerateCost",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.RetreatOfCurrentActorDoesNotRunItsEndTurnReservation",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.StartsWithFirstTwoInZonesAndReserveExcluded",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnBattleTests.TiesUseFreshFisherYatesDrawsEveryTurnIncludingZeroSpeed",
+          "result": "Passed"
+        }
+      ]
+    },
+    {
+      "file": "Logs/stage-playmode-reviewed.xml",
+      "result": "Passed",
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "started": "2026-10-01 06:38:39Z",
+      "tests": [
+        {
+          "name": "MaseiKivotos.Tests.StageBattleTests.RetainedSlotsAndButtonsDriveTheSharedTurnBattle",
+          "result": "Passed"
+        },
+        {
+          "name": "MaseiKivotos.Tests.TurnSandboxTests.SceneButtonsAdvanceRealTurnAndResetCancelsPendingWork",
+          "result": "Passed"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "Assets/MaseiKivotos/Core.meta",
+      "sha256": "32475E901C3B10797EE61EDBC7945E14F1DB43F6BB59827E36F05687C8A02DBC",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Editor.meta",
+      "sha256": "AE332E30D823A8452C87901C2F35D2B1089F3715C1A743311F734D5A56B07E85",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Scenes.meta",
+      "sha256": "EBDA3D92540914452A217AE817891EA0394688CF046154B4C0DF3BF2CFE579B3",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Tests.meta",
+      "sha256": "C8949A062A67E4E572D40551D295BECBEA6B511F234A160B61E43E0CDBFD53D2",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Unity.meta",
+      "sha256": "9290BE4CD38AF0E49F81061D98020BAEA0934A3064E624D6639B9A21A4F81537",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "sha256": "48033DE42CA79ECD70036266291724353D41E6A15EDFA6F0220B4D280092858D",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Core/BattleRoster.cs.meta",
+      "sha256": "D18540187D27DF32A9D62577ED9249FD268789A23B1935F4B279113DCF0FFFC1",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Core/MaseiKivotos.Core.asmdef",
+      "sha256": "02D2CC9209B89C66EEF77BCF7B9CF5467B274BF47F37656C8A03ED2BA8E5CBD0",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Core/MaseiKivotos.Core.asmdef.meta",
+      "sha256": "141F9792DB3030D0388D3E9E8C03EA9439ADE7C7A840DCD3222ACAA3314EE69A",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "sha256": "0C2CFF95A39BC0CA7CC2DA8AAB1DE35431FB0E233780E75524286AD5DAC0D7B2",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Core/TurnBattle.cs.meta",
+      "sha256": "37C00916DCBB558EC204AB7DB0BEB7E912E3FAE5739FD7125A6CE11429C8B784",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Editor/MaseiKivotos.Editor.asmdef",
+      "sha256": "67E2C5992E4D46073EBDE052BCBF49400CFB5230BB5C2AAE8794D54D2A956225",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Editor/MaseiKivotos.Editor.asmdef.meta",
+      "sha256": "13711408DB83428EBBA5554D8C0C55AADCA7843B83C830ED9D3280970B065F63",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Editor/StageBattleScene.cs",
+      "sha256": "E517F8F89B57B49010820B67A84B52FDC6C2DC0107C5E9A0E0AD50B04E5C6E65",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Editor/StageBattleScene.cs.meta",
+      "sha256": "B34617F8A34CFB6CCF109A3E82A2E91AE3C288162A3D7137C1A11595C0A05738",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Editor/TurnSandboxScene.cs",
+      "sha256": "1B08EE0854DADD5A3CE47CDB9F5AAD8A1DFD8B96B8B6F5895CEC1AFC1873E02B",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Editor/TurnSandboxScene.cs.meta",
+      "sha256": "18BC025D700435A975A52424519109E9580AF6AA85CD9AB051B0230BE14EAB39",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Scenes/TurnSandbox.unity.meta",
+      "sha256": "625AF3F504A30CB1A22BD2F648F5202170171EACDEDBC38FF1614980344887A1",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Tests/EditMode.meta",
+      "sha256": "C04AB3EA59E89E9E26805F2F47B51A6B11D877DD7DFE91BF0B12707C6AB2EE1B",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Tests/PlayMode.meta",
+      "sha256": "C1765B29A73DBF621AC1806F75056ECD36C8C65A12C169C52D05BE8446816D16",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Tests/EditMode/MaseiKivotos.EditModeTests.asmdef",
+      "sha256": "15451C79C3E351ACE27D9B6C5268DA2931D0CE08587C33B438374A4DBAEF7F8D",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Tests/EditMode/MaseiKivotos.EditModeTests.asmdef.meta",
+      "sha256": "EB2AA859C988813864081B623BE3C4DCE36E3F8DAF7AEF7808FE6215C4A17389",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "sha256": "1884822E5D5EAB7DF855D6731B29896F1588EFE4FD8CC83B912F4DA7158A3A65",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs.meta",
+      "sha256": "2D36184ED6CCCA4CBE5D2E14B80253596F98F2207AA8A4D165C5E9F8F3661C2A",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Tests/PlayMode/MaseiKivotos.PlayModeTests.asmdef",
+      "sha256": "52F0E90896BB6BAACA7A644DEC87C2AB2F77281443382DE2482C200995DD070E",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Tests/PlayMode/MaseiKivotos.PlayModeTests.asmdef.meta",
+      "sha256": "9C82250F2EFC31E94FED80285207B20C3BA72BF35990AC2486AD8AAB684C98DA",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Tests/PlayMode/StageBattleTests.cs",
+      "sha256": "D487C0FE8DA1C1BC6323A9249B9F254624725EBDE2D4DE0F74BD8B90A520E787",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Tests/PlayMode/StageBattleTests.cs.meta",
+      "sha256": "60A0DE2DBEC905A440950FD14E86C48633437FB44AE02885F6FF34562C1EB983",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Tests/PlayMode/TurnSandboxTests.cs",
+      "sha256": "563FD902EFAFB64B2C2ED35DEB72CF175B2CB14FCCAB2D08F1081D2E57A88521",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Tests/PlayMode/TurnSandboxTests.cs.meta",
+      "sha256": "0FC4C7E50DFD394FC50FD407B35DB39941B8274A48CE9D439345317404B448FF",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Unity/MaseiKivotos.Unity.asmdef",
+      "sha256": "9F29232A5968E575134502E8483F60B5D614E605A19CEECAD1DFAD6E317151FE",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Unity/MaseiKivotos.Unity.asmdef.meta",
+      "sha256": "8A305A348F7A328429A9A81AEBA2E6AFDEC67994F339C7732778C986FD6776F5",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "sha256": "F81AECB08DA4D1121E0639396EAA710A26535F711F9DE078CFCB0A22A5C4E286",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Unity/StageBattleView.cs.meta",
+      "sha256": "E24ABBED7924861ECD290B3ADFC251F3C715C5DFB90131A2EA33B2BE4551B0B4",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Unity/TurnBattleView.cs",
+      "sha256": "C174DC61902127187E139C358CAFCFE1C6BE4B8E0B6A1ED9CB71A9762E6F7B77",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Unity/TurnBattleView.cs.meta",
+      "sha256": "80BFEF48367CC67DBBB421583F1F4B1B1F305FC86529BE3CA5B94DA1616E6970",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "sha256": "E47F45629D0C832B3448456A98F11941C3767C4DC3F1F275A129B74D88668ABC",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs.meta",
+      "sha256": "A2B417EBE040CAE3EB8D51421F908737A12B0500E0E277A80B7725B5F2843606",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "sha256": "5D31DCE3A7E4A1942E13CDD77EA301D85595172B52AE8960AD883C57757253A4",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs.meta",
+      "sha256": "BA00E2FDEC8D9BEE5E2DC30336DB664922137F7DD3797C632EC50D5239C98AFE",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/Scenes/Stage/Battle/BattleType/Stage_Battle.unity",
+      "sha256": "EADB371FD1DE4AD74EF7A63553A0E7B00817A7706D6F2B02793E751686CCF533",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/Resources/prefab/DDBattleInGame.prefab",
+      "sha256": "7D474D79CEE3355425725BDD6265A606830DFE57A5B584DB202A680117D7D7F8",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/Resources/prefab/UnitSlot.prefab",
+      "sha256": "22379892FEA0078F2A229AF5F90916805D43EFF198644B1705391E14E6DA0752",
+      "matchesTestedCopy": true
+    },
+    {
+      "path": "Assets/Resources/prefab/Unit.prefab",
+      "sha256": "D3016632CAB8DE62D24B56F5E1166A4EB284CEC8274FD66A7A1BE4FC3D3C4E01",
+      "matchesTestedCopy": true
+    }
+  ],
+  "quarantinedScriptPairsVerified": 49,
+  "resourcesDeleted": 0,
+  "limitations": [
+    "Retained Missing Script warnings",
+    "Existing Sirenix/Odin initialization exceptions",
+    "Player build not run",
+    "Source editor Play Mode not driven"
+  ]
+}

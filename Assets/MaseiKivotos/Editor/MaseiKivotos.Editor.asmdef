@@ -1,0 +1,6 @@
+{
+  "name": "MaseiKivotos.Editor",
+  "rootNamespace": "MaseiKivotos.Editor",
+  "references": ["MaseiKivotos.Unity"],
+  "includePlatforms": ["Editor"]
+}

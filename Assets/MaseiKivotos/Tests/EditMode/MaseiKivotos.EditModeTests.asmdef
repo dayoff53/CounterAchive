@@ -1,0 +1,6 @@
+{
+  "name": "MaseiKivotos.EditModeTests",
+  "references": ["MaseiKivotos.Core"],
+  "includePlatforms": ["Editor"],
+  "optionalUnityReferences": ["TestAssemblies"]
+}
