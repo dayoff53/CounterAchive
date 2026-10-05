@@ -1,5 +1,5 @@
 {
   "name": "MaseiKivotos.PlayModeTests",
-  "references": ["MaseiKivotos.Core", "MaseiKivotos.Unity", "UnityEngine.UI"],
+  "references": ["MaseiKivotos.Core", "MaseiKivotos.Unity", "UnityEngine.UI", "Unity.TextMeshPro"],
   "optionalUnityReferences": ["TestAssemblies"]
 }

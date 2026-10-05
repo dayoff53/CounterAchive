@@ -131,7 +131,7 @@ namespace MaseiKivotos.Unity
                 var button = MakeButton("Slot " + slotNumber, "", 32 + i * 137, 316, 120, 138, panel, () =>
                 {
                     // unit: 현재 처리하거나 표시할 유닛. 슬롯 조회 결과일 때는 빈 슬롯이면 null이다.
-                    var unit = controller.Battle.Units.FirstOrDefault(u => u.Slot == slotNumber);
+                    var unit = controller.DisplayedUnitAtSlot(slotNumber);
                     if (unit != null) controller.ToggleEndTurnReservation(unit.Id);
                 });
                 slots.Add(button); slotLabels.Add(button.GetComponentInChildren<Text>());
@@ -168,14 +168,14 @@ namespace MaseiKivotos.Unity
             TurnText.text = "TURN " + battle.TurnNumber.ToString("00");
             phaseText.text = PhaseName(battle.Phase);
             actorText.text = battle.ActiveUnitId != null
-                ? battle.Unit(battle.ActiveUnitId).Definition.Name + "  ·  턴 종료 실행 대기"
+                ? battle.Unit(battle.ActiveUnitId).Definition.Name + "  ·  예약 행동 실행 중"
                 : battle.Phase == TurnPhase.Planning ? "행동 예약 중" : battle.Phase == TurnPhase.Ended ? "전투 종료" : "다음 단계 / 차례 대기";
             costText.text = "아군  " + battle.Costs[1] + " / 10     적군  " + battle.Costs[2] + " / 10";
             for (int i = 0; i < phases.Count; i++) phases[i].color = (int)battle.Phase == i + 1 ? accent : muted;
             for (int i = 0; i < 9; i++)
             {
                 // unit: 현재 처리하거나 표시할 유닛. 슬롯 조회 결과일 때는 빈 슬롯이면 null이다.
-                var unit = battle.Units.FirstOrDefault(u => u.Slot == i + 1);
+                var unit = controller.DisplayedUnitAtSlot(i + 1);
                 // friendly: 현재 슬롯 유닛이 플레이어 소속인지 여부. 색상과 예약 입력 허용에 사용한다.
                 bool friendly = unit != null && unit.FactionId == battle.PlayerFactionId;
                 // active: 이 슬롯의 유닛이 현재 차례 소유자인지 나타내는 강조 표시 조건.
@@ -187,11 +187,12 @@ namespace MaseiKivotos.Unity
                 else
                 {
                     // state: 유닛의 현재 차례·완료·예약 여부에 따라 선택한 슬롯 안내 문구.
-                    string state = active ? "▶ 현재 차례" : battle.HasCompleted(unit.Id) ? "차례 완료" : !friendly ? "예약 비공개" : battle.HasEndTurnReservation(unit.Id) ? "종료 예약됨" : "눌러서 예약";
-                    slotLabels[i].text = (i + 1) + "번 슬롯\n" + unit.Definition.Name + "\nSpeed " + unit.Definition.Stats.Speed + "\n" + state;
+                    string state = active ? "▶ 현재 차례" : battle.HasCompleted(unit.Id) ? "차례 완료" : !friendly ? "예약 비공개" : battle.MovementReservations(unit.Id).Count > 0 ? "이동" + (battle.MainReservation(unit.Id) != null ? "+스킬" : "") + " 예약됨" : battle.MainReservation(unit.Id) != null ? "스킬 예약됨" : battle.HasEndTurnReservation(unit.Id) ? "종료 예약됨" : "눌러서 예약";
+                    slotLabels[i].text = (i + 1) + "번 슬롯\n" + unit.Definition.Name + "\nHP " + unit.CurrentHp + "/" + unit.Definition.Stats.Hp + "\nSpeed " + unit.Definition.Stats.Speed + "\n" + state;
                 }
             }
             reserveText.text = "대기  ·  " + string.Join(" / ", battle.Units.Where(u => u.Location == UnitLocation.Reserve).Select(u => u.Definition.Name)) + "    |    시작 2명 · 필드 최대 3명 · 전체 9슬롯";
+            if (controller.MovementPreview != null) reserveText.text = "이동 미리보기 · 아군 이동만 예상 / 적 예약·피해 미반영 · 확정 후 실제 위치에서 실행";
             orderText.text = battle.Order.Count == 0 ? "행동 순서  ·  초기화 후 결정됩니다" : "행동 순서  ·  " + string.Join("   →   ", battle.Order.Select(id => (id == battle.ActiveUnitId ? "▶ " : battle.HasCompleted(id) ? "✓ " : "") + battle.Unit(id).Definition.Name));
 
             // visible: 상대의 비공개 예약을 제외하고 화면에 보여 줄 진행 기록.
@@ -200,9 +201,9 @@ namespace MaseiKivotos.Unity
             SkipButton.interactable = !controller.IsAdvancing && battle.Phase != TurnPhase.Ended;
             StepButton.interactable = SkipButton.interactable;
             SkipButton.GetComponentInChildren<Text>().text = controller.IsAdvancing ? "차례 처리 중…" : "턴 넘기기  →";
-            StepButton.GetComponentInChildren<Text>().text = battle.Phase == TurnPhase.Planning ? "예약 확정 · 모두 차례 생략" : "다음 단계 / 차례";
+            StepButton.GetComponentInChildren<Text>().text = battle.Phase == TurnPhase.Planning ? "예약 확정" : "다음 단계 / 행동";
             ExampleButton.GetComponentInChildren<Text>().text = controller.EqualSpeedExample ? "기본 예제" : "동률 예제";
-            modeText.text = "턴 검증용 임시 유닛 · 적은 차례 생략 · 스킬/상태 효과 미연결   |   " + (controller.EqualSpeedExample ? "전원 Speed 100 · 매 턴 동률 재추첨" : "Speed 150 → 120 → 80 → 50");
+            modeText.text = "일반 공격 예제 · 적은 차례 생략 · 상태 효과 미연결   |   " + (controller.EqualSpeedExample ? "전원 Speed 100 · 매 턴 동률 재추첨" : "Speed 150 → 120 → 80 → 50");
         }
 
         /// <summary>

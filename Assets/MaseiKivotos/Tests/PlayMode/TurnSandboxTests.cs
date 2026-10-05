@@ -71,6 +71,23 @@ namespace MaseiKivotos.Tests
             Assert.IsFalse(controller.IsAdvancing);
             Assert.AreEqual(3, controller.Battle.Costs[1]);
             Assert.IsTrue(controller.View.SkipButton.interactable);
+
+            // panel: Stage_Battle과 다른 화면 비율에서도 공통 스킬 창의 클릭이 연결되는지 검사한다.
+            var panel = controller.SkillPanel;
+            Click(panel.OpenButton); yield return null;
+            Click(panel.UnitButtons[0]); Click(panel.SkillButtons[0]); Click(panel.TargetButtons[8]); Click(panel.ApplyButton);
+            Assert.AreEqual("shot", controller.Battle.MainReservation("A").SkillId);
+            Click(panel.CloseButton);
+            // 이동 창 역시 독립 검증 씬에서 실제 클릭으로 예약된다.
+            Click(controller.MovePanel.OpenButton); yield return null;
+            Click(controller.MovePanel.TargetButtons[3]); Assert.AreEqual(4, controller.MovementPreview["A"]);
+            Click(controller.MovePanel.CloseButton);
+            controller.StepDelay = 0; Click(controller.View.SkipButton);
+            for (int i = 0; i < 64 && controller.IsAdvancing; i++) yield return null;
+            Assert.AreEqual(2, controller.Battle.TurnNumber);
+            Assert.AreEqual(70, controller.Battle.Unit("X").CurrentHp);
+            Assert.AreEqual(4, controller.Battle.Unit("A").SkillBp("shot"));
+            Assert.AreEqual(4, controller.Battle.Unit("A").Slot); Assert.IsNull(controller.MovementPreview);
         }
 
         /// <summary>

@@ -1,5 +1,5 @@
 {
   "name": "MaseiKivotos.Unity",
   "rootNamespace": "MaseiKivotos.Unity",
-  "references": ["MaseiKivotos.Core", "UnityEngine.UI"]
+  "references": ["MaseiKivotos.Core", "UnityEngine.UI", "Unity.TextMeshPro"]
 }
