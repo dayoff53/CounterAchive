@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3153974900514579989}
   - component: {fileID: 4497898395513046984}
   - component: {fileID: 452280459420862397}
-  - component: {fileID: 4864885270669490183}
   m_Layer: 5
   m_Name: StageButtonList
   m_TagString: Untagged
@@ -103,20 +102,3 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &4864885270669490183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4041785288332653217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7398bfcfb11389b4293f30fdcaa23e5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StageBundles:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}

@@ -1,0 +1,258 @@
+[
+  {
+    "path": "Assets/Resources/prefab/UI/UnitCardUI.prefab",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/Resources/prefab/UI/UnitCardUI.prefab",
+    "before": "E77168355E73CA27F8A7B972245CDFD2650A69B4301DB171C479375846EDF669",
+    "after": "897AAD6FB71FB7FE6E64B81A4DB9D0C61429484518469F2BF2B7BFB6F7A8139D",
+    "meta": "DAE86AB2F21851CA55842943720F3A7CB214088D778FFA41FD2DBB3CA7241228",
+    "removed": 1
+  },
+  {
+    "path": "Assets/Resources/prefab/Unit.prefab",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/Resources/prefab/Unit.prefab",
+    "before": "D3016632CAB8DE62D24B56F5E1166A4EB284CEC8274FD66A7A1BE4FC3D3C4E01",
+    "after": "790112087DF59F3480CC04385DEC890654C5CF55C960C273777FF83C21129DDB",
+    "meta": "6FC7333E28B35B3511D3A9470AB850861C352E281542CCC3D4316C225342A8A8",
+    "removed": 4
+  },
+  {
+    "path": "Assets/Resources/prefab/UnitSlot.prefab",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/Resources/prefab/UnitSlot.prefab",
+    "before": "22379892FEA0078F2A229AF5F90916805D43EFF198644B1705391E14E6DA0752",
+    "after": "607C3FFE7D1686638BEA770F8B13F5957440C3A7DE61AB5AD7F1DC8E23217B44",
+    "meta": "DA7AE109E7F6A245BDB8EA8C19A7881833367EE9D7905C4472C3FD23E0FBE8A7",
+    "removed": 2
+  },
+  {
+    "path": "Assets/Resources/prefab/UI/StageSelect/StageButtonList.prefab",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/Resources/prefab/UI/StageSelect/StageButtonList.prefab",
+    "before": "907AF54526CFCD92016D66F276023392BE009C5A242DD03B21C00843EE983B57",
+    "after": "DBA0D5A697CE20B93A2A112F1D439BCB7094FA1481EB4C63C288FC5E066B1BF2",
+    "meta": "0F9B974D7280197C2866661EE01518E7067E5BFCB1486224C1C16854EBDEAC85",
+    "removed": 1
+  },
+  {
+    "path": "Assets/Resources/prefab/UI/StageSelect/StageButton.prefab",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/Resources/prefab/UI/StageSelect/StageButton.prefab",
+    "before": "20A0CC3C2975EFDCEB61676A7BF8E9726ACEECE9059F165D30E4B31F1F7759DF",
+    "after": "93F8F4E47AD0C2CA1609108E42B444102D5EB1C84835410238BAAC0F9A63E1B1",
+    "meta": "B4CDB2299A8A8FB7C61707CC1DE5FB9C2C1E8383150C9AE921136777E260FD46",
+    "removed": 2
+  },
+  {
+    "path": "Assets/Resources/prefab/SceneChanger_UI.prefab",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/Resources/prefab/SceneChanger_UI.prefab",
+    "before": "2DFE97B438501A791C868DD53038D5815A477E0A4ACB328B1E1476D61F15A53B",
+    "after": "E2CEBDC17DD25B33F203273BAAC5246D66DDC387D091DEC522096D9D8AE18094",
+    "meta": "30054AFC673527B8058042C93F290CB635689846AD36A2A4DA6AA69575EDDCA6",
+    "removed": 4
+  },
+  {
+    "path": "Assets/Resources/prefab/DDBattleInGame.prefab",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/Resources/prefab/DDBattleInGame.prefab",
+    "before": "7D474D79CEE3355425725BDD6265A606830DFE57A5B584DB202A680117D7D7F8",
+    "after": "09BAB307551B8C4CC5EBF2E06D1C4F615C5773355B2586F5BADB4918244290B5",
+    "meta": "576EECDE599BDD8DFB939ADD729CE0FC843519AB452F1545776786EC3BFB562E",
+    "removed": 14
+  },
+  {
+    "path": "Assets/Resources/prefab/STSBattleInGame.prefab",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/Resources/prefab/STSBattleInGame.prefab",
+    "before": "270A0DD4CE57CCB90672572DB75E43183A28FA51A48295C84A616A4A51D2208E",
+    "after": "9CCB34245ECB8582576476E6024C78756825D1BAB66C9181CF5A534CC2855D76",
+    "meta": "A76E250EC91BDD05B09E6F859D25CED6D679344360ABFB50D21406B4C922FE93",
+    "removed": 14
+  },
+  {
+    "path": "Assets/Resources/prefab/UI/SelectUnitSlot.prefab",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/Resources/prefab/UI/SelectUnitSlot.prefab",
+    "before": "758DB75B030528393A44A71C056D722A889EC96215F49A3802CC59A3D0938EC8",
+    "after": "47389FE08D617DBE7CD62E514FDC403992C507B12CE636A8A4BE643BB3D7E239",
+    "meta": "988ADFD067E790623691C041C7A9D2B0B4C7433935B70812B165371CBC36004D",
+    "removed": 1
+  },
+  {
+    "path": "Assets/AssetStore/categorios/Dark UI/DarkUI.unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/AssetStore/categorios/Dark UI/DarkUI.unity",
+    "before": "93A783E76E33193CD72EEB90688CEAFD0216747A422B164BDEF5CD7A01E74B44",
+    "after": "2C6CC811A46E86CD2391603144F0A465B0D36E0E6431537DDD2E817EBF27C5B2",
+    "meta": "3EE51F7EF5BFF158CE485724944459FA46AEE9A827642F983CD93CA5059CA584",
+    "removed": 1
+  },
+  {
+    "path": "Assets/Scenes/LoadingScene.unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/Scenes/LoadingScene.unity",
+    "before": "08851F13626CA27998EC95441E23CCB40E0C8BB592FBF6E3A59F43FC7473E715",
+    "after": "08781F56BD1136CE54975DCD69540A166BF8373EE723B9B66EA9AB694ADBA3FA",
+    "meta": "8B2E37D0FCEB6C1376894A47E4C8B8CB068D0AD703B9188BC03D6589BBEF363E",
+    "removed": 2
+  },
+  {
+    "path": "Assets/Scenes/Old_Development/InGame/InGame20240421.unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/Scenes/Old_Development/InGame/InGame20240421.unity",
+    "before": "B5A28A6EC8322AF3E6BED3913079D95F8F63890DA3F290EB7DB35F92EDE952EF",
+    "after": "9F63CF1197A0EAFC0521F0499309F35D4922B9D7B6963E1241203318C7F0FF97",
+    "meta": "DE70ED37D258B7C240E249F39EE66DDF8137EEEBC0BC15AAA1F928F2471EF260",
+    "removed": 11
+  },
+  {
+    "path": "Assets/Scenes/Old_Development/InGame/InGame20240428.unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/Scenes/Old_Development/InGame/InGame20240428.unity",
+    "before": "E3A5C1FEE2964D833613BB56E44F0DC81B21D0734A54DB3C173A74E95A5C46B5",
+    "after": "76455AC55BDA317CEB91A6E61176D96267EDCA3F2FC898921FE7814AA1E6D053",
+    "meta": "0CB50C4D6600F1B05C5D5DA71576B9B899C8695C35760A479A7DA5164EBA665A",
+    "removed": 12
+  },
+  {
+    "path": "Assets/Scenes/Old_Development/InGame/InGame20240822.unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/Scenes/Old_Development/InGame/InGame20240822.unity",
+    "before": "D8DE6F5C641E70D2E3FCFCBAF6F8DF7D60034C4405FA69809E11FE587D78DA99",
+    "after": "7336F5EE9A21946027BD59BEE2D5D760614322B2CC3B6144CEC63541713DAF55",
+    "meta": "76B8336A06FD32D92F36DA3A2B65D2F67D599D01A860D63072F79C406BCB28E5",
+    "removed": 11
+  },
+  {
+    "path": "Assets/Scenes/Stage/Battle/BattleType/Helmet/Level_1/Helmet_101.unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/Scenes/Stage/Battle/BattleType/Helmet/Level_1/Helmet_101.unity",
+    "before": "DAB714798B58A15ED395AF2F2D2D4FDE4DC795D7799239BE22788FE1401EE9FB",
+    "after": "09FE442D98784F973CA804E0189F3FC2BC8279A9E83212E0370981E44D930E03",
+    "meta": "DAC8885B9394F474C903839A678DA3E69B3E30B0093317700BD383455E5B04B1",
+    "removed": 2
+  },
+  {
+    "path": "Assets/Scenes/Stage/Battle/BattleType/Helmet/Level_1/Helmet_102.unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/Scenes/Stage/Battle/BattleType/Helmet/Level_1/Helmet_102.unity",
+    "before": "9C7944DA064B7EBCB8E419D2D21339218E116068CE527BBD964217225935EC7D",
+    "after": "97607ADA1FA88D22B3FEF639396B25FE147A477F303AFBFB50EF038BDAA85943",
+    "meta": "6C24C3ECEE0FE612261894D8F94BF848CFE1743A94AA0D5498D1002D68C46F8C",
+    "removed": 2
+  },
+  {
+    "path": "Assets/Scenes/Stage/Battle/BattleType/Helmet/Level_1/Helmet_103.unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/Scenes/Stage/Battle/BattleType/Helmet/Level_1/Helmet_103.unity",
+    "before": "524A11AA3D806CE6707D1DF206DB744CD213809C463AFA10B7AAD69FD8105E46",
+    "after": "95D6324177AF3CC7F0394E4B5E7451EEE90EE175F95A6AFEEC70B39D2F5440CC",
+    "meta": "F746D5B39E04612F1371648F24A5DC5C84E534979D9AC7C77338B78318F98034",
+    "removed": 2
+  },
+  {
+    "path": "Assets/Scenes/Stage/Battle/BattleType/Stage_Battle.unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/Scenes/Stage/Battle/BattleType/Stage_Battle.unity",
+    "before": "5E61E1D80A1A7F4450BA1CD71C302CA6E054D013A0E20BE68348A4CEC583308C",
+    "after": "5AFFA206EFBB30688240A1D8EF6C02F415B395C8A8CD118EB54B5EB342334EC8",
+    "meta": "3DE93524E729469E7DD5CEA4B8075BEB74B8EBAE82E8800934DCEBD330D175EA",
+    "removed": 2
+  },
+  {
+    "path": "Assets/Scenes/Stage/Battle/BattleType/Stage_Battle_2.0.unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/Scenes/Stage/Battle/BattleType/Stage_Battle_2.0.unity",
+    "before": "E17D9316541C74AC79840D16C48C9E26DA1627259C50B00AAEA46A64871EC5E7",
+    "after": "99DA73D6236D9A30C96C30069DDC0BF7E4164AA48D92BC545C38F3922B6B3702",
+    "meta": "4AE6B1CEEC07299FD61433B9C4FB16C0E211F18F3A30ABD95132B7737E9EAEB9",
+    "removed": 2
+  },
+  {
+    "path": "Assets/Scenes/Stage/Library.unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/Scenes/Stage/Library.unity",
+    "before": "3B402E5919809A69075AF0C3A5E38F47B597CA47F17C7A10DDAADE172CEE824B",
+    "after": "235682B90E240AA589D2F4D00DDC57D3DBD08923A356BC0ECFAA047DE18F8CC2",
+    "meta": "247E6E11FE30331DE50F916B6B01BE714828D1F36215AEB8E11E1792EA2D3E12",
+    "removed": 5
+  },
+  {
+    "path": "Assets/Scenes/Stage/Menu/Menu_GroupSelect.unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/Scenes/Stage/Menu/Menu_GroupSelect.unity",
+    "before": "3ABFF71EB3B7607A10255C7D7C4EC925D474C1A3FA49C62099E5BFF8F59400B3",
+    "after": "0D3E935801FC88163755BDCCC1F068074E1665FB3E435566D86C40B6D4ACAE90",
+    "meta": "589AA5ED71394B1C7CCB3747D4A45CE5605AAB08F32DA15EAC2BD1F97A654DF7",
+    "removed": 5
+  },
+  {
+    "path": "Assets/Scenes/Stage/Menu/Menu_Title.unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/Scenes/Stage/Menu/Menu_Title.unity",
+    "before": "BD545FE555CCFD488772939839ABCE32D6F3978FAC36F3E2941835F25CF21A66",
+    "after": "F0B75E3E55AC3CBE7FE1F959CC86B255EA447A5E19A3EA981CEA340CDCFFB852",
+    "meta": "81633FD36CC6A7D1A90538F3564C2DCA099A5801562305F42674FCB38E8248DD",
+    "removed": 3
+  },
+  {
+    "path": "Assets/TextMesh Pro/Examples & Extras/Scenes/24 - Surface Shader Example URP.unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/TextMesh Pro/Examples & Extras/Scenes/24 - Surface Shader Example URP.unity",
+    "before": "F6817FBF603A2D98E205138A1BD7803F54EA52421A2F6F4F749686ABF4C91724",
+    "after": "86442941A1C3A4DC18CDBBECBC89656E0C4A9AAAAEAEB9E2FD004147E193A224",
+    "meta": "775EDAFCBC8BFCC5EAE6B37209100BE6D3FC096F41A2ABB3B76B26B65019749F",
+    "removed": 10
+  },
+  {
+    "path": "Assets/TextMesh Pro/Examples & Extras/Scenes/28 - HDRP Shader Example.unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/TextMesh Pro/Examples & Extras/Scenes/28 - HDRP Shader Example.unity",
+    "before": "9BB4F03E1589BEDF437E18DF9CBBF80CA0E36A8315D225451847213A61A1F51D",
+    "after": "79D12A130E2E264703420669FC57995D501FFF126103EA0127F7F115A6B7BD67",
+    "meta": "9C95B34034C9AE24DC073A93E7A4B0FB4BBEBE892A5B2DE0EAD9EB0F811E3213",
+    "removed": 7
+  },
+  {
+    "path": "Assets/_Recovery/0 (1).unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/_Recovery/0 (1).unity",
+    "before": "DAB714798B58A15ED395AF2F2D2D4FDE4DC795D7799239BE22788FE1401EE9FB",
+    "after": "09FE442D98784F973CA804E0189F3FC2BC8279A9E83212E0370981E44D930E03",
+    "meta": "4726D9A1DFEF2DB15AF83EA7D4FC646C765C1A6F38D07CB18781CF9FABE66DB9",
+    "removed": 2
+  },
+  {
+    "path": "Assets/_Recovery/0 (4).unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/_Recovery/0 (4).unity",
+    "before": "DB040A8340FE0DFD2A93F3F48F842E87B46823DEB998F6414F1E739AFFF1AFC0",
+    "after": "DE8491B2B1FB8A8FB4DD0DD1291C22A8C3B4FBEA838D8B22D8F92F3685C104C8",
+    "meta": "27846019624916A452F8E702F3ABF947AE134BE1F40744130743551870CCA779",
+    "removed": 7
+  },
+  {
+    "path": "Assets/_Recovery/0 (5).unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/_Recovery/0 (5).unity",
+    "before": "DB040A8340FE0DFD2A93F3F48F842E87B46823DEB998F6414F1E739AFFF1AFC0",
+    "after": "DE8491B2B1FB8A8FB4DD0DD1291C22A8C3B4FBEA838D8B22D8F92F3685C104C8",
+    "meta": "EC7EA6D7A0791A96392B36F695FAE6D86E1CE20B5DB7E8CC3C42B4356704ABDD",
+    "removed": 7
+  },
+  {
+    "path": "Assets/_Recovery/0 (6).unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/_Recovery/0 (6).unity",
+    "before": "DB040A8340FE0DFD2A93F3F48F842E87B46823DEB998F6414F1E739AFFF1AFC0",
+    "after": "DE8491B2B1FB8A8FB4DD0DD1291C22A8C3B4FBEA838D8B22D8F92F3685C104C8",
+    "meta": "2578A3D02BF100835130932C052C6F951E7190FF8CCD62EAE39DC129FF893984",
+    "removed": 7
+  },
+  {
+    "path": "Assets/_Recovery/0 (7).unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/_Recovery/0 (7).unity",
+    "before": "6E4BFB25F2F412D49791A96E31383908F4AB9919E4CBA7E59CD59BC78232D278",
+    "after": "B7F397753013C2C7DA47DD763DC47DC535E850855C55977880E7C1B5FABFA560",
+    "meta": "C19A45BF1ED394E561A65F928D154AE8B80277CE53D3469249CD2E72EF2FC21E",
+    "removed": 7
+  },
+  {
+    "path": "Assets/_Recovery/0 (8).unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/_Recovery/0 (8).unity",
+    "before": "7E051A435014ACECB2C4C662F877D16C7F6AC16C8F3DEFDC46282E86F75487AB",
+    "after": "92192537AE62B97629A5A5320876B372B8708E9DEA52C912B0D33444C733DF8D",
+    "meta": "2E209E6E10F1753E33E284A8E0228C3D9F5EA1785BC144AFEB0DE7BE7A5E6532",
+    "removed": 5
+  },
+  {
+    "path": "Assets/_Recovery/0 (9).unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/_Recovery/0 (9).unity",
+    "before": "7E051A435014ACECB2C4C662F877D16C7F6AC16C8F3DEFDC46282E86F75487AB",
+    "after": "92192537AE62B97629A5A5320876B372B8708E9DEA52C912B0D33444C733DF8D",
+    "meta": "5EBE0FD067406CF60A61DBB236169CDD62D8624B06E28963930B42AC83525136",
+    "removed": 5
+  },
+  {
+    "path": "Assets/_Recovery/0.unity",
+    "backup": "Legacy/MissingScripts/2026-10-04/before/Assets/_Recovery/0.unity",
+    "before": "03E344CF64FB30F69EF0C94B8DDBF07EA8626FEB19A3D385211281313ECD2001",
+    "after": "DE8491B2B1FB8A8FB4DD0DD1291C22A8C3B4FBEA838D8B22D8F92F3685C104C8",
+    "meta": "BA6702BEDB1C87A817468A22BCFB3FC1F663E133F51CE7F135E4DD4C1CB1F70A",
+    "removed": 7
+  }
+]

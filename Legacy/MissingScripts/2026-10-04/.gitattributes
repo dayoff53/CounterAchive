@@ -1,0 +1,2 @@
+# 백업의 줄바꿈까지 원본 그대로 저장하여 manifest SHA-256을 보존한다.
+before/** -text

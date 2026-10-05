@@ -292,7 +292,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 501152666}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GroupSelectCheckController, Assembly-CSharp
         m_MethodName: GameStart
         m_Mode: 1
@@ -479,7 +479,6 @@ GameObject:
   - component: {fileID: 501152663}
   - component: {fileID: 501152665}
   - component: {fileID: 501152664}
-  - component: {fileID: 501152666}
   m_Layer: 5
   m_Name: GroupSelectCheckPanel
   m_TagString: Untagged
@@ -546,19 +545,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501152662}
   m_CullTransparentMesh: 1
---- !u!114 &501152666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501152662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 998822127b746924080e1162c37ab8b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groupSelectCheckButton: {fileID: 302121917}
 --- !u!1 &521669337
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,7 +791,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 694964209}
-  - component: {fileID: 694964208}
   m_Layer: 0
   m_Name: GroupSelectMenuManager
   m_TagString: Untagged
@@ -813,18 +798,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &694964208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 694964207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 649a6ac0c5fd18c42853602a52ec455b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &694964209
 Transform:
   m_ObjectHideFlags: 0
@@ -923,7 +896,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 501152666}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GroupSelectCheckController, Assembly-CSharp
         m_MethodName: SelectCancel
         m_Mode: 1
@@ -1207,8 +1180,6 @@ GameObject:
   - component: {fileID: 1345950606}
   - component: {fileID: 1345950605}
   - component: {fileID: 1345950604}
-  - component: {fileID: 1345950608}
-  - component: {fileID: 1345950607}
   m_Layer: 5
   m_Name: GroupSlotButton
   m_TagString: Untagged
@@ -1280,7 +1251,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1345950607}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GroupSelectSlotController, Assembly-CSharp
         m_MethodName: OnGroupSelectButton
         m_Mode: 1
@@ -1330,33 +1301,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345950602}
   m_CullTransparentMesh: 1
---- !u!114 &1345950607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345950602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffb1959c69bd0e24899262dd7cfd76a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groupUnitsData: {fileID: 11400000, guid: b76676c59705ea04cb146933ae03a7fe, type: 2}
-  groupSelectCheckUIObject: {fileID: 501152662}
-  groupSelectCheckButton: {fileID: 302121917}
---- !u!114 &1345950608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345950602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13e5f7cbbbbfbbe449412578d6f892f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1456618714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,6 +1505,7 @@ Animator:
   m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &1482728944
 SpriteRenderer:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1579,6 +1524,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1600,9 +1547,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 1788626829, guid: a13c61be91610f64ba7eb8ee8015e306, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1612,8 +1561,8 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+  m_BlendShapeWeights: []
 --- !u!4 &1482728945
 Transform:
   m_ObjectHideFlags: 0
@@ -1781,6 +1730,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -1931,7 +1881,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2071657536}
-  - component: {fileID: 2071657537}
   m_Layer: 0
   m_Name: StageLoader
   m_TagString: Untagged
@@ -1954,21 +1903,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2071657537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2071657535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04cee90f35ee6a645831b4243af13a43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stageDatas:
-  - {fileID: 11400000, guid: e5d0bbac8f7a75d41ab1ad32a019569f, type: 2}
-  sceneChangeManager: {fileID: 0}
 --- !u!1 &2098031044
 GameObject:
   m_ObjectHideFlags: 0
@@ -2066,6 +2000,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0

@@ -128,7 +128,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 124564983}
-  - component: {fileID: 124564982}
   m_Layer: 0
   m_Name: LoadingSceneManager
   m_TagString: Untagged
@@ -136,22 +135,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &124564982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124564981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf35bdefdac579844b3f9e9db6b08561, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadSceneName: 
-  loadSceneKey: {fileID: 0}
-  loadingBarSpeed: 1
-  loadingDelayTime: 0.25
 --- !u!4 &124564983
 Transform:
   m_ObjectHideFlags: 0
@@ -176,7 +159,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 796010925}
-  - component: {fileID: 796010924}
   m_Layer: 0
   m_Name: DataManager
   m_TagString: Untagged
@@ -184,31 +166,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &796010924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 796010923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51fe198cd8c28414d96819c57f68847d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DataManager
-  battleStageMaster: {fileID: 0}
-  saveDataFilePath: 
-  currentSaveData:
-    playerUnitStates: []
-    lastStageNumber: 0
-    currentStageNumber: 0
-  playerUnitStateList: []
-  lastStageNumber: 0
-  currentStageNumber: 0
-  unitDataList: []
-  skillList: []
-  sceneKeyDataList: []
-  unitColorStateObject: {fileID: 0}
 --- !u!4 &796010925
 Transform:
   m_ObjectHideFlags: 0

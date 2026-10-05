@@ -128,7 +128,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 84110207}
-  - component: {fileID: 84110208}
   m_Layer: 0
   m_Name: DataManager
   m_TagString: Untagged
@@ -151,37 +150,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &84110208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 84110206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51fe198cd8c28414d96819c57f68847d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  battleStageMaster: {fileID: 0}
-  saveDataFilePath: 
-  currentSaveData:
-    playerUnitStates: []
-    lastStageNumber: 5
-    currentStageNumber: 0
-  playerUnitStateList: []
-  lastStageNumber: 5
-  currentStageNumber: 0
-  unitDataList: []
-  skillList:
-  - {fileID: 11400000, guid: 205e66c651f1d3644996aa3f8112a335, type: 2}
-  - {fileID: 11400000, guid: 06d9979cd4ff6854cb8c7d370b8c0d94, type: 2}
-  - {fileID: 11400000, guid: d87d93d1934537a4b8472cf037b7cfee, type: 2}
-  sceneKeyDataList:
-  - {fileID: 11400000, guid: 4601bf6cc489fa442aeea4d4f3c16827, type: 2}
-  - {fileID: 11400000, guid: 189ac31e501eb0b46b67be40d95793d1, type: 2}
-  - {fileID: 11400000, guid: 51ce9ff448f38874d9ab8fcbba293032, type: 2}
-  unitColorStateObject: {fileID: 0}
 --- !u!1 &274087640
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +366,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1123777485}
-  - component: {fileID: 1123777484}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -406,18 +373,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1123777484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123777483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0920114b3d387294abf4977769d5c33b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1123777485
 Transform:
   m_ObjectHideFlags: 0

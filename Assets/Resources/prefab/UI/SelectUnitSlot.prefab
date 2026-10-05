@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7555963546928705313}
   - component: {fileID: 3315154286628538668}
   - component: {fileID: 6316461839593045024}
-  - component: {fileID: 624252412736438999}
   m_Layer: 5
   m_Name: SelectUnitSlot
   m_TagString: Untagged
@@ -122,35 +121,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &624252412736438999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 497061486829603058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e549aa9bf0893d46971dfa877b068ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitState:
-    defaultUnitData: {fileID: 0}
-    unitNumber: 0
-    name: Null
-    hp: 0
-    atk: 0
-    speed: 1
-    actionPoint: 0
-    skillNumberList: 
-  unitName: {fileID: 8206483906622795267}
-  unitIcon: {fileID: 5627919874428325224}
-  subIcons:
-  - {fileID: 6891287593377841019}
-  - {fileID: 3046530722418523530}
-  - {fileID: 8780674879854702921}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &861525573122956371
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,20 +224,23 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
+  m_ActiveFontFeatures: 
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
