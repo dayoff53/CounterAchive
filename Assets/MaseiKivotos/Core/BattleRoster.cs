@@ -24,7 +24,7 @@ namespace MaseiKivotos.Core
     }
 
     /// <summary>
-    /// 유닛 정의에 보관하는 변경 불가능한 기본 능력치. 현재 HP나 버프에 의한 능력치 변화는 아직 별도로 구현하지 않았다.
+    /// 유닛 정의에 보관하는 기본 능력치. 현재 HP는 BattleUnit에 보관하며 능력치 버프는 아직 미구현이다.
     /// </summary>
     public sealed class CombatStats
     {
@@ -33,11 +33,11 @@ namespace MaseiKivotos.Core
         /// </summary>
         public int Hp { get; }
         /// <summary>
-        /// 태크 계열 공격력. 현재 턴 검증에서는 보관만 하고 피해 계산에는 연결하지 않는다.
+        /// 태크 계열 공격력. 태크 스킬 피해 계산에 사용한다.
         /// </summary>
         public int TAtk { get; }
         /// <summary>
-        /// 신비 계열 공격력. 현재 턴 검증에서는 보관만 하고 피해 계산에는 연결하지 않는다.
+        /// 신비 계열 공격력. 신비 스킬 피해 계산에 사용한다.
         /// </summary>
         public int MAtk { get; }
         /// <summary>
@@ -71,7 +71,7 @@ namespace MaseiKivotos.Core
     }
 
     /// <summary>
-    /// 한 유닛의 식별자·표시 이름·기본 능력치·기본 서브 횟수를 묶은 정의 데이터.
+    /// 한 유닛의 식별자·기본 능력치·행동 횟수·스킬·속성을 묶은 정의 데이터.
     /// </summary>
     public sealed class UnitDefinition
     {
@@ -84,13 +84,20 @@ namespace MaseiKivotos.Core
         /// </summary>
         public string Name { get; }
         /// <summary>
-        /// 턴 순서와 향후 전투 계산에 사용할 기본 능력치.
+        /// 턴 순서와 공격 피해 계산에 사용할 기본 능력치.
         /// </summary>
         public CombatStats Stats { get; }
         /// <summary>
         /// 턴 초기화 때 필드 유닛에 지급할 기본 서브 행동 횟수.
         /// </summary>
         public int BaseSubActions { get; }
+        /// <summary>한 번의 자발적 이동에서 허용하는 최대 칸 수. 콘텐츠에서 지정하며 0이면 이동할 수 없다.</summary>
+        public int MoveRange { get; }
+
+        /// <summary>최대 네 개의 일반 공격 정의. 빈 목록이면 턴 종료만 사용할 수 있다.</summary>
+        public IReadOnlyList<MainSkill> Skills { get; }
+        /// <summary>유닛 속성 한두 개. 기존 호출에서 생략하면 임시 무속성으로 구성한다.</summary>
+        public IReadOnlyList<CombatTrait> Traits { get; }
 
         /// <summary>
         /// 식별자·이름·능력치와 서브 행동 횟수를 검증해 유닛 정의를 만든다.
@@ -99,13 +106,27 @@ namespace MaseiKivotos.Core
         /// <param name="name">UI와 진행 기록에 표시할 유닛 이름.</param>
         /// <param name="stats">유닛의 기본 능력치 정의.</param>
         /// <param name="baseSubActions">턴마다 초기화할 기본 서브 행동 횟수.</param>
-        public UnitDefinition(string id, string name, CombatStats stats, int baseSubActions = 1)
+        /// <param name="skills">최대 네 개의 중복 없는 일반 스킬. 생략하면 빈 목록.</param>
+        /// <param name="traits">중복 없는 한두 속성. 생략하면 무.</param>
+        /// <param name="moveRange">유닛별 이동 거리 0~8. 기존 정의에서 생략하면 이동하지 않는다.</param>
+        public UnitDefinition(string id, string name, CombatStats stats, int baseSubActions = 1,
+            IEnumerable<MainSkill> skills = null, IEnumerable<CombatTrait> traits = null, int moveRange = 0)
         {
             if (string.IsNullOrWhiteSpace(id) || string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("A stable ID and a display name are required.");
             if (baseSubActions < 0) throw new ArgumentOutOfRangeException(nameof(baseSubActions));
+            if (moveRange < 0 || moveRange > 8) throw new ArgumentOutOfRangeException(nameof(moveRange));
             Id = id; Name = name; Stats = stats ?? throw new ArgumentNullException(nameof(stats));
             BaseSubActions = baseSubActions;
+            MoveRange = moveRange;
+            // skillList/traitList: 외부 배열 수정에 영향받지 않도록 복사한 정의 목록.
+            var skillList = (skills ?? Enumerable.Empty<MainSkill>()).ToArray();
+            var traitList = (traits ?? new[] { CombatTrait.Neutral }).ToArray();
+            if (skillList.Length > 4 || skillList.Any(s => s == null) || skillList.Select(s => s.Id).Distinct().Count() != skillList.Length)
+                throw new ArgumentException("At most four unique skills required.");
+            if (traitList.Length < 1 || traitList.Length > 2 || traitList.Distinct().Count() != traitList.Length || traitList.Any(t => !Enum.IsDefined(typeof(CombatTrait), t)))
+                throw new ArgumentException("One or two distinct traits required.");
+            Skills = Array.AsReadOnly(skillList); Traits = Array.AsReadOnly(traitList);
         }
     }
 
@@ -151,10 +172,35 @@ namespace MaseiKivotos.Core
     }
 
     /// <summary>
-    /// 전투 한 판에서 변하는 유닛의 배치 상태와 남은 행동 횟수. 정의 데이터와 분리한다.
+    /// 전투 한 판에서 변하는 유닛의 HP·BP·배치 상태와 남은 행동 횟수. 정의 데이터와 분리한다.
     /// </summary>
     public sealed class BattleUnit
     {
+        /// <summary>유닛마다 독립적으로 유지하는 스킬별 현재 BP. 턴마다 초기화하지 않는다.</summary>
+        private readonly Dictionary<string, int> skillBp = new Dictionary<string, int>();
+        /// <summary>이번 전투의 현재 HP. 0이면 퇴각하며 다음 턴에도 회복되지 않는다.</summary>
+        public int CurrentHp { get; internal set; }
+        /// <summary>헤일로 이상 자체의 BP. 일반 스킬 BP와 독립적이며 사용 후 완충한다.</summary>
+        public int HaloBp { get; internal set; } = HaloAnomaly.MaxBp;
+        /// <summary>외부 효과가 일반 메인 스킬 사용을 금지했는지 여부. 지속 시간 처리는 후속 상태 시스템의 책임이다.</summary>
+        public bool IsMainSkillBlocked { get; internal set; }
+        /// <summary>자발적 이동 시도 후 부여하는 이동 불가 잔여 횟수. 자신의 턴 종료에서만 1 감소한다.</summary>
+        public int MovementLockTurns { get; internal set; }
+        /// <summary>외부 상태 효과의 자발적 이동 금지 여부. 메인 스킬 금지와 독립적이다.</summary>
+        public bool IsMovementBlocked { get; internal set; }
+        /// <summary>현재 스킬 BP를 읽는다. 알 수 없는 스킬 ID는 거부한다.</summary>
+        /// <param name="skillId">이 유닛이 가진 스킬 ID.</param>
+        public int SkillBp(string skillId) => skillBp.TryGetValue(skillId, out int value) ? value : throw new ArgumentException("Unknown skill: " + skillId);
+        /// <summary>Core 효과 처리에서만 BP를 설정한다. 0~최대 범위를 벗어나는 값은 거부한다.</summary>
+        /// <param name="skillId">소유 스킬 ID.</param>
+        /// <param name="value">새 BP.</param>
+        internal void SetSkillBp(string skillId, int value)
+        {
+            // skill: BP 상한을 제공하는 소유 스킬 정의.
+            var skill = Definition.Skills.FirstOrDefault(s => s.Id == skillId) ?? throw new ArgumentException("Unknown skill.");
+            if (value < 0 || value > skill.MaxBp) throw new ArgumentOutOfRangeException(nameof(value));
+            skillBp[skillId] = value;
+        }
         /// <summary>
         /// 이 전투 유닛의 이름·기본 능력치·서브 횟수를 제공하는 정의.
         /// </summary>
@@ -194,6 +240,8 @@ namespace MaseiKivotos.Core
         {
             Definition = definition; FactionId = factionId; Slot = slot;
             Location = slot.HasValue ? UnitLocation.Field : UnitLocation.Reserve;
+            CurrentHp = definition.Stats.Hp;
+            foreach (var skill in definition.Skills) skillBp.Add(skill.Id, skill.MaxBp);
         }
     }
 

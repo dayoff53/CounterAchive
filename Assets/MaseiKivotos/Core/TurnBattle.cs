@@ -15,7 +15,7 @@ namespace MaseiKivotos.Core
         /// </summary>
         TurnStart = 1,
         /// <summary>
-        /// 2단계: 행동 횟수와 COST를 갱신한다. 상태 효과·쿨다운은 아직 미연결이다.
+        /// 2단계: 필드 유닛의 행동 횟수를 초기화하고 공유 COST를 보충한다.
         /// </summary>
         Initialization = 2,
         /// <summary>
@@ -23,7 +23,7 @@ namespace MaseiKivotos.Core
         /// </summary>
         Order = 3,
         /// <summary>
-        /// 4단계: 행동을 예약하고 확정한다. 현재는 턴 종료 예약만 지원한다.
+        /// 4단계: 서브 이동·메인 스킬과 마지막 턴 종료를 예약하고 확정한다.
         /// </summary>
         Planning = 4,
         /// <summary>
@@ -71,7 +71,7 @@ namespace MaseiKivotos.Core
         /// </summary>
         Ordered,
         /// <summary>
-        /// 개별 유닛의 턴 종료 예약 기록. 상대 예약은 UI에서 숨긴다.
+        /// 개별 유닛의 스킬/턴 종료 예약 기록. 상대 예약은 UI에서 숨긴다.
         /// </summary>
         Reserved,
         /// <summary>
@@ -97,7 +97,21 @@ namespace MaseiKivotos.Core
         /// <summary>
         /// 전투 승패 확정 기록.
         /// </summary>
-        BattleEnded
+        BattleEnded,
+        /// <summary>일반 스킬 또는 대체 스킬 적중과 HP 변화.</summary>
+        SkillHit,
+        /// <summary>실행한 스킬의 명중 실패.</summary>
+        SkillMissed,
+        /// <summary>실행 조건 불충족으로 메인 스킬 취소.</summary>
+        SkillCancelled,
+        /// <summary>원래 스킬 대신 헤일로 이상 발동.</summary>
+        SkillReplaced,
+        /// <summary>필수 후속 HP 소모와 헤일로 이상 자체 BP 완충.</summary>
+        SkillFollowUp,
+        /// <summary>자발적 이동의 한 칸 진행과 아군 교환.</summary>
+        MovementStep,
+        /// <summary>이동 시도 종료와 이동 불가 부여.</summary>
+        MovementFinished
     }
 
     /// <summary>
@@ -133,9 +147,9 @@ namespace MaseiKivotos.Core
     }
 
     /// <summary>
-    /// Unity 연출과 분리된 2세력 PvE 턴 로직. 턴 종료 예약만 지원하며 AP 누적·스킬 실행·상태 효과·턴 도중 Speed 변경은 구현하지 않았다.
+    /// Unity 연출과 분리된 2세력 PvE 턴 로직. 이동·일반 공격·턴 종료를 지원하며 일반 상태 효과·턴 도중 Speed 변경은 미구현이다.
     /// </summary>
-    public sealed class TurnBattle
+    public sealed partial class TurnBattle
     {
         /// <summary>
         /// 필드·대기·퇴각을 모두 포함한 이번 전투의 유닛 상태 목록.
@@ -162,7 +176,7 @@ namespace MaseiKivotos.Core
         /// </summary>
         private readonly List<TurnEvent> events = new List<TurnEvent>();
         /// <summary>
-        /// 동일 Speed 유닛의 순서를 추첨하는 외부 주입 난수 공급기.
+        /// 동일 Speed 유닛의 순서와 스킬 명중을 추첨하는 외부 주입 난수 공급기.
         /// </summary>
         private readonly ITurnRandom random;
 
@@ -212,7 +226,7 @@ namespace MaseiKivotos.Core
         /// </summary>
         /// <param name="player">플레이어 세력의 편성과 출전 구역.</param>
         /// <param name="enemy">상대 세력의 편성과 출전 구역.</param>
-        /// <param name="random">동률 추첨에 사용할 난수 공급기.</param>
+        /// <param name="random">동률과 명중 추첨에 사용할 난수 공급기.</param>
         public TurnBattle(BattleRoster player, BattleRoster enemy, ITurnRandom random)
         {
             if (player == null || enemy == null) throw new ArgumentNullException(nameof(player));
@@ -264,13 +278,15 @@ namespace MaseiKivotos.Core
         }
 
         /// <summary>
-        /// 예약 단계에서 해당 유닛의 턴 종료 예약을 취소한다. 실행 단계에서는 변경을 허용하지 않는다.
+        /// 예약 단계에서 해당 유닛의 이동/스킬/턴 종료 예약을 모두 취소한다. 실행 단계에서는 변경을 허용하지 않는다.
         /// </summary>
         /// <param name="id">전투에서 유닛을 식별할 고유 ID.</param>
         public void ClearReservation(string id)
         {
             RequirePhase(TurnPhase.Planning);
             reserved.Remove(id);
+            mainReservations.Remove(id);
+            moveReservations.Remove(id);
         }
 
         /// <summary>
@@ -281,12 +297,15 @@ namespace MaseiKivotos.Core
             RequirePhase(TurnPhase.Planning);
             if (order.Any(id => Unit(id).Location == UnitLocation.Field && !reserved.Contains(id)))
                 throw new InvalidOperationException("Every field unit must finish planning before execution.");
+            // entry: 확정 시점의 BP 0 여부를 이후 대체 판정에 사용하도록 저장한다.
+            foreach (var entry in mainReservations)
+                entry.Value.ZeroBpAtConfirmation = Unit(entry.Key).SkillBp(entry.Value.SkillId) == 0;
             Record(TurnEventKind.Confirmed, "예약 확정 · 실행 중 변경 불가");
             ChangePhase(TurnPhase.Execution);
         }
 
         /// <summary>
-        /// 초기 단계 하나 또는 유닛의 차례 시작/종료 한 번을 진행한다. 예약 단계는 별도 확정이 필요하며 전투 종료 상태에서는 false를 반환한다.
+        /// 초기 단계 하나 또는 차례 시작/이동 한 칸/스킬/종료를 한 번 진행한다. 예약 단계는 별도 확정이 필요하며 전투 종료 상태에서는 false를 반환한다.
         /// </summary>
         public bool Advance()
         {
@@ -336,15 +355,27 @@ namespace MaseiKivotos.Core
                 throw new InvalidOperationException("Retreat results belong to effect execution.");
             // retiring: 중복 ID를 제거하고 전체 유닛 조회를 끝낸 퇴각 대상 배열. 검증 완료 전에는 상태를 바꾸지 않는다.
             var retiring = unitIds?.Distinct().Select(Unit).ToArray() ?? throw new ArgumentNullException(nameof(unitIds));
+            RetireWithoutVictory(retiring);
+            EvaluateVictory();
+        }
+
+        /// <summary>유닛의 필드 이탈과 예약 정리만 수행한다. 필수 후속 처리가 끝날 때까지 승패를 확정하지 않는다.</summary>
+        /// <param name="retiring">모든 입력 검증이 끝난 퇴각 대상.</param>
+        private void RetireWithoutVictory(IEnumerable<BattleUnit> retiring)
+        {
             foreach (var unit in retiring)
             {
+                if (unit.Location == UnitLocation.Retreated) continue;
                 unit.Location = UnitLocation.Retreated; unit.Slot = null;
+                unit.CurrentHp = 0;
                 unit.RemainingMainActions = 0; unit.RemainingSubActions = 0;
                 reserved.Remove(unit.Id);
+                mainReservations.Remove(unit.Id);
+                moveReservations.Remove(unit.Id); movesExecuted.Remove(unit.Id);
+                if (movingUnitId == unit.Id) movingUnitId = null;
                 if (ActiveUnitId == unit.Id) ActiveUnitId = null;
                 Record(TurnEventKind.Retreated, unit.Definition.Name + " · 퇴각", unit.Id);
             }
-            EvaluateVictory();
         }
 
         /// <summary>
@@ -353,6 +384,8 @@ namespace MaseiKivotos.Core
         private void BuildOrder()
         {
             order.Clear(); reserved.Clear(); completed.Clear(); ActiveUnitId = null;
+            mainReservations.Clear(); mainExecuted.Clear();
+            ResetMovementReservations();
             foreach (var group in units.Where(u => u.Location == UnitLocation.Field).GroupBy(u => u.Definition.Stats.Speed).OrderByDescending(g => g.Key))
             {
                 // tied: Speed가 같은 유닛 그룹의 복사본. 이 목록 안에서만 균등하게 순서를 섞는다.
@@ -372,16 +405,23 @@ namespace MaseiKivotos.Core
         }
 
         /// <summary>
-        /// 현재 차례가 있으면 종료하고, 없으면 다음 유효 유닛의 차례를 시작한다. 남은 차례가 없으면 전체 턴을 끝낸다.
+        /// 현재 차례의 서브 이동 → 메인 스킬 → 종료를 처리하고, 차례가 없으면 다음 유효 유닛을 시작한다. 남은 차례가 없으면 전체 턴을 끝낸다.
         /// </summary>
         private void AdvanceExecution()
         {
             if (EvaluateVictory()) return;
             if (ActiveUnitId != null)
             {
-                // unit: 현재 차례를 종료할 유닛. ActiveUnitId로 조회하므로 없는 ID는 예외다.
+                // unit: 현재 스킬 또는 종료를 처리할 유닛.
                 var unit = Unit(ActiveUnitId);
+                if (TryExecuteMovement(unit)) return;
+                if (mainReservations.TryGetValue(unit.Id, out var main) && !mainExecuted.Contains(unit.Id))
+                {
+                    ExecuteMainSkill(unit, main);
+                    return;
+                }
                 completed.Add(unit.Id);
+                if (unit.MovementLockTurns > 0) unit.MovementLockTurns--;
                 unit.RemainingMainActions = 0; unit.RemainingSubActions = 0;
                 Record(TurnEventKind.Finished, unit.Definition.Name + " · 턴 종료 (차례 소모)", unit.Id);
                 ActiveUnitId = null;
@@ -408,6 +448,8 @@ namespace MaseiKivotos.Core
             Record(TurnEventKind.RoundFinished, "전체 턴 완료 · 모든 필드 유닛의 차례 처리");
             TurnNumber++;
             order.Clear(); reserved.Clear(); completed.Clear(); ActiveUnitId = null;
+            mainReservations.Clear(); mainExecuted.Clear();
+            ResetMovementReservations();
             ChangePhase(TurnPhase.TurnStart);
         }
 
@@ -424,6 +466,8 @@ namespace MaseiKivotos.Core
 
             Outcome = playerAlive ? BattleOutcome.PlayerVictory : BattleOutcome.PlayerDefeat;
             ActiveUnitId = null; reserved.Clear(); Phase = TurnPhase.Ended;
+            mainReservations.Clear();
+            ResetMovementReservations();
             Record(TurnEventKind.BattleEnded, Outcome == BattleOutcome.PlayerVictory ? "전투 종료 · 승리" : "전투 종료 · 패배");
             return true;
         }
