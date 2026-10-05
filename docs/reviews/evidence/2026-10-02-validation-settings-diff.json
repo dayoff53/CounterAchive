@@ -1,0 +1,138 @@
+[
+  {
+    "InputObject": "  serializedVersion: 29",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  adjustIOSFPSUsingThermalState: 1",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  thermalStateSeriousIOSFPS: 30",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  thermalStateCriticalIOSFPS: 15",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  androidRequestedVisibleInsets: 0",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  androidSystemBarsBehavior: 2",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  androidDisplayOptions: 1",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  audioSpatialExperience: 0",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  metalUseMetalDisplayLink: 0",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  AndroidMinSdkVersion: 26",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  AndroidPreferredDataLocation: 1",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  iOSTargetOSVersionString: 15.0",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  tvOSTargetOSVersionString: 15.0",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  xcodeProjectType: 0",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  androidAppCategory: 3",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  useAndroidAppCategory: 1",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  androidAppCategoryOther: ",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  macOSTargetOSVersion: 12.0",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  switchCaStoreSource: 0",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  switchCaStoreFilePath: ",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  il2cppLTOMode: {}",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  enableDirectStorage: 0",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  d3d12DeviceFilterListAsset: {fileID: 0}",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  allowedHttpConnections: 3",
+    "SideIndicator": "=>"
+  },
+  {
+    "InputObject": "  serializedVersion: 28",
+    "SideIndicator": "<="
+  },
+  {
+    "InputObject": "  m_HolographicTrackingLossScreen: {fileID: 0}",
+    "SideIndicator": "<="
+  },
+  {
+    "InputObject": "  m_HolographicPauseOnTrackingLoss: 1",
+    "SideIndicator": "<="
+  },
+  {
+    "InputObject": "  isWsaHolographicRemotingEnabled: 0",
+    "SideIndicator": "<="
+  },
+  {
+    "InputObject": "  AndroidMinSdkVersion: 23",
+    "SideIndicator": "<="
+  },
+  {
+    "InputObject": "  iOSTargetOSVersionString: 13.0",
+    "SideIndicator": "<="
+  },
+  {
+    "InputObject": "  tvOSTargetOSVersionString: 13.0",
+    "SideIndicator": "<="
+  },
+  {
+    "InputObject": "  m_BuildTargetVRSettings: []",
+    "SideIndicator": "<="
+  },
+  {
+    "InputObject": "  macOSTargetOSVersion: 11.0",
+    "SideIndicator": "<="
+  },
+  {
+    "InputObject": "  vrEditorSettings: {}",
+    "SideIndicator": "<="
+  }
+]

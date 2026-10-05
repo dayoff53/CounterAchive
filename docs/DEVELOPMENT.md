@@ -1,6 +1,16 @@
 # 개발 환경과 검토 절차
 
-기준일: 2026-10-01. 설치 유무와 실행 성공을 구분한다.
+기준일: 2026-10-04. 설치 유무와 실행 성공을 구분한다.
+
+2026-10-04 Missing Script 정리 후 사본 컴파일·PlayMode **11개** 통과. 231개 씬/프리팹의 GameObject 누락 컴포넌트는 재검사에서 **0개**다. 콘솔의 Unknown 경고 24건 및 기존 Odin 초기화 예외가 남아 있으므로 경고 없는 실행을 의미하지 않는다. [대상·보존·백업·검증](reviews/2026-10-04-missing-script-cleanup.md).
+
+2026-10-04 슬롯 바닥/HP UI를 검증했다. 사본 컴파일·PlayMode **11개** 통과. 피해 수치/게이지와 이동 미리보기·실제 교환·퇴각·초기화를 확인했다. Core 수정이 없어 이번에는 EditMode를 재실행하지 않았다. [화면과 재현 절차](reviews/2026-10-04-unit-slot-hp-ui.md).
+
+2026-10-04 SkillSlot 프리팹 표시를 검증했다. 사본 컴파일·EditMode **67개**·PlayMode **10개** 통과. 타입/속성 색과 데이터, 이미지 지정/해제, 선택과 실행 후 BP 갱신을 포함한다. [최신 화면과 검증 기록](reviews/2026-10-04-skill-slot.md).
+
+2026-10-02 서브 이동과 4단계 미리보기를 사본에서 검증했다. 컴파일·EditMode **63개**·PlayMode **6개** 통과. 실제 Stage_Battle의 이동 선택, 예시 제거, 한 칸 실행, 스킬 연결, 취소와 초기화를 포함한다. [최신 이동 검증과 재현 순서](reviews/2026-10-02-movement.md).
+
+2026-10-02 일반 단일 공격과 D-007 헤일로 이상을 별도 사본에서 통합 검증했다. 컴파일·EditMode **45개**·PlayMode **4개** 통과. Stage_Battle의 스킬 선택/예약/피해/자원/초기화와 두 씬의 턴 진행을 포함한다. 변화/다단/일반 광역까지 포함한 전체 스킬 기능 완료를 뜻하지 않는다. [최신 결과·기능 범위·확인 순서](reviews/2026-10-02-main-skills.md).
 
 2026-10-01 Stage_Battle 리소스 연결을 별도 프로젝트 복사본에서 검증했다. 컴파일·EditMode 12개·PlayMode 2개 통과. 원본 에디터는 열어 둔 채 파일/씬 해시 일치를 확인했으며, 직접 조작한 원본 에디터 검증과 구분한다. [리소스 연결 검토 기록](reviews/2026-10-01-stage-battle-resources.md).
 
@@ -18,7 +28,7 @@
 | 주요 패키지 | Input System `1.20.0`, Unity Test Framework `1.7.0`, uGUI `2.5.0`, Timeline `1.8.13` (manifest 기준) |
 | 입력 설정 | [ProjectSettings.asset](../ProjectSettings/ProjectSettings.asset)의 `activeInputHandler: 2` |
 | 기존 제품명 | 같은 설정 파일의 `productName: CounterAchive` |
-| 최신 실행 검증 | 새 턴 기반 컴파일·EditMode 12개·씬 PlayMode 1개 통과. 에디터 초기화 예외 있음. 플레이어 빌드 미실행 |
+| 최신 실행 검증 | 슬롯/HP UI 포함 컴파일·PlayMode 11개 통과. EditMode 최근 실행은 SkillSlot 작업의 67개 통과이며 이번 UI 작업에서는 재실행하지 않음. 기존 에디터 초기화 예외 있음. 플레이어 빌드 미실행 |
 
 다른 PC에서는 실제 에디터 경로를 확인한다. 의존성 목록은 패키지 복원 성공 증거가 아니며, 최초 Unity 실행 시 복원/임포트 결과를 확인해야 한다. 이번 작업에서는 에디터/패키지 설치나 전역 Codex 설정 변경이 필요하지 않았다.
 

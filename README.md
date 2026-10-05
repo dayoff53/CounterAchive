@@ -14,13 +14,19 @@ Unity Hub에서 이 저장소를 열고 [ProjectVersion.txt](ProjectSettings/Pro
 
 독립적인 [TurnSandbox.unity](Assets/MaseiKivotos/Scenes/TurnSandbox.unity)도 같은 턴 로직을 사용합니다. [턴 기반 기능 범위](docs/reviews/2026-09-30-turn-foundation.md).
 
+**일반 스킬 실행:** Play → **메인 스킬 → 아군 → 스킬 → 적 대상 → 예약 적용 → 닫기 → 턴 넘기기**. 기본 사격과 신비탄으로 HP/BP/COST 변화를 확인합니다. 확정·실행 시 모두 BP 0이면 헤일로 이상으로 대체되어 자신과 양옆 피아에 피해를 주고 최대 HP 55%를 소모합니다. [스킬 기능 범위·확인 순서](docs/reviews/2026-10-02-main-skills.md).
+
+**이동 실행:** Play → **서브 이동 → 아군 A → 4번 → 닫기**. 4단계에서 파란 예시 배치를 확인합니다. **예약 확정** 시 원래 배치로 돌아온 뒤 **다음 단계 / 행동**으로 한 칸씩 이동하거나 **턴 넘기기**로 자동 실행합니다. [이동 규칙·화면·확인 순서](docs/reviews/2026-10-02-movement.md).
+
 | 문서 | 용도 |
 | --- | --- |
+| [스킬 카드 표시](docs/reviews/2026-10-04-skill-slot.md) | 기존 SkillSlot 프리팹의 데이터·BP·타입/속성 색상과 아이콘 연결 |
 | [AGENTS.md](AGENTS.md) | Codex의 프로젝트 작업 지침 |
 | [프로젝트 기준](docs/PROJECT.md) | 목표, 역할, 범위, 완료 판단 |
 | [전투 규칙 안내](docs/BATTLE_RULES.md) | 확정 규칙 요약과 원문 절 안내 |
 | [전투 규칙 원문](docs/reference/battle-rules-2026-09-23.txt) | 제공받은 2026-09-23 문서의 보존본 |
 | [현재 구현 현황](docs/CURRENT_STATE.md) | 기존 코드 구조와 전환 시 확인할 차이 |
+| [마키보 코드 읽기](docs/code-guide/README.md) | 모바일용 구조·작동 순서·변수·함수 해설 및 Notion 목차 |
 | [개발 절차](docs/DEVELOPMENT.md) | 환경, 검증, dayoff53 검토 절차 |
 | [결정 기록](docs/DECISIONS.md) | 확정 변경, 미정 규칙, 보류 기능 |
 | [전환 계획과 진행 상태](docs/ROADMAP.md) | 단계별 목표와 다음 작업 |

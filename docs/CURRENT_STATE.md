@@ -1,6 +1,49 @@
 # 현재 구현 현황
 
-## 2026-10-01 현재 상태 — Stage_Battle 리소스 연결
+## 2026-10-04 Missing Script 컴포넌트 정리
+
+- 사용자 요청에 따라 Unity에서 231개 씬/프리팹을 전수 검사하고 32개 파일의 누락 컴포넌트 167개를 직접 제거했다. 상속 인스턴스도 함께 정리되어 재검사 결과는 0개다. 정상 계층/컴포넌트/위치/시각 참조와 모든 리소스 파일/meta를 보존했다.
+- **검토 대기:** 사본 컴파일·PlayMode **11/11** 통과. 원본 적용 후 Assets 4,040개 해시 대조에서 의도한 32개 외 변경/삭제 없음. 구형 ScriptableObject는 유지하며, 콘솔의 출처 미확인 Unknown 경고 24건과 Odin 예외는 별도로 남아 있다. [제거 목록·백업·검증](reviews/2026-10-04-missing-script-cleanup.md).
+
+## 2026-10-04 슬롯 바닥·HP UI
+
+- `Stage_Battle`의 `SlotGroundSprite` 스프라이트를 UI Image로 연결하고, 기존 `UnitBase/UnitCanvas/HpBarBackground`와 `HpBar`를 런타임 HUD로 옮겨 현재/최대 HP와 게이지를 표시한다. 이동 미리보기·실제 교환·피해·퇴각·초기화를 따라가며 빈 슬롯에서는 HP를 숨긴다.
+- 원본 Unit/UnitSlot 프리팹·meta·씬 해시 보존 확인. **검토 대기:** Unity 사본 컴파일·PlayMode **11/11** 통과. Core 변경 없이 UI만 수정해 EditMode는 이번에 재실행하지 않았다. [화면·검증·확인 순서](reviews/2026-10-04-unit-slot-hp-ui.md).
+
+## 2026-10-04 SkillSlot 프리팹 표시
+
+- 메인 스킬 선택 창은 기존 `Assets/Resources/prefab/UI/SkillSlot.prefab` 복제본을 사용한다. 이름·효과 설명·현재/최대 BP·사거리·범위·아이콘·타입·속성을 연결했다. 타입 3종/속성 11종은 사용자 지정 색 계열로 표시한다.
+- `SkillSlotView`가 표시를 담당하며 사용자의 프리팹 원본과 GUID는 보존한다. 아이콘은 미정이며 `Resources/SkillIcons/<스킬 ID>`의 Sprite로 추후 연결한다. 변화 타입은 표시만 지원하고 전투 효과는 미구현이다.
+- **검토 대기:** 사본 컴파일·EditMode **67/67**·PlayMode **10/10** 통과. 데이터 필드/색상/아이콘/네 장 배치와 실제 BP 갱신을 확인했다. [프리팹 연결 검토 기록](reviews/2026-10-04-skill-slot.md).
+
+## 2026-10-04 이동 금지 중 재시도 변경
+
+- D-009에 따라 이미 이동 불가/외부 이동 금지 상태에서 실패한 시도는 디버프를 새로 부여하거나 갱신하지 않는다. 서브 소비와 자기 종료의 1회 감소는 유지한다. 예: 잔여 1회 → 재시도 1회 유지 → 자기 종료 0회.
+- **검토 대기:** 사본 컴파일, EditMode **67/67**, PlayMode **8/8** 통과. [변경 범위와 확인 순서](reviews/2026-10-04-movement-lock-retry.md).
+
+## 2026-10-04 이동 교환 후 상태 재검증
+
+- 교환만 당한 B는 이동 불가 0회를 유지하며 같은 턴/다음 턴에 자기 이동이 가능함을 재현했다. 사용자가 재확인 후 오해였다고 답변해 제보를 종결했다. 이 조사에서는 런타임 로직을 변경하지 않고 회귀 테스트 3개를 추가했다.
+- 사본에서 컴파일·EditMode **65/65**, PlayMode **7/7** 통과. [조사 결과·재현 조건·화면 증거](reviews/2026-10-04-movement-passenger-check.md). 상태: **검토 완료(제보 확인 범위)**.
+
+## 2026-10-02 현재 상태 — 서브 이동과 예약 미리보기
+
+- 두 전투 화면의 **서브 이동** 창에서 아군·목적지를 선택한다. 4단계는 실제 좌표와 자원을 바꾸지 않는 예상 배치이며, 5단계 시작 시 예시 이미지를 없애고 실제 위치에서 한 칸씩 실행한다(D-008).
+- 서브 1회 소비, 아군 순차 교환, 적 통과 거부/실행 시 부분 이동, 시도 종료의 이동 불가 2회와 자기 종료의 1회 감소를 연결했다. 이동 후 메인 스킬과 종료를 이어서 처리한다.
+- `TurnBattle.Movement.cs`가 예약/실행/복사본 예측, `MovementPanel.cs`가 선택 창, `StageBattleView.cs`가 별도 예시 렌더러를 담당한다. 예제 이동 거리는 임시 3칸이다.
+- **검토 대기:** 사본에서 컴파일, EditMode **63/63**, PlayMode **6/6** 통과. 사용자 씬/SceneTemplate 편집은 작업 시작 해시와 일치한다. [동작·화면 증거·확인 순서](reviews/2026-10-02-movement.md).
+- 강제 이동·해제 스킬·걷기 애니메이션, 적 이동 AI, 배치/교체·아이템·서포트·EX·일반 상태 시스템은 남는다. 기존 Odin 초기화 예외/Missing Script 경고도 남으며 플레이어 빌드는 미실행이다.
+
+## 2026-10-02 메인 스킬 1차 구현 (이력)
+
+- `Stage_Battle`과 `TurnSandbox`에 공통 **메인 스킬** 예약 창을 추가했다. 아군·소유 스킬·적 대상을 선택하고, 예약 적용/수정/취소 후 단계 진행 또는 턴 넘기기로 실행한다.
+- 일반 단일 태크/신비 공격에 HP, 스킬별 BP, 공유 COST 확보/소비, 사거리·대상 재검사, 명중 실패, 11속성표·복합 상성 제한·자속·최종 올림, 퇴각과 승패를 연결했다. 턴 넘기기는 스킬 예약을 유지한다.
+- `MainSkill.cs`는 정의와 피해 계산, `TurnBattle.Skills.cs`는 예약/실행, `MainSkillPanel.cs`는 선택 UI를 담당한다. 함수·변수의 한국어 역할 주석을 포함한다.
+- BP 0 대체의 Q-001/Q-002/C-008은 **D-007로 확정**되었다. 헤일로 이상은 사용자 제한 검사 후 자신 중심 범위 피해 → 최대 HP 55% 올림 소모/자체 BP 완충 → 승패 순서로 실행한다. 임시 중단 경계는 제거했다. [범위·재현·검증 기록](reviews/2026-10-02-main-skills.md).
+- **검토 대기:** 헤일로 이상 연결 후 컴파일, EditMode **45/45**, 실제 씬 PlayMode **4/4** 통과. 화면과 소스/씬/프리팹 해시 일치를 확인했다. 기존 Odin 예외와 Missing Script 경고는 남으며 플레이어 빌드는 미실행이다.
+- 공격 애니메이션, 적의 스킬 선택 AI, 변화/상태/일반 광역/다단/EX/아이템/이동/교체는 미구현이다. 스킬 수치와 편성은 임시 데이터이며 기존 리소스 수정·폐기는 없다.
+
+## 2026-10-01 Stage_Battle 리소스 연결 (이력)
 
 - 실행 기준은 [Stage_Battle.unity](../Assets/Scenes/Stage/Battle/BattleType/Stage_Battle.unity)다. `InGame`의 배경·9칸 슬롯·유닛 렌더러·턴 종료/SKIP 버튼·COST 바에 새 턴 표시를 연결했다.
 - [StageBattleView](../Assets/MaseiKivotos/Unity/StageBattleView.cs)는 기존 화면 리소스를 Play 중 재배치하고, [TurnBattleView](../Assets/MaseiKivotos/Unity/TurnBattleView.cs)를 통해 검증 씬과 턴 컨트롤러/Core를 공유한다. 구형 미연결 UI는 실행 중 숨기며 프리팹 원본은 유지했다.
@@ -103,7 +146,7 @@ Unity 컴파일, Play Mode, 빌드 실행을 통과했다는 의미가 아니다
 이는 빌드 등록 순서이며, 자동으로 이 순서대로 진행됨을 뜻하지 않는다.
 
 - `Helmet_102`와 `Helmet_103`의 등록 경로(24·27행)는 `Assets/Scenes/Stage/Battle/Helmet/...`이며 파일이 없다.
-- 실제 파일은 [DDsLike/Helmet/Level_1](../Assets/Scenes/Stage/Battle/BattleType/DDsLike/Helmet/Level_1)에 있다. 빌드 전 경로와 GUID 해석을 Unity에서 확인한다.
+- 당시 경로는 `DDsLike/Helmet/Level_1`이었다. 현재 위치는 [Helmet/Level_1](../Assets/Scenes/Stage/Battle/BattleType/Helmet/Level_1)이며, 빌드 전 경로와 GUID 해석을 Unity에서 확인한다.
 - `Stage_DD_Battle_2.0.unity`는 조사 시작 시 추적되지 않은 사용자 파일이며 이 BuildSettings 목록에 없다. 새 기준 씬으로 확정하지 않았다.
 - `SceneChangeManager.SceneLoad()`는 `LoadingScene`을 거쳐 `SceneKeyData.sceneName`을 로드한다(24–33행·61–73행).
 - `LoadStageData(BattleStageUnitData)`는 정의되어 있으나 `Assets/Script`의 C# 호출부 검색에서는 다른 호출이 발견되지 않았다. 씬·Inspector 이벤트 및 초기화 순서 확인이 필요하다.
@@ -132,6 +175,6 @@ Unity 컴파일, Play Mode, 빌드 실행을 통과했다는 의미가 아니다
 - 수정: [DDBattleInGame.prefab](../Assets/Resources/prefab/DDBattleInGame.prefab)
 - 수정: [SkillSlot.prefab](../Assets/Resources/prefab/UI/SkillSlot.prefab)
 - 수정: [LoadingScene.unity](../Assets/Scenes/LoadingScene.unity)
-- 미추적: [Stage_DD_Battle_2.0.unity](../Assets/Scenes/Stage/Battle/BattleType/DDsLike/Stage_DD_Battle_2.0.unity)와 해당 `.meta`
+- 당시 미추적: `Stage_DD_Battle_2.0.unity`와 해당 `.meta`. 이 항목은 조사 당시 기록이며 현재 실행 씬은 상단의 `Stage_Battle`이다.
 
 이 목록은 2026-09-29 작업 시작 시점 기록이다. 이후 작업자는 `git status`로 현재 변경을 다시 확인한다.

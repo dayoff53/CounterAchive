@@ -1,0 +1,1719 @@
+{
+  "date": "2026-10-01",
+  "status": "검토 대기",
+  "codeCommit": "f69ceba8208cc6b17680aa0e5997cc7477fcb30a",
+  "notionHub": "https://app.notion.com/p/3ec4ef43abba8112a788ea623561b6fd?pvs=204",
+  "remoteVerified": 15,
+  "declarations": 222,
+  "parameters": 135,
+  "localBindings": 184,
+  "scope": "Assets/MaseiKivotos C# 11 files; Tools PowerShell 2 files; assembly definitions and scene references",
+  "unityRerun": false,
+  "files": [
+    {
+      "path": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "sha256": "5740E1E8C238B498D4CE9A5FDE1A1AE9608573AFC52716B1E9EFE3CDA67E8B0B",
+      "declarations": 38,
+      "parameters": 19,
+      "localBindings": 4
+    },
+    {
+      "path": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "sha256": "0599FCFAA8213CF4EF2FA173E1F429D17EA1F80E8DD0A4DF4A4B29C6B585ED48",
+      "declarations": 63,
+      "parameters": 19,
+      "localBindings": 27
+    },
+    {
+      "path": "Assets/MaseiKivotos/Editor/StageBattleScene.cs",
+      "sha256": "3D717818BEB5F0532A47DF6076AF445331EE3952D7AFE0A9F3A5FD02E05906F0",
+      "declarations": 3,
+      "parameters": 0,
+      "localBindings": 0
+    },
+    {
+      "path": "Assets/MaseiKivotos/Editor/TurnSandboxScene.cs",
+      "sha256": "FAE2A2F8788EFDF255F156FF5B85AE0C3E72B634AEB1C030DDBB42A6A882BDCC",
+      "declarations": 4,
+      "parameters": 0,
+      "localBindings": 2
+    },
+    {
+      "path": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "sha256": "62A5CC3F52F1F25A934F3FF5B8DC97DD24FD615A590963B3A0B8B4F79A5B4A54",
+      "declarations": 21,
+      "parameters": 14,
+      "localBindings": 24
+    },
+    {
+      "path": "Assets/MaseiKivotos/Tests/PlayMode/StageBattleTests.cs",
+      "sha256": "C32FE65FF520693B9300DE5D216A07B0778871D97B87B5FAEB70CF6F0F39E271",
+      "declarations": 4,
+      "parameters": 3,
+      "localBindings": 16
+    },
+    {
+      "path": "Assets/MaseiKivotos/Tests/PlayMode/TurnSandboxTests.cs",
+      "sha256": "C5FD64F433D3945F98236B56A722F852C8093699FBE4BB7C3CF49988CA7FAEEF",
+      "declarations": 4,
+      "parameters": 3,
+      "localBindings": 13
+    },
+    {
+      "path": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "sha256": "DD72B7DD1E5E65E56D40D3074D96F2B736AE6C9A08C16856E4E12DFC0316F840",
+      "declarations": 32,
+      "parameters": 37,
+      "localBindings": 51
+    },
+    {
+      "path": "Assets/MaseiKivotos/Unity/TurnBattleView.cs",
+      "sha256": "B34C4B37589CE3FD7F552757332DF973B330A7A9964544EBFBBF0429254DCDAB",
+      "declarations": 10,
+      "parameters": 2,
+      "localBindings": 0
+    },
+    {
+      "path": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "sha256": "F6487D479E2149D03995517C82896D74720A132595B6E11AF679E5F3BDA1771E",
+      "declarations": 20,
+      "parameters": 5,
+      "localBindings": 7
+    },
+    {
+      "path": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "sha256": "D68BFD95ECA64D57EC858421AB0CE8FFCFCA1C9BBC1519F21C0C1F821D3AA3D6",
+      "declarations": 23,
+      "parameters": 33,
+      "localBindings": 40
+    }
+  ],
+  "pages": [
+    {
+      "file": "01-data.md",
+      "title": "01. 전투 데이터를 읽는 법 — BattleRoster",
+      "url": "https://app.notion.com/p/3ec4ef43abba819bb03ee9874e1b5289?pvs=204"
+    },
+    {
+      "file": "02-turn-battle.md",
+      "title": "02. 턴 규칙의 중심 — TurnBattle",
+      "url": "https://app.notion.com/p/3ec4ef43abba810ba41bcf8f0b43019d?pvs=204"
+    },
+    {
+      "file": "03-controller.md",
+      "title": "03. 버튼에서 다음 턴까지 — TurnSandboxController",
+      "url": "https://app.notion.com/p/3ec4ef43abba81fbbbe5e0c202e4f5fd?pvs=204"
+    },
+    {
+      "file": "04-view-contract.md",
+      "title": "04. 두 화면의 공통 약속 — TurnBattleView",
+      "url": "https://app.notion.com/p/3ec4ef43abba81ee92e4e95e26e9ee8d?pvs=204"
+    },
+    {
+      "file": "05-stage-view.md",
+      "title": "05. 기존 InGame 리소스를 연결하는 법 — StageBattleView",
+      "url": "https://app.notion.com/p/3ec4ef43abba8104bd89f7653a79419a?pvs=204"
+    },
+    {
+      "file": "06-sandbox-view.md",
+      "title": "06. 독립 검증 화면 — TurnSandboxView",
+      "url": "https://app.notion.com/p/3ec4ef43abba81a59f5bc0c49335afcb?pvs=204"
+    },
+    {
+      "file": "07-stage-menu.md",
+      "title": "07. 실제 전투 씬 열기 — StageBattleScene",
+      "url": "https://app.notion.com/p/3ec4ef43abba811789f4c55d53a54e65?pvs=204"
+    },
+    {
+      "file": "08-sandbox-menu.md",
+      "title": "08. 검증 씬 생성과 열기 — TurnSandboxScene",
+      "url": "https://app.notion.com/p/3ec4ef43abba813bba47eee38c0c1781?pvs=204"
+    },
+    {
+      "file": "09-core-tests.md",
+      "title": "09. 규칙 검증을 읽는 법 — TurnBattleTests",
+      "url": "https://app.notion.com/p/3ec4ef43abba8153919dde3061a2d11a?pvs=204"
+    },
+    {
+      "file": "10-stage-tests.md",
+      "title": "10. 실제 씬 연결 검증 — StageBattleTests",
+      "url": "https://app.notion.com/p/3ec4ef43abba8103bf06c2d300da4905?pvs=204"
+    },
+    {
+      "file": "11-sandbox-tests.md",
+      "title": "11. 검증 화면의 회귀 검사 — TurnSandboxTests",
+      "url": "https://app.notion.com/p/3ec4ef43abba8187a8f4c0ac7edd2960?pvs=204"
+    },
+    {
+      "file": "12-test-runner.md",
+      "title": "12. Unity 테스트 실행 도구 — Test-MakiboTurns",
+      "url": "https://app.notion.com/p/3ec4ef43abba813ca89fdad4032594e5?pvs=204"
+    },
+    {
+      "file": "13-quarantine.md",
+      "title": "13. 카브 격리 검증 도구 — Verify-CarveQuarantine",
+      "url": "https://app.notion.com/p/3ec4ef43abba819896a6f230275b67c6?pvs=204"
+    },
+    {
+      "file": "14-connections.md",
+      "title": "14. 어셈블리·씬·메타·검증 기록의 연결",
+      "url": "https://app.notion.com/p/3ec4ef43abba8134bbeed1af6d9bcb5b?pvs=204"
+    }
+  ],
+  "coverage": [
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 10,
+      "name": "UnitLocation",
+      "kind": "EnumDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 15,
+      "name": "Field",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 19,
+      "name": "Reserve",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 23,
+      "name": "Retreated",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 29,
+      "name": "CombatStats",
+      "kind": "ClassDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 34,
+      "name": "Hp",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 38,
+      "name": "TAtk",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 42,
+      "name": "MAtk",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 46,
+      "name": "TDef",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 50,
+      "name": "MDef",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 54,
+      "name": "Speed",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 65,
+      "name": "CombatStats",
+      "kind": "ConstructorDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 76,
+      "name": "UnitDefinition",
+      "kind": "ClassDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 81,
+      "name": "Id",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 85,
+      "name": "Name",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 89,
+      "name": "Stats",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 93,
+      "name": "BaseSubActions",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 102,
+      "name": "UnitDefinition",
+      "kind": "ConstructorDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 115,
+      "name": "BattleRoster",
+      "kind": "ClassDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 120,
+      "name": "FactionId",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 124,
+      "name": "Units",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 128,
+      "name": "DeploymentSlots",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 136,
+      "name": "BattleRoster",
+      "kind": "ConstructorDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 156,
+      "name": "BattleUnit",
+      "kind": "ClassDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 161,
+      "name": "Definition",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 165,
+      "name": "Id",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 169,
+      "name": "FactionId",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 173,
+      "name": "Slot",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 177,
+      "name": "Location",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 181,
+      "name": "RemainingMainActions",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 185,
+      "name": "RemainingSubActions",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 193,
+      "name": "BattleUnit",
+      "kind": "ConstructorDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 203,
+      "name": "ITurnRandom",
+      "kind": "InterfaceDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 209,
+      "name": "Next",
+      "kind": "MethodDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 215,
+      "name": "SeededTurnRandom",
+      "kind": "ClassDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 220,
+      "name": "random",
+      "kind": "FieldDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 225,
+      "name": "SeededTurnRandom",
+      "kind": "ConstructorDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/BattleRoster.cs",
+      "line": 230,
+      "name": "Next",
+      "kind": "MethodDeclarationSyntax",
+      "page": "01-data"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 11,
+      "name": "TurnPhase",
+      "kind": "EnumDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 16,
+      "name": "TurnStart",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 20,
+      "name": "Initialization",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 24,
+      "name": "Order",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 28,
+      "name": "Planning",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 32,
+      "name": "Execution",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 36,
+      "name": "Ended",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 41,
+      "name": "BattleOutcome",
+      "kind": "EnumDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 46,
+      "name": "Ongoing",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 50,
+      "name": "PlayerVictory",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 54,
+      "name": "PlayerDefeat",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 59,
+      "name": "TurnEventKind",
+      "kind": "EnumDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 64,
+      "name": "Phase",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 68,
+      "name": "Initialized",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 72,
+      "name": "Ordered",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 76,
+      "name": "Reserved",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 80,
+      "name": "Confirmed",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 84,
+      "name": "Started",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 88,
+      "name": "Finished",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 92,
+      "name": "RoundFinished",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 96,
+      "name": "Retreated",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 100,
+      "name": "BattleEnded",
+      "kind": "EnumMemberDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 106,
+      "name": "TurnEvent",
+      "kind": "ClassDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 111,
+      "name": "Turn",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 115,
+      "name": "Kind",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 119,
+      "name": "UnitId",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 123,
+      "name": "Message",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 131,
+      "name": "TurnEvent",
+      "kind": "ConstructorDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 138,
+      "name": "TurnBattle",
+      "kind": "ClassDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 143,
+      "name": "units",
+      "kind": "FieldDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 147,
+      "name": "order",
+      "kind": "FieldDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 151,
+      "name": "reserved",
+      "kind": "FieldDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 155,
+      "name": "completed",
+      "kind": "FieldDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 159,
+      "name": "costs",
+      "kind": "FieldDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 163,
+      "name": "events",
+      "kind": "FieldDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 167,
+      "name": "random",
+      "kind": "FieldDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 172,
+      "name": "TurnNumber",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 176,
+      "name": "Phase",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 180,
+      "name": "Outcome",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 184,
+      "name": "PlayerFactionId",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 188,
+      "name": "ActiveUnitId",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 192,
+      "name": "Units",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 196,
+      "name": "Order",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 200,
+      "name": "Costs",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 204,
+      "name": "Events",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 208,
+      "name": "CompletedCount",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 216,
+      "name": "TurnBattle",
+      "kind": "ConstructorDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 241,
+      "name": "Unit",
+      "kind": "MethodDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 247,
+      "name": "HasEndTurnReservation",
+      "kind": "MethodDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 252,
+      "name": "HasCompleted",
+      "kind": "MethodDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 258,
+      "name": "ReserveEndTurn",
+      "kind": "MethodDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 270,
+      "name": "ClearReservation",
+      "kind": "MethodDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 279,
+      "name": "ConfirmReservations",
+      "kind": "MethodDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 291,
+      "name": "Advance",
+      "kind": "MethodDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 332,
+      "name": "ApplyCompletedRetreatBatch",
+      "kind": "MethodDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 353,
+      "name": "BuildOrder",
+      "kind": "MethodDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 377,
+      "name": "AdvanceExecution",
+      "kind": "MethodDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 401,
+      "name": "IsPending",
+      "kind": "MethodDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 406,
+      "name": "FinishRound",
+      "kind": "MethodDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 417,
+      "name": "EvaluateVictory",
+      "kind": "MethodDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 435,
+      "name": "RequirePhase",
+      "kind": "MethodDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 441,
+      "name": "ChangePhase",
+      "kind": "MethodDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Core/TurnBattle.cs",
+      "line": 454,
+      "name": "Record",
+      "kind": "MethodDeclarationSyntax",
+      "page": "02-turn-battle"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "line": 11,
+      "name": "TurnSandboxController",
+      "kind": "ClassDeclarationSyntax",
+      "page": "03-controller"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "line": 16,
+      "name": "stepDelay",
+      "kind": "FieldDeclarationSyntax",
+      "page": "03-controller"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "line": 20,
+      "name": "randomSeed",
+      "kind": "FieldDeclarationSyntax",
+      "page": "03-controller"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "line": 24,
+      "name": "Battle",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "03-controller"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "line": 28,
+      "name": "IsAdvancing",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "03-controller"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "line": 32,
+      "name": "EqualSpeedExample",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "03-controller"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "line": 36,
+      "name": "StepDelay",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "03-controller"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "line": 40,
+      "name": "View",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "03-controller"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "line": 45,
+      "name": "Awake",
+      "kind": "MethodDeclarationSyntax",
+      "page": "03-controller"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "line": 56,
+      "name": "ResetBattle",
+      "kind": "MethodDeclarationSyntax",
+      "page": "03-controller"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "line": 76,
+      "name": "Definition",
+      "kind": "MethodDeclarationSyntax",
+      "page": "03-controller"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "line": 85,
+      "name": "ToggleExample",
+      "kind": "MethodDeclarationSyntax",
+      "page": "03-controller"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "line": 95,
+      "name": "ToggleEndTurnReservation",
+      "kind": "MethodDeclarationSyntax",
+      "page": "03-controller"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "line": 109,
+      "name": "Step",
+      "kind": "MethodDeclarationSyntax",
+      "page": "03-controller"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "line": 118,
+      "name": "SkipTurn",
+      "kind": "MethodDeclarationSyntax",
+      "page": "03-controller"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "line": 129,
+      "name": "AdvanceToNextPlanning",
+      "kind": "MethodDeclarationSyntax",
+      "page": "03-controller"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "line": 149,
+      "name": "AdvanceOne",
+      "kind": "MethodDeclarationSyntax",
+      "page": "03-controller"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "line": 167,
+      "name": "PlanSandboxEnemy",
+      "kind": "MethodDeclarationSyntax",
+      "page": "03-controller"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "line": 176,
+      "name": "OnDisable",
+      "kind": "MethodDeclarationSyntax",
+      "page": "03-controller"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxController.cs",
+      "line": 184,
+      "name": "OnEnable",
+      "kind": "MethodDeclarationSyntax",
+      "page": "03-controller"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnBattleView.cs",
+      "line": 10,
+      "name": "TurnBattleView",
+      "kind": "ClassDeclarationSyntax",
+      "page": "04-view-contract"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnBattleView.cs",
+      "line": 15,
+      "name": "TurnText",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "04-view-contract"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnBattleView.cs",
+      "line": 19,
+      "name": "SkipButton",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "04-view-contract"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnBattleView.cs",
+      "line": 23,
+      "name": "StepButton",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "04-view-contract"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnBattleView.cs",
+      "line": 27,
+      "name": "ResetButton",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "04-view-contract"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnBattleView.cs",
+      "line": 31,
+      "name": "ExampleButton",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "04-view-contract"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnBattleView.cs",
+      "line": 35,
+      "name": "VisibleCost",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "04-view-contract"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnBattleView.cs",
+      "line": 39,
+      "name": "VisibleActor",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "04-view-contract"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnBattleView.cs",
+      "line": 44,
+      "name": "Build",
+      "kind": "MethodDeclarationSyntax",
+      "page": "04-view-contract"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnBattleView.cs",
+      "line": 49,
+      "name": "Refresh",
+      "kind": "MethodDeclarationSyntax",
+      "page": "04-view-contract"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 14,
+      "name": "StageBattleView",
+      "kind": "ClassDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 19,
+      "name": "inGame",
+      "kind": "FieldDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 23,
+      "name": "allyA",
+      "kind": "FieldDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 27,
+      "name": "allyB",
+      "kind": "FieldDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 31,
+      "name": "enemy",
+      "kind": "FieldDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 35,
+      "name": "font",
+      "kind": "FieldDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 39,
+      "name": "canvas",
+      "kind": "FieldDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 43,
+      "name": "battleCamera",
+      "kind": "FieldDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 47,
+      "name": "hud",
+      "kind": "FieldDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 51,
+      "name": "slots",
+      "kind": "FieldDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 55,
+      "name": "slotButtons",
+      "kind": "FieldDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 59,
+      "name": "slotLabels",
+      "kind": "FieldDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 63,
+      "name": "unitSprites",
+      "kind": "FieldDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 67,
+      "name": "grounds",
+      "kind": "FieldDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 75,
+      "name": "phaseText, actorText, costText, orderText, historyText",
+      "kind": "FieldDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 79,
+      "name": "costFill",
+      "kind": "FieldDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 83,
+      "name": "portraits",
+      "kind": "FieldDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 87,
+      "name": "VisibleCost",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 91,
+      "name": "VisibleActor",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 95,
+      "name": "Slots",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 99,
+      "name": "SlotButtons",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 103,
+      "name": "CostFill",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 109,
+      "name": "Build",
+      "kind": "MethodDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 205,
+      "name": "Refresh",
+      "kind": "MethodDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 257,
+      "name": "LateUpdate",
+      "kind": "MethodDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 278,
+      "name": "Required",
+      "kind": "MethodDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 288,
+      "name": "Panel",
+      "kind": "MethodDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 305,
+      "name": "Label",
+      "kind": "MethodDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 323,
+      "name": "NewButton",
+      "kind": "MethodDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 341,
+      "name": "Rebind",
+      "kind": "MethodDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 364,
+      "name": "Place",
+      "kind": "MethodDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/StageBattleView.cs",
+      "line": 375,
+      "name": "OnDestroy",
+      "kind": "MethodDeclarationSyntax",
+      "page": "05-stage-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 14,
+      "name": "TurnSandboxView",
+      "kind": "ClassDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 19,
+      "name": "background",
+      "kind": "FieldDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 23,
+      "name": "panel",
+      "kind": "FieldDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 27,
+      "name": "muted",
+      "kind": "FieldDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 31,
+      "name": "ally",
+      "kind": "FieldDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 35,
+      "name": "enemy",
+      "kind": "FieldDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 39,
+      "name": "accent",
+      "kind": "FieldDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 43,
+      "name": "font",
+      "kind": "FieldDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 47,
+      "name": "canvasRoot",
+      "kind": "FieldDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 57,
+      "name": "phaseText, actorText, costText, orderText, historyText, reserveText, modeText",
+      "kind": "FieldDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 61,
+      "name": "phases",
+      "kind": "FieldDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 65,
+      "name": "slots",
+      "kind": "FieldDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 69,
+      "name": "slotLabels",
+      "kind": "FieldDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 73,
+      "name": "VisibleCost",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 77,
+      "name": "VisibleActor",
+      "kind": "PropertyDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 83,
+      "name": "Build",
+      "kind": "MethodDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 164,
+      "name": "Refresh",
+      "kind": "MethodDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 212,
+      "name": "PhaseName",
+      "kind": "MethodDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 229,
+      "name": "Box",
+      "kind": "MethodDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 250,
+      "name": "Label",
+      "kind": "MethodDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 274,
+      "name": "MakeButton",
+      "kind": "MethodDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 301,
+      "name": "Place",
+      "kind": "MethodDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Unity/TurnSandboxView.cs",
+      "line": 313,
+      "name": "OnDestroy",
+      "kind": "MethodDeclarationSyntax",
+      "page": "06-sandbox-view"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Editor/StageBattleScene.cs",
+      "line": 9,
+      "name": "StageBattleScene",
+      "kind": "ClassDeclarationSyntax",
+      "page": "07-stage-menu"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Editor/StageBattleScene.cs",
+      "line": 14,
+      "name": "ScenePath",
+      "kind": "FieldDeclarationSyntax",
+      "page": "07-stage-menu"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Editor/StageBattleScene.cs",
+      "line": 18,
+      "name": "Open",
+      "kind": "MethodDeclarationSyntax",
+      "page": "07-stage-menu"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Editor/TurnSandboxScene.cs",
+      "line": 12,
+      "name": "TurnSandboxScene",
+      "kind": "ClassDeclarationSyntax",
+      "page": "08-sandbox-menu"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Editor/TurnSandboxScene.cs",
+      "line": 17,
+      "name": "ScenePath",
+      "kind": "FieldDeclarationSyntax",
+      "page": "08-sandbox-menu"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Editor/TurnSandboxScene.cs",
+      "line": 22,
+      "name": "Create",
+      "kind": "MethodDeclarationSyntax",
+      "page": "08-sandbox-menu"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Editor/TurnSandboxScene.cs",
+      "line": 43,
+      "name": "Open",
+      "kind": "MethodDeclarationSyntax",
+      "page": "08-sandbox-menu"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "line": 12,
+      "name": "TurnBattleTests",
+      "kind": "ClassDeclarationSyntax",
+      "page": "09-core-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "line": 20,
+      "name": "D",
+      "kind": "MethodDeclarationSyntax",
+      "page": "09-core-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "line": 31,
+      "name": "Create",
+      "kind": "MethodDeclarationSyntax",
+      "page": "09-core-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "line": 39,
+      "name": "Plan",
+      "kind": "MethodDeclarationSyntax",
+      "page": "09-core-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "line": 51,
+      "name": "Confirm",
+      "kind": "MethodDeclarationSyntax",
+      "page": "09-core-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "line": 61,
+      "name": "Finish",
+      "kind": "MethodDeclarationSyntax",
+      "page": "09-core-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "line": 74,
+      "name": "StartsWithFirstTwoInZonesAndReserveExcluded",
+      "kind": "MethodDeclarationSyntax",
+      "page": "09-core-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "line": 89,
+      "name": "FirstTurnSkipsOnlyCostGainAndRunsAllFivePhases",
+      "kind": "MethodDeclarationSyntax",
+      "page": "09-core-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "line": 107,
+      "name": "OneChanceEachDespiteDifferentSpeedsAndTurnIncrementsOnlyAfterLastUnit",
+      "kind": "MethodDeclarationSyntax",
+      "page": "09-core-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "line": 126,
+      "name": "CostUsesFieldCountAndCapsAtTenWithoutCarryOverActions",
+      "kind": "MethodDeclarationSyntax",
+      "page": "09-core-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "line": 144,
+      "name": "PlanningCanBeEditedButCannotBeChangedAfterConfirmation",
+      "kind": "MethodDeclarationSyntax",
+      "page": "09-core-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "line": 163,
+      "name": "ScriptedRandom",
+      "kind": "ClassDeclarationSyntax",
+      "page": "09-core-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "line": 168,
+      "name": "values",
+      "kind": "FieldDeclarationSyntax",
+      "page": "09-core-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "line": 172,
+      "name": "Bounds",
+      "kind": "FieldDeclarationSyntax",
+      "page": "09-core-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "line": 177,
+      "name": "Next",
+      "kind": "MethodDeclarationSyntax",
+      "page": "09-core-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "line": 183,
+      "name": "TiesUseFreshFisherYatesDrawsEveryTurnIncludingZeroSpeed",
+      "kind": "MethodDeclarationSyntax",
+      "page": "09-core-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "line": 201,
+      "name": "RetreatedUnitLosesPendingChanceAndDoesNotGenerateCost",
+      "kind": "MethodDeclarationSyntax",
+      "page": "09-core-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "line": 214,
+      "name": "RetreatOfCurrentActorDoesNotRunItsEndTurnReservation",
+      "kind": "MethodDeclarationSyntax",
+      "page": "09-core-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "line": 230,
+      "name": "CompletedEffectBatchEndsBattleEvenWithReservesAndStopsNextTurn",
+      "kind": "MethodDeclarationSyntax",
+      "page": "09-core-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "line": 244,
+      "name": "InvalidRetreatBatchIsAtomic",
+      "kind": "MethodDeclarationSyntax",
+      "page": "09-core-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/EditMode/TurnBattleTests.cs",
+      "line": 256,
+      "name": "RejectsInvalidStatsRosterZonesAndDuplicateIds",
+      "kind": "MethodDeclarationSyntax",
+      "page": "09-core-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/PlayMode/StageBattleTests.cs",
+      "line": 22,
+      "name": "StageBattleTests",
+      "kind": "ClassDeclarationSyntax",
+      "page": "10-stage-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/PlayMode/StageBattleTests.cs",
+      "line": 27,
+      "name": "RetainedSlotsAndButtonsDriveTheSharedTurnBattle",
+      "kind": "MethodDeclarationSyntax",
+      "page": "10-stage-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/PlayMode/StageBattleTests.cs",
+      "line": 84,
+      "name": "Capture",
+      "kind": "MethodDeclarationSyntax",
+      "page": "10-stage-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/PlayMode/StageBattleTests.cs",
+      "line": 127,
+      "name": "Click",
+      "kind": "MethodDeclarationSyntax",
+      "page": "10-stage-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/PlayMode/TurnSandboxTests.cs",
+      "line": 22,
+      "name": "TurnSandboxTests",
+      "kind": "ClassDeclarationSyntax",
+      "page": "11-sandbox-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/PlayMode/TurnSandboxTests.cs",
+      "line": 27,
+      "name": "SceneButtonsAdvanceRealTurnAndResetCancelsPendingWork",
+      "kind": "MethodDeclarationSyntax",
+      "page": "11-sandbox-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/PlayMode/TurnSandboxTests.cs",
+      "line": 80,
+      "name": "Click",
+      "kind": "MethodDeclarationSyntax",
+      "page": "11-sandbox-tests"
+    },
+    {
+      "file": "Assets/MaseiKivotos/Tests/PlayMode/TurnSandboxTests.cs",
+      "line": 102,
+      "name": "Capture",
+      "kind": "MethodDeclarationSyntax",
+      "page": "11-sandbox-tests"
+    }
+  ]
+}

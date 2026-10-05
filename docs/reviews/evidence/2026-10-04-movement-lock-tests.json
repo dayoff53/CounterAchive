@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-04",
+  "decision": "D-009",
+  "unity": "6000.5.10f1",
+  "editMode": {
+    "total": "67",
+    "result": "Passed",
+    "passed": "67",
+    "failed": "0"
+  },
+  "playMode": {
+    "total": "8",
+    "result": "Passed",
+    "passed": "8",
+    "failed": "0"
+  },
+  "source": "Logs/StageValidation",
+  "editModeXml": "Logs/movement-lock-editmode.xml",
+  "playModeXml": "Logs/movement-lock-playmode.xml",
+  "playerBuild": "Not run"
+}

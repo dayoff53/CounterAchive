@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-04",
+  "unity": "6000.5.10f1",
+  "runtimeCodeChanged": false,
+  "editMode": {
+    "total": "65",
+    "failed": "0",
+    "result": "Passed",
+    "passed": "65"
+  },
+  "playMode": {
+    "total": "7",
+    "failed": "0",
+    "result": "Passed",
+    "passed": "7"
+  },
+  "editModeXml": "Logs/passenger-editmode.xml",
+  "playModeXml": "Logs/passenger-playmode.xml",
+  "sceneHash": "CA774A511B56F65EA19A76AD53D200AB7B9789028FACE67DB9042EA15E12CD50",
+  "copySceneHash": "CA774A511B56F65EA19A76AD53D200AB7B9789028FACE67DB9042EA15E12CD50",
+  "runtimeHashChanges": [],
+  "limitation": "Exact user reservation sequence is unknown; original editor interaction and player build not tested."
+}

@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-04",
+  "status": "검토 대기",
+  "editor": "6000.5.10f1",
+  "validationProject": "Logs/StageValidation",
+  "compilation": "passed",
+  "playMode": {
+    "log": "Logs/unit-hud-playmode-verified.log",
+    "total": 11,
+    "xml": "Logs/unit-hud-playmode-verified.xml",
+    "passed": 11,
+    "result": "Passed",
+    "failed": 0
+  },
+  "editMode": "not rerun; Core unchanged",
+  "playerBuild": "not run",
+  "preservedResources": [
+    {
+      "path": "C:\\Fork\\CounterAchive\\Assets\\Resources\\prefab\\Unit.prefab",
+      "baseline": "D3016632CAB8DE62D24B56F5E1166A4EB284CEC8274FD66A7A1BE4FC3D3C4E01",
+      "current": "D3016632CAB8DE62D24B56F5E1166A4EB284CEC8274FD66A7A1BE4FC3D3C4E01",
+      "preserved": true
+    },
+    {
+      "path": "C:\\Fork\\CounterAchive\\Assets\\Resources\\prefab\\Unit.prefab.meta",
+      "baseline": "6FC7333E28B35B3511D3A9470AB850861C352E281542CCC3D4316C225342A8A8",
+      "current": "6FC7333E28B35B3511D3A9470AB850861C352E281542CCC3D4316C225342A8A8",
+      "preserved": true
+    },
+    {
+      "path": "C:\\Fork\\CounterAchive\\Assets\\Resources\\prefab\\UnitSlot.prefab",
+      "baseline": "22379892FEA0078F2A229AF5F90916805D43EFF198644B1705391E14E6DA0752",
+      "current": "22379892FEA0078F2A229AF5F90916805D43EFF198644B1705391E14E6DA0752",
+      "preserved": true
+    },
+    {
+      "path": "C:\\Fork\\CounterAchive\\Assets\\Resources\\prefab\\UnitSlot.prefab.meta",
+      "baseline": "DA7AE109E7F6A245BDB8EA8C19A7881833367EE9D7905C4472C3FD23E0FBE8A7",
+      "current": "DA7AE109E7F6A245BDB8EA8C19A7881833367EE9D7905C4472C3FD23E0FBE8A7",
+      "preserved": true
+    },
+    {
+      "path": "C:\\Fork\\CounterAchive\\Assets\\Scenes\\Stage\\Battle\\BattleType\\Stage_Battle.unity",
+      "baseline": "949FAF3BF27D3E786E06258546E42341B5E88F8790B82413D5DCBC5CF259F076",
+      "current": "949FAF3BF27D3E786E06258546E42341B5E88F8790B82413D5DCBC5CF259F076",
+      "preserved": true
+    }
+  ],
+  "validationFileCount": 65,
+  "validationMismatches": [],
+  "knownLimitations": [
+    "Original editor manual play not performed",
+    "Existing Sirenix/Odin MissingFieldException and quarantined script warnings",
+    "Validation ProjectSettings serialization difference is recorded in 2026-10-02-validation-settings-diff.json"
+  ]
+}

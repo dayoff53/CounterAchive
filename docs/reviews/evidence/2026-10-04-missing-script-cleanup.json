@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-04",
+  "matchedAssetFiles": 4040,
+  "expectedModifiedFiles": 32,
+  "unexpected": [],
+  "scenePrefabAudit": 231,
+  "missingComponentsAfter": 0,
+  "retainedStructureFingerprint": "passed for all 231 assets",
+  "playMode": "11/11 passed",
+  "playModeXml": "Logs/missing-script-playmode.xml",
+  "playModeMissingScriptWarnings": 24,
+  "build": "not run",
+  "manualOriginalEditorPlay": "not run",
+  "remainingWarningScope": "24 Unknown Behaviour log warnings remain; scene/prefab GameObject component audit is zero. Origin of the remaining warnings was not established; ScriptableObject assets and animation data were preserved."
+}
