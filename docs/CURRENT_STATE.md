@@ -1,5 +1,22 @@
 # 현재 구현 현황
 
+## 2026-10-08 SkillSlot 접두어와 Over 안내
+
+- Cost/BP/Area/Range 접두어를 연결하고, Area -4~4 및 Range 0~8 밖의 구간에서만 각 OverText를 활성화한다. 정상 구간 복귀 시 독립적으로 비활성화한다.
+- 사용자 추가 OverText의 3D TextMeshPro/MeshRenderer를 TextMeshProUGUI/CanvasRenderer로 전환하고 슬롯 그룹 뒤의 형제로 정렬해 앞에 그린다. 새 AreaSlots/RangeSlots 그룹과 슬롯 위치는 보존한다.
+- **검토 대기:** 검증 사본 컴파일·PlayMode **13/13** 통과. 정상/초과 전환, Canvas 그리기 순서와 실제 렌더링 확인. [원인·동작·확인 순서](reviews/2026-10-08-skill-slot-overflow.md).
+
+## 2026-10-07 SkillSlot 프리팹 연결과 범위·사거리 도식
+
+- 재구성한 SkillSlot의 Name/Cost/BP/Area/Range, Icon/Type/Trait 및 FlavorTextBox 내부 설명을 직렬화 참조로 연결했다. 프리팹 내부 위치·크기·폰트는 실행 중 덮어쓰지 않는다.
+- AreaSlot1~9를 Unpack하고 RangeSlot1~9를 같은 부모의 직속 자식으로 분리했다. 목표 5번 빨강·주변 범위 주황, 사용자 1번 초록·최소~최대 사거리 하늘색. Inspector에서 도식을 미리 볼 수 있다.
+- 기존 큰 카드를 스킬 창에서 비율 축소/가로 스크롤한다. **검토 대기:** 사본 컴파일·PlayMode **12/12** 통과, 실제 렌더링 확인. 일반 공격은 여전히 단일 대상이며 광역 도식은 표시 기능이다. [연결표·검증·확인 순서](reviews/2026-10-07-skill-slot-prefab.md).
+
+## 2026-10-06 TurnSandboxController Inspector 복구
+
+- 실제 원본 에디터에서 Odin의 `GetCurrentIMGUIContainer()` 관련 `MissingMethodException`과 필드/`Add Component` 겹침을 확인했다. 해당 컴포넌트에 Unity 기본 그리기를 사용하는 전용 `TurnSandboxControllerEditor`를 연결했다.
+- 원본 Inspector의 Step Delay/Random Seed 정상 표시를 확인했으며 씬과 런타임 코드는 변경하지 않았다. **검토 대기:** 사본 컴파일·PlayMode **11/11** 통과. Odin 전역 초기화 오류는 별도로 남는다. [원인·수정·확인 순서](reviews/2026-10-06-controller-inspector.md).
+
 ## 2026-10-04 Missing Script 컴포넌트 정리
 
 - 사용자 요청에 따라 Unity에서 231개 씬/프리팹을 전수 검사하고 32개 파일의 누락 컴포넌트 167개를 직접 제거했다. 상속 인스턴스도 함께 정리되어 재검사 결과는 0개다. 정상 계층/컴포넌트/위치/시각 참조와 모든 리소스 파일/meta를 보존했다.

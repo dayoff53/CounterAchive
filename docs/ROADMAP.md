@@ -4,6 +4,12 @@
 
 ## 현재 위치
 
+- 2026-10-08 SkillSlot 후속: 숫자 접두어, Area/Range 초과 안내, 3D 글자→Canvas UI 전환과 표시 순서 수정. **검토 대기:** 사본 컴파일·PlayMode 13개 통과, 렌더링 확인. [검토 기록](reviews/2026-10-08-skill-slot-overflow.md).
+
+- 2026-10-07 SkillSlot: 사용자 프리팹 배치 보존, COST/BP 분리 연결, Area/Range 18칸 계층 정리와 색상 도식, Inspector 미리보기. 사본 컴파일·PlayMode 12개 통과 및 렌더링 확인, **검토 대기**. [검토 기록](reviews/2026-10-07-skill-slot-prefab.md).
+
+- 2026-10-06 Inspector: TurnSandboxController 전용 Unity Editor로 Odin 호환성 오류 경로를 우회. 원본 화면의 필드 정상 배치 및 사본 컴파일·PlayMode 11개 통과, **검토 대기**. [검토 기록](reviews/2026-10-06-controller-inspector.md).
+
 - 2026-10-04 정리: 사용자 요청으로 씬/프리팹의 Missing Script 컴포넌트 167개 제거, 231개 에셋 재검사에서 0개. 사본 컴파일·PlayMode 11개 통과, **검토 대기**. 리소스/정상 컴포넌트 보존과 잔여 콘솔 경고는 [검토 기록](reviews/2026-10-04-missing-script-cleanup.md) 참조.
 
 - 2026-10-04 슬롯/HP UI: 기존 바닥 스프라이트와 HP 바를 `Stage_Battle` HUD에 재사용. 이동·피해·퇴각·초기화 연동, 사본 컴파일·PlayMode 11개 통과, **검토 대기**. [검토 기록](reviews/2026-10-04-unit-slot-hp-ui.md).
