@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3981815166351929526}
   - component: {fileID: 7442578423289841324}
   m_Layer: 5
-  m_Name: StageMenu_RangeSlot
+  m_Name: RangeSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 336017104016463268}
   - component: {fileID: 9011825425809402025}
   m_Layer: 5
-  m_Name: StageMenu_AreaSlot
+  m_Name: AreaSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
