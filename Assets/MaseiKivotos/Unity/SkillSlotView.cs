@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using MaseiKivotos.Core;
 using TMPro;
 using UnityEngine;
@@ -6,10 +7,10 @@ using UnityEngine.UI;
 
 namespace MaseiKivotos.Unity
 {
-    /// <summary>기존 SkillSlot 프리팹의 표시 전용 연결부. 전투 계산이나 BP 소비는 하지 않는다.</summary>
+    /// <summary>프리팹 배치를 보존하며 스킬 데이터와 설명용 도식을 표시한다. 전투 판정은 하지 않는다.</summary>
     public sealed class SkillSlotView : MonoBehaviour
     {
-        /// <summary>Resources에서 읽는 기존 프리팹 경로.</summary>
+        /// <summary>Resources의 스킬 카드 경로.</summary>
         public const string PrefabPath = "prefab/UI/SkillSlot";
         /// <summary>염·습·전·폭·금·신·성·암·순·사·무의 표시 이름.</summary>
         private static readonly string[] traitNames = { "염", "습", "전", "폭", "금", "신", "성", "암", "순", "사", "무" };
@@ -22,109 +23,165 @@ namespace MaseiKivotos.Unity
             new Color32(177, 222, 105, 255), new Color32(78, 52, 38, 255),
             new Color32(255, 198, 218, 255)
         };
-        /// <summary>선택된 스킬의 외곽선. 타입/속성 색상과 독립적이다.</summary>
-        private Outline selection;
-        /// <summary>타입·속성 배경 내부에 런타임으로 추가하는 이름.</summary>
-        private TMP_Text typeLabel, traitLabel;
-        /// <summary>미지정 아이콘임을 알리는 문구.</summary>
-        private TMP_Text iconPlaceholder;
-        /// <summary>프리팹에 원래 존재하는 선택 버튼.</summary>
-        public Button Button { get; private set; }
-        /// <summary>SkillNameText: 스킬명.</summary>
-        public TMP_Text NameText { get; private set; }
-        /// <summary>SkillFlavorText: 효과 설명.</summary>
-        public TMP_Text FlavorText { get; private set; }
-        /// <summary>SkillCostText: 공유 COST가 아닌 현재/최대 BP.</summary>
-        public TMP_Text BpText { get; private set; }
-        /// <summary>SkillRangeText: 사거리.</summary>
-        public TMP_Text RangeText { get; private set; }
-        /// <summary>SkillAreaText: 효과 범위.</summary>
-        public TMP_Text AreaText { get; private set; }
-        /// <summary>SkillIcon: 지정된 스킬 이미지 또는 미정 표시 영역.</summary>
-        public Image Icon { get; private set; }
-        /// <summary>SkillType: 타입 색 배경.</summary>
-        public Image TypeBadge { get; private set; }
-        /// <summary>SkillTrait: 속성 색 배경.</summary>
-        public Image TraitBadge { get; private set; }
+        /// <summary>선택 입력을 받는 루트 버튼.</summary>
+        [SerializeField] private Button button;
+        /// <summary>이름, COST, BP, 사거리, 범위, 효과 설명의 Inspector 연결.</summary>
+        [SerializeField] private TMP_Text nameText, costText, bpText, rangeText, areaText, flavorText;
+        /// <summary>9칸 도식에 전체 구간을 표현할 수 없을 때만 표시하는 안내.</summary>
+        [SerializeField] private TMP_Text areaOverText, rangeOverText;
+        /// <summary>IconText, TypeText, TraitText의 이미지 영역.</summary>
+        [SerializeField] private Image icon, typeBadge, traitBadge;
+        /// <summary>타입명, 속성명, 미지정 아이콘 안내.</summary>
+        [SerializeField] private TMP_Text typeLabel, traitLabel, iconPlaceholder;
+        /// <summary>선택 외곽선. 외형은 Inspector에서 편집한다.</summary>
+        [SerializeField] private Outline selection;
+        /// <summary>왼쪽부터 1~9번 효과 범위와 사거리 이미지.</summary>
+        [SerializeField] private Image[] areaSlots = new Image[9], rangeSlots = new Image[9];
+        /// <summary>효과 없음 색.</summary>
+        [SerializeField] private Color inactiveColor = new Color32(128, 128, 128, 128);
+        /// <summary>목표 위치 색.</summary>
+        [SerializeField] private Color targetColor = new Color32(218, 65, 65, 255);
+        /// <summary>추가 영향 범위 색.</summary>
+        [SerializeField] private Color areaColor = new Color32(245, 148, 55, 255);
+        /// <summary>사용자 위치 색.</summary>
+        [SerializeField] private Color userColor = new Color32(72, 195, 112, 255);
+        /// <summary>사용 가능 사거리 색.</summary>
+        [SerializeField] private Color rangeColor = new Color32(135, 206, 235, 255);
+        /// <summary>에디터 도식 예제. 실제 스킬 데이터나 전투 규칙을 변경하지 않는다.</summary>
+        [SerializeField, Min(0)] private int previewMinRange = 3, previewMaxRange = 6;
+        /// <summary>에디터 도식의 목표 기준 영향 범위 예제.</summary>
+        [SerializeField] private int previewAreaStart = -1, previewAreaEnd = 1;
+        /// <summary>카드 선택 버튼.</summary>
+        public Button Button => button;
+        /// <summary>스킬명.</summary>
+        public TMP_Text NameText => nameText;
+        /// <summary>공유 COST 비용. BP와 별개다.</summary>
+        public TMP_Text CostText => costText;
+        /// <summary>현재/최대 BP.</summary>
+        public TMP_Text BpText => bpText;
+        /// <summary>사거리 설명.</summary>
+        public TMP_Text RangeText => rangeText;
+        /// <summary>목표 기준 효과 범위 설명.</summary>
+        public TMP_Text AreaText => areaText;
+        /// <summary>효과 범위가 도식 밖으로 나가는 경우의 안내.</summary>
+        public TMP_Text AreaOverText => areaOverText;
+        /// <summary>사거리 구간이 도식 밖으로 나가는 경우의 안내.</summary>
+        public TMP_Text RangeOverText => rangeOverText;
+        /// <summary>FlavorTextBox의 Scroll View 안에 있는 효과 설명.</summary>
+        public TMP_Text FlavorText => flavorText;
+        /// <summary>스킬 이미지.</summary>
+        public Image Icon => icon;
+        /// <summary>타입 색상 배경.</summary>
+        public Image TypeBadge => typeBadge;
+        /// <summary>속성 색상 배경.</summary>
+        public Image TraitBadge => traitBadge;
+        /// <summary>범위 도식의 9개 칸.</summary>
+        public IReadOnlyList<Image> AreaSlots => areaSlots;
+        /// <summary>사거리 도식의 9개 칸.</summary>
+        public IReadOnlyList<Image> RangeSlots => rangeSlots;
 
-        /// <summary>원본 프리팹을 복제하고 참조를 연결한다. 원본 에셋은 수정하지 않는다.</summary>
-        /// <param name="prefab">Resources에서 읽은 SkillSlot 원본.</param>
-        /// <param name="parent">표시 부모.</param>
+        /// <summary>작성된 프리팹을 복제하고 선택 콜백만 연결한다.</summary>
+        /// <param name="prefab">카드 원본.</param>
+        /// <param name="parent">카드를 배치할 부모.</param>
         /// <param name="selected">스킬 선택 콜백.</param>
         public static SkillSlotView Create(GameObject prefab, Transform parent, Action selected)
         {
             if (prefab == null) throw new InvalidOperationException("SkillSlot prefab not found at Resources/" + PrefabPath);
-            // instance/view: 구형 전투 코드를 연결하지 않는 프리팹 복제본과 새 표시 컴포넌트.
-            var instance = Instantiate(prefab, parent, false);
-            var view = instance.GetComponent<SkillSlotView>() ?? instance.AddComponent<SkillSlotView>();
-            view.Initialize(); view.Button.onClick = new Button.ButtonClickedEvent();
-            if (selected != null) view.Button.onClick.AddListener(() => selected());
+            var instance = Instantiate(prefab, parent, false); // instance: 작성된 크기와 자식 배치를 유지한다.
+            var view = instance.GetComponent<SkillSlotView>();
+            if (view == null) throw new InvalidOperationException("SkillSlot prefab needs serialized SkillSlotView references.");
+            view.ValidateReferences();
+            if (selected != null) view.button.onClick.AddListener(() => selected());
             return view;
         }
 
-        /// <summary>필수 자식들을 이름으로 연결하고 읽기 쉬운 카드 배치를 적용한다.</summary>
-        private void Initialize()
+        /// <summary>누락된 Inspector 연결을 명확한 오류로 알린다.</summary>
+        public void ValidateReferences()
         {
-            if (Button != null) return;
-            Button = GetComponent<Button>();
-            NameText = Required<TMP_Text>("SkillNameText"); FlavorText = Required<TMP_Text>("SkillFlavorText");
-            BpText = Required<TMP_Text>("SkillCostText"); RangeText = Required<TMP_Text>("SkillRangeText"); AreaText = Required<TMP_Text>("SkillAreaText");
-            Icon = Required<Image>("SkillIcon"); TypeBadge = Required<Image>("SkillType"); TraitBadge = Required<Image>("SkillTrait");
-            typeLabel = BadgeLabel(TypeBadge.transform, "Type Label"); traitLabel = BadgeLabel(TraitBadge.transform, "Trait Label");
-            iconPlaceholder = BadgeLabel(Icon.transform, "Icon Placeholder"); iconPlaceholder.text = "미정";
-            foreach (var graphic in GetComponentsInChildren<Graphic>(true)) graphic.raycastTarget = graphic.gameObject == gameObject;
-            selection = gameObject.AddComponent<Outline>(); selection.effectColor = new Color32(28, 173, 133, 255); selection.effectDistance = new Vector2(3, -3);
-            Button.targetGraphic = GetComponent<Image>();
-            SetRect((RectTransform)transform, 0, 0, 590, 140);
-            SetRect(Icon.rectTransform, 10, 10, 78, 78);
-            SetRect(TypeBadge.rectTransform, 10, 94, 78, 18); SetRect(TraitBadge.rectTransform, 10, 116, 78, 18);
-            ConfigureText(NameText, 102, 5, 472, 30, 25);
-            ConfigureText(FlavorText, 102, 37, 472, 62, 19);
-            ConfigureText(BpText, 102, 107, 108, 26, 20);
-            ConfigureText(RangeText, 214, 107, 162, 26, 19);
-            ConfigureText(AreaText, 380, 107, 196, 26, 19);
+            if (button == null || nameText == null || costText == null || bpText == null || rangeText == null || areaText == null || flavorText == null
+                || areaOverText == null || rangeOverText == null || icon == null || typeBadge == null || traitBadge == null || typeLabel == null || traitLabel == null || iconPlaceholder == null || selection == null)
+                throw new InvalidOperationException("SkillSlot text/image/button references are incomplete.");
+            if (areaSlots.Length != 9 || rangeSlots.Length != 9) throw new InvalidOperationException("SkillSlot needs nine area and nine range slots.");
+            for (int i = 0; i < 9; i++)
+                if (areaSlots[i] == null || rangeSlots[i] == null) throw new InvalidOperationException("SkillSlot has an unassigned diagram slot: " + (i + 1));
         }
 
-        /// <summary>현재 소유자의 BP와 공격 정의를 프리팹 필드에 표시한다.</summary>
-        /// <param name="actor">BP를 조회할 소유자.</param>
-        /// <param name="skill">표시할 소유 스킬.</param>
-        /// <param name="isSelected">현재 편집 선택 여부.</param>
+        /// <summary>현재 일반 단일 공격의 데이터와 소유자의 BP를 표시한다.</summary>
+        /// <param name="actor">스킬 소유자.</param>
+        /// <param name="skill">표시할 공격.</param>
+        /// <param name="isSelected">선택 강조 여부.</param>
         public void Bind(BattleUnit actor, MainSkill skill, bool isSelected)
         {
-            // description: 직접 작성한 설명을 우선하고 없으면 실제 공격 데이터로 기본 안내를 만든다.
-            string description = string.IsNullOrWhiteSpace(skill.EffectDescription)
+            string description = string.IsNullOrWhiteSpace(skill.EffectDescription) // description: 작성된 설명 우선.
                 ? "적 1명에게 " + TypeName(skill.Type) + " 피해를 줍니다.\n위력 " + skill.Power + " · 명중 " + skill.Accuracy + "% · COST " + skill.Cost
                 : skill.EffectDescription;
-            // icon: 미정인 동안 비워 두고, 향후 Resources/SkillIcons/<스킬 ID>의 Sprite를 연결한다.
-            var icon = Resources.Load<Sprite>("SkillIcons/" + skill.Id);
-            Show(skill.Name, description, actor.SkillBp(skill.Id), skill.MaxBp,
-                skill.MinRange == skill.MaxRange ? skill.MinRange + "칸" : skill.MinRange + "~" + skill.MaxRange + "칸",
-                "단일(1명)", skill.Type, skill.Trait, icon, isSelected);
+            // 일반 MainSkill은 현재 단일 대상이다. 도식 때문에 광역 전투 판정을 추가하지 않는다.
+            Show(skill.Name, description, actor.SkillBp(skill.Id), skill.MaxBp, skill.Cost,
+                skill.MinRange, skill.MaxRange, 0, 0, skill.Type, skill.Trait,
+                Resources.Load<Sprite>("SkillIcons/" + skill.Id), isSelected);
         }
 
-        /// <summary>표시 데이터를 연결한다. 변화/광역 안내도 표현할 수 있지만 해당 전투 기능을 실행하지 않는다.</summary>
+        /// <summary>수치로 문구와 도식을 함께 갱신한다. 광역 표시는 전투 광역 실행 지원을 뜻하지 않는다.</summary>
         /// <param name="skillName">스킬명.</param>
         /// <param name="description">효과 설명.</param>
         /// <param name="currentBp">현재 BP.</param>
         /// <param name="maxBp">최대 BP.</param>
-        /// <param name="range">사거리 설명.</param>
-        /// <param name="area">범위 설명.</param>
+        /// <param name="cost">공유 COST 비용.</param>
+        /// <param name="minRange">최소 거리.</param>
+        /// <param name="maxRange">최대 거리.</param>
+        /// <param name="areaStart">목표 기준 영향 범위의 시작 오프셋.</param>
+        /// <param name="areaEnd">목표 기준 영향 범위의 끝 오프셋.</param>
         /// <param name="type">스킬 타입.</param>
-        /// <param name="trait">스킬 속성.</param>
-        /// <param name="icon">미정이면 null.</param>
+        /// <param name="trait">속성.</param>
+        /// <param name="sprite">아이콘. 미지정이면 null.</param>
         /// <param name="isSelected">선택 강조 여부.</param>
-        public void Show(string skillName, string description, int currentBp, int maxBp, string range, string area,
-            SkillType type, CombatTrait trait, Sprite icon = null, bool isSelected = false)
+        public void Show(string skillName, string description, int currentBp, int maxBp, int cost,
+            int minRange, int maxRange, int areaStart, int areaEnd, SkillType type, CombatTrait trait,
+            Sprite sprite = null, bool isSelected = false)
         {
-            Initialize();
-            NameText.text = skillName; FlavorText.text = description; BpText.text = currentBp + "/" + maxBp;
-            RangeText.text = "사거리 " + range; AreaText.text = "범위 " + area;
-            TypeBadge.color = TypeColor(type); typeLabel.text = TypeName(type); typeLabel.color = Contrast(TypeBadge.color);
-            TraitBadge.color = TraitColor(trait); traitLabel.text = TraitName(trait); traitLabel.color = Contrast(TraitBadge.color);
-            Icon.sprite = icon; Icon.preserveAspect = true; Icon.color = icon == null ? new Color32(225, 229, 235, 255) : Color.white;
-            iconPlaceholder.gameObject.SetActive(icon == null); selection.enabled = isSelected;
+            ValidateReferences();
+            ShowDiagram(minRange, maxRange, areaStart, areaEnd);
+            nameText.text = skillName; flavorText.text = description; bpText.text = "BP " + currentBp + "/" + maxBp;
+            costText.text = "Cost " + cost;
+            typeBadge.color = TypeColor(type); typeLabel.text = TypeName(type); typeLabel.color = Contrast(typeBadge.color);
+            traitBadge.color = TraitColor(trait); traitLabel.text = TraitName(trait); traitLabel.color = Contrast(traitBadge.color);
+            icon.sprite = sprite; iconPlaceholder.gameObject.SetActive(sprite == null); selection.enabled = isSelected;
         }
 
+        /// <summary>목표 5번과 사용자 1번 기준 도식을 표시한다. 잘린 구간은 Over 안내를 켜고 원래 수치를 텍스트에 남긴다.</summary>
+        /// <param name="minRange">최소 거리.</param>
+        /// <param name="maxRange">최대 거리.</param>
+        /// <param name="areaStart">목표 기준 시작 오프셋.</param>
+        /// <param name="areaEnd">목표 기준 끝 오프셋.</param>
+        public void ShowDiagram(int minRange, int maxRange, int areaStart, int areaEnd)
+        {
+            if (minRange < 0 || minRange > maxRange || areaStart > areaEnd)
+                throw new ArgumentOutOfRangeException(nameof(minRange), "Invalid skill diagram interval.");
+            rangeText.text = "Range " + Interval(minRange, maxRange);
+            areaText.text = "Area " + Interval(areaStart, areaEnd);
+            // 일부만 잘리는 경우와 전체가 보이지 않는 경우 모두 안내한다. 전투 Core의 사거리 제한은 바꾸지 않는다.
+            areaOverText.gameObject.SetActive(areaStart < -4 || areaEnd > 4);
+            rangeOverText.gameObject.SetActive(maxRange > 8);
+            for (int i = 0; i < 9; i++)
+            {
+                int offset = i - 4; // offset: 목표 5번 기준 상대 칸. i는 사용자 1번과의 거리다.
+                areaSlots[i].color = i == 4 ? targetColor : offset >= areaStart && offset <= areaEnd ? areaColor : inactiveColor;
+                rangeSlots[i].color = i == 0 ? userColor : i >= minRange && i <= maxRange ? rangeColor : inactiveColor;
+            }
+        }
+
+        /// <summary>Inspector의 예제 값으로 도식만 미리 본다. 전투 중에는 호출하지 않는다.</summary>
+        public void PreviewDiagram()
+        {
+            ValidateReferences();
+            int min = Math.Min(previewMinRange, previewMaxRange), max = Math.Max(previewMinRange, previewMaxRange);
+            int start = Math.Min(previewAreaStart, previewAreaEnd), end = Math.Max(previewAreaStart, previewAreaEnd);
+            ShowDiagram(min, max, start, end);
+        }
+        /// <summary>같은 끝점은 하나의 값, 나머지는 시작~끝으로 표시한다.</summary>
+        /// <param name="start">시작값.</param>
+        /// <param name="end">끝값.</param>
+        private static string Interval(int start, int end) => start == end ? start.ToString() : start + "~" + end;
         /// <summary>타입을 한국어로 표시한다.</summary>
         /// <param name="type">표시 타입.</param>
         public static string TypeName(SkillType type) => type == SkillType.Tech ? "태크" : type == SkillType.Mystic ? "신비" : type == SkillType.Change ? "변화" : throw new ArgumentOutOfRangeException(nameof(type));
@@ -143,46 +200,5 @@ namespace MaseiKivotos.Unity
         /// <summary>짙은 배경에는 흰 글자, 밝은 배경에는 검은 글자를 사용한다.</summary>
         /// <param name="color">배경색.</param>
         private static Color Contrast(Color color) => .2126f * color.r + .7152f * color.g + .0722f * color.b < .52f ? Color.white : new Color32(28, 31, 38, 255);
-        /// <summary>프리팹의 필수 자식을 찾아 참조 누락을 명확히 알린다.</summary>
-        /// <typeparam name="T">필요 컴포넌트.</typeparam>
-        /// <param name="child">직접 자식 이름.</param>
-        private T Required<T>(string child) where T : Component => transform.Find(child)?.GetComponent<T>() ?? throw new InvalidOperationException("SkillSlot requires " + child);
-        /// <summary>기존 폰트를 재사용해 색상 배경 안에 이름을 표시한다.</summary>
-        /// <param name="parent">색상/아이콘 영역.</param>
-        /// <param name="name">자식 이름.</param>
-        private TMP_Text BadgeLabel(Transform parent, string name)
-        {
-            // label/rect: 배경 전체를 채우는 텍스트.
-            var label = new GameObject(name, typeof(RectTransform), typeof(TextMeshProUGUI)).GetComponent<TextMeshProUGUI>();
-            label.transform.SetParent(parent, false); label.font = NameText.font; label.fontSize = 18; label.color = new Color32(28, 31, 38, 255);
-            label.alignment = TextAlignmentOptions.Center; label.raycastTarget = false; label.richText = false;
-            var rect = label.rectTransform; rect.anchorMin = Vector2.zero; rect.anchorMax = Vector2.one; rect.offsetMin = rect.offsetMax = Vector2.zero;
-            return label;
-        }
-        /// <summary>프리팹 글자의 크기와 줄바꿈을 카드 영역에 맞춘다.</summary>
-        /// <param name="text">텍스트.</param>
-        /// <param name="x">왼쪽 거리.</param>
-        /// <param name="y">위쪽 거리.</param>
-        /// <param name="width">너비.</param>
-        /// <param name="height">높이.</param>
-        /// <param name="size">최대 글자 크기.</param>
-        private static void ConfigureText(TMP_Text text, float x, float y, float width, float height, int size)
-        {
-            SetRect(text.rectTransform, x, y, width, height); text.fontSize = size;
-            text.enableAutoSizing = true; text.fontSizeMin = 15; text.fontSizeMax = size;
-            text.alignment = TextAlignmentOptions.MidlineLeft; text.textWrappingMode = TextWrappingModes.Normal;
-            text.overflowMode = TextOverflowModes.Ellipsis; text.richText = false; text.color = new Color32(32, 36, 44, 255);
-        }
-        /// <summary>루트와 자식을 좌상단 기준으로 배치한다.</summary>
-        /// <param name="rect">대상 RectTransform.</param>
-        /// <param name="x">왼쪽 거리.</param>
-        /// <param name="y">위쪽 거리.</param>
-        /// <param name="width">너비.</param>
-        /// <param name="height">높이.</param>
-        private static void SetRect(RectTransform rect, float x, float y, float width, float height)
-        {
-            rect.anchorMin = rect.anchorMax = rect.pivot = new Vector2(0, 1); rect.anchoredPosition = new Vector2(x, -y);
-            rect.sizeDelta = new Vector2(width, height); rect.localScale = Vector3.one;
-        }
     }
 }

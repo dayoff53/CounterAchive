@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-07",
+  "unity": "6000.5.10f1",
+  "compile": "Passed",
+  "playMode": {
+    "failed": "0",
+    "total": "12",
+    "passed": "12"
+  },
+  "editMode": "Not rerun; Core unchanged",
+  "playerBuild": "Not run",
+  "appliedFiles": [
+    {
+      "path": "Assets/MaseiKivotos/Unity/SkillSlotView.cs",
+      "sha256": "2377642F1245AA933FC771AB78510A950407ACA251B1B235F880F6188ED70C98",
+      "matchesValidation": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Unity/MainSkillPanel.cs",
+      "sha256": "90C8C7A273F90E354E8439A4CD4F577B421F6A6AF7D513918C3AB33E29FB5B77",
+      "matchesValidation": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Editor/SkillSlotViewEditor.cs",
+      "sha256": "459BC2F6AD18FB6306126A096E524E4C9A28ABB88C73CEB6E26389E0837F7DD1",
+      "matchesValidation": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Editor/SkillSlotViewEditor.cs.meta",
+      "sha256": "6C35DE50C4235C8302843FA53D4C3F5FD2EB019E3FCCDD86627165A8A2EC8578",
+      "matchesValidation": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Editor/MaseiKivotos.Editor.asmdef",
+      "sha256": "C8731E83DB49A51E192392895435038226A37B1B4EE0C18C5516CFF43220EF3E",
+      "matchesValidation": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Tests/PlayMode/SkillSlotTests.cs",
+      "sha256": "804099E440B479A6E4271F319A4E8C40CDDBCF3EFC3663445B974D003F4240E9",
+      "matchesValidation": true
+    },
+    {
+      "path": "Assets/Resources/prefab/UI/SkillSlot.prefab",
+      "sha256": "D7FA2AFB37469E69FE4EA88CEFC9F4D9EBDD59287B0B395B13AD8DABD3DEB67F",
+      "matchesValidation": true
+    }
+  ],
+  "guidAndOriginalAreaSlotPreserved": true,
+  "slotCornerSetsPreserved": 18,
+  "backup": "Logs/skill-slot-before",
+  "testResult": "Logs/skill-slot-playmode-verified.xml",
+  "originalRectTransformsPreserved": 19,
+  "nestedPrefabInstances": 0
+}

@@ -30,6 +30,8 @@ namespace MaseiKivotos.Unity
         private readonly List<Button> skillButtons = new List<Button>();
         /// <summary>기존 프리팹으로 생성한 스킬 데이터 카드.</summary>
         private readonly List<SkillSlotView> skillSlots = new List<SkillSlotView>();
+        /// <summary>프리팹 내부 크기를 보존한 카드들의 가로 스크롤 내용.</summary>
+        private RectTransform skillContent;
         /// <summary>현재 사용자 데이터가 연결된 카드 목록.</summary>
         public IReadOnlyList<SkillSlotView> SkillSlots => skillSlots;
         /// <summary>1~9 슬롯에 대응하는 대상 버튼. 빈칸·아군은 비활성화한다.</summary>
@@ -84,13 +86,27 @@ namespace MaseiKivotos.Unity
             Label(popup.transform, "Skill Caption", "2. 스킬 선택  ·  카드의 숫자는 현재/최대 BP  ·  수치는 임시 데이터", 40, 120, 1160, 26, 17);
             // skillPrefab: 사용자가 구성한 Resources 프리팹 원본. 선택 카드마다 복제한다.
             var skillPrefab = Resources.Load<GameObject>(SkillSlotView.PrefabPath);
+            // viewport: 기존 카드 영역 안에서 큰 프리팹을 가로로 넘긴다.
+            var viewport = new GameObject("Skill Cards", typeof(RectTransform), typeof(Image), typeof(RectMask2D), typeof(ScrollRect));
+            Place(viewport, popup.transform, 40, 150, 1190, 294);
+            viewport.GetComponent<Image>().color = new Color(0, 0, 0, .01f);
+            skillContent = (RectTransform)new GameObject("Cards", typeof(RectTransform)).transform;
+            Place(skillContent.gameObject, viewport.transform, 0, 0, 4 * 600, 294);
+            var scroll = viewport.GetComponent<ScrollRect>();
+            scroll.viewport = (RectTransform)viewport.transform; scroll.content = skillContent;
+            scroll.horizontal = true; scroll.vertical = false; scroll.movementType = ScrollRect.MovementType.Clamped;
             for (int i = 0; i < 4; i++)
             {
                 // index: 각 버튼이 선택할 소유 스킬 위치.
                 int index = i;
                 // slot: 원본의 이름/설명/BP/사거리/범위/이미지/타입/속성 영역을 재사용한다.
-                var slot = SkillSlotView.Create(skillPrefab, popup.transform, () => SelectSkill(index));
-                Place(slot.gameObject, popup.transform, 40 + (i % 2) * 610, 150 + (i / 2) * 152, 590, 140);
+                var holder = new GameObject("Skill Card " + (i + 1), typeof(RectTransform));
+                Place(holder, skillContent, i * 600, 0, 590, 290);
+                var slot = SkillSlotView.Create(skillPrefab, holder.transform, () => SelectSkill(index));
+                var cardRect = (RectTransform)slot.transform;
+                float scale = Mathf.Min(590 / cardRect.rect.width, 290 / cardRect.rect.height);
+                // 부모만 축소하여 프리팹의 크기·앵커·자식 위치를 덮어쓰지 않는다.
+                holder.transform.localScale = new Vector3(scale, scale, 1);
                 skillSlots.Add(slot); skillButtons.Add(slot.Button);
             }
             Label(popup.transform, "Target Caption", "3. 대상 적군  ·  예약 후에도 유닛을 추적하며 실행 직전 다시 판정", 40, 450, 1160, 24, 17);
@@ -198,11 +214,13 @@ namespace MaseiKivotos.Unity
             for (int i = 0; i < skillButtons.Count; i++)
             {
                 skillButtons[i].gameObject.SetActive(actor != null && i < actor.Definition.Skills.Count);
+                skillSlots[i].transform.parent.gameObject.SetActive(skillButtons[i].gameObject.activeSelf);
                 if (actor == null || i >= actor.Definition.Skills.Count) continue;
                 // item: 이 버튼에 연결된 일반 공격.
                 var item = actor.Definition.Skills[i];
                 skillSlots[i].Bind(actor, item, item == skill);
             }
+            skillContent.sizeDelta = new Vector2(Mathf.Max(1190, (actor == null ? 0 : Mathf.Min(4, actor.Definition.Skills.Count)) * 600), 294);
             for (int i = 0; i < targetButtons.Count; i++)
             {
                 // target/distance: 해당 슬롯의 현재 유닛과 선택 사용자까지의 거리.

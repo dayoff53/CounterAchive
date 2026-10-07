@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-08",
+  "unity": "6000.5.10f1",
+  "compile": "Passed",
+  "playMode": {
+    "total": "13",
+    "passed": "13",
+    "failed": "0"
+  },
+  "resultFile": "Logs/skill-slot-over-playmode-verified.xml",
+  "editMode": "Not rerun: Core unchanged",
+  "playerBuild": "Not run",
+  "originalEditorManual": "Not run",
+  "appliedFiles": [
+    {
+      "path": "Assets/MaseiKivotos/Unity/SkillSlotView.cs",
+      "sha256": "EF04DBB20C81479473EE122D43DF5011DE9B6C3CFC77FA7B671D97BE9612216F",
+      "matchesValidation": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Editor/SkillSlotViewEditor.cs",
+      "sha256": "779C2D38543601591324CCA69CCF26C750DF30F0874F0505D8BB8AE1A0DFBDA0",
+      "matchesValidation": true
+    },
+    {
+      "path": "Assets/MaseiKivotos/Tests/PlayMode/SkillSlotTests.cs",
+      "sha256": "26F438F945EC67B5C4368462CE5DC20533CF364CA97FFFAB327B0F6523302BDB",
+      "matchesValidation": true
+    },
+    {
+      "path": "Assets/Resources/prefab/UI/SkillSlot.prefab",
+      "sha256": "8B36AFF6C1122E49585707F95737A05A836C463CE7B4ED1CAAF2ADE3150419FF",
+      "matchesValidation": true
+    }
+  ],
+  "prefabGuidPreserved": true,
+  "backup": "Logs/skill-slot-over-before",
+  "originalRectCount": 44,
+  "rectChanges": [
+    {
+      "rectId": "1295720937953418413",
+      "field": "m_SizeDelta",
+      "before": "{x: 0, y: 0}",
+      "after": "{x: 163, y: 70}"
+    },
+    {
+      "rectId": "3744085901354102196",
+      "field": "m_SizeDelta",
+      "before": "{x: 0, y: 0}",
+      "after": "{x: 75, y: 8}"
+    },
+    {
+      "rectId": "6504959700937083333",
+      "field": "m_SizeDelta",
+      "before": "{x: 0, y: 0}",
+      "after": "{x: 314, y: 70}"
+    },
+    {
+      "rectId": "701067624512996850",
+      "field": "m_SizeDelta",
+      "before": "{x: 0, y: 0}",
+      "after": "{x: 314, y: 70}"
+    },
+    {
+      "rectId": "291411161863666702",
+      "field": "m_SizeDelta",
+      "before": "{x: 0, y: 0}",
+      "after": "{x: 163, y: 70}"
+    },
+    {
+      "rectId": "4804639888700781188",
+      "field": "m_SizeDelta",
+      "before": "{x: 0, y: 0}",
+      "after": "{x: 75, y: 8}"
+    }
+  ]
+}
