@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-06",
+  "status": "검토 대기",
+  "unity": "6000.5.10f1",
+  "observedBefore": "Expanded controller fields overlap Add Component; Odin ImguiElementUtils.EmbedIMGUI throws MissingMethodException for UIElementsUtility.GetCurrentIMGUIContainer",
+  "observedAfter": "Original editor shows Script, Step Delay 0.3, Random Seed 530 and Add Component below the component",
+  "fix": "Unity CustomEditor using DrawDefaultInspector only for TurnSandboxController",
+  "sourceSha256": "F63A839F7D05AA6C83E2072D55B55E9BCF4CC800481B129D7E35A4158BE91D7E",
+  "validationCopySha256": "F63A839F7D05AA6C83E2072D55B55E9BCF4CC800481B129D7E35A4158BE91D7E",
+  "compile": "passed",
+  "playMode": {
+    "total": 11,
+    "failed": 0,
+    "result": "Passed",
+    "log": "Logs/inspector-fix-playmode.log",
+    "xml": "Logs/inspector-fix-playmode.xml"
+  },
+  "sceneAndRuntimeCode": "unchanged from HEAD",
+  "remaining": "Existing global Odin initialization exceptions",
+  "notRun": [
+    "EditMode rules rerun",
+    "Player build",
+    "Individual Undo/multiselection/prefab override manual checks"
+  ]
+}

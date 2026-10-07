@@ -69,6 +69,8 @@ namespace MaseiKivotos.Unity
             StopAllCoroutines(); IsAdvancing = false;
             if (SkillPanel != null) SkillPanel.Close();
             if (MovePanel != null) MovePanel.Close();
+
+            // 임시 편성으로 전투를 새로 만든다. 임시 유닛 정의는 Definition()에서 생성한다.
             Battle = new TurnBattle(
                 new BattleRoster(1, new[] { Definition("A", "아군 A", 150), Definition("B", "아군 B", 80, 2), Definition("C", "대기 C", 40) }, new[] { 1, 2, 3 }),
                 new BattleRoster(2, new[] { Definition("X", "적군 X", 120), Definition("Y", "적군 Y", 50), Definition("Z", "대기 Z", 30) }, new[] { 9, 8, 7 }),
